@@ -1,7 +1,7 @@
 {
   "defaultTheme": "light",
   "base": {
-    "radius": "0.5rem",
+    "radius": "0.75rem",
     "palette": {
       "white": "#ffffff",
       "black": "#101523",
@@ -22,8 +22,8 @@
     "light": {
       "system": {
         "color": {
-          "foreground": {
-            "": "$ref.color.black.1000",
+          "text": {
+            "foreground": "$ref.color.black.1000",
             "onPrimary": "$ref.color.white.1000",
             "secondary": "$ref.color.black.900",
             "onSecondary": "$ref.color.black.1000",
@@ -43,7 +43,7 @@
             "onDisabled": "$ref.color.black.700"
           },
           "background": {
-            "": "$ref.color.white.1000",
+            "background": "$ref.color.white.1000",
             "primary": "$ref.color.black.1000",
             "primaryHover": "$ref.color.black.950",
             "secondary": "$ref.color.black.50",
@@ -67,7 +67,7 @@
             "disabled": "$ref.color.black.200"
           },
           "border": {
-            "": "$ref.color.black.300",
+            "primary": "$ref.color.black.300",
             "secondary": "$ref.color.black.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
@@ -76,7 +76,7 @@
             "disabled": "$ref.color.black.100"
           },
           "ring": {
-            "": "$ref.color.black.300",
+            "primary": "$ref.color.black.300",
             "secondary": "$ref.color.black.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
@@ -85,7 +85,7 @@
             "disabled": "$ref.color.black.100"
           },
           "outline": {
-            "": "$ref.color.black.300",
+            "primary": "$ref.color.black.300",
             "secondary": "$ref.color.black.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
@@ -99,8 +99,8 @@
     "dark": {
       "system": {
         "color": {
-          "foreground": {
-            "": "$ref.color.white.1000",
+          "text": {
+            "foreground": "$ref.color.white.1000",
             "onPrimary": "$ref.color.black.1000",
             "secondary": "$ref.color.white.800",
             "onSecondary": "$ref.color.white.1000",
@@ -120,7 +120,7 @@
             "onDisabled": "$ref.color.white.700"
           },
           "background": {
-            "": "$ref.color.black.1000",
+            "background": "$ref.color.black.1000",
             "primary": "$ref.color.white.1000",
             "primaryHover": "$ref.color.white.950",
             "secondary": "$ref.color.white.50",
@@ -144,7 +144,7 @@
             "disabled": "$ref.color.white.200"
           },
           "border": {
-            "": "$ref.color.white.300",
+            "primary": "$ref.color.white.300",
             "secondary": "$ref.color.white.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
@@ -153,7 +153,7 @@
             "disabled": "$ref.color.white.100"
           },
           "ring": {
-            "": "$ref.color.white.300",
+            "primary": "$ref.color.white.300",
             "secondary": "$ref.color.white.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
@@ -162,7 +162,7 @@
             "disabled": "$ref.color.white.100"
           },
           "outline": {
-            "": "$ref.color.white.300",
+            "primary": "$ref.color.white.300",
             "secondary": "$ref.color.white.200",
             "info": "$ref.color.blue.400",
             "success": "$ref.color.green.400",
