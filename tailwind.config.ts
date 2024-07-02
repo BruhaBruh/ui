@@ -4,11 +4,11 @@ import { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const theme = JSON.parse(
-  fs.readFileSync(path.resolve('./theme.json'), { encoding: 'utf8' }),
+  fs.readFileSync(path.resolve('./theme.generated.json'), { encoding: 'utf8' }),
 );
 
 const config = {
-  content: ['./src/**/*.{ts,tsx,mdx}'],
+  content: ['./src/**/*.{ts,tsx,mdx}', './.storybook/**/*.{ts,tsx,mdx}'],
   darkMode: 'class',
   theme: {
     ...theme,

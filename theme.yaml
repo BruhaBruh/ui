@@ -6,12 +6,15 @@ themes:
     radius: 0.75rem
 
     palette:
-      white: '#ffffff'
-      black: '#101523'
-      blue: '#3b82f6'
-      green: '#16a34a'
-      yellow: '#facc15'
-      red: '#dc2626'
+      white: '#FFFFFF'
+      black: '#00030e'
+      blue: '#3772FF'
+      green: '#20BF55'
+      yellow:
+        darkenRatio: 38
+        source: '#F0E100'
+      red:
+        source: '#BA1F33'
 
     ref:
       radius:
@@ -31,8 +34,8 @@ themes:
           background: ${white.1000}
           primary: ${black.1000}
           primaryHover: ${black.950}
-          secondary: ${black.100}
-          secondaryHover: ${black.200}
+          secondary: ${black.200}
+          secondaryHover: ${black.250}
           info: ${blue.700}
           infoHover: ${blue.800}
           infoSubdued: ${blue.300}
@@ -54,7 +57,7 @@ themes:
           foreground: ${black.1000}
           secondary: ${black.900}
           info: ${blue.700}
-          success: ${green.750}
+          success: ${green.850}
           caution: ${yellow.1000}
           critical: ${red.700}
           disabled: ${black.800}
@@ -98,12 +101,15 @@ themes:
     radius: 0.75rem
 
     palette:
-      white: '#ffffff'
-      black: '#101523'
-      blue: '#3b82f6'
-      green: '#16a34a'
-      yellow: '#facc15'
-      red: '#dc2626'
+      white: '#FFFFFF'
+      black: '#00030e'
+      blue: '#477EFF'
+      green: '#20BF55'
+      yellow:
+        source: '#F0E100'
+      red:
+        darkenRatio: -15
+        source: '#BA1F33'
 
     ref:
       radius:
@@ -123,8 +129,8 @@ themes:
           background: ${black.1000}
           primary: ${white.1000}
           primaryHover: ${white.950}
-          secondary: ${white.100}
-          secondaryHover: ${white.200}
+          secondary: ${white.200}
+          secondaryHover: ${white.250}
           info: ${blue.700}
           infoHover: ${blue.800}
           infoSubdued: ${blue.300}
@@ -137,8 +143,8 @@ themes:
           cautionHover: ${yellow.650}
           cautionSubdued: ${yellow.300}
           cautionSubduedHover: ${yellow.350}
-          critical: ${red.600}
-          criticalHover: ${red.700}
+          critical: ${red.700}
+          criticalHover: ${red.600}
           criticalSubdued: ${red.300}
           criticalSubduedHover: ${red.400}
           disabled: ${white.200}
@@ -148,7 +154,7 @@ themes:
           info: ${blue.650}
           success: ${green.650}
           caution: ${yellow.650}
-          critical: ${red.650}
+          critical: ${red.1000}
           disabled: ${white.800}
           onPrimary: ${black.1000}
           onSecondary: ${white.1000}

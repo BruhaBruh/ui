@@ -1,8 +1,8 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import React from 'react';
-import '../src/index.css';
-import '../src/theme.css';
+import './index.css';
+import './theme.generated.css';
 
 const preview: Preview = {
   parameters: {
