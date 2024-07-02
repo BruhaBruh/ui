@@ -154,6 +154,7 @@
       "caution": "var(--pw-sys-color-text-caution)",
       "critical": "var(--pw-sys-color-text-critical)",
       "disabled": "var(--pw-sys-color-text-disabled)",
+      "placeholder": "var(--pw-sys-color-text-placeholder)",
       "on-primary": "var(--pw-sys-color-text-on-primary)",
       "on-secondary": "var(--pw-sys-color-text-on-secondary)",
       "on-info": "var(--pw-sys-color-text-on-info)",

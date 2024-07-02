@@ -135,6 +135,7 @@
   --pw-sys-color-text-caution: var(--pw-ref-color-yellow-1000);
   --pw-sys-color-text-critical: var(--pw-ref-color-red-700);
   --pw-sys-color-text-disabled: var(--pw-ref-color-black-800);
+  --pw-sys-color-text-placeholder: var(--pw-ref-color-black-700);
   --pw-sys-color-text-on-primary: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-secondary: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-on-info: var(--pw-ref-color-white-1000);
@@ -327,6 +328,7 @@
   --pw-sys-color-text-caution: var(--pw-ref-color-yellow-650);
   --pw-sys-color-text-critical: var(--pw-ref-color-red-1000);
   --pw-sys-color-text-disabled: var(--pw-ref-color-white-800);
+  --pw-sys-color-text-placeholder: var(--pw-ref-color-white-700);
   --pw-sys-color-text-on-primary: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-on-secondary: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-info: var(--pw-ref-color-white-1000);

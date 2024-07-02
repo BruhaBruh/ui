@@ -61,6 +61,7 @@ themes:
           caution: ${yellow.1000}
           critical: ${red.700}
           disabled: ${black.800}
+          placeholder: ${black.700}
           onPrimary: ${white.1000}
           onSecondary: ${black.1000}
           onInfo: ${white.1000}
@@ -156,6 +157,7 @@ themes:
           caution: ${yellow.650}
           critical: ${red.1000}
           disabled: ${white.800}
+          placeholder: ${white.700}
           onPrimary: ${black.1000}
           onSecondary: ${white.1000}
           onInfo: ${white.1000}

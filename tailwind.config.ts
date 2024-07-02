@@ -12,6 +12,10 @@ const config = {
   darkMode: 'class',
   theme: {
     ...theme,
+    colors: {
+      ...theme.colors,
+      transparent: 'transparent',
+    },
     extend: {
       ...theme.extend,
       fontFamily: {
