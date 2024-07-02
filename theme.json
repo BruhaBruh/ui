@@ -1,15 +1,4 @@
 {
-  "borderRadius": {
-    "none": "var(--pw-ref-radius-none)",
-    "sm": "var(--pw-ref-radius-sm)",
-    "base": "var(--pw-ref-radius-base)",
-    "md": "var(--pw-ref-radius-md)",
-    "lg": "var(--pw-ref-radius-lg)",
-    "xl": "var(--pw-ref-radius-xl)",
-    "2xl": "var(--pw-ref-radius-2xl)",
-    "3xl": "var(--pw-ref-radius-3xl)",
-    "full": "var(--pw-ref-radius-full)"
-  },
   "colors": {
     "white-50": "var(--pw-ref-color-white-50)",
     "white-100": "var(--pw-ref-color-white-100)",
@@ -203,6 +192,17 @@
       "caution": "var(--pw-sys-color-outline-caution)",
       "critical": "var(--pw-sys-color-outline-critical)",
       "disabled": "var(--pw-sys-color-outline-disabled)"
+    },
+    "borderRadius": {
+      "none": "var(--pw-ref-radius-none)",
+      "sm": "var(--pw-ref-radius-sm)",
+      "DEFAULT": "var(--pw-ref-radius-default)",
+      "md": "var(--pw-ref-radius-md)",
+      "lg": "var(--pw-ref-radius-lg)",
+      "xl": "var(--pw-ref-radius-xl)",
+      "2xl": "var(--pw-ref-radius-2xl)",
+      "3xl": "var(--pw-ref-radius-3xl)",
+      "full": "var(--pw-ref-radius-full)"
     }
   }
 }

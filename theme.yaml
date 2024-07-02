@@ -17,7 +17,7 @@ themes:
       radius:
         none: 0px
         sm: calc(${radius} - 2px)
-        base: ${radius}
+        DEFAULT: ${radius}
         md: calc(${radius} + 2px)
         lg: calc(${radius} + 4px)
         xl: calc(${radius} + 8px)
@@ -109,7 +109,7 @@ themes:
       radius:
         none: 0px
         sm: calc(${radius} - 2px)
-        base: ${radius}
+        DEFAULT: ${radius}
         md: calc(${radius} + 2px)
         lg: calc(${radius} + 4px)
         xl: calc(${radius} + 8px)
