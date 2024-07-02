@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const buttonVariants = cva(
   [
-    'inline-flex items-center justify-center',
+    'inline-flex items-center justify-between',
     'font-medium whitespace-nowrap',
     'transition-colors',
     'focus-visible:outline-none focus-visible:ring-[3px]',
@@ -35,7 +35,7 @@ export const buttonVariants = cva(
       },
       content: {
         default: '',
-        icon: '',
+        icon: 'justify-center',
       },
       size: {
         sm: [

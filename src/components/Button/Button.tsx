@@ -3,24 +3,22 @@ import { cn } from '@/utility/cn';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
-import { ButtonProps } from './Button.types';
+import { ButtonEmptyIconProps, ButtonProps } from './Button.types';
 import { buttonVariants } from './Button.variants';
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const ButtonImpl = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { variant, color, size, content, className, asChild, children, ...props },
-    ref,
+    forwardedRef,
   ) => {
-    const internalRef = useMergedRefs(ref);
+    const ref = useMergedRefs(forwardedRef);
 
     const { buttonProps } = useButton(
       {
-        elementType: asChild
-          ? (children as unknown as React.JSXElementConstructor<unknown>)
-          : 'button',
+        elementType: asChild ? (children as React.ElementType) : 'button',
         ...props,
       },
-      internalRef,
+      ref,
     );
 
     const Comp = asChild ? Slot : 'button';
@@ -40,4 +38,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-Button.displayName = '@bruhabruh/ui/Button';
+ButtonImpl.displayName = '@bruhabruh/ui/Button';
+
+const EmptyIcon: React.FC<ButtonEmptyIconProps> = () => {
+  return <svg viewBox="0 0 16 16" aria-hidden="true" />;
+};
+EmptyIcon.displayName = '@bruhabruh/ui/ButtonEmptyIcon';
+
+export const Button = Object.assign(ButtonImpl, { EmptyIcon });
