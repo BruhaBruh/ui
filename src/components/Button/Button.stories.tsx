@@ -234,7 +234,7 @@ export const WithIcon: Story = {
   },
 };
 
-export const WithIconAndFullWidth: Story = {
+export const WithIconAndWider: Story = {
   render: ({ children, ...args }) => (
     <div className="flex flex-col gap-2">
       <Button {...args} className="w-64">
