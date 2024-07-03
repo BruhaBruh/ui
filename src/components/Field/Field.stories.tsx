@@ -14,9 +14,7 @@ const meta: Meta<typeof Field> = {
       <Field.Text placeholder={args['aria-placeholder']} />
     </Field>
   ),
-  argTypes: {},
   args: {
-    children: <Field.Text />,
     label: '',
     description: '',
     isInvalid: false,
@@ -29,6 +27,16 @@ export default meta;
 type Story = StoryObj<typeof Field>;
 
 export const Playground: Story = {};
+
+export const TextField: Story = {};
+
+export const TextArea: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <Field.TextArea placeholder={args['aria-placeholder']} />
+    </Field>
+  ),
+};
 
 export const WithLabel: Story = {
   args: {
@@ -111,14 +119,6 @@ export const WithRightButton: Story = {
       </Button>
     ),
   },
-};
-
-export const WithTextArea: Story = {
-  render: (args) => (
-    <Field {...args}>
-      <Field.TextArea placeholder={args['aria-placeholder']} />
-    </Field>
-  ),
 };
 
 export const WithAll: Story = {
