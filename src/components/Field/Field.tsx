@@ -3,6 +3,7 @@ import React from 'react';
 import { useField, useTextField } from 'react-aria';
 import { FieldProps, TextAreaFieldProps, TextFieldProps } from './Field.types';
 import {
+  fieldContentVariants,
   fieldDescriptionVariants,
   fieldErrorVariants,
   fieldInputVariants,
@@ -19,6 +20,8 @@ const FieldImpl = React.forwardRef<HTMLLabelElement, FieldProps>(
       description,
       errorMessage,
       isInvalid,
+      left,
+      right,
       className,
       children,
       ...props
@@ -50,12 +53,16 @@ const FieldImpl = React.forwardRef<HTMLLabelElement, FieldProps>(
           {...labelProps}
           className={fieldVariants({ error: Boolean(isInvalid) })}
         >
-          {label && (
-            <label {...labelProps} className={fieldLabelVariants()}>
-              {label}
-            </label>
-          )}
-          {modifiedChildren}
+          {left || <span aria-hidden="true" />}
+          <div data-field-content className={fieldContentVariants()}>
+            {label && (
+              <label {...labelProps} className={fieldLabelVariants()}>
+                {label}
+              </label>
+            )}
+            {modifiedChildren}
+          </div>
+          {right || <span aria-hidden="true" />}
         </label>
         {description && !errorMessage && (
           <span {...descriptionProps} className={fieldDescriptionVariants()}>

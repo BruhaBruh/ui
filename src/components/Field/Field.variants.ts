@@ -5,14 +5,15 @@ export const fieldWrapperVariants = cva(['inline-grid', 'text-sm', 'gap-0.5']);
 export const fieldVariants = cva(
   [
     'bg-secondary text-on-secondary',
-    'inline-flex flex-col items-between justify-center',
+    'inline-grid grid-cols-[max-content_minmax(0,1fr)_max-content] items-center',
+    'transition-[grid-template-rows] duration-300',
     'min-h-14 flex-1',
     'text-base',
     'rounded-xl',
     'px-2 py-1.5',
-    '[&>*:not(svg)]:px-[0.3125rem]',
-    '[&>svg]:min-w-5',
-    '[&>svg]:h-5',
+    '[&>[data-field-content]]:px-[0.3125rem]',
+    '[&_svg]:min-w-5',
+    '[&_svg]:h-5',
     'font-medium whitespace-nowrap',
     'transition-colors',
     'focus-within:outline-none focus-within:ring-[3px]',
@@ -29,6 +30,11 @@ export const fieldVariants = cva(
     },
   },
 );
+
+export const fieldContentVariants = cva([
+  'inline-flex flex-col items-between justify-center',
+  'flex-1 h-full',
+]);
 
 export const fieldLabelVariants = cva([
   'text-sm',
@@ -50,7 +56,7 @@ export const fieldInputWrapperVariants = cva([
 export const fieldInputVariants = cva([
   'bg-transparent text-foreground',
   'placeholder:text-placeholder',
-  'outline-none resize-none h-max',
+  'outline-none resize-none h-max flex-1',
 ]);
 
 export const fieldDescriptionVariants = cva([
