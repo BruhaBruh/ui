@@ -38,6 +38,17 @@ export const TextArea: Story = {
   ),
 };
 
+export const NumberField: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <Field.Number placeholder={args['aria-placeholder']} />
+    </Field>
+  ),
+  args: {
+    label: 'Label',
+  },
+};
+
 export const WithLabel: Story = {
   args: {
     label: 'Label',

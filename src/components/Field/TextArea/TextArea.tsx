@@ -38,8 +38,8 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
     <span className={cn(fieldInputWrapperVariants(), className)}>
       <textarea
         type="text"
-        {...(inputProps as TextAreaFieldProps)}
         {...props}
+        {...(inputProps as TextAreaFieldProps)}
         rows={1}
         className={fieldInputVariants()}
         ref={ref}

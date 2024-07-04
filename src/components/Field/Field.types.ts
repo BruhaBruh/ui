@@ -6,6 +6,6 @@ export type FieldProps = Omit<AriaFieldProps, 'errorMessage'> &
   Props<'span'> &
   Required<Pick<Props<'span'>, 'children'>> & {
     left?: React.ReactNode;
-    right: React.ReactNode;
+    right?: React.ReactNode;
     errorMessage?: string;
   };

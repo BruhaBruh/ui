@@ -1,11 +1,11 @@
 import { cn } from '@/utility';
 import React from 'react';
 import { useTextField } from 'react-aria';
-import { TextFieldProps } from '../Field.types';
 import {
   fieldInputVariants,
   fieldInputWrapperVariants,
 } from '../Field.variants';
+import { TextFieldProps } from './Text.types';
 
 export const TextField: React.FC<TextFieldProps> = ({
   className,
@@ -18,8 +18,8 @@ export const TextField: React.FC<TextFieldProps> = ({
     <span className={cn(fieldInputWrapperVariants(), className)}>
       <input
         type="text"
-        {...inputProps}
         {...props}
+        {...inputProps}
         className={fieldInputVariants()}
         ref={ref}
       />
