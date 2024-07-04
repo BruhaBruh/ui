@@ -1,4 +1,4 @@
-import { Time } from '@internationalized/date';
+import { Time, parseAbsoluteToLocal } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../Button';
@@ -61,6 +61,24 @@ export const TimeField: Story = {
       <Field.Time minValue={new Time(10)} maxValue={new Time(20)} />
     </Field>
   ),
+  args: {
+    'aria-placeholder': undefined,
+  },
+};
+
+export const DateField: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <Field.Date
+        granularity="day"
+        minValue={parseAbsoluteToLocal(new Date().toISOString())}
+        defaultValue={parseAbsoluteToLocal(new Date().toISOString())}
+      />
+    </Field>
+  ),
+  args: {
+    'aria-placeholder': undefined,
+  },
 };
 
 export const WithLabel: Story = {

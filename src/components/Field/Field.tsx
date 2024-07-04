@@ -1,6 +1,7 @@
 import { cn } from '@/utility';
 import React from 'react';
 import { useField } from 'react-aria';
+import { DateField } from './Date';
 import { FieldLeft, FieldProvider, FieldRight } from './Field.context';
 import { FieldProps } from './Field.types';
 import {
@@ -92,4 +93,5 @@ export const Field = Object.assign(FieldImpl, {
   Number: NumberField,
   Search: SearchField,
   Time: TimeField,
+  Date: DateField,
 });
