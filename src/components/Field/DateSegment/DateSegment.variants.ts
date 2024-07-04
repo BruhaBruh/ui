@@ -4,7 +4,7 @@ export const dateSegmentVariants = cva(
   [
     'outline-none',
     'tabular-nums',
-    'rounded-[0.25rem]',
+    'rounded-2xs',
     'focus-visible:bg-info-subdued focus-visible:text-on-info-subdued',
     'p-0.5',
     'select-none',

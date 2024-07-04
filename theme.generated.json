@@ -1,5 +1,6 @@
 {
   "colors": {
+    "transparent": "transparent",
     "white-50": "var(--pw-ref-color-white-50)",
     "white-100": "var(--pw-ref-color-white-100)",
     "white-150": "var(--pw-ref-color-white-150)",
@@ -196,6 +197,9 @@
     },
     "borderRadius": {
       "none": "var(--pw-ref-radius-none)",
+      "3xs": "var(--pw-ref-radius-3xs)",
+      "2xs": "var(--pw-ref-radius-2xs)",
+      "xs": "var(--pw-ref-radius-xs)",
       "sm": "var(--pw-ref-radius-sm)",
       "DEFAULT": "var(--pw-ref-radius-default)",
       "md": "var(--pw-ref-radius-md)",

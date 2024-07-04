@@ -1,5 +1,8 @@
 :root, .light, [data-theme="light"] {
   --pw-ref-radius-none: 0px;
+  --pw-ref-radius-3xs: calc(0.75rem - 12px);
+  --pw-ref-radius-2xs: calc(0.75rem - 8px);
+  --pw-ref-radius-xs: calc(0.75rem - 4px);
   --pw-ref-radius-sm: calc(0.75rem - 2px);
   --pw-ref-radius-default: 0.75rem;
   --pw-ref-radius-md: calc(0.75rem + 2px);
@@ -193,6 +196,9 @@
 }
 .dark, [data-theme="dark"] {
   --pw-ref-radius-none: 0px;
+  --pw-ref-radius-3xs: calc(0.75rem - 12px);
+  --pw-ref-radius-2xs: calc(0.75rem - 8px);
+  --pw-ref-radius-xs: calc(0.75rem - 4px);
   --pw-ref-radius-sm: calc(0.75rem - 2px);
   --pw-ref-radius-default: 0.75rem;
   --pw-ref-radius-md: calc(0.75rem + 2px);

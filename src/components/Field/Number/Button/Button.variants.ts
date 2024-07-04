@@ -13,7 +13,7 @@ export const numberFieldButtonVariants = cva([
   'hover:bg-secondary hover:text-on-secondary active:bg-secondary-hover',
   'h-5 w-6',
   'text-sm',
-  'rounded-sm',
+  'rounded-xs',
   '[&>svg]:min-w-[0.75rem_!important]',
   '[&>svg]:h-[0.75rem_!important]',
 ]);

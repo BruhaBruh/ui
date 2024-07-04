@@ -19,6 +19,9 @@ themes:
     ref:
       radius:
         none: 0px
+        3xs: calc(${radius} - 12px)
+        2xs: calc(${radius} - 8px)
+        xs: calc(${radius} - 4px)
         sm: calc(${radius} - 2px)
         DEFAULT: ${radius}
         md: calc(${radius} + 2px)
@@ -115,6 +118,9 @@ themes:
     ref:
       radius:
         none: 0px
+        3xs: calc(${radius} - 12px)
+        2xs: calc(${radius} - 8px)
+        xs: calc(${radius} - 4px)
         sm: calc(${radius} - 2px)
         DEFAULT: ${radius}
         md: calc(${radius} + 2px)
