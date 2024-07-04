@@ -21,8 +21,11 @@ export const fieldVariants = cva(
   {
     variants: {
       error: {
-        true: ['ring-[2px] ring-critical'],
-        false: ['ring-info'],
+        true: ['ring-2 ring-critical'],
+        false: [
+          'ring-info',
+          'has-[.invalid]:ring-2 has-[.invalid]:ring-critical',
+        ],
       },
     },
     defaultVariants: {
@@ -44,14 +47,26 @@ export const fieldLabelVariants = cva([
   'select-none',
 ]);
 
-export const fieldInputWrapperVariants = cva([
-  'inline-flex items-center',
-  'max-h-0',
-  'transition-[max-height] duration-300',
-  'overflow-x-hidden overflow-y-clip',
-  '[&:has(input:not(:placeholder-shown))]:max-h-full [&:has(input:focus-visible)]:max-h-full [&:has(input:not([placeholder=""]))]:max-h-full',
-  '[&:has(textarea:not(:placeholder-shown))]:max-h-full [&:has(textarea:focus-visible)]:max-h-full [&:has(textarea:not([placeholder=""]))]:max-h-full',
-]);
+export const fieldInputWrapperVariants = cva(
+  [
+    'inline-flex items-center',
+    'transition-[max-height] duration-300',
+    'overflow-x-hidden overflow-y-clip',
+    '[&:has(input:not(:placeholder-shown))]:max-h-full [&:has(input:focus-visible)]:max-h-full [&:has(input:not([placeholder=""]))]:max-h-full',
+    '[&:has(textarea:not(:placeholder-shown))]:max-h-full [&:has(textarea:focus-visible)]:max-h-full [&:has(textarea:not([placeholder=""]))]:max-h-full',
+  ],
+  {
+    variants: {
+      visible: {
+        true: 'max-h-full',
+        false: 'max-h-0',
+      },
+    },
+    defaultVariants: {
+      visible: false,
+    },
+  },
+);
 
 export const fieldInputVariants = cva([
   'bg-transparent text-foreground',

@@ -1,3 +1,4 @@
+import { Time } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../Button';
@@ -50,6 +51,14 @@ export const SearchField: Story = {
   render: (args) => (
     <Field {...args}>
       <Field.Search placeholder={args['aria-placeholder']} />
+    </Field>
+  ),
+};
+
+export const TimeField: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <Field.Time minValue={new Time(10)} maxValue={new Time(20)} />
     </Field>
   ),
 };

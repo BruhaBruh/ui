@@ -15,6 +15,7 @@ import { NumberField } from './Number';
 import { SearchField } from './Search';
 import { TextField } from './Text';
 import { TextAreaField } from './TextArea';
+import { TimeField } from './Time/Time';
 
 const FieldImpl = React.forwardRef<HTMLLabelElement, FieldProps>(
   (
@@ -90,4 +91,5 @@ export const Field = Object.assign(FieldImpl, {
   TextArea: TextAreaField,
   Number: NumberField,
   Search: SearchField,
+  Time: TimeField,
 });
