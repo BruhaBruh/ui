@@ -12,6 +12,7 @@ import {
   fieldWrapperVariants,
 } from './Field.variants';
 import { NumberField } from './Number';
+import { SearchField } from './Search';
 import { TextField } from './Text';
 import { TextAreaField } from './TextArea';
 
@@ -88,4 +89,5 @@ export const Field = Object.assign(FieldImpl, {
   Text: TextField,
   TextArea: TextAreaField,
   Number: NumberField,
+  Search: SearchField,
 });

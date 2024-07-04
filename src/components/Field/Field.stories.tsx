@@ -44,9 +44,14 @@ export const NumberField: Story = {
       <Field.Number placeholder={args['aria-placeholder']} />
     </Field>
   ),
-  args: {
-    label: 'Label',
-  },
+};
+
+export const SearchField: Story = {
+  render: (args) => (
+    <Field {...args}>
+      <Field.Search placeholder={args['aria-placeholder']} />
+    </Field>
+  ),
 };
 
 export const WithLabel: Story = {
