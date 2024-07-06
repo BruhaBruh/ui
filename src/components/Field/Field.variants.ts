@@ -20,16 +20,13 @@ export const fieldVariants = cva(
   ],
   {
     variants: {
-      error: {
+      isInvalid: {
         true: ['ring-2 ring-critical'],
-        false: [
-          'ring-info',
-          'has-[.invalid]:ring-2 has-[.invalid]:ring-critical',
-        ],
+        false: ['ring-info'],
       },
     },
     defaultVariants: {
-      error: false,
+      isInvalid: false,
     },
   },
 );
