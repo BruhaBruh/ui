@@ -14,6 +14,23 @@ const preview: Preview = {
       },
     },
     layout: 'centered',
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Theme', [
+            'Palette', 
+            'Design Tokens', ['Background', 'Text', 'Border', 'Ring', 'Outline', 'Radius', '*'], 
+            '*'
+          ],
+          'Components', [
+            'Controls', ['Button', 'TextField', "TextAreaField", 'NumberField', 'SearchField', 'TimeField', 'DateField', '*'], 
+            '*'
+          ],
+        ],
+        locales: 'en-US',
+      }
+    }
   },
 
   decorators: [
