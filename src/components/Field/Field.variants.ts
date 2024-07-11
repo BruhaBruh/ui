@@ -4,14 +4,13 @@ export const fieldWrapperVariants = cva(['inline-grid', 'text-sm', 'gap-0.5']);
 
 export const fieldVariants = cva(
   [
-    'bg-secondary text-on-secondary',
     'inline-grid grid-cols-[max-content_minmax(0,1fr)_max-content] items-center',
     'transition-[grid-template-rows] duration-300',
     'min-h-14 flex-1',
     'text-base',
     'rounded-xl',
-    'px-2 py-1.5',
-    '[&>[data-field-content]]:px-[0.3125rem]',
+    'px-sm py-2xs',
+    '[&>[data-field-content]]:px-3xs',
     '[&_svg]:min-w-5',
     '[&_svg]:h-5',
     'font-medium whitespace-nowrap',
@@ -24,9 +23,14 @@ export const fieldVariants = cva(
         true: ['ring-2 ring-critical'],
         false: ['ring-info'],
       },
+      isDisabled: {
+        true: ['bg-disabled', 'text-disabled'],
+        false: ['bg-secondary', 'text-on-secondary'],
+      },
     },
     defaultVariants: {
       isInvalid: false,
+      isDisabled: false,
     },
   },
 );
@@ -49,8 +53,9 @@ export const fieldInputWrapperVariants = cva(
     'inline-flex items-center',
     'transition-[max-height] duration-300',
     'overflow-x-hidden overflow-y-clip',
-    '[&:has(input:not(:placeholder-shown))]:max-h-full [&:has(input:focus-visible)]:max-h-full [&:has(input:not([placeholder=""]))]:max-h-full',
-    '[&:has(textarea:not(:placeholder-shown))]:max-h-full [&:has(textarea:focus-visible)]:max-h-full [&:has(textarea:not([placeholder=""]))]:max-h-full',
+    '[&:has(input:not(:placeholder-shown))]:max-h-full [&:has(textarea:not(:placeholder-shown))]:max-h-full',
+    '[&:has(textarea:focus-visible)]:max-h-full [&:has(input:focus-visible)]:max-h-full',
+    '[&:has(textarea:not([placeholder=""]))]:max-h-full [&:has(input:not([placeholder=""]))]:max-h-full',
   ],
   {
     variants: {
@@ -74,11 +79,11 @@ export const fieldInputVariants = cva([
 export const fieldDescriptionVariants = cva([
   'w-0 min-w-full',
   'text-secondary',
-  'px-[0.8125rem]',
+  'px-md',
 ]);
 
 export const fieldErrorVariants = cva([
   'w-0 min-w-full',
   'text-critical',
-  'px-[0.8125rem]',
+  'px-md',
 ]);

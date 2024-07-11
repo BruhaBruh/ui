@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import { Config } from 'tailwindcss/types/config';
 
 const theme = JSON.parse(
   fs.readFileSync(path.resolve('./theme.generated.json'), { encoding: 'utf8' }),
@@ -13,10 +13,19 @@ const config = {
   theme: {
     ...theme,
     extend: {
-      ...theme.extend,
+      ...theme?.extend,
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 150ms ease-in-out',
       },
     },
   },

@@ -20,6 +20,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   left,
   right,
   isInvalid: isInvalidProp,
+  isDisabled,
   className,
   ...props
 }) => {
@@ -37,6 +38,7 @@ export const TextField: React.FC<TextFieldProps> = ({
       description,
       errorMessage,
       isInvalid: isInvalidProp,
+      isDisabled,
       ...props,
     },
     ref,
@@ -44,7 +46,10 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <span className={cn(fieldWrapperVariants(), className)}>
-      <label {...labelProps} className={fieldVariants({ isInvalid })}>
+      <label
+        {...labelProps}
+        className={fieldVariants({ isInvalid, isDisabled })}
+      >
         {left || <span aria-hidden="true" />}
         <div data-field-content className={fieldContentVariants()}>
           {label && (

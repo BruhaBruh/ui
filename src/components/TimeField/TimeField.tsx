@@ -21,6 +21,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
   left,
   right,
   isInvalid: isInvalidProp,
+  isDisabled,
   className,
   ...props
 }) => {
@@ -42,6 +43,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
       description,
       errorMessage,
       isInvalid: isInvalidProp,
+      isDisabled,
       ...props,
     },
     state,
@@ -53,7 +55,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
       <label
         {...labelProps}
         {...fieldProps}
-        className={fieldVariants({ isInvalid })}
+        className={fieldVariants({ isInvalid, isDisabled })}
       >
         {left || <span aria-hidden="true" />}
         <div data-field-content className={fieldContentVariants()}>

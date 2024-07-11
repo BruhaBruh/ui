@@ -23,6 +23,12 @@ type Story = StoryObj<typeof SearchField>;
 
 export const Playground: Story = {};
 
+export const Disabled: Story = {
+  args: {
+    isDisabled: true,
+  },
+};
+
 export const WithLabel: Story = {
   args: {
     label: 'Label',

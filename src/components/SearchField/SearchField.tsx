@@ -22,6 +22,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   left,
   right,
   isInvalid: isInvalidProp,
+  isDisabled,
   className,
   ...props
 }) => {
@@ -41,6 +42,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
       description,
       errorMessage,
       isInvalid: isInvalidProp,
+      isDisabled,
       ...props,
     },
     state,
@@ -49,7 +51,10 @@ export const SearchField: React.FC<SearchFieldProps> = ({
 
   return (
     <span className={cn(fieldWrapperVariants(), className)}>
-      <label {...labelProps} className={fieldVariants({ isInvalid })}>
+      <label
+        {...labelProps}
+        className={fieldVariants({ isInvalid, isDisabled })}
+      >
         {left || <span aria-hidden="true" />}
         <div data-field-content className={fieldContentVariants()}>
           {label && (

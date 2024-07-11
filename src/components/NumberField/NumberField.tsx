@@ -23,6 +23,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   left,
   right,
   isInvalid: isInvalidProp,
+  isDisabled,
   className,
   ...props
 }) => {
@@ -32,6 +33,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
     description,
     errorMessage,
     isInvalid: isInvalidProp,
+    isDisabled,
     ...props,
     locale: 'ru-RU',
   });
@@ -52,7 +54,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
       <label
         {...labelProps}
         {...groupProps}
-        className={fieldVariants({ isInvalid })}
+        className={fieldVariants({ isInvalid, isDisabled })}
       >
         {left || <span aria-hidden="true" />}
         <div data-field-content className={fieldContentVariants()}>

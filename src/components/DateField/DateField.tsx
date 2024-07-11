@@ -22,6 +22,7 @@ export const DateField: React.FC<DateFieldProps> = ({
   left,
   right,
   isInvalid: isInvalidProp,
+  isDisabled,
   className,
   ...props
 }) => {
@@ -44,6 +45,7 @@ export const DateField: React.FC<DateFieldProps> = ({
       description,
       errorMessage,
       isInvalid: isInvalidProp,
+      isDisabled,
       ...props,
     },
     state,
@@ -55,7 +57,7 @@ export const DateField: React.FC<DateFieldProps> = ({
       <label
         {...labelProps}
         {...fieldProps}
-        className={fieldVariants({ isInvalid })}
+        className={fieldVariants({ isInvalid, isDisabled })}
       >
         {left || <span aria-hidden="true" />}
         <div data-field-content className={fieldContentVariants()}>

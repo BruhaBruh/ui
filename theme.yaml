@@ -3,20 +3,21 @@ prefix: pw
 
 themes:
   light:
-    radius: 0.75rem
-
-    palette:
-      white: '#FFFFFF'
-      black: '#00030e'
-      blue: '#3772FF'
-      green: '#20BF55'
-      yellow:
-        darkenRatio: 38
-        source: '#F0E100'
-      red:
-        source: '#BA1F33'
+    radius: 0.75rem # 12px
+    spacing: 0.25rem # 8px
 
     ref:
+      palette:
+        white: '#FFFFFF'
+        black: '#00030e'
+        blue: '#3772FF'
+        green: '#20BF55'
+        yellow:
+          darkenRatio: 38
+          source: '#F0E100'
+        red:
+          source: '#BA1F33'
+
       radius:
         none: 0px
         3xs: calc(${radius} - 12px)
@@ -30,6 +31,40 @@ themes:
         2xl: calc(${radius} + 12px)
         3xl: calc(${radius} + 20px)
         full: 9999px
+
+      spacing:
+        0: 0px
+        0.25: calc(${spacing} / 4)
+        0.5: calc(${spacing} / 2)
+        1: ${spacing}
+        2: calc(${spacing} * 2)
+        3: calc(${spacing} * 3)
+        4: calc(${spacing} * 4)
+        5: calc(${spacing} * 5)
+        6: calc(${spacing} * 6)
+        7: calc(${spacing} * 7)
+        8: calc(${spacing} * 8)
+        9: calc(${spacing} * 9)
+        10: calc(${spacing} * 10)
+        11: calc(${spacing} * 11)
+        12: calc(${spacing} * 12)
+        14: calc(${spacing} * 13)
+        16: calc(${spacing} * 16)
+        20: calc(${spacing} * 20)
+        24: calc(${spacing} * 24)
+        28: calc(${spacing} * 28)
+        32: calc(${spacing} * 32)
+        36: calc(${spacing} * 36)
+        40: calc(${spacing} * 40)
+        44: calc(${spacing} * 44)
+        48: calc(${spacing} * 48)
+        52: calc(${spacing} * 52)
+        56: calc(${spacing} * 56)
+        60: calc(${spacing} * 60)
+        64: calc(${spacing} * 64)
+        72: calc(${spacing} * 72)
+        80: calc(${spacing} * 80)
+        96: calc(${spacing} * 96)
 
     sys:
       color:
@@ -101,21 +136,36 @@ themes:
           critical: ${red.400}
           disabled: ${black.200}
 
-  dark:
-    radius: 0.75rem
+      spacing:
+        3xs: ${0.5}
+        2xs: ${1}
+        xs: ${2}
+        sm: ${3}
+        md: ${4}
+        lg: ${6}
+        xl: ${8}
+        2xl: ${10}
+        3xl: ${12}
+        4xl: ${16}
+        5xl: ${20}
+        6xl: ${24}
 
-    palette:
-      white: '#FFFFFF'
-      black: '#00030e'
-      blue: '#477EFF'
-      green: '#20BF55'
-      yellow:
-        source: '#F0E100'
-      red:
-        darkenRatio: -15
-        source: '#BA1F33'
+  dark:
+    radius: 0.75rem # 12px
+    spacing: 0.25rem # 8px
 
     ref:
+      palette:
+        white: '#FFFFFF'
+        black: '#00030e'
+        blue: '#477EFF'
+        green: '#20BF55'
+        yellow:
+          source: '#F0E100'
+        red:
+          darkenRatio: -15
+          source: '#BA1F33'
+
       radius:
         none: 0px
         3xs: calc(${radius} - 12px)
@@ -129,6 +179,40 @@ themes:
         2xl: calc(${radius} + 12px)
         3xl: calc(${radius} + 20px)
         full: 9999px
+
+      spacing:
+        0: 0px
+        0.25: calc(${spacing} / 4)
+        0.5: calc(${spacing} / 2)
+        1: ${spacing}
+        2: calc(${spacing} * 2)
+        3: calc(${spacing} * 3)
+        4: calc(${spacing} * 4)
+        5: calc(${spacing} * 5)
+        6: calc(${spacing} * 6)
+        7: calc(${spacing} * 7)
+        8: calc(${spacing} * 8)
+        9: calc(${spacing} * 9)
+        10: calc(${spacing} * 10)
+        11: calc(${spacing} * 11)
+        12: calc(${spacing} * 12)
+        14: calc(${spacing} * 13)
+        16: calc(${spacing} * 16)
+        20: calc(${spacing} * 20)
+        24: calc(${spacing} * 24)
+        28: calc(${spacing} * 28)
+        32: calc(${spacing} * 32)
+        36: calc(${spacing} * 36)
+        40: calc(${spacing} * 40)
+        44: calc(${spacing} * 44)
+        48: calc(${spacing} * 48)
+        52: calc(${spacing} * 52)
+        56: calc(${spacing} * 56)
+        60: calc(${spacing} * 60)
+        64: calc(${spacing} * 64)
+        72: calc(${spacing} * 72)
+        80: calc(${spacing} * 80)
+        96: calc(${spacing} * 96)
 
     sys:
       color:
@@ -199,3 +283,17 @@ themes:
           caution: ${yellow.400}
           critical: ${red.400}
           disabled: ${white.200}
+
+      spacing:
+        3xs: ${0.5}
+        2xs: ${1}
+        xs: ${2}
+        sm: ${3}
+        md: ${4}
+        lg: ${6}
+        xl: ${8}
+        2xl: ${10}
+        3xl: ${12}
+        4xl: ${16}
+        5xl: ${20}
+        6xl: ${24}

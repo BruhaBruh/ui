@@ -22,6 +22,12 @@ type Story = StoryObj<typeof TimeField>;
 
 export const Playground: Story = {};
 
+export const Disabled: Story = {
+  args: {
+    isDisabled: true,
+  },
+};
+
 export const WithLabel: Story = {
   args: {
     label: 'Label',
