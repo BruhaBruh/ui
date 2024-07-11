@@ -9,6 +9,8 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
+  'brand',
+  'brandSubdued',
   'info',
   'infoSubdued',
   'success',
@@ -109,6 +111,8 @@ export const Colors: Story = {
     <div className="flex gap-2">
       <Button {...args} color="primary" />
       <Button {...args} color="secondary" />
+      <Button {...args} color="brand" />
+      <Button {...args} color="brandSubdued" />
       <Button {...args} color="info" />
       <Button {...args} color="infoSubdued" />
       <Button {...args} color="success" />

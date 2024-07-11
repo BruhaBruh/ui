@@ -69,6 +69,10 @@ sys:
       primaryHover: ${black.950}
       secondary: ${black.200}
       secondaryHover: ${black.250}
+      brand: ${blue.700}
+      brandHover: ${blue.800}
+      brandSubdued: ${blue.300}
+      brandSubduedHover: ${blue.400}
       info: ${blue.700}
       infoHover: ${blue.800}
       infoSubdued: ${blue.300}
@@ -89,6 +93,7 @@ sys:
     text:
       foreground: ${black.1000}
       secondary: ${black.900}
+      brand: ${blue.700}
       info: ${blue.700}
       success: ${green.850}
       caution: ${yellow.1000}
@@ -97,6 +102,8 @@ sys:
       placeholder: ${black.700}
       onPrimary: ${white.1000}
       onSecondary: ${black.1000}
+      onBrand: ${white.1000}
+      onBrandSubdued: ${black.1000}
       onInfo: ${white.1000}
       onInfoSubdued: ${black.1000}
       onSuccess: ${black.1000}
@@ -109,6 +116,7 @@ sys:
     border:
       primary: ${black.400}
       secondary: ${black.300}
+      brand: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}
@@ -117,6 +125,7 @@ sys:
     ring:
       primary: ${black.400}
       secondary: ${black.300}
+      brand: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}
@@ -125,6 +134,7 @@ sys:
     outline:
       primary: ${black.400}
       secondary: ${black.300}
+      brand: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}

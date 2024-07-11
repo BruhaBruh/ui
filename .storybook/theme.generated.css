@@ -133,6 +133,7 @@
   --pw-ref-color-red-1000: hsla(350, 100%, 17%, 1);
   --pw-sys-color-text-foreground: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-secondary: var(--pw-ref-color-black-900);
+  --pw-sys-color-text-brand: var(--pw-ref-color-blue-700);
   --pw-sys-color-text-info: var(--pw-ref-color-blue-700);
   --pw-sys-color-text-success: var(--pw-ref-color-green-850);
   --pw-sys-color-text-caution: var(--pw-ref-color-yellow-1000);
@@ -141,6 +142,8 @@
   --pw-sys-color-text-placeholder: var(--pw-ref-color-black-700);
   --pw-sys-color-text-on-primary: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-secondary: var(--pw-ref-color-black-1000);
+  --pw-sys-color-text-on-brand: var(--pw-ref-color-white-1000);
+  --pw-sys-color-text-on-brand-subdued: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-on-info: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-info-subdued: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-on-success: var(--pw-ref-color-black-1000);
@@ -155,7 +158,11 @@
   --pw-sys-color-background-primary-hover: var(--pw-ref-color-black-950);
   --pw-sys-color-background-secondary: var(--pw-ref-color-black-200);
   --pw-sys-color-background-secondary-hover: var(--pw-ref-color-black-250);
-  --pw-sys-color-background-info: linear-gradient(90deg, var(--pw-ref-color-blue-900) 0%, var(--pw-ref-color-blue-700) 35%, var(--pw-ref-color-blue-500) 100%);
+  --pw-sys-color-background-brand: var(--pw-ref-color-blue-700);
+  --pw-sys-color-background-brand-hover: var(--pw-ref-color-blue-800);
+  --pw-sys-color-background-brand-subdued: var(--pw-ref-color-blue-300);
+  --pw-sys-color-background-brand-subdued-hover: var(--pw-ref-color-blue-400);
+  --pw-sys-color-background-info: var(--pw-ref-color-blue-700);
   --pw-sys-color-background-info-hover: var(--pw-ref-color-blue-800);
   --pw-sys-color-background-info-subdued: var(--pw-ref-color-blue-300);
   --pw-sys-color-background-info-subdued-hover: var(--pw-ref-color-blue-400);
@@ -174,6 +181,7 @@
   --pw-sys-color-background-disabled: var(--pw-ref-color-black-200);
   --pw-sys-color-border-primary: var(--pw-ref-color-black-400);
   --pw-sys-color-border-secondary: var(--pw-ref-color-black-300);
+  --pw-sys-color-border-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-border-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-border-success: var(--pw-ref-color-green-400);
   --pw-sys-color-border-caution: var(--pw-ref-color-yellow-400);
@@ -181,6 +189,7 @@
   --pw-sys-color-border-disabled: var(--pw-ref-color-black-200);
   --pw-sys-color-ring-primary: var(--pw-ref-color-black-400);
   --pw-sys-color-ring-secondary: var(--pw-ref-color-black-300);
+  --pw-sys-color-ring-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-ring-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-ring-success: var(--pw-ref-color-green-400);
   --pw-sys-color-ring-caution: var(--pw-ref-color-yellow-400);
@@ -188,6 +197,7 @@
   --pw-sys-color-ring-disabled: var(--pw-ref-color-black-200);
   --pw-sys-color-outline-primary: var(--pw-ref-color-black-400);
   --pw-sys-color-outline-secondary: var(--pw-ref-color-black-300);
+  --pw-sys-color-outline-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-outline-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-outline-success: var(--pw-ref-color-green-400);
   --pw-sys-color-outline-caution: var(--pw-ref-color-yellow-400);
@@ -374,6 +384,7 @@
   --pw-ref-color-red-1000: hsla(356, 84%, 61%, 1);
   --pw-sys-color-text-foreground: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-secondary: var(--pw-ref-color-white-900);
+  --pw-sys-color-text-brand: var(--pw-ref-color-blue-650);
   --pw-sys-color-text-info: var(--pw-ref-color-blue-650);
   --pw-sys-color-text-success: var(--pw-ref-color-green-650);
   --pw-sys-color-text-caution: var(--pw-ref-color-yellow-650);
@@ -382,6 +393,8 @@
   --pw-sys-color-text-placeholder: var(--pw-ref-color-white-700);
   --pw-sys-color-text-on-primary: var(--pw-ref-color-black-1000);
   --pw-sys-color-text-on-secondary: var(--pw-ref-color-white-1000);
+  --pw-sys-color-text-on-brand: var(--pw-ref-color-white-1000);
+  --pw-sys-color-text-on-brand-subdued: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-info: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-info-subdued: var(--pw-ref-color-white-1000);
   --pw-sys-color-text-on-success: var(--pw-ref-color-black-1000);
@@ -396,6 +409,10 @@
   --pw-sys-color-background-primary-hover: var(--pw-ref-color-white-950);
   --pw-sys-color-background-secondary: var(--pw-ref-color-white-200);
   --pw-sys-color-background-secondary-hover: var(--pw-ref-color-white-250);
+  --pw-sys-color-background-brand: var(--pw-ref-color-blue-700);
+  --pw-sys-color-background-brand-hover: var(--pw-ref-color-blue-800);
+  --pw-sys-color-background-brand-subdued: var(--pw-ref-color-blue-300);
+  --pw-sys-color-background-brand-subdued-hover: var(--pw-ref-color-blue-400);
   --pw-sys-color-background-info: var(--pw-ref-color-blue-700);
   --pw-sys-color-background-info-hover: var(--pw-ref-color-blue-800);
   --pw-sys-color-background-info-subdued: var(--pw-ref-color-blue-300);
@@ -415,6 +432,7 @@
   --pw-sys-color-background-disabled: var(--pw-ref-color-white-200);
   --pw-sys-color-border-primary: var(--pw-ref-color-white-400);
   --pw-sys-color-border-secondary: var(--pw-ref-color-white-300);
+  --pw-sys-color-border-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-border-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-border-success: var(--pw-ref-color-green-400);
   --pw-sys-color-border-caution: var(--pw-ref-color-yellow-400);
@@ -422,6 +440,7 @@
   --pw-sys-color-border-disabled: var(--pw-ref-color-white-200);
   --pw-sys-color-ring-primary: var(--pw-ref-color-white-400);
   --pw-sys-color-ring-secondary: var(--pw-ref-color-white-300);
+  --pw-sys-color-ring-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-ring-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-ring-success: var(--pw-ref-color-green-400);
   --pw-sys-color-ring-caution: var(--pw-ref-color-yellow-400);
@@ -429,6 +448,7 @@
   --pw-sys-color-ring-disabled: var(--pw-ref-color-white-200);
   --pw-sys-color-outline-primary: var(--pw-ref-color-white-400);
   --pw-sys-color-outline-secondary: var(--pw-ref-color-white-300);
+  --pw-sys-color-outline-brand: var(--pw-ref-color-blue-400);
   --pw-sys-color-outline-info: var(--pw-ref-color-blue-400);
   --pw-sys-color-outline-success: var(--pw-ref-color-green-400);
   --pw-sys-color-outline-caution: var(--pw-ref-color-yellow-400);

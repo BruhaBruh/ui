@@ -21,7 +21,7 @@ export const fieldVariants = cva(
     variants: {
       isInvalid: {
         true: ['ring-2 ring-critical'],
-        false: ['ring-info'],
+        false: ['ring-brand'],
       },
       isDisabled: {
         true: ['bg-disabled', 'text-disabled'],

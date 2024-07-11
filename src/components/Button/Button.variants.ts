@@ -13,6 +13,8 @@ export const buttonVariants = cva(
       color: {
         primary: ['focus-visible:ring-primary'],
         secondary: ['focus-visible:ring-secondary'],
+        brand: ['focus-visible:ring-brand'],
+        brandSubdued: ['focus-visible:ring-brand'],
         info: ['focus-visible:ring-info'],
         infoSubdued: ['focus-visible:ring-info'],
         success: ['focus-visible:ring-success'],
@@ -82,6 +84,18 @@ export const buttonVariants = cva(
           'bg-secondary text-on-secondary hover:bg-secondary-hover active:bg-secondary',
       },
       {
+        color: 'brand',
+        variant: 'solid',
+        className:
+          'bg-brand text-on-brand hover:bg-brand-hover active:bg-brand',
+      },
+      {
+        color: 'brandSubdued',
+        variant: 'solid',
+        className:
+          'bg-brand-subdued text-on-brand-subdued hover:bg-brand-subdued-hover active:bg-brand-subdued',
+      },
+      {
         color: 'info',
         variant: 'solid',
         className: 'bg-info text-on-info hover:bg-info-hover active:bg-info',
@@ -140,6 +154,17 @@ export const buttonVariants = cva(
         variant: 'ghost',
         className:
           'hover:bg-secondary hover:text-on-secondary active:bg-secondary-hover',
+      },
+      {
+        color: 'brand',
+        variant: 'ghost',
+        className: 'hover:bg-brand hover:text-on-brand active:bg-brand-hover',
+      },
+      {
+        color: 'brandSubdued',
+        variant: 'ghost',
+        className:
+          'hover:bg-brand-subdued hover:text-on-brand-subdued active:bg-brand-subdued-hover',
       },
       {
         color: 'info',
@@ -202,6 +227,18 @@ export const buttonVariants = cva(
           'border-secondary hover:bg-secondary hover:text-on-secondary active:bg-secondary-hover',
       },
       {
+        color: 'brand',
+        variant: 'outline',
+        className:
+          'border-brand hover:bg-brand hover:text-on-brand active:bg-brand-hover',
+      },
+      {
+        color: 'brandSubdued',
+        variant: 'outline',
+        className:
+          'border-brand hover:bg-brand-subdued hover:text-on-brand-subdued active:bg-brand-subdued-hover',
+      },
+      {
         color: 'info',
         variant: 'outline',
         className:
@@ -259,6 +296,16 @@ export const buttonVariants = cva(
         color: 'secondary',
         variant: 'link',
         className: 'text-secondary',
+      },
+      {
+        color: 'brand',
+        variant: 'link',
+        className: 'text-brand',
+      },
+      {
+        color: 'brandSubdued',
+        variant: 'link',
+        className: 'text-brand',
       },
       {
         color: 'info',

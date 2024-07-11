@@ -20,6 +20,10 @@
       "primary-hover": "var(--pw-sys-color-background-primary-hover)",
       "secondary": "var(--pw-sys-color-background-secondary)",
       "secondary-hover": "var(--pw-sys-color-background-secondary-hover)",
+      "brand": "var(--pw-sys-color-background-brand)",
+      "brand-hover": "var(--pw-sys-color-background-brand-hover)",
+      "brand-subdued": "var(--pw-sys-color-background-brand-subdued)",
+      "brand-subdued-hover": "var(--pw-sys-color-background-brand-subdued-hover)",
       "info": "var(--pw-sys-color-background-info)",
       "info-hover": "var(--pw-sys-color-background-info-hover)",
       "info-subdued": "var(--pw-sys-color-background-info-subdued)",
@@ -41,6 +45,7 @@
     "textColor": {
       "foreground": "var(--pw-sys-color-text-foreground)",
       "secondary": "var(--pw-sys-color-text-secondary)",
+      "brand": "var(--pw-sys-color-text-brand)",
       "info": "var(--pw-sys-color-text-info)",
       "success": "var(--pw-sys-color-text-success)",
       "caution": "var(--pw-sys-color-text-caution)",
@@ -49,6 +54,8 @@
       "placeholder": "var(--pw-sys-color-text-placeholder)",
       "on-primary": "var(--pw-sys-color-text-on-primary)",
       "on-secondary": "var(--pw-sys-color-text-on-secondary)",
+      "on-brand": "var(--pw-sys-color-text-on-brand)",
+      "on-brand-subdued": "var(--pw-sys-color-text-on-brand-subdued)",
       "on-info": "var(--pw-sys-color-text-on-info)",
       "on-info-subdued": "var(--pw-sys-color-text-on-info-subdued)",
       "on-success": "var(--pw-sys-color-text-on-success)",
@@ -62,6 +69,7 @@
     "borderColor": {
       "primary": "var(--pw-sys-color-border-primary)",
       "secondary": "var(--pw-sys-color-border-secondary)",
+      "brand": "var(--pw-sys-color-border-brand)",
       "info": "var(--pw-sys-color-border-info)",
       "success": "var(--pw-sys-color-border-success)",
       "caution": "var(--pw-sys-color-border-caution)",
@@ -71,6 +79,7 @@
     "outlineColor": {
       "primary": "var(--pw-sys-color-outline-primary)",
       "secondary": "var(--pw-sys-color-outline-secondary)",
+      "brand": "var(--pw-sys-color-outline-brand)",
       "info": "var(--pw-sys-color-outline-info)",
       "success": "var(--pw-sys-color-outline-success)",
       "caution": "var(--pw-sys-color-outline-caution)",
@@ -80,6 +89,7 @@
     "ringColor": {
       "primary": "var(--pw-sys-color-ring-primary)",
       "secondary": "var(--pw-sys-color-ring-secondary)",
+      "brand": "var(--pw-sys-color-ring-brand)",
       "info": "var(--pw-sys-color-ring-info)",
       "success": "var(--pw-sys-color-ring-success)",
       "caution": "var(--pw-sys-color-ring-caution)",
