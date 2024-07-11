@@ -155,7 +155,7 @@
   --pw-sys-color-background-primary-hover: var(--pw-ref-color-black-950);
   --pw-sys-color-background-secondary: var(--pw-ref-color-black-200);
   --pw-sys-color-background-secondary-hover: var(--pw-ref-color-black-250);
-  --pw-sys-color-background-info: var(--pw-ref-color-blue-700);
+  --pw-sys-color-background-info: linear-gradient(90deg, var(--pw-ref-color-blue-900) 0%, var(--pw-ref-color-blue-700) 35%, var(--pw-ref-color-blue-500) 100%);
   --pw-sys-color-background-info-hover: var(--pw-ref-color-blue-800);
   --pw-sys-color-background-info-subdued: var(--pw-ref-color-blue-300);
   --pw-sys-color-background-info-subdued-hover: var(--pw-ref-color-blue-400);
