@@ -28,9 +28,6 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Generate from default theme
-        run: pnpm run generate
-
       - name: Authenticate to npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./.npmrc
 
