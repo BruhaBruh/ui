@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/utility';
 import { createCalendar } from '@internationalized/date';
 import React from 'react';

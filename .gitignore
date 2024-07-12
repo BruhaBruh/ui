@@ -25,4 +25,4 @@ dist-ssr
 
 .generated/
 
-tsconfig.buildinfo
+tsconfig.tsbuildinfo

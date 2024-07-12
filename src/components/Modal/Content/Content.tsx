@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/utility';
 import React from 'react';
 import { Overlay, useModalOverlay } from 'react-aria';

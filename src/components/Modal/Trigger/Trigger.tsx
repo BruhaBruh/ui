@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, ButtonProps } from '@/components/Button';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';

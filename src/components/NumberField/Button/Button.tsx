@@ -1,3 +1,5 @@
+'use client';
+
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import React from 'react';
