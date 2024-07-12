@@ -2,6 +2,7 @@
   "extends": "@bruhabruh/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": "./src",
     "paths": {
       "@/*": ["./src/*"]
     },

@@ -1,7 +1,7 @@
 {
   "name": "@bruhabruh/ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "BruhaBruh UI Library",
   "author": "BruhaBruh",
@@ -12,7 +12,7 @@
     "url": "https://github.com/bruhabruh/ui"
   },
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && vite build",
@@ -71,6 +71,7 @@
     "nano-staged": "^0.8.0",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
+    "rollup-plugin-preserve-directives": "^0.4.0",
     "storybook": "^8.2.1",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
