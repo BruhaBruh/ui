@@ -1,4 +1,4 @@
-import { Props } from '@/types/props';
+import { Props } from '@/types';
 import { AriaSearchFieldProps } from 'react-aria';
 
 export type SearchFieldProps = Omit<AriaSearchFieldProps, 'errorMessage'> &

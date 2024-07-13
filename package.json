@@ -1,6 +1,6 @@
 {
   "name": "@bruhabruh/ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "BruhaBruh UI Library",
   "author": "BruhaBruh",
@@ -13,6 +13,9 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -35,6 +38,17 @@
     "react-dom": "^18.3.1",
     "react-stately": "^3.31.1",
     "tailwind-merge": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@internationalized/date": "^3",
+    "@radix-ui/react-slot": "^1",
+    "class-variance-authority": "^0.7",
+    "clsx": "^2",
+    "react": "^18",
+    "react-aria": "^3",
+    "react-dom": "^18",
+    "react-stately": "^3",
+    "tailwind-merge": "^2"
   },
   "devDependencies": {
     "@bruhabruh/eslint-config": "^1.0.0",

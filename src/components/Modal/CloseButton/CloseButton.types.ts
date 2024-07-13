@@ -1,4 +1,4 @@
-import { Props } from '@/types/props';
+import { Props } from '@/types';
 import { VariantProps } from 'class-variance-authority';
 import { AriaButtonProps } from 'react-aria';
 import { modalCloseButtonVariants } from './CloseButton.variants';
