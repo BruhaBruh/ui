@@ -14,6 +14,12 @@ const config = {
     ...theme,
     extend: {
       ...theme?.extend,
+      container: {
+        center: true,
+        screens: {
+          '2xl': '1400px',
+        },
+      },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],

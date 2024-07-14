@@ -1,4 +1,4 @@
-import { Props } from '@/types';
+import { Props } from '@/types/index.types';
 import { AriaTextFieldProps } from 'react-aria';
 
 export type TextAreaFieldProps = Omit<AriaTextFieldProps, 'errorMessage'> &

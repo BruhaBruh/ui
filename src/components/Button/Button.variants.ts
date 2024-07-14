@@ -6,6 +6,7 @@ export const buttonVariants = cva(
     'font-medium whitespace-nowrap',
     'transition-colors',
     'focus-visible:outline-none focus-visible:ring-[3px]',
+    'select-none',
     'disabled:pointer-events-none',
   ],
   {
