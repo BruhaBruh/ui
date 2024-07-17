@@ -1,4 +1,4 @@
 export * from './components';
 export * from './hooks';
+export * from './providers';
 export * from './types/index.types';
-export * from './utility';

@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utility';
+import { useCN } from '@/providers';
 import React from 'react';
 import { Overlay, useModalOverlay } from 'react-aria';
 import { ModalCloseButton } from '../CloseButton';
@@ -16,6 +16,8 @@ export const ModalContent: React.FC<ModalContentProps> = ({
   className,
   ...props
 }) => {
+  const cn = useCN();
+
   const ref = React.useRef<HTMLDivElement>(null);
   const [state] = useModal((s) => s.state);
   const [overlayProps] = useModal((s) => s.overlayProps);

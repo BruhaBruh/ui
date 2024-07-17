@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility';
+import { useCN } from '@/providers';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { NumberFieldButtonProps } from './Button.types';
@@ -11,6 +11,8 @@ export const NumberFieldButton = React.forwardRef<
   HTMLButtonElement,
   NumberFieldButtonProps
 >(({ className, children, ...props }, forwardedRef) => {
+  const cn = useCN();
+
   const ref = useMergedRefs(forwardedRef);
 
   const { buttonProps } = useButton(

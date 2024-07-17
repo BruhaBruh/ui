@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility/cn';
+import { useCN } from '@/providers';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
@@ -13,6 +13,8 @@ const ButtonImpl = React.forwardRef<HTMLButtonElement, ButtonProps>(
     { variant, color, size, content, className, asChild, children, ...props },
     forwardedRef,
   ) => {
+    const cn = useCN();
+
     const ref = useMergedRefs(forwardedRef);
 
     const { buttonProps } = useButton(

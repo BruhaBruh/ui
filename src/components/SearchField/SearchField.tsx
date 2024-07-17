@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utility';
+import { useCN } from '@/providers';
 import React from 'react';
 import { useSearchField } from 'react-aria';
 import { useSearchFieldState } from 'react-stately';
@@ -28,6 +28,8 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   className,
   ...props
 }) => {
+  const cn = useCN();
+
   const ref = React.useRef<HTMLInputElement>(null);
   const state = useSearchFieldState(props);
   const {

@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utility';
+import { useCN } from '@/providers';
 import React from 'react';
 import { useNumberField } from 'react-aria';
 import { useNumberFieldState } from 'react-stately';
@@ -29,6 +29,8 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   className,
   ...props
 }) => {
+  const cn = useCN();
+
   const ref = React.useRef<HTMLInputElement>(null);
   const state = useNumberFieldState({
     label,

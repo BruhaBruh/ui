@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utility';
+import { useCN } from '@/providers';
 import React from 'react';
 import { useTextField } from 'react-aria';
 import {
@@ -26,6 +26,8 @@ export const TextField: React.FC<TextFieldProps> = ({
   className,
   ...props
 }) => {
+  const cn = useCN();
+
   const ref = React.useRef<HTMLInputElement>(null);
   const {
     inputProps,
