@@ -1,3 +1,5 @@
+'use client';
+
 import { cn as defaultCN } from '@/utility';
 import React from 'react';
 
@@ -10,8 +12,4 @@ export const useCN = () => {
   return className;
 };
 
-export const CNProvider: React.FC<
-  React.PropsWithChildren<{ cn: CNFunction }>
-> = ({ cn, children }) => {
-  return <Context.Provider value={cn}>{children}</Context.Provider>;
-};
+export const CNProvider = Context.Provider;
