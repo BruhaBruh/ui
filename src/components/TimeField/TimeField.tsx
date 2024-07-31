@@ -1,6 +1,6 @@
 'use client';
 
-import { useCN } from '@/providers';
+import { cn } from '@/utility';
 import React from 'react';
 import { useTimeField } from 'react-aria';
 import { useTimeFieldState } from 'react-stately';
@@ -27,8 +27,6 @@ export const TimeField: React.FC<TimeFieldProps> = ({
   className,
   ...props
 }) => {
-  const cn = useCN();
-
   const ref = React.useRef<HTMLSpanElement>(null);
   const state = useTimeFieldState({
     ...props,

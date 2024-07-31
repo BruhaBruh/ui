@@ -1,4 +1,4 @@
-import { Props, PropsWithAsChild } from '@/types/index.types';
+import { Props, PropsWithAsChild } from '@/types';
 import { VariantProps } from 'class-variance-authority';
 import { AriaButtonProps } from 'react-aria';
 import { buttonVariants } from './Button.variants';

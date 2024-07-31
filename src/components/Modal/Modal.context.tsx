@@ -1,6 +1,6 @@
 'use client';
 
-import { createFastContext } from '@/utility/create-fast-context';
+import { createFastContext } from '@/utility';
 import React from 'react';
 import { OverlayTriggerProps, OverlayTriggerState } from 'react-stately';
 

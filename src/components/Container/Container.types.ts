@@ -1,4 +1,4 @@
-import { PropsWithAsChild } from '@/types/index.types';
+import { PropsWithAsChild } from '@/types';
 import { VariantProps } from 'class-variance-authority';
 import { containerVariants } from './Container.variants';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCN } from '@/providers';
+import { cn } from '@/utility';
 import React from 'react';
 import { useDateSegment } from 'react-aria';
 import { DateSegmentProps } from './DateSegment.types';
@@ -12,8 +12,6 @@ export const DateSegment: React.FC<DateSegmentProps> = ({
   className,
   ...props
 }) => {
-  const cn = useCN();
-
   const ref = React.useRef<HTMLSpanElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
 

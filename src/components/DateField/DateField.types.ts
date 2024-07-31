@@ -1,4 +1,4 @@
-import { Props } from '@/types/index.types';
+import { Props } from '@/types';
 import { AriaDateFieldProps, DateValue } from 'react-aria';
 
 export type DateFieldProps = Omit<

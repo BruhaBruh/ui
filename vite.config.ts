@@ -28,11 +28,6 @@ export default defineConfig({
     },
   },
   build: {
-    // lib: {
-    //   entry: 'src/index.ts',
-    //   name: 'PostnowUI',
-    //   formats: ['es'],
-    // },
     rollupOptions: {
       external: [
         'react',
@@ -45,13 +40,10 @@ export default defineConfig({
         'react-aria',
         'react-stately',
         'tailwind-merge',
+        '@tabler/icons-react',
       ],
       preserveEntrySignatures: 'exports-only',
       output: {
-        // globals: {
-        //   react: 'React',
-        //   'react-dom': 'ReactDOM',
-        // },
         dir: 'dist',
         format: 'es',
         entryFileNames: '[name].js',
@@ -64,6 +56,8 @@ export default defineConfig({
           'src/**/*.{stories,types}.{ts,tsx}',
           'src/**/*.d.ts',
           'src/stories/**',
+          'src/types/**',
+          'src/utility/**',
         ],
       }).reduce((entries, file) => {
         const entry = path.relative('src', file).replace(/\.[^/.]+$/, '');

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCN } from '@/providers';
+import { cn } from '@/utility';
 import { createCalendar } from '@internationalized/date';
 import React from 'react';
 import { useDateField } from 'react-aria';
@@ -28,8 +28,6 @@ export const DateField: React.FC<DateFieldProps> = ({
   className,
   ...props
 }) => {
-  const cn = useCN();
-
   const ref = React.useRef<HTMLSpanElement>(null);
   const state = useDateFieldState({
     ...props,

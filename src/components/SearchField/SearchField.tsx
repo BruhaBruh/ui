@@ -1,6 +1,7 @@
 'use client';
 
-import { useCN } from '@/providers';
+import { cn } from '@/utility';
+import { IconX } from '@tabler/icons-react';
 import React from 'react';
 import { useSearchField } from 'react-aria';
 import { useSearchFieldState } from 'react-stately';
@@ -28,8 +29,6 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   className,
   ...props
 }) => {
-  const cn = useCN();
-
   const ref = React.useRef<HTMLInputElement>(null);
   const state = useSearchFieldState(props);
   const {
@@ -85,18 +84,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
             color="secondary"
             {...clearButtonProps}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill="currentColor"
-                fillRule="evenodd"
-                d="M3.47 3.47a.75.75 0 0 1 1.06 0L8 6.94l3.47-3.47a.75.75 0 1 1 1.06 1.06L9.06 8l3.47 3.47a.75.75 0 1 1-1.06 1.06L8 9.06l-3.47 3.47a.75.75 0 0 1-1.06-1.06L6.94 8 3.47 4.53a.75.75 0 0 1 0-1.06"
-                clipRule="evenodd"
-              />
-            </svg>
+            <IconX />
           </Button>
         )}
         {!right && state.value === '' && (

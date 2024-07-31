@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { useCN } from '@/providers';
+import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
@@ -13,8 +13,6 @@ const ButtonImpl = React.forwardRef<HTMLButtonElement, ButtonProps>(
     { variant, color, size, content, className, asChild, children, ...props },
     forwardedRef,
   ) => {
-    const cn = useCN();
-
     const ref = useMergedRefs(forwardedRef);
 
     const { buttonProps } = useButton(
@@ -45,7 +43,7 @@ const ButtonImpl = React.forwardRef<HTMLButtonElement, ButtonProps>(
 ButtonImpl.displayName = '@bruhabruh/ui/Button';
 
 const EmptyIcon: React.FC<ButtonEmptyIconProps> = () => {
-  return <svg viewBox="0 0 16 16" aria-hidden="true" />;
+  return <svg viewBox="0 0 24 24" aria-hidden="true" />;
 };
 EmptyIcon.displayName = '@bruhabruh/ui/ButtonEmptyIcon';
 
