@@ -2,7 +2,7 @@
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
-import { IconX } from '@tabler/icons-react';
+import { CloseSquareLinear } from '@bruhabruh/solar-icon-set';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { ModalCloseButtonProps } from './CloseButton.types';
@@ -29,7 +29,7 @@ export const ModalCloseButton = React.forwardRef<
       ref={ref}
       className={cn(modalCloseButtonVariants(), className)}
     >
-      <IconX />
+      <CloseSquareLinear className="[&>*:first-child]:hidden scale-[2]" />
     </button>
   );
 });

@@ -40,7 +40,7 @@ export default defineConfig({
         'react-aria',
         'react-stately',
         'tailwind-merge',
-        '@tabler/icons-react',
+        '@bruhabruh/solar-icon-set',
       ],
       preserveEntrySignatures: 'exports-only',
       output: {

@@ -48,6 +48,7 @@ export const buttonVariants = cva(
           'px-sm',
           '[&>*:not(svg)]:px-3xs',
           '[&>svg]:min-w-4',
+          '[&>svg]:w-4',
           '[&>svg]:h-4',
         ],
         md: [
@@ -57,6 +58,7 @@ export const buttonVariants = cva(
           'px-md',
           '[&>*:not(svg)]:px-2xs',
           '[&>svg]:min-w-5',
+          '[&>svg]:w-5',
           '[&>svg]:h-5',
         ],
         lg: [
@@ -66,6 +68,7 @@ export const buttonVariants = cva(
           'px-md',
           '[&>*:not(svg)]:px-xs',
           '[&>svg]:min-w-5',
+          '[&>svg]:w-5',
           '[&>svg]:h-5',
         ],
       },

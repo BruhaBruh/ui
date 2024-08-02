@@ -1,5 +1,5 @@
+import { Flag2Linear } from '@bruhabruh/solar-icon-set';
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconFlag } from '@tabler/icons-react';
 import React from 'react';
 import { Button } from '../Button';
 import { SearchField } from './SearchField';
@@ -66,13 +66,13 @@ export const WithButton: Story = {
 
 export const WithLeftIcon: Story = {
   args: {
-    left: <IconFlag />,
+    left: <Flag2Linear />,
   },
 };
 
 export const WithRightIcon: Story = {
   args: {
-    right: <IconFlag />,
+    right: <Flag2Linear />,
   },
 };
 
@@ -80,7 +80,7 @@ export const WithRightButton: Story = {
   args: {
     right: (
       <Button color="secondary" size="sm" content="icon" variant="ghost">
-        <IconFlag />
+        <Flag2Linear />
       </Button>
     ),
   },
@@ -99,7 +99,7 @@ export const WithAll: Story = {
     placeholder: 'Placeholder',
     right: (
       <Button color="secondary" size="sm" content="icon" variant="ghost">
-        <IconFlag />
+        <Flag2Linear />
       </Button>
     ),
   },

@@ -1,5 +1,5 @@
+import { Flag2Linear } from '@bruhabruh/solar-icon-set';
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconFlag } from '@tabler/icons-react';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
@@ -167,7 +167,7 @@ export const Contents: Story = {
     <div className="flex gap-2">
       <Button {...args} content="default" />
       <Button {...args} content="icon">
-        <IconFlag />
+        <Flag2Linear />
         <span className="sr-only">flag</span>
       </Button>
     </div>
@@ -183,17 +183,17 @@ export const WithIcon: Story = {
   render: ({ children, ...args }) => (
     <div className="flex gap-2">
       <Button {...args}>
-        <IconFlag />
+        <Flag2Linear />
         {children}
       </Button>
       <Button {...args}>
-        <IconFlag />
+        <Flag2Linear />
         {children}
-        <IconFlag />
+        <Flag2Linear />
       </Button>
       <Button {...args}>
         {children}
-        <IconFlag />
+        <Flag2Linear />
       </Button>
     </div>
   ),
@@ -208,19 +208,19 @@ export const WithIconAndWider: Story = {
   render: ({ children, ...args }) => (
     <div className="flex flex-col gap-2">
       <Button {...args} className="w-64">
-        <IconFlag />
+        <Flag2Linear />
         {children}
         <Button.EmptyIcon />
       </Button>
       <Button {...args} className="w-64">
-        <IconFlag />
+        <Flag2Linear />
         {children}
-        <IconFlag />
+        <Flag2Linear />
       </Button>
       <Button {...args} className="w-64">
         <Button.EmptyIcon />
         {children}
-        <IconFlag />
+        <Flag2Linear />
       </Button>
     </div>
   ),

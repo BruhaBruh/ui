@@ -1,5 +1,5 @@
+import { Flag2Linear } from '@bruhabruh/solar-icon-set';
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconFlag } from '@tabler/icons-react';
 import React from 'react';
 import { Button } from '../Button';
 import { TimeField } from './TimeField';
@@ -59,13 +59,13 @@ export const WithButton: Story = {
 
 export const WithLeftIcon: Story = {
   args: {
-    left: <IconFlag />,
+    left: <Flag2Linear />,
   },
 };
 
 export const WithRightIcon: Story = {
   args: {
-    right: <IconFlag />,
+    right: <Flag2Linear />,
   },
 };
 

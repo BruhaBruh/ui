@@ -1,7 +1,10 @@
 'use client';
 
 import { cn } from '@/utility';
-import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import {
+  AltArrowDownLinear,
+  AltArrowUpLinear,
+} from '@bruhabruh/solar-icon-set';
 import React from 'react';
 import { useNumberField } from 'react-aria';
 import { useNumberFieldState } from 'react-stately';
@@ -79,10 +82,10 @@ export const NumberField: React.FC<NumberFieldProps> = ({
         {right || (
           <span className={numberFieldButtonsVariants()}>
             <NumberFieldButton {...incrementButtonProps}>
-              <IconChevronUp />
+              <AltArrowUpLinear />
             </NumberFieldButton>
             <NumberFieldButton {...decrementButtonProps}>
-              <IconChevronDown />
+              <AltArrowDownLinear />
             </NumberFieldButton>
           </span>
         )}
