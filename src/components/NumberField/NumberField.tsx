@@ -1,10 +1,6 @@
 'use client';
 
 import { cn } from '@/utility';
-import {
-  AltArrowDownLinear,
-  AltArrowUpLinear,
-} from '@bruhabruh/solar-icon-set';
 import React from 'react';
 import { useNumberField } from 'react-aria';
 import { useNumberFieldState } from 'react-stately';
@@ -30,6 +26,8 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   right,
   isInvalid: isInvalidProp,
   isDisabled,
+  increaseIcon,
+  decreaseIcon,
   className,
   ...props
 }) => {
@@ -82,10 +80,36 @@ export const NumberField: React.FC<NumberFieldProps> = ({
         {right || (
           <span className={numberFieldButtonsVariants()}>
             <NumberFieldButton {...incrementButtonProps}>
-              <AltArrowUpLinear />
+              {increaseIcon || (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-chevron-up"
+                >
+                  <path d="m18 15-6-6-6 6" />
+                </svg>
+              )}
             </NumberFieldButton>
             <NumberFieldButton {...decrementButtonProps}>
-              <AltArrowDownLinear />
+              {decreaseIcon || (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              )}
             </NumberFieldButton>
           </span>
         )}

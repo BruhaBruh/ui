@@ -10,7 +10,7 @@ export const fieldVariants = cva(
     'text-base',
     'rounded-xl',
     'px-sm py-2xs',
-    '[&>[data-field-content]]:px-3xs',
+    '[&>[data-field-content]]:px-2xs',
     '[&_svg]:min-w-5',
     '[&_svg]:h-5',
     'font-medium whitespace-nowrap',

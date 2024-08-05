@@ -1,4 +1,3 @@
-import { Flag2Linear } from '@bruhabruh/solar-icon-set';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../Button';
@@ -66,13 +65,59 @@ export const WithButton: Story = {
 
 export const WithLeftIcon: Story = {
   args: {
-    left: <Flag2Linear />,
+    left: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 3a2 2 0 0 0-2 2" />
+        <path d="M19 3a2 2 0 0 1 2 2" />
+        <path d="M21 19a2 2 0 0 1-2 2" />
+        <path d="M5 21a2 2 0 0 1-2-2" />
+        <path d="M9 3h1" />
+        <path d="M9 21h1" />
+        <path d="M14 3h1" />
+        <path d="M14 21h1" />
+        <path d="M3 9v1" />
+        <path d="M21 9v1" />
+        <path d="M3 14v1" />
+        <path d="M21 14v1" />
+      </svg>
+    ),
   },
 };
 
 export const WithRightIcon: Story = {
   args: {
-    right: <Flag2Linear />,
+    right: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 3a2 2 0 0 0-2 2" />
+        <path d="M19 3a2 2 0 0 1 2 2" />
+        <path d="M21 19a2 2 0 0 1-2 2" />
+        <path d="M5 21a2 2 0 0 1-2-2" />
+        <path d="M9 3h1" />
+        <path d="M9 21h1" />
+        <path d="M14 3h1" />
+        <path d="M14 21h1" />
+        <path d="M3 9v1" />
+        <path d="M21 9v1" />
+        <path d="M3 14v1" />
+        <path d="M21 14v1" />
+      </svg>
+    ),
   },
 };
 
@@ -80,7 +125,28 @@ export const WithRightButton: Story = {
   args: {
     right: (
       <Button color="secondary" size="sm" content="icon" variant="ghost">
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
     ),
   },
@@ -99,7 +165,28 @@ export const WithAll: Story = {
     placeholder: 'Placeholder',
     right: (
       <Button color="secondary" size="sm" content="icon" variant="ghost">
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
     ),
   },

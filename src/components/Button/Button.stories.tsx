@@ -1,4 +1,3 @@
-import { Flag2Linear } from '@bruhabruh/solar-icon-set';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from './Button';
@@ -167,7 +166,28 @@ export const Contents: Story = {
     <div className="flex gap-2">
       <Button {...args} content="default" />
       <Button {...args} content="icon">
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
         <span className="sr-only">flag</span>
       </Button>
     </div>
@@ -183,17 +203,101 @@ export const WithIcon: Story = {
   render: ({ children, ...args }) => (
     <div className="flex gap-2">
       <Button {...args}>
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
         {children}
       </Button>
       <Button {...args}>
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
         {children}
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
       <Button {...args}>
         {children}
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
     </div>
   ),
@@ -208,19 +312,103 @@ export const WithIconAndWider: Story = {
   render: ({ children, ...args }) => (
     <div className="flex flex-col gap-2">
       <Button {...args} className="w-64">
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
         {children}
         <Button.EmptyIcon />
       </Button>
       <Button {...args} className="w-64">
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
         {children}
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
       <Button {...args} className="w-64">
         <Button.EmptyIcon />
         {children}
-        <Flag2Linear />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2" />
+          <path d="M19 3a2 2 0 0 1 2 2" />
+          <path d="M21 19a2 2 0 0 1-2 2" />
+          <path d="M5 21a2 2 0 0 1-2-2" />
+          <path d="M9 3h1" />
+          <path d="M9 21h1" />
+          <path d="M14 3h1" />
+          <path d="M14 21h1" />
+          <path d="M3 9v1" />
+          <path d="M21 9v1" />
+          <path d="M3 14v1" />
+          <path d="M21 14v1" />
+        </svg>
       </Button>
     </div>
   ),

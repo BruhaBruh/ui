@@ -7,9 +7,6 @@ settings:
 importers:
   .:
     dependencies:
-      '@bruhabruh/solar-icon-set':
-        specifier: ^1.0.0
-        version: 1.0.0
       '@internationalized/date':
         specifier: ^3.5.4
         version: 3.5.4
@@ -1195,12 +1192,6 @@ packages:
       }
     peerDependencies:
       prettier: '*'
-
-  '@bruhabruh/solar-icon-set@1.0.0':
-    resolution:
-      {
-        integrity: sha512-+uViz+FVgSh+Fh+qc4bhbdJ5CPp0zrnua/n/jU2cWJGjru6DteL6LGoRu4dXmRjDWE0FgNquSCFrFn0Cg7J3DA==,
-      }
 
   '@bruhabruh/tsconfig@1.0.0':
     resolution:
@@ -9781,11 +9772,6 @@ snapshots:
   '@bruhabruh/prettier-config@1.1.0(prettier@3.3.2)':
     dependencies:
       prettier: 3.3.2
-
-  '@bruhabruh/solar-icon-set@1.0.0':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   '@bruhabruh/tsconfig@1.0.0': {}
 

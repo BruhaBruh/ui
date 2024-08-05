@@ -2,7 +2,6 @@
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
-import { CloseSquareLinear } from '@bruhabruh/solar-icon-set';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { ModalCloseButtonProps } from './CloseButton.types';
@@ -11,7 +10,7 @@ import { modalCloseButtonVariants } from './CloseButton.variants';
 export const ModalCloseButton = React.forwardRef<
   HTMLButtonElement,
   ModalCloseButtonProps
->(({ className, ...props }, forwardedRef) => {
+>(({ children, className, ...props }, forwardedRef) => {
   const ref = useMergedRefs(forwardedRef);
 
   const { buttonProps } = useButton(
@@ -29,7 +28,7 @@ export const ModalCloseButton = React.forwardRef<
       ref={ref}
       className={cn(modalCloseButtonVariants(), className)}
     >
-      <CloseSquareLinear className="[&>*:first-child]:hidden scale-[2]" />
+      {children}
     </button>
   );
 });
