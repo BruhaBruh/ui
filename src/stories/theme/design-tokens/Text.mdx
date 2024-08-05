@@ -103,6 +103,48 @@ import { Meta } from '@storybook/blocks';
   </div>
 </div>
 
+### Accent
+
+<div className="grid grid-cols-1 gap-2">
+  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
+    <div
+      children="Accent"
+      className="h-10 text-brand rounded font-bold flex items-center justify-center border border-primary"
+    />
+    <div
+      children="On Accent"
+      className="h-10 bg-accent text-on-accent rounded font-bold flex items-center justify-center border border-primary"
+    />
+  </div>
+  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
+    <div
+      children="Accent"
+      className="h-10 text-accent rounded font-bold flex items-center justify-center border border-primary"
+    />
+    <div
+      children="On Accent"
+      className="h-10 bg-accent text-on-accent rounded font-bold flex items-center justify-center border border-primary"
+    />
+  </div>
+</div>
+
+### Accent Subdued
+
+<div className="grid grid-cols-2 gap-2">
+  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
+    <div
+      children="On Accent Subdued"
+      className="h-10 bg-accent-subdued text-on-accent-subdued rounded font-bold flex items-center justify-center border border-primary"
+    />
+  </div>
+  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
+    <div
+      children="On Accent Subdued"
+      className="h-10 bg-accent-subdued text-on-accent-subdued rounded font-bold flex items-center justify-center border border-primary"
+    />
+  </div>
+</div>
+
 ### Info
 
 <div className="grid grid-cols-1 gap-2">

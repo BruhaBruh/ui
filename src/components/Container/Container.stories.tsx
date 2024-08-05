@@ -11,6 +11,8 @@ const colors = [
   'secondary',
   'brand',
   'brandSubdued',
+  'accent',
+  'accentSubdued',
   'info',
   'infoSubdued',
   'success',

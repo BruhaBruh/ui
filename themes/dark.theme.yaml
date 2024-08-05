@@ -5,13 +5,10 @@ ref:
   palette:
     white: '#FFFFFF'
     black: '#00030e'
-    blue: '#477EFF'
+    blue: '#3772FF'
     green: '#20BF55'
-    yellow:
-      source: '#F0E100'
-    red:
-      darkenRatio: -15
-      source: '#BA1F33'
+    yellow: '#F0E100'
+    red: '#BA1F33'
 
   radius:
     none: 0px
@@ -69,12 +66,16 @@ sys:
       primaryHover: ${white.950}
       secondary: ${white.200}
       secondaryHover: ${white.250}
-      brand: ${blue.700}
-      brandHover: ${blue.800}
+      brand: ${blue.800}
+      brandHover: ${blue.850}
       brandSubdued: ${blue.300}
       brandSubduedHover: ${blue.400}
-      info: ${blue.700}
-      infoHover: ${blue.800}
+      accent: ${blue.800}
+      accentHover: ${blue.850}
+      accentSubdued: ${blue.300}
+      accentSubduedHover: ${blue.400}
+      info: ${blue.800}
+      infoHover: ${blue.850}
       infoSubdued: ${blue.300}
       infoSubduedHover: ${blue.400}
       success: ${green.600}
@@ -93,17 +94,20 @@ sys:
     text:
       foreground: ${white.1000}
       secondary: ${white.900}
-      brand: ${blue.650}
-      info: ${blue.650}
-      success: ${green.650}
+      brand: ${blue.500s}
+      accent: ${blue.500s}
+      info: ${blue.500s}
+      success: ${green.600s}
       caution: ${yellow.650}
-      critical: ${red.1000}
+      critical: ${red.450s}
       disabled: ${white.800}
       placeholder: ${white.700}
       onPrimary: ${black.1000}
       onSecondary: ${white.1000}
       onBrand: ${white.1000}
       onBrandSubdued: ${white.1000}
+      onAccent: ${white.1000}
+      onAccentSubdued: ${white.1000}
       onInfo: ${white.1000}
       onInfoSubdued: ${white.1000}
       onSuccess: ${black.1000}
@@ -117,6 +121,7 @@ sys:
       primary: ${white.400}
       secondary: ${white.300}
       brand: ${blue.400}
+      accent: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}
@@ -126,6 +131,7 @@ sys:
       primary: ${white.400}
       secondary: ${white.300}
       brand: ${blue.400}
+      accent: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}
@@ -135,6 +141,7 @@ sys:
       primary: ${white.400}
       secondary: ${white.300}
       brand: ${blue.400}
+      accent: ${blue.400}
       info: ${blue.400}
       success: ${green.400}
       caution: ${yellow.400}

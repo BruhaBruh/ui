@@ -16,6 +16,8 @@ export const buttonVariants = cva(
         secondary: ['focus-visible:ring-secondary'],
         brand: ['focus-visible:ring-brand'],
         brandSubdued: ['focus-visible:ring-brand'],
+        accent: ['focus-visible:ring-accent'],
+        accentSubdued: ['focus-visible:ring-accent'],
         info: ['focus-visible:ring-info'],
         infoSubdued: ['focus-visible:ring-info'],
         success: ['focus-visible:ring-success'],
@@ -97,6 +99,18 @@ export const buttonVariants = cva(
           'bg-brand-subdued text-on-brand-subdued hover:bg-brand-subdued-hover active:bg-brand-subdued',
       },
       {
+        color: 'accent',
+        variant: 'solid',
+        className:
+          'bg-accent text-on-accent hover:bg-accent-hover active:bg-accent',
+      },
+      {
+        color: 'accentSubdued',
+        variant: 'solid',
+        className:
+          'bg-accent-subdued text-on-accent-subdued hover:bg-accent-subdued-hover active:bg-accent-subdued',
+      },
+      {
         color: 'info',
         variant: 'solid',
         className: 'bg-info text-on-info hover:bg-info-hover active:bg-info',
@@ -166,6 +180,18 @@ export const buttonVariants = cva(
         variant: 'ghost',
         className:
           'hover:bg-brand-subdued hover:text-on-brand-subdued active:bg-brand-subdued-hover',
+      },
+      {
+        color: 'accent',
+        variant: 'ghost',
+        className:
+          'hover:bg-accent hover:text-on-accent active:bg-accent-hover',
+      },
+      {
+        color: 'accentSubdued',
+        variant: 'ghost',
+        className:
+          'hover:bg-accent-subdued hover:text-on-accent-subdued active:bg-accent-subdued-hover',
       },
       {
         color: 'info',
@@ -240,6 +266,18 @@ export const buttonVariants = cva(
           'border-brand hover:bg-brand-subdued hover:text-on-brand-subdued active:bg-brand-subdued-hover',
       },
       {
+        color: 'accent',
+        variant: 'outline',
+        className:
+          'border-accent hover:bg-accent hover:text-on-accent active:bg-accent-hover',
+      },
+      {
+        color: 'accentSubdued',
+        variant: 'outline',
+        className:
+          'border-accent hover:bg-accent-subdued hover:text-on-accent-subdued active:bg-accent-subdued-hover',
+      },
+      {
         color: 'info',
         variant: 'outline',
         className:
@@ -307,6 +345,16 @@ export const buttonVariants = cva(
         color: 'brandSubdued',
         variant: 'link',
         className: 'text-brand',
+      },
+      {
+        color: 'accent',
+        variant: 'link',
+        className: 'text-accent',
+      },
+      {
+        color: 'accentSubdued',
+        variant: 'link',
+        className: 'text-accent',
       },
       {
         color: 'info',
