@@ -28,6 +28,8 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   isDisabled,
   increaseIcon,
   decreaseIcon,
+  minValue,
+  maxValue,
   className,
   onChange,
   ...props
@@ -40,6 +42,8 @@ export const NumberField: React.FC<NumberFieldProps> = ({
     isInvalid: isInvalidProp,
     isDisabled,
     onChange,
+    minValue,
+    maxValue,
     ...props,
     locale: 'ru-RU',
   });
@@ -53,7 +57,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
     groupProps,
     incrementButtonProps,
     decrementButtonProps,
-  } = useNumberField({ onChange, ...props }, state, ref);
+  } = useNumberField({ onChange, minValue, maxValue, ...props }, state, ref);
 
   return (
     <span className={cn(fieldWrapperVariants(), className)}>
@@ -72,6 +76,8 @@ export const NumberField: React.FC<NumberFieldProps> = ({
           <span className={cn(fieldInputWrapperVariants(), className)}>
             <input
               type="text"
+              min={minValue}
+              max={maxValue}
               {...props}
               {...inputProps}
               className={fieldInputVariants()}
