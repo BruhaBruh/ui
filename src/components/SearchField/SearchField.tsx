@@ -31,7 +31,10 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   ...props
 }) => {
   const ref = React.useRef<HTMLInputElement>(null);
-  const state = useSearchFieldState(props);
+  const state = useSearchFieldState({
+    onChange,
+    ...props,
+  });
   const {
     inputProps,
     labelProps,

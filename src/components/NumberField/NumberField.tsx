@@ -39,6 +39,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
     errorMessage,
     isInvalid: isInvalidProp,
     isDisabled,
+    onChange,
     ...props,
     locale: 'ru-RU',
   });

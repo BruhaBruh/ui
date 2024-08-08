@@ -30,6 +30,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
 }) => {
   const ref = React.useRef<HTMLSpanElement>(null);
   const state = useTimeFieldState({
+    onChange,
     ...props,
     locale: 'ru-RU',
   });
