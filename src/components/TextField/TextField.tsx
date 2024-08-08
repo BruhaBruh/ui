@@ -23,6 +23,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   right,
   isInvalid: isInvalidProp,
   isDisabled,
+  onChange,
   className,
   ...props
 }) => {
@@ -41,6 +42,7 @@ export const TextField: React.FC<TextFieldProps> = ({
       errorMessage,
       isInvalid: isInvalidProp,
       isDisabled,
+      onChange,
       ...props,
     },
     ref,

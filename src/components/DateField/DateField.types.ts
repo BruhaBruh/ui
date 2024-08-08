@@ -5,7 +5,7 @@ export type DateFieldProps = Omit<
   AriaDateFieldProps<DateValue>,
   'errorMessage'
 > &
-  Props<'span'> & {
+  Omit<Props<'span'>, 'onChange'> & {
     left?: React.ReactNode;
     right?: React.ReactNode;
     errorMessage?: string;

@@ -29,6 +29,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   increaseIcon,
   decreaseIcon,
   className,
+  onChange,
   ...props
 }) => {
   const ref = React.useRef<HTMLInputElement>(null);
@@ -51,7 +52,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
     groupProps,
     incrementButtonProps,
     decrementButtonProps,
-  } = useNumberField(props, state, ref);
+  } = useNumberField({ onChange, ...props }, state, ref);
 
   return (
     <span className={cn(fieldWrapperVariants(), className)}>

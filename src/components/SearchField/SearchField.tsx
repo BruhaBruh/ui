@@ -27,6 +27,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   isDisabled,
   closeIcon,
   className,
+  onChange,
   ...props
 }) => {
   const ref = React.useRef<HTMLInputElement>(null);
@@ -46,6 +47,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
       errorMessage,
       isInvalid: isInvalidProp,
       isDisabled,
+      onChange,
       ...props,
     },
     state,

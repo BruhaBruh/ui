@@ -3,7 +3,7 @@ import React from 'react';
 import { AriaNumberFieldProps } from 'react-aria';
 
 export type NumberFieldProps = Omit<AriaNumberFieldProps, 'errorMessage'> &
-  Omit<Props<'input'>, 'autoCapitalize'> & {
+  Omit<Props<'input'>, 'autoCapitalize' | 'onChange'> & {
     left?: React.ReactNode;
     right?: React.ReactNode;
     increaseIcon?: React.ReactNode;

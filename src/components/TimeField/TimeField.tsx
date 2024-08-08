@@ -24,6 +24,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
   right,
   isInvalid: isInvalidProp,
   isDisabled,
+  onChange,
   className,
   ...props
 }) => {
@@ -46,6 +47,7 @@ export const TimeField: React.FC<TimeFieldProps> = ({
       errorMessage,
       isInvalid: isInvalidProp,
       isDisabled,
+      onChange,
       ...props,
     },
     state,

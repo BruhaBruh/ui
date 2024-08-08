@@ -5,7 +5,7 @@ export type TimeFieldProps = Omit<
   AriaTimeFieldProps<TimeValue>,
   'errorMessage'
 > &
-  Props<'span'> & {
+  Omit<Props<'span'>, 'onChange'> & {
     left?: React.ReactNode;
     right?: React.ReactNode;
     errorMessage?: string;

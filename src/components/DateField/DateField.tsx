@@ -25,11 +25,13 @@ export const DateField: React.FC<DateFieldProps> = ({
   right,
   isInvalid: isInvalidProp,
   isDisabled,
+  onChange,
   className,
   ...props
 }) => {
   const ref = React.useRef<HTMLSpanElement>(null);
   const state = useDateFieldState({
+    onChange,
     ...props,
     locale: 'ru-RU',
     createCalendar,

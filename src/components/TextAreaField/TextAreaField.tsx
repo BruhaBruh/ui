@@ -1,5 +1,6 @@
 'use client';
 
+import { Props } from '@/types';
 import { cn } from '@/utility';
 import React from 'react';
 import { useTextField } from 'react-aria';
@@ -23,6 +24,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
   right,
   isInvalid: isInvalidProp,
   isDisabled,
+  onChange,
   className,
   ...props
 }) => {
@@ -41,6 +43,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
       errorMessage,
       isInvalid: isInvalidProp,
       isDisabled,
+      onChange,
       ...props,
     },
     ref as unknown as React.RefObject<HTMLInputElement>,
@@ -80,7 +83,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
             <textarea
               type="text"
               {...props}
-              {...(inputProps as TextAreaFieldProps)}
+              {...(inputProps as Props<'textarea'>)}
               rows={1}
               className={fieldInputVariants()}
               ref={ref}
