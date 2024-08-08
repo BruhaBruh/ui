@@ -78,6 +78,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
               type="text"
               min={minValue}
               max={maxValue}
+              placeholder=""
               {...props}
               {...inputProps}
               className={fieldInputVariants()}

@@ -64,6 +64,7 @@ export const TextField: React.FC<TextFieldProps> = ({
           <span className={cn(fieldInputWrapperVariants(), className)}>
             <input
               type="text"
+              placeholder=""
               {...props}
               {...inputProps}
               className={fieldInputVariants()}

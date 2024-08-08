@@ -82,6 +82,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
           <span className={cn(fieldInputWrapperVariants(), className)}>
             <textarea
               type="text"
+              placeholder=""
               {...props}
               {...(inputProps as Props<'textarea'>)}
               rows={1}

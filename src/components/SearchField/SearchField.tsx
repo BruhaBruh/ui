@@ -73,6 +73,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
           <span className={cn(fieldInputWrapperVariants(), className)}>
             <input
               type="text"
+              placeholder=""
               {...props}
               {...inputProps}
               className={fieldInputVariants()}

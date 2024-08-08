@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './Checkbox';
 export * from './Container';
 export * from './DateField';
 export * from './Modal';
