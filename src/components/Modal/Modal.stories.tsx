@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Button } from '../Button';
 import { Modal } from './Modal';
+import { ModalProps } from './Modal.types';
 
 // @ts-ignore
 const _: React.ReactNode = null;
@@ -99,4 +101,26 @@ export const MaxHeight: Story = {
       </Modal.Content>
     </Modal>
   ),
+};
+
+const ControlledModal: React.FC<ModalProps> = (args) => {
+  const [isOpen, setIsOpen] = React.useState(true);
+
+  return (
+    <>
+      <Button onPress={() => setIsOpen(true)}>Open Modal</Button>
+      <Modal {...args} isOpen={isOpen} onOpenChange={setIsOpen}>
+        <Modal.Content className="flex flex-col">
+          <h3 className="text-lg font-semibold tracking-wider mb-1">
+            Some Title
+          </h3>
+          Wow! It&apos;s modal
+        </Modal.Content>
+      </Modal>
+    </>
+  );
+};
+
+export const Controlled: Story = {
+  render: (args) => <ControlledModal {...args} />,
 };

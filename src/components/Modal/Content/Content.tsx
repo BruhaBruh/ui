@@ -18,21 +18,14 @@ export const ModalContent: React.FC<ModalContentProps> = ({
   ...props
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
-  const [state] = useModal((s) => s.state);
-  const [overlayProps] = useModal((s) => s.overlayProps);
+  const { state, overlayProps } = useModal();
   const { modalProps, underlayProps } = useModalOverlay(
     { isDismissable: true, ...props },
-    state || {
-      isOpen: false,
-      setOpen: () => {},
-      open: () => {},
-      close: () => {},
-      toggle: () => {},
-    },
+    state,
     ref,
   );
 
-  if (!state?.isOpen) return null;
+  if (!state.isOpen) return null;
 
   return (
     <Overlay>
@@ -58,6 +51,7 @@ export const ModalContent: React.FC<ModalContentProps> = ({
                 <path d="m6 6 12 12" />
               </svg>
             )}
+            <span className="sr-only">Закрыть модальное окно</span>
           </ModalCloseButton>
           {children}
         </div>
