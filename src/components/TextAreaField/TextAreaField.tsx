@@ -79,7 +79,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
               {label}
             </label>
           )}
-          <span className={cn(fieldInputWrapperVariants(), className)}>
+          <span className={fieldInputWrapperVariants()}>
             <textarea
               type="text"
               placeholder=""

@@ -10,7 +10,7 @@ export const modalUnderlayVariants = cva([
 
 export const modalContentVariants = cva([
   'bg-background text-background relative max-w-[calc(100vw-2rem)] sm:max-w-sm w-full max-h-[calc(100vh-8rem)] overflow-hidden',
-  'py-md px-lg rounded-2xl',
+  'p-lg rounded-2xl',
   'animate-fade-in',
   'relative',
 ]);

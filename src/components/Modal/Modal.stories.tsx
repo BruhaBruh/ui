@@ -15,6 +15,7 @@ const meta: Meta<typeof Modal> = {
     <Modal {...args}>
       <Modal.Trigger>Open Modal</Modal.Trigger>
       <Modal.Content>
+        <Modal.CloseButton />
         <h3 className="text-lg font-semibold tracking-wider mb-1">
           Some Title
         </h3>
@@ -35,6 +36,7 @@ export const MaxHeight: Story = {
     <Modal {...args}>
       <Modal.Trigger>Open Modal</Modal.Trigger>
       <Modal.Content className="flex flex-col">
+        <Modal.CloseButton />
         <h3 className="text-lg font-semibold tracking-wider mb-1">
           Some Title
         </h3>
@@ -111,6 +113,7 @@ const ControlledModal: React.FC<ModalProps> = (args) => {
       <Button onPress={() => setIsOpen(true)}>Open Modal</Button>
       <Modal {...args} isOpen={isOpen} onOpenChange={setIsOpen}>
         <Modal.Content className="flex flex-col">
+          <Modal.CloseButton />
           <h3 className="text-lg font-semibold tracking-wider mb-1">
             Some Title
           </h3>

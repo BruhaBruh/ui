@@ -73,7 +73,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
               {label}
             </label>
           )}
-          <span className={cn(fieldInputWrapperVariants(), className)}>
+          <span className={fieldInputWrapperVariants()}>
             <input
               type="text"
               min={minValue}

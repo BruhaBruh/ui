@@ -14,6 +14,6 @@ export const modalCloseButtonVariants = cva([
   '[&>svg]:min-w-4',
   '[&>svg]:h-4',
   'absolute',
-  'top-3xs right-3xs',
+  'top-xs right-xs',
   'hover:scale-125',
 ]);

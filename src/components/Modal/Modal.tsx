@@ -1,4 +1,5 @@
 import React from 'react';
+import { ModalCloseButton } from './CloseButton';
 import { ModalContent } from './Content';
 import { ModalProvider } from './Modal.context';
 import { ModalProps } from './Modal.types';
@@ -12,4 +13,5 @@ ModalImpl.displayName = '@bruhabruh/ui/Modal';
 export const Modal = Object.assign(ModalImpl, {
   Trigger: ModalTrigger,
   Content: ModalContent,
+  CloseButton: ModalCloseButton,
 });
