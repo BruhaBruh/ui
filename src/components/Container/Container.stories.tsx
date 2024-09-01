@@ -7,20 +7,14 @@ import { ContainerProps } from './Container.types';
 const _: React.ReactNode = null;
 
 const colors = [
+  'background',
   'primary',
   'secondary',
   'brand',
-  'brandSubdued',
-  'accent',
-  'accentSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies ContainerProps['color'][];
 
 const meta: Meta<typeof Container> = {
@@ -42,45 +36,45 @@ const meta: Meta<typeof Container> = {
   args: {
     children: (
       <>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           1
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           2
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           3
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           4
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           5
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           6
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           7
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           8
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           9
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           10
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           11
         </div>
-        <div className="h-48 bg-critical-subdued text-xl font-semibold flex items-center justify-center">
+        <div className="h-48 bg-critical-subdued typography-h3 flex items-center justify-center">
           12
         </div>
       </>
     ),
-    color: 'primary',
+    color: 'background',
   },
   parameters: {
     layout: 'fullscreen',

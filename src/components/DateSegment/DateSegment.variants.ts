@@ -12,7 +12,7 @@ export const dateSegmentVariants = cva(
   {
     variants: {
       isPlaceholder: {
-        true: 'text-disabled',
+        true: 'text-placeholder',
         false: 'text-foreground',
       },
     },

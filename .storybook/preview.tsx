@@ -1,9 +1,9 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { Unstyled } from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import '../src/clear.css';
 import './index.css';
-import './theme.generated.css';
 
 const preview: Preview = {
   parameters: {
@@ -40,11 +40,14 @@ const preview: Preview = {
         dark: 'dark',
       },
       defaultTheme: 'light',
+      parentSelector: 'body'
     }),
     (Story) => (
-      <React.StrictMode>
-        <Story />
-      </React.StrictMode>
+      <Unstyled>
+        <React.StrictMode>
+          <Story />
+        </React.StrictMode>
+      </Unstyled>
     ),
   ],
 

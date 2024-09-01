@@ -1,163 +1,87 @@
-radius: 0.75rem # 12px
-spacing: 0.25rem # 8px
+dependencies:
+  - core
+selectors:
+  - '[data-theme="dark"]'
 
-ref:
-  palette:
-    white: '#FFFFFF'
-    black: '#00030e'
-    blue: '#3772FF'
-    green: '#20BF55'
-    yellow: '#F0E100'
-    red: '#BA1F33'
+background:
+  - overlay: '{color.neutral.1000}'
+  - background: '{color.neutral.1000}'
+  - primary: '{color.neutral.100}'
+  - primary-hover: '{color.neutral.150}'
+  - secondary: '{color.neutral.950}'
+  - secondary-hover: '{color.neutral.900}'
+  - brand: '{color.blue.500}'
+  - brand-hover: '{color.blue.550}'
+  - brand-subdued: '{color.blue.200}'
+  - brand-subdued-hover: '{color.blue.250}'
+  - info: '{color.blue.500}'
+  - info-hover: '{color.blue.550}'
+  - info-subdued: '{color.blue.200}'
+  - info-subdued-hover: '{color.blue.250}'
+  - success: '{color.green.500}'
+  - success-hover: '{color.green.600}'
+  - success-subdued: '{color.green.200}'
+  - success-subdued-hover: '{color.green.250}'
+  - caution: '{color.orange.500}'
+  - caution-hover: '{color.orange.550}'
+  - caution-subdued: '{color.orange.200}'
+  - caution-subdued-hover: '{color.orange.250}'
+  - critical: '{color.red.500}'
+  - critical-hover: '{color.red.600}'
+  - critical-subdued: '{color.red.200}'
+  - critical-subdued-hover: '{color.red.250}'
+  - disabled: '{color.neutral.700}'
 
-  radius:
-    none: 0px
-    3xs: calc(${radius} - 12px)
-    2xs: calc(${radius} - 8px)
-    xs: calc(${radius} - 4px)
-    sm: calc(${radius} - 2px)
-    DEFAULT: ${radius}
-    md: calc(${radius} + 2px)
-    lg: calc(${radius} + 4px)
-    xl: calc(${radius} + 8px)
-    2xl: calc(${radius} + 12px)
-    3xl: calc(${radius} + 20px)
-    full: 9999px
+text:
+  - foreground: '{color.neutral.100}'
+  - secondary: '{color.neutral.200}'
+  - brand: '{color.blue.400}'
+  - info: '{color.blue.400}'
+  - success: '{color.green.400}'
+  - caution: '{color.orange.400}'
+  - critical: '{color.red.400}'
+  - disabled: '{color.neutral.300}'
+  - placeholder: '{text.disabled}'
+  - on-primary: '{color.neutral.1000}'
+  - on-secondary: '{color.neutral.100}'
+  - on-brand: '{color.neutral.100}'
+  - on-brand-subdued: '{color.blue.1000}'
+  - on-info: '{color.neutral.100}'
+  - on-info-subdued: '{color.blue.1000}'
+  - on-success: '{color.neutral.1000}'
+  - on-success-subdued: '{color.green.1000}'
+  - on-caution: '{color.neutral.1000}'
+  - on-caution-subdued: '{color.orange.1000}'
+  - on-critical: '{color.neutral.100}'
+  - on-critical-subdued: '{color.red.1000}'
+  - on-disabled: '{color.neutral.300}'
 
-  spacing:
-    0: 0px
-    0.25: calc(${spacing} / 4)
-    0.5: calc(${spacing} / 2)
-    1: ${spacing}
-    2: calc(${spacing} * 2)
-    3: calc(${spacing} * 3)
-    4: calc(${spacing} * 4)
-    5: calc(${spacing} * 5)
-    6: calc(${spacing} * 6)
-    7: calc(${spacing} * 7)
-    8: calc(${spacing} * 8)
-    9: calc(${spacing} * 9)
-    10: calc(${spacing} * 10)
-    11: calc(${spacing} * 11)
-    12: calc(${spacing} * 12)
-    14: calc(${spacing} * 13)
-    16: calc(${spacing} * 16)
-    20: calc(${spacing} * 20)
-    24: calc(${spacing} * 24)
-    28: calc(${spacing} * 28)
-    32: calc(${spacing} * 32)
-    36: calc(${spacing} * 36)
-    40: calc(${spacing} * 40)
-    44: calc(${spacing} * 44)
-    48: calc(${spacing} * 48)
-    52: calc(${spacing} * 52)
-    56: calc(${spacing} * 56)
-    60: calc(${spacing} * 60)
-    64: calc(${spacing} * 64)
-    72: calc(${spacing} * 72)
-    80: calc(${spacing} * 80)
-    96: calc(${spacing} * 96)
+border:
+  - primary: '{color.neutral.600}'
+  - secondary: '{color.neutral.750}'
+  - disabled: '{color.neutral.900}'
+  - brand: '{color.blue.850}'
+  - info: '{color.blue.850}'
+  - success: '{color.green.850}'
+  - caution: '{color.orange.850}'
+  - critical: '{color.red.850}'
 
-sys:
-  color:
-    background:
-      background: ${black.1000}
-      primary: ${white.1000}
-      primaryHover: ${white.950}
-      secondary: ${white.200}
-      secondaryHover: ${white.250}
-      brand: ${blue.800}
-      brandHover: ${blue.850}
-      brandSubdued: ${blue.300}
-      brandSubduedHover: ${blue.400}
-      accent: ${blue.800}
-      accentHover: ${blue.850}
-      accentSubdued: ${blue.300}
-      accentSubduedHover: ${blue.400}
-      info: ${blue.800}
-      infoHover: ${blue.850}
-      infoSubdued: ${blue.300}
-      infoSubduedHover: ${blue.400}
-      success: ${green.600}
-      successHover: ${green.650}
-      successSubdued: ${green.300}
-      successSubduedHover: ${green.400}
-      caution: ${yellow.600}
-      cautionHover: ${yellow.650}
-      cautionSubdued: ${yellow.300}
-      cautionSubduedHover: ${yellow.350}
-      critical: ${red.700}
-      criticalHover: ${red.600}
-      criticalSubdued: ${red.300}
-      criticalSubduedHover: ${red.400}
-      disabled: ${white.200}
-    text:
-      foreground: ${white.1000}
-      secondary: ${white.900}
-      brand: ${blue.500s}
-      accent: ${blue.500s}
-      info: ${blue.500s}
-      success: ${green.600s}
-      caution: ${yellow.650}
-      critical: ${red.450s}
-      disabled: ${white.800}
-      placeholder: ${white.700}
-      onPrimary: ${black.1000}
-      onSecondary: ${white.1000}
-      onBrand: ${white.1000}
-      onBrandSubdued: ${white.1000}
-      onAccent: ${white.1000}
-      onAccentSubdued: ${white.1000}
-      onInfo: ${white.1000}
-      onInfoSubdued: ${white.1000}
-      onSuccess: ${black.1000}
-      onSuccessSubdued: ${white.1000}
-      onCaution: ${black.1000}
-      onCautionSubdued: ${white.1000}
-      onCritical: ${white.1000}
-      onCriticalSubdued: ${white.1000}
-      onDisabled: ${white.700}
-    border:
-      primary: ${white.400}
-      secondary: ${white.300}
-      brand: ${blue.400}
-      accent: ${blue.400}
-      info: ${blue.400}
-      success: ${green.400}
-      caution: ${yellow.400}
-      critical: ${red.400}
-      disabled: ${white.200}
-    ring:
-      primary: ${white.400}
-      secondary: ${white.300}
-      brand: ${blue.400}
-      accent: ${blue.400}
-      info: ${blue.400}
-      success: ${green.400}
-      caution: ${yellow.400}
-      critical: ${red.400}
-      disabled: ${white.200}
-    outline:
-      primary: ${white.400}
-      secondary: ${white.300}
-      brand: ${blue.400}
-      accent: ${blue.400}
-      info: ${blue.400}
-      success: ${green.400}
-      caution: ${yellow.400}
-      critical: ${red.400}
-      disabled: ${white.200}
+outline:
+  - primary: '{color.neutral.600}'
+  - secondary: '{color.neutral.750}'
+  - disabled: '{color.neutral.900}'
+  - brand: '{color.blue.850}'
+  - info: '{color.blue.850}'
+  - success: '{color.green.850}'
+  - caution: '{color.orange.850}'
+  - critical: '{color.red.850}'
 
-  spacing:
-    3xs: ${0.5}
-    2xs: ${1}
-    xs: ${2}
-    sm: ${3}
-    md: ${4}
-    lg: ${6}
-    xl: ${8}
-    2xl: ${10}
-    3xl: ${12}
-    4xl: ${16}
-    5xl: ${20}
-    6xl: ${24}
+ring:
+  - primary: '{color.neutral.600}'
+  - secondary: '{color.neutral.750}'
+  - disabled: '{color.neutral.900}'
+  - brand: '{color.blue.850}'
+  - info: '{color.blue.850}'
+  - success: '{color.green.850}'
+  - caution: '{color.orange.850}'
+  - critical: '{color.red.850}'

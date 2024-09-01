@@ -1,54 +1,10 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
+import { RadiusPresentation } from './radius-presentation';
 
 <Meta title="Theme/Desing Tokens/Radius" />
 
-<div className="flex items-center justify-evenly">
-  <div
-    children="None"
-    className="h-16 w-16 rounded-none border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="3XS"
-    className="h-16 w-16 rounded-3xs border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="2XS"
-    className="h-16 w-16 rounded-2xs border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="XS"
-    className="h-16 w-16 rounded-xs border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="SM"
-    className="h-16 w-16 rounded-sm border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="Base"
-    className="h-16 w-16 rounded-sm border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="MD"
-    className="h-16 w-16 rounded-md border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="LG"
-    className="h-16 w-16 rounded-lg border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="XL"
-    className="h-16 w-16 rounded-xl border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="2XL"
-    className="h-16 w-16 rounded-2xl border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="3XL"
-    className="h-16 w-16 rounded-3xl border border-primary font-bold flex items-center justify-center"
-  />
-  <div
-    children="Full"
-    className="h-16 w-16 rounded-full border border-primary font-bold flex items-center justify-center"
-  />
-</div>
+<Unstyled>
+  <h1 className='typography-h1 mb-2'>Radius</h1>
+
+  <RadiusPresentation radiuses={['none', '3xs', '2xs', 'xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', 'full']}/>
+</Unstyled>

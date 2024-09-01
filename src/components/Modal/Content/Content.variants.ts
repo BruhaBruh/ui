@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const modalUnderlayVariants = cva([
   'fixed inset-0',
   'z-100',
-  'bg-black-300 backdrop-blur-sm',
+  'bg-[rgb(from_var(--pw-bg-overlay)_r_g_b_/_25%)]',
   'flex items-center justify-center',
   'animate-fade-in',
 ]);

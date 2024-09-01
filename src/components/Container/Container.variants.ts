@@ -12,29 +12,14 @@ export const containerVariants = cva(
   {
     variants: {
       color: {
-        primary: ['text-foreground', 'before:bg-background'],
+        background: ['text-foreground', 'before:bg-background'],
+        primary: ['text-on-primary', 'before:bg-primary'],
         secondary: ['text-on-secondary', 'before:bg-secondary'],
-        brand: ['text-on-brand', 'before:bg-brand'],
-        brandSubdued: ['text-on-brand-subdued', 'before:bg-brand-subdued'],
-        accent: ['text-on-accent', 'before:bg-accent'],
-        accentSubdued: ['text-on-accent-subdued', 'before:bg-accent-subdued'],
-        info: ['text-on-info', 'before:bg-info'],
-        infoSubdued: ['text-on-info-subdued', 'before:bg-info-subdued'],
-        success: ['text-on-success', 'before:bg-success'],
-        successSubdued: [
-          'text-on-success-subdued',
-          'before:bg-success-subdued',
-        ],
-        caution: ['text-on-caution', 'before:bg-caution'],
-        cautionSubdued: [
-          'text-on-caution-subdued',
-          'before:bg-caution-subdued',
-        ],
-        critical: ['text-on-critical', 'before:bg-critical'],
-        criticalSubdued: [
-          'text-on-critical-subdued',
-          'before:bg-critical-subdued',
-        ],
+        brand: ['text-on-brand-midnight', 'before:bg-brand-midnight'],
+        info: ['text-on-info-midnight', 'before:bg-info-midnight'],
+        success: ['text-on-success-midnight', 'before:bg-success-midnight'],
+        caution: ['text-on-caution-midnight', 'before:bg-caution-midnight'],
+        critical: ['text-on-critical-midnight', 'before:bg-critical-midnight'],
       },
     },
     defaultVariants: {

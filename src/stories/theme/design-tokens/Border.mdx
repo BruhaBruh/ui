@@ -1,85 +1,21 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
+import { BorderPresentation } from './border-presentation';
 
 <Meta title="Theme/Desing Tokens/Border" />
 
-### Light
+<Unstyled>
+  <h1 className='typography-h1 mb-2'>Border Colors</h1>
 
-<div className="grid gap-2 grid-cols-9 bg-background text-foreground border border-primary p-2 rounded-xl">
-  <div
-    children="Primary"
-    className="h-10 border-2 border-solid border-primary rounded font-bold flex items-center justify-center"
+  <BorderPresentation 
+    borders={[
+      'primary', 
+      'secondary',
+      'disabled',
+      'brand',
+      'info', 
+      'success', 
+      'caution',
+      'critical', 
+    ]}
   />
-  <div
-    children="Secondary"
-    className="h-10 border-2 border-solid border-secondary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Brand"
-    className="h-10 border-2 border-solid border-brand rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Accent"
-    className="h-10 border-2 border-solid border-accent rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Info"
-    className="h-10 border-2 border-solid border-info rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Success"
-    className="h-10 border-2 border-solid border-success rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Caution"
-    className="h-10 border-2 border-solid border-caution rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Critical"
-    className="h-10 border-2 border-solid border-critical rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Disabled"
-    className="h-10 border-2 border-solid border-disabled rounded font-bold flex items-center justify-center"
-  />
-</div>
-
-### Dark
-
-<div className="grid gap-2 grid-cols-9 dark bg-background text-foreground border border-primary p-2 rounded-xl">
-  <div
-    children="Primary"
-    className="h-10 border-2 border-solid border-primary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Secondary"
-    className="h-10 border-2 border-solid border-secondary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Brand"
-    className="h-10 border-2 border-solid border-brand rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Accent"
-    className="h-10 border-2 border-solid border-accent rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Info"
-    className="h-10 border-2 border-solid border-info rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Success"
-    className="h-10 border-2 border-solid border-success rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Caution"
-    className="h-10 border-2 border-solid border-caution rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Critical"
-    className="h-10 border-2 border-solid border-critical rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Disabled"
-    className="h-10 border-2 border-solid border-disabled rounded font-bold flex items-center justify-center"
-  />
-</div>
+</Unstyled>

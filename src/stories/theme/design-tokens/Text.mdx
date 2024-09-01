@@ -1,339 +1,75 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
+import { TextPresentation } from './text-presentation';
 
 <Meta title="Theme/Desing Tokens/Text" />
 
-### Foreground
+<Unstyled>
+  <h1 className='typography-h1 mb-2'>Text Colors</h1>
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Foreground"
-      className="h-10 bg-background text-foreground rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Foreground"
-      className="h-10 bg-background text-foreground rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Foreground</h2>
 
-### Primary
+  <TextPresentation color='foreground' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Primary"
-      className="h-10 bg-primary text-on-primary rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Primary"
-      className="h-10 bg-primary text-on-primary rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Primary</h2>
 
-### Secondary
+  <TextPresentation color='on-primary' className='bg-primary' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Secondary"
-      className="h-10 text-secondary rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Secondary"
-      className="h-10 bg-secondary text-on-secondary rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Secondary"
-      className="h-10 text-secondary rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Secondary"
-      className="h-10 bg-secondary text-on-secondary rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Secondary</h2>
 
-### Brand
+  <TextPresentation color='secondary' />
+  <TextPresentation color='on-secondary' className='bg-secondary' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Brand"
-      className="h-10 text-brand rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Brand"
-      className="h-10 bg-brand text-on-brand rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Brand"
-      className="h-10 text-brand rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Brand"
-      className="h-10 bg-brand text-on-brand rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Brand</h2>
 
-### Brand Subdued
+  <TextPresentation color='brand' />
+  <TextPresentation color='on-brand' className='bg-brand' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Brand Subdued"
-      className="h-10 bg-brand-subdued text-on-brand-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Brand Subdued"
-      className="h-10 bg-brand-subdued text-on-brand-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Brand Subdued</h2>
 
-### Accent
+  <TextPresentation color='on-brand-subdued' className='bg-brand-subdued' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Accent"
-      className="h-10 text-brand rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Accent"
-      className="h-10 bg-accent text-on-accent rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Accent"
-      className="h-10 text-accent rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Accent"
-      className="h-10 bg-accent text-on-accent rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Info</h2>
 
-### Accent Subdued
+  <TextPresentation color='info' />
+  <TextPresentation color='on-info' className='bg-info' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Accent Subdued"
-      className="h-10 bg-accent-subdued text-on-accent-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Accent Subdued"
-      className="h-10 bg-accent-subdued text-on-accent-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Info Subdued</h2>
 
-### Info
+  <TextPresentation color='on-info-subdued' className='bg-info-subdued' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Info"
-      className="h-10 text-info rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Info"
-      className="h-10 bg-info text-on-info rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Info"
-      className="h-10 text-info rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Info"
-      className="h-10 bg-info text-on-info rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Success</h2>
 
-### Info Subdued
+  <TextPresentation color='success' />
+  <TextPresentation color='on-success' className='bg-success' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Info Subdued"
-      className="h-10 bg-info-subdued text-on-info-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Info Subdued"
-      className="h-10 bg-info-subdued text-on-info-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Success Subdued</h2>
 
-### Success
+  <TextPresentation color='on-success-subdued' className='bg-success-subdued' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Success"
-      className="h-10 text-success rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Success"
-      className="h-10 bg-success text-on-success rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Success"
-      className="h-10 text-success rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Success"
-      className="h-10 bg-success text-on-success rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Caution</h2>
 
-### Success Subdued
+  <TextPresentation color='caution' />
+  <TextPresentation color='on-caution' className='bg-caution' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Success Subdued"
-      className="h-10 bg-success-subdued text-on-success-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Success Subdued"
-      className="h-10 bg-success-subdued text-on-success-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Caution Subdued</h2>
 
-### Caution
+  <TextPresentation color='on-caution-subdued' className='bg-caution-subdued' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Caution"
-      className="h-10 text-caution rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Caution"
-      className="h-10 bg-caution text-on-caution rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Caution"
-      className="h-10 text-caution rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Caution"
-      className="h-10 bg-caution text-on-caution rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Critical</h2>
 
-### Caution Subdued
+  <TextPresentation color='critical' />
+  <TextPresentation color='on-critical' className='bg-critical' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Caution Subdued"
-      className="h-10 bg-caution-subdued text-on-caution-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Caution Subdued"
-      className="h-10 bg-caution-subdued text-on-caution-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Critical Subdued</h2>
 
-### Critical
+  <TextPresentation color='on-critical-subdued' className='bg-critical-subdued' />
 
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Critical"
-      className="h-10 text-critical rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Critical"
-      className="h-10 bg-critical text-on-critical rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Critical"
-      className="h-10 text-critical rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Critical"
-      className="h-10 bg-critical text-on-critical rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Disabled</h2>
 
-### Critical Subdued
+  <TextPresentation color='disabled' />
+  <TextPresentation color='on-disabled' className='bg-disabled' />
 
-<div className="grid grid-cols-2 gap-2">
-  <div className="grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Critical Subdued"
-      className="h-10 bg-critical-subdued text-on-critical-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-1 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="On Critical Subdued"
-      className="h-10 bg-critical-subdued text-on-critical-subdued rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <h2 className='typography-h2 mb-2'>Placeholder</h2>
 
-### Disabled
-
-<div className="grid grid-cols-1 gap-2">
-  <div className="grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Disabled"
-      className="h-10 text-disabled rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Disabled"
-      className="h-10 bg-disabled text-on-disabled rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-  <div className="dark grid grid-cols-2 gap-2 p-2 bg-background text-foreground rounded-xl border border-primary">
-    <div
-      children="Disabled"
-      className="h-10 text-disabled rounded font-bold flex items-center justify-center border border-primary"
-    />
-    <div
-      children="On Disabled"
-      className="h-10 bg-disabled text-on-disabled rounded font-bold flex items-center justify-center border border-primary"
-    />
-  </div>
-</div>
+  <TextPresentation color='placeholder' />
+</Unstyled>

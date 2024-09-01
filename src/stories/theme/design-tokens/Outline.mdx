@@ -1,85 +1,21 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
+import { OutlinePresentation } from './outline-presentation';
 
 <Meta title="Theme/Desing Tokens/Outline" />
 
-### Light
+<Unstyled>
+  <h1 className='typography-h1 mb-2'>Outline Colors</h1>
 
-<div className="grid gap-2 grid-cols-9 bg-background text-foreground border border-primary p-2 rounded-xl">
-  <div
-    children="Primary"
-    className="h-10 outline outline-2 outline-primary rounded font-bold flex items-center justify-center"
+  <OutlinePresentation 
+    outlines={[
+      'primary', 
+      'secondary',
+      'disabled',
+      'brand',
+      'info', 
+      'success', 
+      'caution',
+      'critical', 
+    ]}
   />
-  <div
-    children="Secondary"
-    className="h-10 outline outline-2 outline-secondary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Brand"
-    className="h-10 outline outline-2 outline-brand rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Accent"
-    className="h-10 outline outline-2 outline-accent rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Info"
-    className="h-10 outline outline-2 outline-info rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Success"
-    className="h-10 outline outline-2 outline-success rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Caution"
-    className="h-10 outline outline-2 outline-caution rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Critical"
-    className="h-10 outline outline-2 outline-critical rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Disabled"
-    className="h-10 outline outline-2 outline-disabled rounded font-bold flex items-center justify-center"
-  />
-</div>
-
-### Dark
-
-<div className="grid gap-2 grid-cols-9 dark bg-background text-foreground border border-primary p-2 rounded-xl">
-  <div
-    children="Primary"
-    className="h-10 outline outline-2 outline-primary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Secondary"
-    className="h-10 outline outline-2 outline-secondary rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Brand"
-    className="h-10 outline outline-2 outline-brand rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Accent"
-    className="h-10 outline outline-2 outline-accent rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Info"
-    className="h-10 outline outline-2 outline-info rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Success"
-    className="h-10 outline outline-2 outline-success rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Caution"
-    className="h-10 outline outline-2 outline-caution rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Critical"
-    className="h-10 outline outline-2 outline-critical rounded font-bold flex items-center justify-center"
-  />
-  <div
-    children="Disabled"
-    className="h-10 outline outline-2 outline-disabled rounded font-bold flex items-center justify-center"
-  />
-</div>
+</Unstyled>

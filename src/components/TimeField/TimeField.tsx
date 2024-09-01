@@ -26,11 +26,15 @@ export const TimeField: React.FC<TimeFieldProps> = ({
   isDisabled,
   onChange,
   className,
+  minValue,
+  maxValue,
   ...props
 }) => {
   const ref = React.useRef<HTMLSpanElement>(null);
   const state = useTimeFieldState({
     onChange,
+    minValue,
+    maxValue,
     ...props,
     locale: 'ru-RU',
   });

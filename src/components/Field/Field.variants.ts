@@ -15,23 +15,46 @@ export const fieldVariants = cva(
     '[&_svg]:h-5',
     'font-medium whitespace-nowrap',
     'transition-colors',
-    'focus-within:outline-none focus-within:ring-[3px]',
+    'focus-within:outline-none focus-within:ring-[3px] ring-brand',
+    'border border-2',
   ],
   {
     variants: {
       isInvalid: {
-        true: ['ring-2 ring-critical'],
-        false: ['ring-brand'],
+        true: [],
+        false: [],
       },
       isDisabled: {
-        true: ['bg-disabled', 'text-disabled'],
-        false: ['bg-secondary', 'text-on-secondary'],
+        true: ['text-disabled'],
+        false: ['text-foreground ring-brand'],
       },
     },
     defaultVariants: {
       isInvalid: false,
       isDisabled: false,
     },
+    compoundVariants: [
+      {
+        isInvalid: true,
+        isDisabled: true,
+        className: 'border-critical',
+      },
+      {
+        isInvalid: false,
+        isDisabled: true,
+        className: 'border-disabled',
+      },
+      {
+        isInvalid: true,
+        isDisabled: false,
+        className: 'border-critical',
+      },
+      {
+        isInvalid: false,
+        isDisabled: false,
+        className: 'border-secondary',
+      },
+    ],
   },
 );
 
@@ -42,7 +65,7 @@ export const fieldContentVariants = cva([
 
 export const fieldLabelVariants = cva([
   'text-sm',
-  'text-placeholder',
+  'text-secondary',
   'font-semibold',
   'truncate',
   'select-none',
@@ -71,7 +94,7 @@ export const fieldInputWrapperVariants = cva(
 );
 
 export const fieldInputVariants = cva([
-  'bg-transparent text-foreground',
+  'bg-transparent text-on-secondary',
   'placeholder:text-placeholder',
   'outline-none resize-none h-max flex-1',
 ]);
