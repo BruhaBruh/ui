@@ -88,14 +88,26 @@ typography:
       fontSize: '{font-size.md}'
       fontWeight: '{font-weight.medium}'
       lineHeight: '{line-height.snug}'
-  - p:
+  - body1:
+      fontSize: '{font-size.lg}'
+      fontWeight: '{font-weight.normal}'
+      lineHeight: '{line-height.normal}'
+  - body2:
       fontSize: '{font-size.md}'
+      fontWeight: '{font-weight.normal}'
+      lineHeight: '{line-height.normal}'
+  - body2:
+      fontSize: '{font-size.sm}'
       fontWeight: '{font-weight.normal}'
       lineHeight: '{line-height.normal}'
   - large:
       fontSize: '{font-size.lg}'
       fontWeight: '{font-weight.semibold}'
-      lineHeight: '{line-height.snug}'
+      lineHeight: '{line-height.tight}'
+  - medium:
+      fontSize: '{font-size.md}'
+      fontWeight: '{font-weight.medium}'
+      lineHeight: '{line-height.tight}'
   - small:
       fontSize: '{font-size.sm}'
       fontWeight: '{font-weight.medium}'

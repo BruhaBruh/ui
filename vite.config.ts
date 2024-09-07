@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 import { sync } from 'glob';
 import path from 'node:path';
+import postcssHoverMediaFeature from 'postcss-hover-media-feature';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
@@ -24,7 +25,7 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [tailwindcss, autoprefixer],
+      plugins: [tailwindcss, autoprefixer, postcssHoverMediaFeature],
     },
   },
   build: {

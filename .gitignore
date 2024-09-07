@@ -28,3 +28,5 @@ dist-ssr
 tsconfig.tsbuildinfo
 
 vite.config.ts.timestamp*
+
+.temp/

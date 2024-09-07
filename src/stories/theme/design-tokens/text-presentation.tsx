@@ -24,7 +24,7 @@ export const TextPresentation: React.FC<{
             {color[0].toUpperCase() + color.slice(1)}
           </h3>
           {!rawColor.startsWith('on') && (
-            <p className="typography-small">On Light</p>
+            <p className="typography-medium">On Light</p>
           )}
         </div>
       </div>
@@ -40,7 +40,7 @@ export const TextPresentation: React.FC<{
             {color[0].toUpperCase() + color.slice(1)}
           </h3>
           {!rawColor.startsWith('on') && (
-            <p className="typography-small">On Dark</p>
+            <p className="typography-medium">On Dark</p>
           )}
         </div>
       </div>

@@ -1,0 +1,65 @@
+'use client';
+
+import { useMergedRefs } from '@/hooks/use-merge-refs';
+import { cn } from '@/utility';
+import { Slot } from '@radix-ui/react-slot';
+import React from 'react';
+import { useButton } from 'react-aria';
+import { IconSlot } from '../../utilities';
+import { IconButtonProps } from './IconButton.types';
+import {
+  iconButtonContainerVariants,
+  iconButtonIconVariants,
+} from './IconButton.variants';
+
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    {
+      variant,
+      color,
+      size,
+      disabled,
+      isDisabled,
+      className,
+      asChild,
+      children,
+      ...props
+    },
+    forwardedRef,
+  ) => {
+    const ref = useMergedRefs(forwardedRef);
+
+    const { buttonProps } = useButton(
+      {
+        elementType: asChild ? (children as React.ElementType) : 'button',
+        isDisabled: isDisabled || disabled,
+        ...props,
+      },
+      ref,
+    );
+
+    const Comp = asChild ? Slot : 'button';
+
+    return (
+      <Comp
+        type="button"
+        {...buttonProps}
+        ref={ref}
+        className={cn(
+          iconButtonContainerVariants({
+            color,
+            variant,
+            size,
+            isDisabled: isDisabled || disabled,
+          }),
+          className,
+        )}
+      >
+        <IconSlot className={iconButtonIconVariants({ color, variant, size })}>
+          {children}
+        </IconSlot>
+      </Comp>
+    );
+  },
+);
+IconButton.displayName = '@bruhabruh/ui/IconButton';

@@ -1,4 +1,3 @@
-import { withThemeByClassName } from '@storybook/addon-themes';
 import { Unstyled } from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 import React from 'react';
@@ -24,7 +23,15 @@ const preview: Preview = {
             '*'
           ],
           'Components', [
-            'Controls', ['Button', 'TextField', "TextAreaField", 'NumberField', 'SearchField', 'TimeField', 'DateField', '*'], 
+            'Controls', [
+              'Buttons', [
+                'Button',
+                'ToggleButton',
+                'IconButton',
+                'ToggleIconButton'
+              ],
+              '*'
+            ], 
             '*'
           ],
         ],
@@ -34,14 +41,14 @@ const preview: Preview = {
   },
 
   decorators: [
-    withThemeByClassName({
-      themes: {
-        light: 'light',
-        dark: 'dark',
-      },
-      defaultTheme: 'light',
-      parentSelector: 'body'
-    }),
+    // withThemeByClassName({
+    //   themes: {
+    //     light: 'light',
+    //     dark: 'dark',
+    //   },
+    //   defaultTheme: 'light',
+    //   parentSelector: 'body'
+    // }),
     (Story) => (
       <Unstyled>
         <React.StrictMode>

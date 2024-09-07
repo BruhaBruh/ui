@@ -24,7 +24,7 @@ export const BackgroundPresentation: React.FC<{
           <h3 className="typography-large">
             {color[0].toUpperCase() + color.slice(1)}
           </h3>
-          <p className="typography-small">On Light</p>
+          <p className="typography-medium">On Light</p>
         </div>
       </div>
       <div className="dark flex bg-background text-foreground border border-primary p-4 rounded-xl">
@@ -38,7 +38,7 @@ export const BackgroundPresentation: React.FC<{
           <h3 className="typography-large">
             {color[0].toUpperCase() + color.slice(1)}
           </h3>
-          <p className="typography-small">On Dark</p>
+          <p className="typography-medium">On Dark</p>
         </div>
       </div>
       {withHover && (
@@ -54,7 +54,7 @@ export const BackgroundPresentation: React.FC<{
               <h3 className="typography-large">
                 {color[0].toUpperCase() + color.slice(1)} Hover
               </h3>
-              <p className="typography-small">On Light</p>
+              <p className="typography-medium">On Light</p>
             </div>
           </div>
           <div className="dark flex bg-background text-foreground border border-primary p-4 rounded-xl">
@@ -68,7 +68,7 @@ export const BackgroundPresentation: React.FC<{
               <h3 className="typography-large">
                 {color[0].toUpperCase() + color.slice(1)} Hover
               </h3>
-              <p className="typography-small">On Dark</p>
+              <p className="typography-medium">On Dark</p>
             </div>
           </div>
         </>
