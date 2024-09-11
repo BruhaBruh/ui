@@ -59,7 +59,7 @@ const Icon = () => (
 );
 
 const meta: Meta<typeof ToggleIconButton> = {
-  title: 'Components/Controls/Buttons/ToggleIconButton',
+  title: 'Components/Buttons/ToggleIconButton',
   component: ToggleIconButton,
   argTypes: {
     children: {

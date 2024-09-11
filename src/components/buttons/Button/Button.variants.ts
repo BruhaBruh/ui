@@ -2,6 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const buttonContainerVariants = cva(
   [
+    'group',
     'inline-flex items-center justify-center',
     'transition',
     'select-none outline-none',
@@ -34,20 +35,24 @@ export const buttonContainerVariants = cva(
         criticalSubdued: ['ring-critical'],
       },
       size: {
-        sm: ['h-8 rounded-sm typography-small'],
-        md: ['h-10 rounded-md typography-medium'],
-        lg: ['h-12 rounded-lg typography-large'],
-      },
-      isDisabled: {
-        true: [],
-        false: [],
+        sm: [
+          'h-8 rounded-sm typography-small',
+          '[&>svg]:h-4 [&>svg]:w-4 [&>svg]:min-w-4',
+        ],
+        md: [
+          'h-10 rounded-md typography-medium',
+          '[&>svg]:h-5 [&>svg]:w-5 [&>svg]:min-w-5',
+        ],
+        lg: [
+          'h-12 rounded-lg typography-large',
+          '[&>svg]:h-6 [&>svg]:w-6 [&>svg]:min-w-6',
+        ],
       },
     },
     defaultVariants: {
       color: 'primary',
       variant: 'filled',
       size: 'md',
-      isDisabled: false,
     },
     compoundVariants: [
       //#region Filled
@@ -118,8 +123,8 @@ export const buttonContainerVariants = cva(
       },
       {
         variant: 'filled',
-        isDisabled: true,
-        className: 'bg-disabled text-on-disabled',
+        className:
+          'data-[disabled=true]:bg-disabled data-[disabled=true]:text-on-disabled',
       },
       //#endregion Filled
 
@@ -196,8 +201,8 @@ export const buttonContainerVariants = cva(
       },
       {
         variant: 'outlined',
-        isDisabled: true,
-        className: 'text-disabled border-disabled',
+        className:
+          'data-[disabled=true]:text-disabled data-[disabled=true]:border-disabled',
       },
       //#endregion Outlined
 
@@ -272,8 +277,7 @@ export const buttonContainerVariants = cva(
       },
       {
         variant: 'ghost',
-        isDisabled: true,
-        className: 'text-disabled',
+        className: 'data-[disabled=true]:text-disabled',
       },
       //#endregion Ghost
 
@@ -340,8 +344,7 @@ export const buttonContainerVariants = cva(
       },
       {
         variant: 'text',
-        isDisabled: true,
-        className: 'text-disabled',
+        className: 'data-[disabled=true]:text-disabled',
       },
       //#endregion Text
 
@@ -359,7 +362,7 @@ export const buttonContainerVariants = cva(
       {
         size: 'sm',
         variant: 'ghost',
-        className: 'px-xs',
+        className: 'px-xs [&>svg]:mr-3xs',
       },
       {
         size: 'sm',
@@ -382,7 +385,7 @@ export const buttonContainerVariants = cva(
       {
         size: 'md',
         variant: 'ghost',
-        className: 'px-sm',
+        className: 'px-sm [&>svg]:mr-2xs',
       },
       {
         size: 'md',
@@ -410,7 +413,7 @@ export const buttonContainerVariants = cva(
       {
         size: 'lg',
         variant: 'ghost',
-        className: 'px-md',
+        className: 'px-md [&>svg]:mr-xs',
       },
       //#endregion LG
     ],
@@ -425,20 +428,6 @@ export const buttonLabelVariants = cva(['truncate'], {
       ghost: [],
       text: [],
     },
-    color: {
-      primary: [],
-      secondary: [],
-      brand: [],
-      brandSubdued: [],
-      info: [],
-      infoSubdued: [],
-      success: [],
-      successSubdued: [],
-      caution: [],
-      cautionSubdued: [],
-      critical: [],
-      criticalSubdued: [],
-    },
     size: {
       sm: [],
       md: [],
@@ -446,7 +435,6 @@ export const buttonLabelVariants = cva(['truncate'], {
     },
   },
   defaultVariants: {
-    color: 'primary',
     variant: 'filled',
     size: 'md',
   },
@@ -517,66 +505,6 @@ export const buttonLabelVariants = cva(['truncate'], {
       size: 'lg',
       variant: 'text',
       className: 'px-xs',
-    },
-    //#endregion LG
-  ],
-});
-
-export const buttonIconVariants = cva([], {
-  variants: {
-    variant: {
-      filled: [],
-      outlined: [],
-      ghost: [],
-      text: [],
-    },
-    color: {
-      primary: [],
-      secondary: [],
-      brand: [],
-      brandSubdued: [],
-      info: [],
-      infoSubdued: [],
-      success: [],
-      successSubdued: [],
-      caution: [],
-      cautionSubdued: [],
-      critical: [],
-      criticalSubdued: [],
-    },
-    size: {
-      sm: ['h-4 w-4 min-w-4'],
-      md: ['h-5 w-5 min-w-5'],
-      lg: ['h-6 w-6 min-w-6'],
-    },
-  },
-  defaultVariants: {
-    color: 'primary',
-    variant: 'filled',
-    size: 'md',
-  },
-  compoundVariants: [
-    //#region SM
-    {
-      size: 'sm',
-      variant: 'ghost',
-      className: 'mr-3xs',
-    },
-    //#endregion SM
-
-    //#region MD
-    {
-      size: 'md',
-      variant: 'ghost',
-      className: 'mr-2xs',
-    },
-    //#endregion MD
-
-    //#region LG
-    {
-      size: 'lg',
-      variant: 'ghost',
-      className: 'mr-xs',
     },
     //#endregion LG
   ],

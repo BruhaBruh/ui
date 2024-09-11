@@ -31,7 +31,7 @@ const variants = [
 const sizes = ['sm', 'md', 'lg'] satisfies ButtonProps['size'][];
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Controls/Buttons/Button',
+  title: 'Components/Buttons/Button',
   component: Button,
   argTypes: {
     children: {

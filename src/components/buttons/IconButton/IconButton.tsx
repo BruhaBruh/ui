@@ -5,12 +5,8 @@ import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
-import { IconSlot } from '../../utilities';
 import { IconButtonProps } from './IconButton.types';
-import {
-  iconButtonContainerVariants,
-  iconButtonIconVariants,
-} from './IconButton.variants';
+import { iconButtonContainerVariants } from './IconButton.variants';
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
@@ -55,9 +51,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           className,
         )}
       >
-        <IconSlot className={iconButtonIconVariants({ color, variant, size })}>
-          {children}
-        </IconSlot>
+        {children}
       </Comp>
     );
   },

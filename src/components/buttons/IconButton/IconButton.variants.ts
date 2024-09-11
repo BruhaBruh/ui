@@ -34,9 +34,18 @@ export const iconButtonContainerVariants = cva(
         criticalSubdued: ['ring-critical'],
       },
       size: {
-        sm: ['h-8 w-8 min-w-8 rounded-sm'],
-        md: ['h-10 w-10 min-w-10 rounded-md'],
-        lg: ['h-12 w-12 min-w-12 rounded-lg'],
+        sm: [
+          'h-8 w-8 min-w-8 rounded-sm',
+          '[&>svg]:h-4 [&>svg]:w-4 [&>svg]:min-w-4',
+        ],
+        md: [
+          'h-10 w-10 min-w-10 rounded-md',
+          '[&>svg]:h-5 [&>svg]:w-5 [&>svg]:min-w-5',
+        ],
+        lg: [
+          'h-12 w-12 min-w-12 rounded-lg',
+          '[&>svg]:h-6 [&>svg]:w-6 [&>svg]:min-w-6',
+        ],
       },
       isDisabled: {
         true: [],
@@ -416,38 +425,3 @@ export const iconButtonContainerVariants = cva(
     ],
   },
 );
-
-export const iconButtonIconVariants = cva([], {
-  variants: {
-    variant: {
-      filled: [],
-      outlined: [],
-      ghost: [],
-      text: [],
-    },
-    color: {
-      primary: [],
-      secondary: [],
-      brand: [],
-      brandSubdued: [],
-      info: [],
-      infoSubdued: [],
-      success: [],
-      successSubdued: [],
-      caution: [],
-      cautionSubdued: [],
-      critical: [],
-      criticalSubdued: [],
-    },
-    size: {
-      sm: ['h-4 w-4 min-w-4'],
-      md: ['h-5 w-5 min-w-5'],
-      lg: ['h-6 w-6 min-w-6'],
-    },
-  },
-  defaultVariants: {
-    color: 'primary',
-    variant: 'filled',
-    size: 'md',
-  },
-});

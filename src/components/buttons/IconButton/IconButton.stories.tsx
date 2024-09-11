@@ -59,7 +59,7 @@ const Icon = () => (
 );
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Components/Controls/Buttons/IconButton',
+  title: 'Components/Buttons/IconButton',
   component: IconButton,
   argTypes: {
     children: {

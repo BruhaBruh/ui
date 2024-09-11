@@ -35,7 +35,7 @@ background:
 
 text:
   - foreground: '{color.neutral.1000}'
-  - secondary: '{color.neutral.650}'
+  - secondary: '{color.neutral.500}'
   - disabled: '{color.neutral.400}'
   - brand: '{color.blue.700}'
   - info: '{color.blue.700}'

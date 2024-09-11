@@ -31,7 +31,7 @@ const variants = [
 const sizes = ['sm', 'md', 'lg'] satisfies ToggleButtonProps['size'][];
 
 const meta: Meta<typeof ToggleButton> = {
-  title: 'Components/Controls/Buttons/ToggleButton',
+  title: 'Components/Buttons/ToggleButton',
   component: ToggleButton,
   argTypes: {
     children: {

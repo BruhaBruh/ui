@@ -2,14 +2,12 @@
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
-import { Slot } from '@radix-ui/react-slot';
+import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
-import { IconSlot } from '../../utilities';
 import { ButtonProps } from './Button.types';
 import {
   buttonContainerVariants,
-  buttonIconVariants,
   buttonLabelVariants,
 } from './Button.variants';
 
@@ -52,21 +50,27 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             color,
             variant,
             size,
-            isDisabled: isDisabled || disabled,
           }),
           className,
         )}
+        data-disabled={isDisabled || disabled}
       >
-        {icon && (
-          <IconSlot className={buttonIconVariants({ color, variant, size })}>
-            {icon}
-          </IconSlot>
-        )}
-        {children && (
-          <span className={buttonLabelVariants({ color, variant, size })}>
-            {children}
-          </span>
-        )}
+        {icon}
+        <Slottable>
+          {React.isValidElement(children) ? (
+            React.cloneElement(
+              children,
+              children.props,
+              <span className={cn(buttonLabelVariants({ variant, size }))}>
+                {children.props.children}
+              </span>,
+            )
+          ) : (
+            <span className={cn(buttonLabelVariants({ variant, size }))}>
+              {children}
+            </span>
+          )}
+        </Slottable>
       </Comp>
     );
   },

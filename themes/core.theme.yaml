@@ -96,13 +96,17 @@ typography:
       fontSize: '{font-size.md}'
       fontWeight: '{font-weight.normal}'
       lineHeight: '{line-height.normal}'
-  - body2:
+  - body3:
       fontSize: '{font-size.sm}'
+      fontWeight: '{font-weight.normal}'
+      lineHeight: '{line-height.normal}'
+  - body4:
+      fontSize: '{font-size.xs}'
       fontWeight: '{font-weight.normal}'
       lineHeight: '{line-height.normal}'
   - large:
       fontSize: '{font-size.lg}'
-      fontWeight: '{font-weight.semibold}'
+      fontWeight: '{font-weight.medium}'
       lineHeight: '{line-height.tight}'
   - medium:
       fontSize: '{font-size.md}'
