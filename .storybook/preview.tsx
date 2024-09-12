@@ -23,15 +23,19 @@ const preview: Preview = {
             '*'
           ],
           'Components', [
-            'Controls', [
-              'Buttons', [
-                'Button',
-                'ToggleButton',
-                'IconButton',
-                'ToggleIconButton'
-              ],
+            'Buttons', [
+              'Button',
+              'ToggleButton',
+              'IconButton',
+              'ToggleIconButton',
               '*'
-            ], 
+            ],
+            'Forms', [
+              'Radio',
+              'Checkbox',
+              'Switch',
+              '*'
+            ],
             '*'
           ],
         ],
