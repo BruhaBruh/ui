@@ -16,7 +16,7 @@ const splitProps = ({
   defaultSelected,
   isSelected,
   onChange,
-  value = '',
+  value,
   isDisabled,
   isReadOnly,
   isRequired,
