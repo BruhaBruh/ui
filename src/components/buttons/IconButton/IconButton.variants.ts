@@ -9,7 +9,7 @@ export const iconButtonContainerVariants = cva(
     'border-2',
     'border-transparent ring-transparent',
     'whitespace-nowrap',
-    'focus-visible:ring-[3px]',
+    'focus-visible:ring ring-brand',
   ],
   {
     variants: {
@@ -20,18 +20,18 @@ export const iconButtonContainerVariants = cva(
         text: ['hover:underline'],
       },
       color: {
-        primary: ['ring-primary'],
-        secondary: ['ring-secondary'],
-        brand: ['ring-brand'],
-        brandSubdued: ['ring-brand'],
-        info: ['ring-info'],
-        infoSubdued: ['ring-info'],
-        success: ['ring-success'],
-        successSubdued: ['ring-success'],
-        caution: ['ring-caution'],
-        cautionSubdued: ['ring-caution'],
-        critical: ['ring-critical'],
-        criticalSubdued: ['ring-critical'],
+        primary: [],
+        secondary: [],
+        brand: [],
+        brandSubdued: [],
+        info: [],
+        infoSubdued: [],
+        success: [],
+        successSubdued: [],
+        caution: [],
+        cautionSubdued: [],
+        critical: [],
+        criticalSubdued: [],
       },
       size: {
         sm: [
@@ -224,8 +224,7 @@ export const iconButtonContainerVariants = cva(
       {
         variant: 'ghost',
         color: 'brand',
-        className:
-          'text-brand hover:bg-brand-subdued hover:text-on-brand-subdued',
+        className: 'text-brand hover:bg-brand hover:text-on-brand',
       },
       {
         variant: 'ghost',
@@ -236,7 +235,7 @@ export const iconButtonContainerVariants = cva(
       {
         variant: 'ghost',
         color: 'info',
-        className: 'text-info hover:bg-info-subdued hover:text-on-info-subdued',
+        className: 'text-info hover:bg-info hover:text-on-info',
       },
       {
         variant: 'ghost',
@@ -246,8 +245,7 @@ export const iconButtonContainerVariants = cva(
       {
         variant: 'ghost',
         color: 'success',
-        className:
-          'text-success hover:bg-success-subdued hover:text-on-success-subdued',
+        className: 'text-success hover:bg-success hover:text-on-success',
       },
       {
         variant: 'ghost',
@@ -258,8 +256,7 @@ export const iconButtonContainerVariants = cva(
       {
         variant: 'ghost',
         color: 'caution',
-        className:
-          'text-caution hover:bg-caution-subdued hover:text-on-caution-subdued',
+        className: 'text-caution hover:bg-caution hover:text-on-caution',
       },
       {
         variant: 'ghost',
@@ -270,8 +267,7 @@ export const iconButtonContainerVariants = cva(
       {
         variant: 'ghost',
         color: 'critical',
-        className:
-          'text-critical hover:bg-critical-subdued hover:text-on-critical-subdued',
+        className: 'text-critical hover:bg-critical hover:text-on-critical',
       },
       {
         variant: 'ghost',

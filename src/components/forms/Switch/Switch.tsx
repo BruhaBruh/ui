@@ -8,7 +8,7 @@ import { useToggleState } from 'react-stately';
 import { SwitchProps } from './Switch.types';
 import {
   switchContainerVariants,
-  switchWrapperVariants,
+  switchThumbVariants,
 } from './Switch.variants';
 
 const splitProps = ({
@@ -65,38 +65,35 @@ const splitProps = ({
 };
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
-  ({ size, color, className, children, ...restProps }, forwardedRef) => {
+  ({ size, color, className, ...restProps }, forwardedRef) => {
     const ref = useMergedRefs(forwardedRef);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [ariaProps, props] = splitProps(restProps);
     const state = useToggleState(ariaProps);
-    const { isSelected, isDisabled, labelProps, inputProps } = useSwitch(
-      ariaProps,
-      state,
-      inputRef,
-    );
+    const { isSelected, isDisabled, isPressed, labelProps, inputProps } =
+      useSwitch(ariaProps, state, inputRef);
+
+    const Comp = ariaProps['aria-labelledby'] ? 'span' : 'label';
 
     return (
-      <label
+      <Comp
         {...labelProps}
         {...props}
         ref={ref}
         data-disabled={isDisabled || 'false'}
         data-selected={isSelected || 'false'}
-        className={cn(switchWrapperVariants({ size }), className)}
+        data-pressed={isPressed || 'false'}
+        className={cn(
+          switchContainerVariants({
+            size,
+            color,
+          }),
+          className,
+        )}
       >
-        <span
-          className={cn(
-            switchContainerVariants({
-              size,
-              color,
-            }),
-          )}
-        >
-          <input {...inputProps} className="sr-only" ref={inputRef} />
-        </span>
-        {children && <span>{children}</span>}
-      </label>
+        <input {...inputProps} className="sr-only" ref={inputRef} />
+        <span className={cn(switchThumbVariants({ size, color }))} />
+      </Comp>
     );
   },
 );

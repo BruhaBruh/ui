@@ -1,5 +1,5 @@
 import themePlugin from '@bruhabruh/theme';
-import { Config, PluginAPI } from 'tailwindcss/types/config';
+import { Config } from 'tailwindcss/types/config';
 
 const config = {
   content: ['./src/**/*.{ts,tsx,mdx}', './.storybook/**/*.{ts,tsx,mdx}'],
@@ -22,11 +22,8 @@ const config = {
   plugins: [
     themePlugin({
       prefix: 'pw',
-      content: './themes/*.theme.yaml',
+      content: './themes/**/*.theme.yaml',
     }),
-    ({ addVariant }: PluginAPI) => {
-      addVariant('starting', '@starting-style');
-    },
   ],
 } satisfies Config;
 

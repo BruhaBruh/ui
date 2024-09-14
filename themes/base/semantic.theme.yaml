@@ -1,63 +1,37 @@
-dependencies: []
+dependencies:
+  - core
 selectors:
   - :root
 
-color:
-  - neutral:
-      _generator:
-        type: neutral
-        base: '#292B33'
-  - blue:
-      _generator:
-        base: '#295CCC'
-  - green:
-      _generator:
-        base: '#29CC29'
-  - orange:
-      _generator:
-        base: '#CC9B29'
-  - red:
-      _generator:
-        base: '#CC2929'
+borderRadius:
+  - base: 0.75rem
+  - 4xs: '{border-radius.base} - 16px'
+  - 3.5xs: '{border-radius.base} - 14px'
+  - 3xs: '{border-radius.base} - 12px'
+  - 2.5xs: '{border-radius.base} - 10px'
+  - 2xs: '{border-radius.base} - 8px'
+  - 1.5xs: '{border-radius.base} - 6px'
+  - xs: '{border-radius.base} - 4px'
+  - sm: '{border-radius.base} - 2px'
+  - md: '{border-radius.base} + 2px'
+  - lg: '{border-radius.base} + 4px'
+  - xl: '{border-radius.base} + 8px'
+  - 2xl: '{border-radius.base} + 12px'
+  - 3xl: '{border-radius.base} + 20px'
 
 spacing:
-  - base: 0.25rem
-  - 0: 0px
-  - 0.25: '{spacing.base} / 4'
-  - 0.5: '{spacing.base} / 2'
-  - _generator:
-      start: 1
-      end: 16
-      valuePattern: '{spacing.base} * {i}'
-  - _generator:
-      start: 20
-      end: 64
-      step: 4
-      valuePattern: '{spacing.base} * {i}'
-  - 72: '{spacing.base} * 72'
-  - 80: '{spacing.base} * 80'
-  - 96: '{spacing.base} * 96'
-
-fontFamily:
-  - sans: 'Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
-  - serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
-  - mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
-
-fontSize:
-  - base: 1rem
-  - xs: '{font-size.base} - 4px'
-  - sm: '{font-size.base} - 2px'
-  - md: '{font-size.base}'
-  - lg: '{font-size.base} + 2px'
-  - xl: '{font-size.base} + 4px'
-  - 2xl: '{font-size.base} + 8px'
-  - 3xl: '{font-size.base} + 14px'
-  - 4xl: '{font-size.base} + 20px'
-  - 5xl: '{font-size.base} + 32px'
-  - 6xl: '{font-size.base} + 44px'
-  - 7xl: '{font-size.base} + 56px'
-  - 8xl: '{font-size.base} + 80px'
-  - 9xl: '{font-size.base} + 112px'
+  - 3xs: '{spacing.0.5}'
+  - 2xs: '{spacing.1}'
+  - xs: '{spacing.2}'
+  - sm: '{spacing.3}'
+  - md: '{spacing.4}'
+  - lg: '{spacing.6}'
+  - xl: '{spacing.8}'
+  - 2xl: '{spacing.10}'
+  - 3xl: '{spacing.12}'
+  - 4xl: '{spacing.16}'
+  - 5xl: '{spacing.20}'
+  - 6xl: '{spacing.24}'
 
 typography:
   - h1:
@@ -116,9 +90,3 @@ typography:
       fontSize: '{font-size.sm}'
       fontWeight: '{font-weight.medium}'
       lineHeight: '{line-height.tight}'
-
-zIndex:
-  - _generator:
-      start: 0
-      end: 300
-      step: 5

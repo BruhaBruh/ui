@@ -99,7 +99,7 @@ export const Playground: Story = {
 
 export const Colors: Story = {
   render: (args) => (
-    <RadioGroup size={args.size} label="Любимое животное">
+    <RadioGroup size={args.size} label="Colors">
       <Radio {...args} color="primary" value="primary">
         Primary
       </Radio>
