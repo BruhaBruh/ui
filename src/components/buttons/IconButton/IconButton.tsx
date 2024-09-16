@@ -46,10 +46,10 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
             color,
             variant,
             size,
-            isDisabled: isDisabled || disabled,
           }),
           className,
         )}
+        data-disabled={isDisabled || disabled}
       >
         {children}
       </Comp>

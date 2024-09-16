@@ -52,7 +52,7 @@
   "devDependencies": {
     "@bruhabruh/eslint-config": "^1.0.0",
     "@bruhabruh/prettier-config": "^1.1.0",
-    "@bruhabruh/theme": "^3.1.2",
+    "@bruhabruh/theme": "^3.3.0",
     "@bruhabruh/tsconfig": "^1.0.0",
     "@chromatic-com/storybook": "^1.8.0",
     "@commitlint/cli": "^19.4.1",

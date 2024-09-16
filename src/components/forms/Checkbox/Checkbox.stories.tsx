@@ -10,16 +10,10 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies CheckboxProps['color'][];
 
 const sizes = ['sm', 'md', 'lg'] satisfies CheckboxProps['size'][];
@@ -121,16 +115,10 @@ export const Colors: Story = {
     <div className="flex flex-col gap-xs">
       <Checkbox {...args} color="primary" />
       <Checkbox {...args} color="secondary" />
-      <Checkbox {...args} color="brand" />
-      <Checkbox {...args} color="brandSubdued" />
       <Checkbox {...args} color="info" />
-      <Checkbox {...args} color="infoSubdued" />
       <Checkbox {...args} color="success" />
-      <Checkbox {...args} color="successSubdued" />
       <Checkbox {...args} color="caution" />
-      <Checkbox {...args} color="cautionSubdued" />
       <Checkbox {...args} color="critical" />
-      <Checkbox {...args} color="criticalSubdued" />
       <Checkbox {...args} isDisabled />
     </div>
   ),

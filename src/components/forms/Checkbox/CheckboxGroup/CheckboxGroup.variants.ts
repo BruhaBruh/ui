@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const checkboxGroupVariants = cva(['flex flex-col gap-2xs'], {
+export const checkboxGroupVariants = cva(['flex flex-col gap-xs'], {
   variants: {
     size: {
       sm: [],

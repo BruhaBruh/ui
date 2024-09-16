@@ -78,6 +78,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
           )}
         >
           <input {...inputProps} className="sr-only" ref={inputRef} />
+          <span />
         </span>
         {children && <span>{children}</span>}
       </label>

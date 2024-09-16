@@ -5,20 +5,39 @@ selectors:
 color:
   - neutral:
       _generator:
-        type: neutral
-        base: '#292B33'
+        base: '#3A4454'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
   - blue:
       _generator:
-        base: '#295CCC'
+        base: '#2563eb'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
   - green:
       _generator:
-        base: '#29CC29'
-  - orange:
+        base: '#22c55e'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+  - yellow:
       _generator:
-        base: '#CC9B29'
+        base: '#fde047'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
   - red:
       _generator:
-        base: '#CC2929'
+        base: '#dc2626'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
 
 spacing:
   - base: 0.25rem
@@ -60,6 +79,10 @@ fontSize:
   - 9xl: '{font-size.base} + 112px'
 
 zIndex:
+  - _generator:
+      start: 1
+      end: 5
+      step: 1
   - _generator:
       start: 0
       end: 300

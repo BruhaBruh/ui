@@ -2,426 +2,447 @@ import { cva } from 'class-variance-authority';
 
 export const buttonContainerVariants = cva(
   [
-    'group',
+    'group relative',
     'inline-flex items-center justify-center',
-    'transition',
+    'transition duration-medium-2 easing-emphasized',
     'select-none outline-none',
     'disabled:pointer-events-none',
-    'border-2',
-    'border-transparent ring-transparent',
     'whitespace-nowrap',
-    'focus-visible:ring ring-brand',
+    'border-2 border-transparent',
+    'before:absolute before:inset-[-2px]',
+    'before:transition before:easing-emphasized before:duration-medium-1',
+    'after:absolute after:inset-[-4px] after:-z-5',
+    'after:transition after:easing-emphasized-accelerate after:duration-medium-1',
+    'after:hidden focus-visible:after:block',
+    'starting:after:ring-[6px] after:ring-[3px]',
+    'after:ring-secondary-container',
+    '[&>svg]:z-1',
   ],
   {
     variants: {
       variant: {
-        filled: [],
-        outlined: [],
-        ghost: [],
-        text: ['hover:underline'],
+        elevated: [
+          'bg-surface-container-low',
+          'elevation-1',
+          'hover:elevation-2',
+          'active:elevation-1',
+          'data-[disabled=true]:bg-on-surface/[0.12]',
+          'data-[disabled=true]:elevation-0',
+          'data-[disabled=true]:text-on-surface/[0.38]',
+        ],
+        filled: [
+          'hover:elevation-1',
+          'active:elevation-0',
+          'data-[disabled=true]:bg-on-surface/[0.12]',
+          'data-[disabled=true]:text-on-surface/[0.38]',
+        ],
+        tonal: [
+          'data-[disabled=true]:bg-on-surface/[0.12]',
+          'data-[disabled=true]:text-on-surface/[0.38]',
+        ],
+        outlined: [
+          'border-outline',
+          'data-[disabled=true]:text-on-surface/[0.38]',
+          'data-[disabled=true]:border-on-surface/[0.12]',
+        ],
+        text: ['data-[disabled=true]:text-on-surface/[0.38]'],
       },
       color: {
         primary: [],
         secondary: [],
-        brand: [],
-        brandSubdued: [],
         info: [],
-        infoSubdued: [],
         success: [],
-        successSubdued: [],
         caution: [],
-        cautionSubdued: [],
         critical: [],
-        criticalSubdued: [],
       },
       size: {
         sm: [
-          'h-8 rounded-sm typography-small',
+          'h-8 rounded-sm before:rounded-sm after:rounded-sm typography-small',
           '[&>svg]:h-4 [&>svg]:w-4 [&>svg]:min-w-4',
         ],
         md: [
-          'h-10 rounded-md typography-medium',
+          'h-10 rounded-md before:rounded-md after:rounded-md typography-medium',
           '[&>svg]:h-5 [&>svg]:w-5 [&>svg]:min-w-5',
         ],
         lg: [
-          'h-12 rounded-lg typography-large',
+          'h-12 rounded-lg before:rounded-lg after:rounded-lg typography-large',
           '[&>svg]:h-6 [&>svg]:w-6 [&>svg]:min-w-6',
         ],
       },
     },
     defaultVariants: {
       color: 'primary',
-      variant: 'filled',
+      variant: 'elevated',
       size: 'md',
     },
     compoundVariants: [
+      //#region Elevated
+      {
+        variant: 'elevated',
+        color: 'primary',
+        className: [
+          'text-primary-foreground',
+          'focus:before:bg-primary/[0.01]',
+          'hover:before:bg-primary/[0.08]',
+          'active:before:bg-primary/[0.1]',
+        ],
+      },
+      {
+        variant: 'elevated',
+        color: 'secondary',
+        className: [
+          'text-secondary-foreground',
+          'focus:before:bg-secondary/[0.01]',
+          'hover:before:bg-secondary/[0.08]',
+          'active:before:bg-secondary/[0.1]',
+        ],
+      },
+      {
+        variant: 'elevated',
+        color: 'info',
+        className: [
+          'text-info-foreground',
+          'focus:before:bg-info/[0.01]',
+          'hover:before:bg-info/[0.08]',
+          'active:before:bg-info/[0.1]',
+        ],
+      },
+      {
+        variant: 'elevated',
+        color: 'success',
+        className: [
+          'text-success-foreground',
+          'focus:before:bg-success/[0.01]',
+          'hover:before:bg-success/[0.08]',
+          'active:before:bg-success/[0.1]',
+        ],
+      },
+      {
+        variant: 'elevated',
+        color: 'caution',
+        className: [
+          'text-caution-foreground',
+          'focus:before:bg-caution/[0.01]',
+          'hover:before:bg-caution/[0.08]',
+          'active:before:bg-caution/[0.1]',
+        ],
+      },
+      {
+        variant: 'elevated',
+        color: 'critical',
+        className: [
+          'text-critical-foreground',
+          'focus:before:bg-critical/[0.01]',
+          'hover:before:bg-critical/[0.08]',
+          'active:before:bg-critical/[0.1]',
+        ],
+      },
+      //#endregion Elevated
+
       //#region Filled
       {
         variant: 'filled',
         color: 'primary',
-        className: 'bg-primary text-on-primary hover:bg-primary-hover',
+        className: [
+          'bg-primary text-on-primary',
+          'focus:before:bg-on-primary/[0.1]',
+          'hover:before:bg-on-primary/[0.08]',
+          'active:before:bg-on-primary/[0.1]',
+        ],
       },
       {
         variant: 'filled',
         color: 'secondary',
-        className: 'bg-secondary text-on-secondary hover:bg-secondary-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'brand',
-        className: 'bg-brand text-on-brand hover:bg-brand-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'brandSubdued',
-        className:
-          'bg-brand-subdued text-on-brand-subdued hover:bg-brand-subdued-hover',
+        className: [
+          'bg-secondary text-on-secondary',
+          'focus:before:bg-on-secondary/[0.1]',
+          'hover:before:bg-on-secondary/[0.08]',
+          'active:before:bg-on-secondary/[0.1]',
+        ],
       },
       {
         variant: 'filled',
         color: 'info',
-        className: 'bg-info text-on-info hover:bg-info-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'infoSubdued',
-        className:
-          'bg-info-subdued text-on-info-subdued hover:bg-info-subdued-hover',
+        className: [
+          'bg-info text-on-info',
+          'focus:before:bg-on-info/[0.1]',
+          'hover:before:bg-on-info/[0.08]',
+          'active:before:bg-on-info/[0.1]',
+        ],
       },
       {
         variant: 'filled',
         color: 'success',
-        className: 'bg-success text-on-success hover:bg-success-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'successSubdued',
-        className:
-          'bg-success-subdued text-on-success-subdued hover:bg-success-subdued-hover',
+        className: [
+          'bg-success text-on-success',
+          'focus:before:bg-on-success/[0.1]',
+          'hover:before:bg-on-success/[0.08]',
+          'active:before:bg-on-success/[0.1]',
+        ],
       },
       {
         variant: 'filled',
         color: 'caution',
-        className: 'bg-caution text-on-caution hover:bg-caution-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'cautionSubdued',
-        className:
-          'bg-caution-subdued text-on-caution-subdued hover:bg-caution-subdued-hover',
+        className: [
+          'bg-caution text-on-caution',
+          'focus:before:bg-on-caution/[0.1]',
+          'hover:before:bg-on-caution/[0.08]',
+          'active:before:bg-on-caution/[0.1]',
+        ],
       },
       {
         variant: 'filled',
         color: 'critical',
-        className: 'bg-critical text-on-critical hover:bg-critical-hover',
-      },
-      {
-        variant: 'filled',
-        color: 'criticalSubdued',
-        className:
-          'bg-critical-subdued text-on-critical-subdued hover:bg-critical-subdued-hover',
-      },
-      {
-        variant: 'filled',
-        className:
-          'data-[disabled=true]:bg-disabled data-[disabled=true]:text-on-disabled',
+        className: [
+          'bg-critical text-on-critical',
+          'focus:before:bg-on-critical/[0.1]',
+          'hover:before:bg-on-critical/[0.08]',
+          'active:before:bg-on-critical/[0.1]',
+        ],
       },
       //#endregion Filled
+
+      //#region Tonal
+      {
+        variant: 'tonal',
+        color: 'primary',
+        className: [
+          'bg-primary-container text-on-primary-container',
+          'focus:before:bg-on-primary-container/[0.1]',
+          'hover:before:bg-on-primary-container/[0.08]',
+          'active:before:bg-on-primary-container/[0.1]',
+        ],
+      },
+      {
+        variant: 'tonal',
+        color: 'secondary',
+        className: [
+          'bg-secondary-container text-on-secondary-container',
+          'focus:before:bg-on-secondary-container/[0.1]',
+          'hover:before:bg-on-secondary-container/[0.08]',
+          'active:before:bg-on-secondary-container/[0.1]',
+        ],
+      },
+      {
+        variant: 'tonal',
+        color: 'info',
+        className: [
+          'bg-info-container text-on-info-container',
+          'focus:before:bg-on-info-container/[0.1]',
+          'hover:before:bg-on-info-container/[0.08]',
+          'active:before:bg-on-info-container/[0.1]',
+        ],
+      },
+      {
+        variant: 'tonal',
+        color: 'success',
+        className: [
+          'bg-success-container text-on-success-container',
+          'focus:before:bg-on-success-container/[0.1]',
+          'hover:before:bg-on-success-container/[0.08]',
+          'active:before:bg-on-success-container/[0.1]',
+        ],
+      },
+      {
+        variant: 'tonal',
+        color: 'caution',
+        className: [
+          'bg-caution-container text-on-caution-container',
+          'focus:before:bg-on-caution-container/[0.1]',
+          'hover:before:bg-on-caution-container/[0.08]',
+          'active:before:bg-on-caution-container/[0.1]',
+        ],
+      },
+      {
+        variant: 'tonal',
+        color: 'critical',
+        className: [
+          'bg-critical-container text-on-critical-container',
+          'focus:before:bg-on-critical-container/[0.1]',
+          'hover:before:bg-on-critical-container/[0.08]',
+          'active:before:bg-on-critical-container/[0.1]',
+        ],
+      },
+      //#endregion Tonal
 
       //#region Outlined
       {
         variant: 'outlined',
         color: 'primary',
-        className:
-          'text-foreground hover:bg-primary hover:text-on-primary border-primary',
+        className: [
+          'text-primary-foreground',
+          'focus:border-primary',
+          'focus:before:bg-primary/[0.1]',
+          'hover:before:bg-primary/[0.08]',
+          'active:before:bg-primary/[0.1]',
+        ],
       },
       {
         variant: 'outlined',
         color: 'secondary',
-        className:
-          'text-secondary hover:bg-secondary hover:text-on-secondary border-secondary',
-      },
-      {
-        variant: 'outlined',
-        color: 'brand',
-        className: 'text-brand hover:bg-brand hover:text-on-brand border-brand',
-      },
-      {
-        variant: 'outlined',
-        color: 'brandSubdued',
-        className:
-          'text-brand hover:bg-brand-subdued hover:text-on-brand-subdued border-brand',
+        className: [
+          'text-secondary-foreground',
+          'focus:border-secondary',
+          'focus:before:bg-secondary/[0.1]',
+          'hover:before:bg-secondary/[0.08]',
+          'active:before:bg-secondary/[0.1]',
+        ],
       },
       {
         variant: 'outlined',
         color: 'info',
-        className: 'text-info hover:bg-info hover:text-on-info border-info',
-      },
-      {
-        variant: 'outlined',
-        color: 'infoSubdued',
-        className:
-          'text-info hover:bg-info-subdued hover:text-on-info-subdued border-info',
+        className: [
+          'text-info-foreground',
+          'focus:border-info',
+          'focus:before:bg-info/[0.1]',
+          'hover:before:bg-info/[0.08]',
+          'active:before:bg-info/[0.1]',
+        ],
       },
       {
         variant: 'outlined',
         color: 'success',
-        className:
-          'text-success hover:bg-success hover:text-on-success border-success',
-      },
-      {
-        variant: 'outlined',
-        color: 'successSubdued',
-        className:
-          'text-success hover:bg-success-subdued hover:text-on-success-subdued border-success',
+        className: [
+          'text-success-foreground',
+          'focus:border-success',
+          'focus:before:bg-success/[0.1]',
+          'hover:before:bg-success/[0.08]',
+          'active:before:bg-success/[0.1]',
+        ],
       },
       {
         variant: 'outlined',
         color: 'caution',
-        className:
-          'text-caution hover:bg-caution hover:text-on-caution border-caution',
-      },
-      {
-        variant: 'outlined',
-        color: 'cautionSubdued',
-        className:
-          'text-caution hover:bg-caution-subdued hover:text-on-caution-subdued border-caution',
+        className: [
+          'text-caution-foreground',
+          'focus:border-caution',
+          'focus:before:bg-caution/[0.1]',
+          'hover:before:bg-caution/[0.08]',
+          'active:before:bg-caution/[0.1]',
+        ],
       },
       {
         variant: 'outlined',
         color: 'critical',
-        className:
-          'text-critical hover:bg-critical hover:text-on-critical border-critical',
-      },
-      {
-        variant: 'outlined',
-        color: 'criticalSubdued',
-        className:
-          'text-critical hover:bg-critical-subdued hover:text-on-critical-subdued border-critical',
-      },
-      {
-        variant: 'outlined',
-        className:
-          'data-[disabled=true]:text-disabled data-[disabled=true]:border-disabled',
+        className: [
+          'text-critical-foreground',
+          'focus:border-critical',
+          'focus:before:bg-critical/[0.1]',
+          'hover:before:bg-critical/[0.08]',
+          'active:before:bg-critical/[0.1]',
+        ],
       },
       //#endregion Outlined
-
-      //#region Ghost
-      {
-        variant: 'ghost',
-        color: 'primary',
-        className: 'text-foreground hover:bg-primary hover:text-on-primary',
-      },
-      {
-        variant: 'ghost',
-        color: 'secondary',
-        className: 'text-secondary hover:bg-secondary hover:text-on-secondary',
-      },
-      {
-        variant: 'ghost',
-        color: 'brand',
-        className: 'text-brand hover:bg-brand hover:text-on-brand',
-      },
-      {
-        variant: 'ghost',
-        color: 'brandSubdued',
-        className:
-          'text-brand hover:bg-brand-subdued hover:text-on-brand-subdued',
-      },
-      {
-        variant: 'ghost',
-        color: 'info',
-        className: 'text-info hover:bg-info hover:text-on-info',
-      },
-      {
-        variant: 'ghost',
-        color: 'infoSubdued',
-        className: 'text-info hover:bg-info-subdued hover:text-on-info-subdued',
-      },
-      {
-        variant: 'ghost',
-        color: 'success',
-        className: 'text-success hover:bg-success hover:text-on-success',
-      },
-      {
-        variant: 'ghost',
-        color: 'successSubdued',
-        className:
-          'text-success hover:bg-success-subdued hover:text-on-success-subdued',
-      },
-      {
-        variant: 'ghost',
-        color: 'caution',
-        className: 'text-caution hover:bg-caution hover:text-on-caution',
-      },
-      {
-        variant: 'ghost',
-        color: 'cautionSubdued',
-        className:
-          'text-caution hover:bg-caution-subdued hover:text-on-caution-subdued',
-      },
-      {
-        variant: 'ghost',
-        color: 'critical',
-        className: 'text-critical hover:bg-critical hover:text-on-critical',
-      },
-      {
-        variant: 'ghost',
-        color: 'criticalSubdued',
-        className:
-          'text-critical hover:bg-critical-subdued hover:text-on-critical-subdued',
-      },
-      {
-        variant: 'ghost',
-        className: 'data-[disabled=true]:text-disabled',
-      },
-      //#endregion Ghost
 
       //#region Text
       {
         variant: 'text',
         color: 'primary',
-        className: 'text-foreground',
+        className: [
+          'text-primary-foreground',
+          'focus:before:bg-primary/[0.1]',
+          'hover:before:bg-primary/[0.08]',
+          'active:before:bg-primary/[0.1]',
+        ],
       },
       {
         variant: 'text',
         color: 'secondary',
-        className: 'text-secondary',
-      },
-      {
-        variant: 'text',
-        color: 'brand',
-        className: 'text-brand',
-      },
-      {
-        variant: 'text',
-        color: 'brandSubdued',
-        className: 'text-brand',
+        className: [
+          'text-secondary-foreground',
+          'focus:before:bg-secondary/[0.1]',
+          'hover:before:bg-secondary/[0.08]',
+          'active:before:bg-secondary/[0.1]',
+        ],
       },
       {
         variant: 'text',
         color: 'info',
-        className: 'text-info',
-      },
-      {
-        variant: 'text',
-        color: 'infoSubdued',
-        className: 'text-info',
+        className: [
+          'text-info-foreground',
+          'focus:before:bg-info/[0.1]',
+          'hover:before:bg-info/[0.08]',
+          'active:before:bg-info/[0.1]',
+        ],
       },
       {
         variant: 'text',
         color: 'success',
-        className: 'text-success',
-      },
-      {
-        variant: 'text',
-        color: 'successSubdued',
-        className: 'text-success',
+        className: [
+          'text-success-foreground',
+          'focus:before:bg-success/[0.1]',
+          'hover:before:bg-success/[0.08]',
+          'active:before:bg-success/[0.1]',
+        ],
       },
       {
         variant: 'text',
         color: 'caution',
-        className: 'text-caution',
-      },
-      {
-        variant: 'text',
-        color: 'cautionSubdued',
-        className: 'text-caution',
+        className: [
+          'text-caution-foreground',
+          'focus:before:bg-caution/[0.1]',
+          'hover:before:bg-caution/[0.08]',
+          'active:before:bg-caution/[0.1]',
+        ],
       },
       {
         variant: 'text',
         color: 'critical',
-        className: 'text-critical',
-      },
-      {
-        variant: 'text',
-        color: 'criticalSubdued',
-        className: 'text-critical',
-      },
-      {
-        variant: 'text',
-        className: 'data-[disabled=true]:text-disabled',
+        className: [
+          'text-critical-foreground',
+          'focus:before:bg-critical/[0.1]',
+          'hover:before:bg-critical/[0.08]',
+          'active:before:bg-critical/[0.1]',
+        ],
       },
       //#endregion Text
 
       //#region SM
       {
         size: 'sm',
-        variant: 'filled',
         className: 'px-sm',
-      },
-      {
-        size: 'sm',
-        variant: 'outlined',
-        className: 'px-sm',
-      },
-      {
-        size: 'sm',
-        variant: 'ghost',
-        className: 'px-xs [&>svg]:mr-3xs',
       },
       {
         size: 'sm',
         variant: 'text',
-        className: 'px-xs',
+        className:
+          'px-2xs [&>svg:first-child]:ml-3xs  [&>svg:last-child]:mr-3xs',
       },
       //#endregion SM
-
       //#region MD
       {
         size: 'md',
-        variant: 'filled',
         className: 'px-md',
-      },
-      {
-        size: 'md',
-        variant: 'outlined',
-        className: 'px-md',
-      },
-      {
-        size: 'md',
-        variant: 'ghost',
-        className: 'px-sm [&>svg]:mr-2xs',
       },
       {
         size: 'md',
         variant: 'text',
-        className: 'px-sm',
+        className:
+          'px-xs [&>svg:first-child]:ml-2xs  [&>svg:last-child]:mr-2xs',
       },
       //#endregion MD
-
       //#region LG
       {
         size: 'lg',
-        variant: 'filled',
-        className: 'px-lg',
-      },
-      {
-        size: 'lg',
-        variant: 'outlined',
         className: 'px-lg',
       },
       {
         size: 'lg',
         variant: 'text',
-        className: 'px-md',
-      },
-      {
-        size: 'lg',
-        variant: 'ghost',
-        className: 'px-md [&>svg]:mr-xs',
+        className: 'px-sm [&>svg:first-child]:ml-xs  [&>svg:last-child]:mr-xs',
       },
       //#endregion LG
     ],
   },
 );
 
-export const buttonLabelVariants = cva(['truncate'], {
+export const buttonLabelVariants = cva(['truncate z-1'], {
   variants: {
     variant: {
+      elevated: [],
       filled: [],
+      tonal: [],
       outlined: [],
-      ghost: [],
       text: [],
     },
     size: {
@@ -431,25 +452,14 @@ export const buttonLabelVariants = cva(['truncate'], {
     },
   },
   defaultVariants: {
-    variant: 'filled',
+    variant: 'elevated',
     size: 'md',
   },
   compoundVariants: [
     //#region SM
     {
       size: 'sm',
-      variant: 'filled',
       className: 'px-2xs',
-    },
-    {
-      size: 'sm',
-      variant: 'outlined',
-      className: 'px-2xs',
-    },
-    {
-      size: 'sm',
-      variant: 'ghost',
-      className: 'px-3xs',
     },
     {
       size: 'sm',
@@ -457,22 +467,10 @@ export const buttonLabelVariants = cva(['truncate'], {
       className: 'px-3xs',
     },
     //#endregion SM
-
     //#region MD
     {
       size: 'md',
-      variant: 'filled',
       className: 'px-xs',
-    },
-    {
-      size: 'md',
-      variant: 'outlined',
-      className: 'px-xs',
-    },
-    {
-      size: 'md',
-      variant: 'ghost',
-      className: 'px-2xs',
     },
     {
       size: 'md',
@@ -480,22 +478,10 @@ export const buttonLabelVariants = cva(['truncate'], {
       className: 'px-2xs',
     },
     //#endregion MD
-
     //#region LG
     {
       size: 'lg',
-      variant: 'filled',
       className: 'px-sm',
-    },
-    {
-      size: 'lg',
-      variant: 'outlined',
-      className: 'px-sm',
-    },
-    {
-      size: 'lg',
-      variant: 'ghost',
-      className: 'px-xs',
     },
     {
       size: 'lg',

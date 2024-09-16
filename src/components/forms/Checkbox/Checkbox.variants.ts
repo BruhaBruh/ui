@@ -1,12 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const checkboxWrapperVariants = cva(
-  [
-    'group',
-    'inline-flex items-center gap-xs',
-    'select-none transition',
-    'text-primary',
-  ],
+  ['group', 'inline-flex items-center gap-xs', 'select-none transition'],
   {
     variants: {
       size: {
@@ -24,33 +19,44 @@ export const checkboxWrapperVariants = cva(
 export const checkboxContainerVariants = cva(
   [
     'relative',
-    'border-2 border-primary',
+    'border-2 border-on-surface-variant',
     'inline-flex justify-center items-center',
-    'transition',
-    'ring-brand',
-    'group-has-[:focus-visible]:ring',
-    'group-data-[invalid=true]:ring group-data-[invalid=true]:ring-critical',
-    'overflow-hidden',
+    'transition duration-medium-2 easing-emphasized',
     'group-data-[disabled=false]:cursor-pointer',
-    'group-data-[disabled=true]:border-disabled-bg',
-    'group-data-[disabled]:group-data-[selected=true]:border-transparent',
-    'group-data-[disabled=true]:group-data-[selected=true]:bg-disabled',
-    'group-data-[disabled=true]:group-data-[selected=true]:text-on-disabled',
-    '[&>svg]:absolute [&>svg]:starting:scale-0 [&>svg]:scale-100 [&>svg]:transition-transform',
+    'group-data-[selected=true]:border-transparent',
+    'focus-within:before:bg-on-surface/[0.1]',
+    'hover:before:bg-on-surface/[0.08]',
+    'group-has-[:active]:before:bg-on-surface/[0.1]',
+    'before:absolute before:inset-[-2px]',
+    'before:transition before:easing-emphasized before:duration-medium-1',
+    'after:absolute after:inset-[-4px] after:-z-5',
+    'after:transition after:easing-emphasized-accelerate after:duration-medium-1',
+    'after:hidden group-has-[:focus-visible]:after:block group-data-[invalid=true]:after:block',
+    'starting:after:ring-[6px] after:ring-[3px]',
+    'group-data-[invalid=false]:after:ring-secondary-container',
+    'group-data-[invalid=true]:after:ring-critical-container',
+    'group-data-[disabled=true]:group-data-[selected=false]:border-on-surface/[0.38]',
+    'group-data-[disabled=true]:group-data-[selected=true]:bg-on-surface/[0.38]',
+    'group-data-[disabled=true]:group-data-[selected=true]:text-surface',
+    '[&>svg]:z-1',
+    '[&>svg]:absolute',
+    '[&>svg]:starting:scale-0 [&>svg]:scale-100',
+    '[&>svg]:transition-transform',
+    '[&>svg]:easing-emphasized-accelerate [&>svg]:duration-short-4',
   ],
   {
     variants: {
       size: {
         sm: [
-          'h-4 w-4 min-w-4 rounded-2xs',
+          'h-4 w-4 min-w-4 rounded-2xs before:rounded-2xs after:rounded-2xs',
           '[&>svg]:h-3 [&>svg]:w-3 [&>svg]:min-w-3',
         ],
         md: [
-          'h-5 w-5 min-w-5 rounded-1.5xs',
+          'h-5 w-5 min-w-5 rounded-1.5xs before:rounded-1.5xs after:rounded-1.5xs',
           '[&>svg]:h-4 [&>svg]:w-4 [&>svg]:min-w-4',
         ],
         lg: [
-          'h-6 w-6 min-w-6 rounded-xs',
+          'h-6 w-6 min-w-6 rounded-xs before:rounded-xs after:rounded-xs',
           '[&>svg]:h-5 [&>svg]:w-5 [&>svg]:min-w-5',
         ],
       },
@@ -58,50 +64,44 @@ export const checkboxContainerVariants = cva(
         primary: [
           'group-data-[selected=true]:bg-primary',
           'group-data-[selected=true]:text-on-primary',
+          'group-data-[selected=true]:focus-within:before:bg-primary/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-primary/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-primary/[0.1]',
         ],
         secondary: [
           'group-data-[selected=true]:bg-secondary',
           'group-data-[selected=true]:text-on-secondary',
-        ],
-        brand: [
-          'group-data-[selected=true]:bg-brand',
-          'group-data-[selected=true]:text-on-brand',
-        ],
-        brandSubdued: [
-          'group-data-[selected=true]:bg-brand-subdued',
-          'group-data-[selected=true]:text-on-brand-subdued',
+          'group-data-[selected=true]:focus-within:before:bg-secondary/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-secondary/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-secondary/[0.1]',
         ],
         info: [
           'group-data-[selected=true]:bg-info',
           'group-data-[selected=true]:text-on-info',
-        ],
-        infoSubdued: [
-          'group-data-[selected=true]:bg-info-subdued',
-          'group-data-[selected=true]:text-on-info-subdued',
+          'group-data-[selected=true]:focus-within:before:bg-info/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-info/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-info/[0.1]',
         ],
         success: [
           'group-data-[selected=true]:bg-success',
           'group-data-[selected=true]:text-on-success',
-        ],
-        successSubdued: [
-          'group-data-[selected=true]:bg-success-subdued',
-          'group-data-[selected=true]:text-on-success-subdued',
+          'group-data-[selected=true]:focus-within:before:bg-success/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-success/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-success/[0.1]',
         ],
         caution: [
           'group-data-[selected=true]:bg-caution',
           'group-data-[selected=true]:text-on-caution',
-        ],
-        cautionSubdued: [
-          'group-data-[selected=true]:bg-caution-subdued',
-          'group-data-[selected=true]:text-on-caution-subdued',
+          'group-data-[selected=true]:focus-within:before:bg-caution/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-caution/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-caution/[0.1]',
         ],
         critical: [
           'group-data-[selected=true]:bg-critical',
           'group-data-[selected=true]:text-on-critical',
-        ],
-        criticalSubdued: [
-          'group-data-[selected=true]:bg-critical-subdued',
-          'group-data-[selected=true]:text-on-critical-subdued',
+          'group-data-[selected=true]:focus-within:before:bg-critical/[0.1]',
+          'group-data-[selected=true]:hover:before:bg-critical/[0.08]',
+          'group-data-[selected=true]:group-has-[:active]:before:bg-critical/[0.1]',
         ],
       },
     },

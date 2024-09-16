@@ -9,22 +9,17 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies IconButtonProps['color'][];
 
 const variants = [
+  'elevated',
   'filled',
+  'tonal',
   'outlined',
-  'ghost',
   'text',
 ] satisfies IconButtonProps['variant'][];
 
@@ -118,7 +113,7 @@ const meta: Meta<typeof IconButton> = {
   args: {
     children: <Icon />,
     color: 'primary',
-    variant: 'filled',
+    variant: 'elevated',
     size: 'md',
     isDisabled: false,
   },
@@ -134,16 +129,10 @@ export const Colors: Story = {
     <div className="flex flex-wrap max-w-screen-sm items-center justify-center gap-xs">
       <IconButton {...args} color="primary" />
       <IconButton {...args} color="secondary" />
-      <IconButton {...args} color="brand" />
-      <IconButton {...args} color="brandSubdued" />
       <IconButton {...args} color="info" />
-      <IconButton {...args} color="infoSubdued" />
       <IconButton {...args} color="success" />
-      <IconButton {...args} color="successSubdued" />
       <IconButton {...args} color="caution" />
-      <IconButton {...args} color="cautionSubdued" />
       <IconButton {...args} color="critical" />
-      <IconButton {...args} color="criticalSubdued" />
       <IconButton {...args} disabled />
     </div>
   ),
@@ -172,9 +161,10 @@ export const Sizes: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div className="flex gap-xs">
+      <IconButton {...args} variant="elevated" />
       <IconButton {...args} variant="filled" />
+      <IconButton {...args} variant="tonal" />
       <IconButton {...args} variant="outlined" />
-      <IconButton {...args} variant="ghost" />
       <IconButton {...args} variant="text" />
     </div>
   ),

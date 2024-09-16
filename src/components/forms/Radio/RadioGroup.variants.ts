@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const radioGroupVariants = cva(['flex flex-col gap-2xs'], {
+export const radioGroupVariants = cva(['flex flex-col gap-xs'], {
   variants: {
     size: {
       sm: [],

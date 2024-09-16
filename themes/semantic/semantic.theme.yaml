@@ -1,10 +1,11 @@
 dependencies:
-  - core
+  - light
+  - dark
 selectors:
   - :root
 
 borderRadius:
-  - base: 0.75rem
+  - base: 1.25rem
   - 4xs: '{border-radius.base} - 16px'
   - 3.5xs: '{border-radius.base} - 14px'
   - 3xs: '{border-radius.base} - 12px'

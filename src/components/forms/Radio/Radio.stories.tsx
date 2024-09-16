@@ -10,16 +10,10 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies RadioProps['color'][];
 
 const sizes = ['sm', 'md', 'lg'] satisfies RadioProps['size'][];
@@ -106,35 +100,17 @@ export const Colors: Story = {
       <Radio {...args} color="secondary" value="secondary">
         Secondary
       </Radio>
-      <Radio {...args} color="brand" value="brand">
-        Brand
-      </Radio>
-      <Radio {...args} color="brandSubdued" value="brand-subdued">
-        Brand Subdued
-      </Radio>
       <Radio {...args} color="info" value="info">
         Info
-      </Radio>
-      <Radio {...args} color="infoSubdued" value="info-subdued">
-        Info Subdued
       </Radio>
       <Radio {...args} color="success" value="success">
         Success
       </Radio>
-      <Radio {...args} color="successSubdued" value="success-subdued">
-        Success Subdued
-      </Radio>
       <Radio {...args} color="caution" value="caution">
         Caution
       </Radio>
-      <Radio {...args} color="cautionSubdued" value="caution-subdued">
-        Caution Subdued
-      </Radio>
       <Radio {...args} color="critical" value="critical">
         Critical
-      </Radio>
-      <Radio {...args} color="criticalSubdued" value="critical-subdued">
-        Critical Subdued
       </Radio>
       <Radio {...args} isDisabled value="disabled">
         Disabled

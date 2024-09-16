@@ -9,16 +9,10 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies SwitchProps['color'][];
 
 const sizes = ['sm', 'md', 'lg'] satisfies SwitchProps['size'][];
@@ -111,7 +105,7 @@ export const Playground: Story = {
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="grid grid-cols-2 gap-xs">
+    <div className="grid gap-xs">
       <div className="flex items-center gap-xs typography-large">
         <Switch
           {...args}
@@ -135,42 +129,9 @@ export const Colors: Story = {
         </label>
       </div>
       <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
-          id="brand"
-          aria-labelledby="brand-label"
-          color="brand"
-        />
-        <label id="brand-label" htmlFor="brand">
-          Brand
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
-          id="brand-subdued"
-          aria-labelledby="brand-subdued-label"
-          color="brandSubdued"
-        />
-        <label id="brand-subdued-label" htmlFor="brand-subdued">
-          Brand Subdued
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
         <Switch {...args} id="info" aria-labelledby="info-label" color="info" />
         <label id="info-label" htmlFor="info">
           Info
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
-          id="info-subdued"
-          aria-labelledby="info-subdued-label"
-          color="infoSubdued"
-        />
-        <label id="info-subdued-label" htmlFor="info-subdued">
-          Info Subdued
         </label>
       </div>
       <div className="flex items-center gap-xs typography-large">
@@ -187,17 +148,6 @@ export const Colors: Story = {
       <div className="flex items-center gap-xs typography-large">
         <Switch
           {...args}
-          id="success-subdued"
-          aria-labelledby="success-subdued-label"
-          color="successSubdued"
-        />
-        <label id="success-subdued-label" htmlFor="success-subdued">
-          Success Subdued
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
           id="caution"
           aria-labelledby="caution-label"
           color="caution"
@@ -209,34 +159,12 @@ export const Colors: Story = {
       <div className="flex items-center gap-xs typography-large">
         <Switch
           {...args}
-          id="caution-subdued"
-          aria-labelledby="caution-subdued-label"
-          color="cautionSubdued"
-        />
-        <label id="caution-subdued-label" htmlFor="caution-subdued">
-          Caution Subdued
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
           id="critical"
           aria-labelledby="critical-label"
           color="critical"
         />
         <label id="critical-label" htmlFor="critical">
           Critical
-        </label>
-      </div>
-      <div className="flex items-center gap-xs typography-large">
-        <Switch
-          {...args}
-          id="critical-subdued"
-          aria-labelledby="critical-subdued-label"
-          color="criticalSubdued"
-        />
-        <label id="critical-subdued-label" htmlFor="critical-subdued">
-          Critical Subdued
         </label>
       </div>
       <div className="flex items-center gap-xs typography-large">

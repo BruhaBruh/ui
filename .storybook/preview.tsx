@@ -18,8 +18,11 @@ const preview: Preview = {
         method: 'alphabetical',
         order: [
           'Theme', [
-            'Palette', 
-            'Design Tokens', ['Background', 'Text', 'Border', 'Ring', 'Outline', 'Radius', '*'], 
+            'Palette', ['Light', 'Dark', '*'], 
+            'Elevation',
+            'Radius',
+            'Duration',
+            'Easing',
             '*'
           ],
           'Components', [

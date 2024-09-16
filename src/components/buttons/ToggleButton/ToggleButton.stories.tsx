@@ -9,22 +9,17 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies ToggleButtonProps['color'][];
 
 const variants = [
+  'elevated',
   'filled',
+  'tonal',
   'outlined',
-  'ghost',
   'text',
 ] satisfies ToggleButtonProps['selectedVariant'][];
 
@@ -157,16 +152,10 @@ export const Colors: Story = {
     <div className="flex flex-wrap max-w-screen-sm items-center justify-center gap-xs">
       <ToggleButton {...args} color="primary" />
       <ToggleButton {...args} color="secondary" />
-      <ToggleButton {...args} color="brand" />
-      <ToggleButton {...args} color="brandSubdued" />
       <ToggleButton {...args} color="info" />
-      <ToggleButton {...args} color="infoSubdued" />
       <ToggleButton {...args} color="success" />
-      <ToggleButton {...args} color="successSubdued" />
       <ToggleButton {...args} color="caution" />
-      <ToggleButton {...args} color="cautionSubdued" />
       <ToggleButton {...args} color="critical" />
-      <ToggleButton {...args} color="criticalSubdued" />
       <ToggleButton {...args} disabled />
     </div>
   ),

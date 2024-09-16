@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-background text-foreground typography-body1 min-h-screen font-sans antialiased relative;
+    @apply bg-surface text-on-surface typography-body1 min-h-screen font-sans antialiased relative;
   }
 
   .font-sans {

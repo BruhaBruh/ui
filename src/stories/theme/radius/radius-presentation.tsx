@@ -7,7 +7,7 @@ const RadiusPlate: React.FC<{
   return (
     <div
       className={cn(
-        'p-3 aspect-square border border-primary typography-h4 flex items-center justify-center',
+        'p-3 aspect-square border border-outline typography-h4 flex items-center justify-center',
         `rounded-${radius}`,
       )}
     >

@@ -9,22 +9,17 @@ const _: React.ReactNode = null;
 const colors = [
   'primary',
   'secondary',
-  'brand',
-  'brandSubdued',
   'info',
-  'infoSubdued',
   'success',
-  'successSubdued',
   'caution',
-  'cautionSubdued',
   'critical',
-  'criticalSubdued',
 ] satisfies ButtonProps['color'][];
 
 const variants = [
+  'elevated',
   'filled',
+  'tonal',
   'outlined',
-  'ghost',
   'text',
 ] satisfies ButtonProps['variant'][];
 
@@ -90,7 +85,7 @@ const meta: Meta<typeof Button> = {
   args: {
     children: 'Button',
     color: 'primary',
-    variant: 'filled',
+    variant: 'elevated',
     size: 'md',
     isDisabled: false,
   },
@@ -134,16 +129,10 @@ export const Colors: Story = {
     <div className="flex flex-wrap max-w-screen-sm items-center justify-center gap-xs">
       <Button {...args} color="primary" />
       <Button {...args} color="secondary" />
-      <Button {...args} color="brand" />
-      <Button {...args} color="brandSubdued" />
       <Button {...args} color="info" />
-      <Button {...args} color="infoSubdued" />
       <Button {...args} color="success" />
-      <Button {...args} color="successSubdued" />
       <Button {...args} color="caution" />
-      <Button {...args} color="cautionSubdued" />
       <Button {...args} color="critical" />
-      <Button {...args} color="criticalSubdued" />
       <Button {...args} disabled />
     </div>
   ),
@@ -181,9 +170,10 @@ export const Sizes: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div className="flex gap-xs">
+      <Button {...args} variant="elevated" />
       <Button {...args} variant="filled" />
+      <Button {...args} variant="tonal" />
       <Button {...args} variant="outlined" />
-      <Button {...args} variant="ghost" />
       <Button {...args} variant="text" />
     </div>
   ),
