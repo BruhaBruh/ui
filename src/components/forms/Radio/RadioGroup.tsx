@@ -72,7 +72,7 @@ const splitProps = ({
 };
 
 export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ size, asChild, className, children, ...restProps }, forwardedRef) => {
+  ({ asChild, className, children, ...restProps }, forwardedRef) => {
     const ref = useMergedRefs(forwardedRef);
     const [{ label, description, errorMessage, ...ariaProps }, props] =
       splitProps(restProps);
@@ -97,9 +97,9 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         {...props}
         {...radioGroupProps}
         ref={ref}
-        className={cn(radioGroupVariants({ size }), className)}
+        className={cn(radioGroupVariants(), className)}
       >
-        <span {...labelProps} className={cn(radioGroupLabelVariants({ size }))}>
+        <span {...labelProps} className={cn(radioGroupLabelVariants())}>
           {label}
         </span>
         <Slottable>
@@ -120,7 +120,7 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         {description && !(isInvalid || errorMessage) && (
           <span
             {...descriptionProps}
-            className={cn(radioGroupDescriptionVariants({ size }))}
+            className={cn(radioGroupDescriptionVariants())}
           >
             {description}
           </span>
@@ -129,7 +129,7 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
-              radioGroupDescriptionVariants({ size }),
+              radioGroupDescriptionVariants(),
               radioGroupErrorVariants(),
             )}
           >

@@ -15,15 +15,13 @@ const colors = [
   'critical',
 ] satisfies SwitchProps['color'][];
 
-const sizes = ['sm', 'md', 'lg'] satisfies SwitchProps['size'][];
-
 const meta: Meta<typeof Switch> = {
   title: 'Components/Forms/Switch',
   component: Switch,
   argTypes: {
     color: {
       table: {
-        type: { summary: 'ButtonProps[color]' },
+        type: { summary: 'SwitchProps[color]' },
         defaultValue: {
           summary: 'primary',
         },
@@ -31,17 +29,6 @@ const meta: Meta<typeof Switch> = {
       type: 'string',
       control: 'select',
       options: colors,
-    },
-    size: {
-      table: {
-        type: { summary: 'ButtonProps[size]' },
-        defaultValue: {
-          summary: 'md',
-        },
-      },
-      type: 'string',
-      control: 'select',
-      options: sizes,
     },
     isDisabled: {
       table: {
@@ -66,7 +53,6 @@ const meta: Meta<typeof Switch> = {
   },
   args: {
     color: 'primary',
-    size: 'md',
     isSelected: false,
     isDisabled: false,
   },
@@ -190,17 +176,89 @@ export const Colors: Story = {
   },
 };
 
-export const Sizes: Story = {
+export const WithIcon: Story = {
   render: (args) => (
-    <div className="flex flex-col items-center gap-xs">
-      <Switch {...args} aria-label="SM Size" size="sm" />
-      <Switch {...args} aria-label="MD Size" size="md" />
-      <Switch {...args} aria-label="LG Size" size="lg" />
+    <div className="grid gap-xs">
+      <div className="flex items-center gap-xs typography-large">
+        <Switch
+          {...args}
+          id="selected-icon"
+          aria-labelledby="selected-icon-label"
+          selectedIcon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          }
+        />
+        <label id="selected-icon-label" htmlFor="selected-icon">
+          Selected Icon
+        </label>
+      </div>
+      <div className="flex items-center gap-xs typography-large">
+        <Switch
+          {...args}
+          id="unselected-icon"
+          aria-labelledby="unselected-icon-label"
+          unselectedIcon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          }
+        />
+        <label id="unselected-icon-label" htmlFor="unselected-icon">
+          Unselected Icon
+        </label>
+      </div>
+      <div className="flex items-center gap-xs typography-large">
+        <Switch
+          {...args}
+          id="both-icons"
+          aria-labelledby="both-icons-label"
+          selectedIcon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          }
+          unselectedIcon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          }
+        />
+        <label id="both-icons-label" htmlFor="both-icons">
+          Both Icons
+        </label>
+      </div>
     </div>
   ),
-  parameters: {
-    controls: {
-      exclude: /size/g,
-    },
-  },
 };

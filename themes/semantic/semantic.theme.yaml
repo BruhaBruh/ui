@@ -5,7 +5,7 @@ selectors:
   - :root
 
 borderRadius:
-  - base: 1.25rem
+  - base: 0.75rem
   - 4xs: '{border-radius.base} - 16px'
   - 3.5xs: '{border-radius.base} - 14px'
   - 3xs: '{border-radius.base} - 12px'

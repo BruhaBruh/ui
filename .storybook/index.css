@@ -17,6 +17,10 @@
     font-variation-settings: 'slnt' 0;
   }
 
+  svg {
+    stroke-width: 3px;
+  }
+
   /* * {
     outline: 1px solid red !important;
   } */

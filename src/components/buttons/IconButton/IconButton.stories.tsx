@@ -23,8 +23,6 @@ const variants = [
   'text',
 ] satisfies IconButtonProps['variant'][];
 
-const sizes = ['sm', 'md', 'lg'] satisfies IconButtonProps['size'][];
-
 const Icon = () => (
   <>
     <svg
@@ -32,7 +30,6 @@ const Icon = () => (
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
@@ -88,17 +85,6 @@ const meta: Meta<typeof IconButton> = {
       control: 'select',
       options: variants,
     },
-    size: {
-      table: {
-        type: { summary: 'IconButtonProps[size]' },
-        defaultValue: {
-          summary: 'md',
-        },
-      },
-      type: 'string',
-      control: 'select',
-      options: sizes,
-    },
     isDisabled: {
       table: {
         type: { summary: 'IconButtonProps[isDisabled]' },
@@ -114,7 +100,6 @@ const meta: Meta<typeof IconButton> = {
     children: <Icon />,
     color: 'primary',
     variant: 'elevated',
-    size: 'md',
     isDisabled: false,
   },
 };
@@ -139,21 +124,6 @@ export const Colors: Story = {
   parameters: {
     controls: {
       exclude: /color|children/g,
-    },
-  },
-};
-
-export const Sizes: Story = {
-  render: (args) => (
-    <div className="flex items-center gap-xs">
-      <IconButton {...args} size="sm" />
-      <IconButton {...args} size="md" />
-      <IconButton {...args} size="lg" />
-    </div>
-  ),
-  parameters: {
-    controls: {
-      exclude: /size|children/g,
     },
   },
 };

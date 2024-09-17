@@ -16,8 +16,6 @@ const colors = [
   'critical',
 ] satisfies CheckboxProps['color'][];
 
-const sizes = ['sm', 'md', 'lg'] satisfies CheckboxProps['size'][];
-
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Forms/Checkbox',
   component: Checkbox,
@@ -33,7 +31,7 @@ const meta: Meta<typeof Checkbox> = {
     },
     color: {
       table: {
-        type: { summary: 'ButtonProps[color]' },
+        type: { summary: 'CheckboxProps[color]' },
         defaultValue: {
           summary: 'primary',
         },
@@ -41,17 +39,6 @@ const meta: Meta<typeof Checkbox> = {
       type: 'string',
       control: 'select',
       options: colors,
-    },
-    size: {
-      table: {
-        type: { summary: 'ButtonProps[size]' },
-        defaultValue: {
-          summary: 'md',
-        },
-      },
-      type: 'string',
-      control: 'select',
-      options: sizes,
     },
     isDisabled: {
       table: {
@@ -97,7 +84,6 @@ const meta: Meta<typeof Checkbox> = {
   args: {
     children: 'Checkbox Label',
     color: 'primary',
-    size: 'md',
     isSelected: false,
     isIndeterminate: false,
     isInvalid: false,
@@ -132,31 +118,16 @@ export const Colors: Story = {
   },
 };
 
-export const Sizes: Story = {
-  render: (args) => (
-    <div className="flex flex-col items-center gap-xs">
-      <Checkbox {...args} size="sm" />
-      <Checkbox {...args} size="md" />
-      <Checkbox {...args} size="lg" />
-    </div>
-  ),
-  parameters: {
-    controls: {
-      exclude: /size/g,
-    },
-  },
-};
-
 export const Group: Story = {
-  render: ({ color, size }) => (
-    <CheckboxGroup size={size} label="Любимое животное">
-      <CheckboxGroup.Item color={color} size={size} value="dog">
+  render: ({ color }) => (
+    <CheckboxGroup label="Любимое животное">
+      <CheckboxGroup.Item color={color} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="cat" isIndeterminate>
+      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="rat" isDisabled>
+      <CheckboxGroup.Item color={color} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>
@@ -164,19 +135,18 @@ export const Group: Story = {
 };
 
 export const GroupWithDescription: Story = {
-  render: ({ color, size }) => (
+  render: ({ color }) => (
     <CheckboxGroup
-      size={size}
       label="Любимое животное"
       description="Кого вы больше любите?"
     >
-      <CheckboxGroup.Item color={color} size={size} value="dog">
+      <CheckboxGroup.Item color={color} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="cat" isIndeterminate>
+      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="rat" isDisabled>
+      <CheckboxGroup.Item color={color} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>
@@ -184,19 +154,15 @@ export const GroupWithDescription: Story = {
 };
 
 export const GroupWithError: Story = {
-  render: ({ color, size }) => (
-    <CheckboxGroup
-      size={size}
-      label="Любимое животное"
-      errorMessage="Вот ты крыса!"
-    >
-      <CheckboxGroup.Item color={color} size={size} value="dog">
+  render: ({ color }) => (
+    <CheckboxGroup label="Любимое животное" errorMessage="Вот ты крыса!">
+      <CheckboxGroup.Item color={color} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="cat" isIndeterminate>
+      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} size={size} value="rat" isDisabled>
+      <CheckboxGroup.Item color={color} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>

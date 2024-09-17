@@ -71,7 +71,7 @@ const splitProps = ({
 };
 
 const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
-  ({ size, asChild, className, children, ...restProps }, forwardedRef) => {
+  ({ asChild, className, children, ...restProps }, forwardedRef) => {
     const ref = useMergedRefs(forwardedRef);
     const [{ label, description, errorMessage, ...ariaProps }, props] =
       splitProps(restProps);
@@ -96,12 +96,9 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
         {...props}
         {...groupProps}
         ref={ref}
-        className={cn(checkboxGroupVariants({ size }), className)}
+        className={cn(checkboxGroupVariants(), className)}
       >
-        <span
-          {...labelProps}
-          className={cn(checkboxGroupLabelVariants({ size }))}
-        >
+        <span {...labelProps} className={cn(checkboxGroupLabelVariants())}>
           {label}
         </span>
         <Slottable>
@@ -122,7 +119,7 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
         {description && !(isInvalid || errorMessage) && (
           <span
             {...descriptionProps}
-            className={cn(checkboxGroupDescriptionVariants({ size }))}
+            className={cn(checkboxGroupDescriptionVariants())}
           >
             {description}
           </span>
@@ -131,7 +128,7 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
-              checkboxGroupDescriptionVariants({ size }),
+              checkboxGroupDescriptionVariants(),
               checkboxGroupErrorVariants(),
             )}
           >

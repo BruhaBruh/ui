@@ -23,8 +23,6 @@ const variants = [
   'text',
 ] satisfies ButtonProps['variant'][];
 
-const sizes = ['sm', 'md', 'lg'] satisfies ButtonProps['size'][];
-
 const meta: Meta<typeof Button> = {
   title: 'Components/Buttons/Button',
   component: Button,
@@ -60,17 +58,6 @@ const meta: Meta<typeof Button> = {
       control: 'select',
       options: variants,
     },
-    size: {
-      table: {
-        type: { summary: 'ButtonProps[size]' },
-        defaultValue: {
-          summary: 'md',
-        },
-      },
-      type: 'string',
-      control: 'select',
-      options: sizes,
-    },
     isDisabled: {
       table: {
         type: { summary: 'ButtonProps[isDisabled]' },
@@ -86,7 +73,6 @@ const meta: Meta<typeof Button> = {
     children: 'Button',
     color: 'primary',
     variant: 'elevated',
-    size: 'md',
     isDisabled: false,
   },
 };
@@ -102,7 +88,6 @@ const Icon = React.forwardRef<SVGSVGElement>((_props, ref) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
@@ -143,30 +128,6 @@ export const Colors: Story = {
   },
 };
 
-export const Sizes: Story = {
-  render: (args) => (
-    <div className="flex items-center gap-xs">
-      <div className="flex flex-col items-center gap-xs">
-        <Button {...args} size="sm" />
-        <Button {...args} size="sm" icon={<Icon />} />
-      </div>
-      <div className="flex flex-col items-center gap-xs">
-        <Button {...args} size="md" />
-        <Button {...args} size="md" icon={<Icon />} />
-      </div>
-      <div className="flex flex-col items-center gap-xs">
-        <Button {...args} size="lg" />
-        <Button {...args} size="lg" icon={<Icon />} />
-      </div>
-    </div>
-  ),
-  parameters: {
-    controls: {
-      exclude: /size/g,
-    },
-  },
-};
-
 export const Variants: Story = {
   render: (args) => (
     <div className="flex gap-xs">
@@ -186,13 +147,36 @@ export const Variants: Story = {
 
 export const WithIcon: Story = {
   render: ({ children, ...args }) => (
-    <div className="flex flex-col items-center gap-xs">
-      <Button {...args} icon={<Icon />}>
-        {children}
-      </Button>
-      <Button {...args} className="w-64" icon={<Icon />}>
-        {children}
-      </Button>
+    <div className="flex items-center gap-xs">
+      <div className="flex flex-col items-center gap-xs">
+        <Button {...args} leftIcon={<Icon />}>
+          {children}
+        </Button>
+        <Button {...args} className="w-64" leftIcon={<Icon />}>
+          {children}
+        </Button>
+      </div>
+      <div className="flex flex-col items-center gap-xs">
+        <Button {...args} rightIcon={<Icon />}>
+          {children}
+        </Button>
+        <Button {...args} className="w-64" rightIcon={<Icon />}>
+          {children}
+        </Button>
+      </div>
+      <div className="flex flex-col items-center gap-xs">
+        <Button {...args} leftIcon={<Icon />} rightIcon={<Icon />}>
+          {children}
+        </Button>
+        <Button
+          {...args}
+          className="w-64"
+          leftIcon={<Icon />}
+          rightIcon={<Icon />}
+        >
+          {children}
+        </Button>
+      </div>
     </div>
   ),
 };

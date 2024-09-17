@@ -13,7 +13,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     {
       variant,
       color,
-      size,
       disabled,
       isDisabled,
       className,
@@ -45,7 +44,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           iconButtonContainerVariants({
             color,
             variant,
-            size,
           }),
           className,
         )}

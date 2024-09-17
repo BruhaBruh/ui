@@ -16,8 +16,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       variant,
       color,
-      size,
-      icon,
+      leftIcon,
+      rightIcon,
       disabled,
       isDisabled,
       className,
@@ -49,28 +49,28 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           buttonContainerVariants({
             color,
             variant,
-            size,
           }),
           className,
         )}
         data-disabled={isDisabled || disabled}
       >
-        {icon}
+        {leftIcon}
         <Slottable>
           {React.isValidElement(children) ? (
             React.cloneElement(
               children,
               children.props,
-              <span className={cn(buttonLabelVariants({ variant, size }))}>
+              <span className={cn(buttonLabelVariants({ variant }))}>
                 {children.props.children}
               </span>,
             )
           ) : (
-            <span className={cn(buttonLabelVariants({ variant, size }))}>
+            <span className={cn(buttonLabelVariants({ variant }))}>
               {children}
             </span>
           )}
         </Slottable>
+        {rightIcon}
       </Comp>
     );
   },

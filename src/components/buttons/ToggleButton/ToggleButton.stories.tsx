@@ -125,7 +125,6 @@ const Icon = React.forwardRef<SVGSVGElement>((_props, ref) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
@@ -171,15 +170,15 @@ export const Sizes: Story = {
     <div className="flex items-center gap-xs">
       <div className="flex flex-col items-center gap-xs">
         <ToggleButton {...args} size="sm" />
-        <ToggleButton {...args} size="sm" icon={<Icon />} />
+        <ToggleButton {...args} size="sm" leftIcon={<Icon />} />
       </div>
       <div className="flex flex-col items-center gap-xs">
         <ToggleButton {...args} size="md" />
-        <ToggleButton {...args} size="md" icon={<Icon />} />
+        <ToggleButton {...args} size="md" leftIcon={<Icon />} />
       </div>
       <div className="flex flex-col items-center gap-xs">
         <ToggleButton {...args} size="lg" />
-        <ToggleButton {...args} size="lg" icon={<Icon />} />
+        <ToggleButton {...args} size="lg" leftIcon={<Icon />} />
       </div>
     </div>
   ),
@@ -193,10 +192,10 @@ export const Sizes: Story = {
 export const WithIcon: Story = {
   render: ({ children, ...args }) => (
     <div className="flex flex-col items-center gap-xs">
-      <ToggleButton {...args} icon={<Icon />}>
+      <ToggleButton {...args} leftIcon={<Icon />}>
         {children}
       </ToggleButton>
-      <ToggleButton {...args} className="w-64" icon={<Icon />}>
+      <ToggleButton {...args} className="w-64" leftIcon={<Icon />}>
         {children}
       </ToggleButton>
     </div>

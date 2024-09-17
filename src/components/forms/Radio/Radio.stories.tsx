@@ -16,8 +16,6 @@ const colors = [
   'critical',
 ] satisfies RadioProps['color'][];
 
-const sizes = ['sm', 'md', 'lg'] satisfies RadioProps['size'][];
-
 const meta: Meta<typeof Radio> = {
   title: 'Components/Forms/Radio',
   component: Radio,
@@ -33,7 +31,7 @@ const meta: Meta<typeof Radio> = {
     },
     color: {
       table: {
-        type: { summary: 'ButtonProps[color]' },
+        type: { summary: 'RadioProps[color]' },
         defaultValue: {
           summary: 'primary',
         },
@@ -41,17 +39,6 @@ const meta: Meta<typeof Radio> = {
       type: 'string',
       control: 'select',
       options: colors,
-    },
-    size: {
-      table: {
-        type: { summary: 'ButtonProps[size]' },
-        defaultValue: {
-          summary: 'md',
-        },
-      },
-      type: 'string',
-      control: 'select',
-      options: sizes,
     },
     isDisabled: {
       table: {
@@ -67,7 +54,6 @@ const meta: Meta<typeof Radio> = {
   args: {
     children: 'Radio Label',
     color: 'primary',
-    size: 'md',
     isDisabled: false,
   },
 };
@@ -77,7 +63,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
   render: (args) => (
-    <RadioGroup size={args.size} label="Любимое животное">
+    <RadioGroup label="Любимое животное">
       <Radio {...args} value="dog">
         Собака
       </Radio>
@@ -93,7 +79,7 @@ export const Playground: Story = {
 
 export const Colors: Story = {
   render: (args) => (
-    <RadioGroup size={args.size} label="Colors">
+    <RadioGroup label="Colors">
       <Radio {...args} color="primary" value="primary">
         Primary
       </Radio>
@@ -124,41 +110,16 @@ export const Colors: Story = {
   },
 };
 
-export const Sizes: Story = {
-  render: (args) => (
-    <RadioGroup size={args.size} label="Любимое животное">
-      <Radio {...args} size="sm" value="dog">
-        Собака
-      </Radio>
-      <Radio {...args} size="md" value="cat">
-        Кот
-      </Radio>
-      <Radio {...args} size="lg" value="rat">
-        Крыса
-      </Radio>
-    </RadioGroup>
-  ),
-  parameters: {
-    controls: {
-      exclude: /size/g,
-    },
-  },
-};
-
 export const WithDescription: Story = {
-  render: ({ color, size }) => (
-    <RadioGroup
-      size={size}
-      label="Любимое животное"
-      description="Кого вы больше любите?"
-    >
-      <Radio color={color} size={size} value="dog">
+  render: ({ color }) => (
+    <RadioGroup label="Любимое животное" description="Кого вы больше любите?">
+      <Radio color={color} value="dog">
         Собака
       </Radio>
-      <Radio color={color} size={size} value="cat">
+      <Radio color={color} value="cat">
         Кот
       </Radio>
-      <Radio color={color} size={size} value="rat" isDisabled>
+      <Radio color={color} value="rat" isDisabled>
         Крыса
       </Radio>
     </RadioGroup>
@@ -166,19 +127,15 @@ export const WithDescription: Story = {
 };
 
 export const WithError: Story = {
-  render: ({ color, size }) => (
-    <RadioGroup
-      size={size}
-      label="Любимое животное"
-      errorMessage="Вот ты крыса!"
-    >
-      <Radio color={color} size={size} value="dog">
+  render: ({ color }) => (
+    <RadioGroup label="Любимое животное" errorMessage="Вот ты крыса!">
+      <Radio color={color} value="dog">
         Собака
       </Radio>
-      <Radio color={color} size={size} value="cat">
+      <Radio color={color} value="cat">
         Кот
       </Radio>
-      <Radio color={color} size={size} value="rat" isDisabled>
+      <Radio color={color} value="rat" isDisabled>
         Крыса
       </Radio>
     </RadioGroup>

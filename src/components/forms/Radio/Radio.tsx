@@ -49,7 +49,7 @@ const splitProps = ({
 };
 
 export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
-  ({ size, color, className, children, ...restProps }, forwardedRef) => {
+  ({ color, className, children, ...restProps }, forwardedRef) => {
     const ref = useMergedRefs(forwardedRef);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [ariaProps, props] = splitProps(restProps);
@@ -67,16 +67,9 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
         ref={ref}
         data-disabled={isDisabled || 'false'}
         data-selected={isSelected || 'false'}
-        className={cn(radioWrapperVariants({ size }), className)}
+        className={cn(radioWrapperVariants(), className)}
       >
-        <span
-          className={cn(
-            radioContainerVariants({
-              size,
-              color,
-            }),
-          )}
-        >
+        <span className={cn(radioContainerVariants({ color }))}>
           <input {...inputProps} className="sr-only" ref={inputRef} />
           <span />
         </span>

@@ -17,7 +17,7 @@ export const ToggleButton = React.forwardRef<
       unselectedVariant = 'outlined',
       color,
       size,
-      icon,
+      leftIcon: icon,
       disabled,
       isDisabled,
       className,
@@ -48,7 +48,7 @@ export const ToggleButton = React.forwardRef<
         className={className}
         color={color}
         size={size}
-        icon={icon}
+        leftIcon={icon}
       >
         {children}
       </Button>

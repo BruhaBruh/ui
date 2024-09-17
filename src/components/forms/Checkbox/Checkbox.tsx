@@ -77,7 +77,6 @@ const splitProps = ({
 export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
   (
     {
-      size,
       color,
       className,
       selectedIcon,
@@ -103,12 +102,11 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         data-disabled={isDisabled || 'false'}
         data-invalid={isInvalid || 'false'}
         data-selected={isSelected || isIndeterminate || 'false'}
-        className={cn(checkboxWrapperVariants({ size }), className)}
+        className={cn(checkboxWrapperVariants(), className)}
       >
         <span
           className={cn(
             checkboxContainerVariants({
-              size,
               color,
             }),
           )}
@@ -122,7 +120,6 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -136,7 +133,6 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >

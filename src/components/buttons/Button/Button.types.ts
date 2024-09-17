@@ -7,5 +7,6 @@ import { buttonContainerVariants } from './Button.variants';
 export type ButtonProps = AriaButtonProps &
   PropsWithAsChild<'button'> &
   VariantProps<typeof buttonContainerVariants> & {
-    icon?: React.ReactNode;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
   };

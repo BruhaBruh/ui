@@ -65,7 +65,10 @@ const splitProps = ({
 };
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
-  ({ size, color, className, ...restProps }, forwardedRef) => {
+  (
+    { selectedIcon, unselectedIcon, color, className, ...restProps },
+    forwardedRef,
+  ) => {
     const ref = useMergedRefs(forwardedRef);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [ariaProps, props] = splitProps(restProps);
@@ -83,16 +86,18 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
         data-disabled={isDisabled || 'false'}
         data-selected={isSelected || 'false'}
         data-pressed={isPressed || 'false'}
+        data-icon={isSelected ? Boolean(selectedIcon) : Boolean(unselectedIcon)}
         className={cn(
           switchContainerVariants({
-            size,
             color,
           }),
           className,
         )}
       >
         <input {...inputProps} className="sr-only" ref={inputRef} />
-        <span className={cn(switchThumbVariants({ size, color }))} />
+        <span className={cn(switchThumbVariants({ color }))}>
+          {isSelected ? selectedIcon : unselectedIcon}
+        </span>
       </Comp>
     );
   },
