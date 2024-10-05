@@ -1,2 +1,2 @@
 export * from './cn';
-export * from './create-fast-context';
+export * from './create-context';
