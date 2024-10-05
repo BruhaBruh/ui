@@ -12,6 +12,7 @@ import {
   radioGroupDescriptionVariants,
   radioGroupErrorVariants,
   radioGroupLabelVariants,
+  radioGroupListVariants,
   radioGroupVariants,
 } from './RadioGroup.variants';
 
@@ -97,30 +98,38 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         {...props}
         {...radioGroupProps}
         ref={ref}
-        className={cn(radioGroupVariants(), className)}
+        className={cn('radio-group', radioGroupVariants(), className)}
       >
-        <span {...labelProps} className={cn(radioGroupLabelVariants())}>
+        <span
+          {...labelProps}
+          className={cn('radio-group__label', radioGroupLabelVariants())}
+        >
           {label}
         </span>
-        <Slottable>
-          {React.isValidElement(children) ? (
-            React.cloneElement(
-              children,
-              children.props,
+        <span className={cn('radio-group__list', radioGroupListVariants())}>
+          <Slottable>
+            {React.isValidElement(children) ? (
+              React.cloneElement(
+                children,
+                children.props,
+                <RadioGroupContext.Provider value={state}>
+                  {children.props.children}
+                </RadioGroupContext.Provider>,
+              )
+            ) : (
               <RadioGroupContext.Provider value={state}>
-                {children.props.children}
-              </RadioGroupContext.Provider>,
-            )
-          ) : (
-            <RadioGroupContext.Provider value={state}>
-              {children}
-            </RadioGroupContext.Provider>
-          )}
-        </Slottable>
+                {children}
+              </RadioGroupContext.Provider>
+            )}
+          </Slottable>
+        </span>
         {description && !(isInvalid || errorMessage) && (
           <span
             {...descriptionProps}
-            className={cn(radioGroupDescriptionVariants())}
+            className={cn(
+              'radio-group__description',
+              radioGroupDescriptionVariants(),
+            )}
           >
             {description}
           </span>
@@ -129,6 +138,8 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
+              'radio-group__description',
+              'radio-group__description--error',
               radioGroupDescriptionVariants(),
               radioGroupErrorVariants(),
             )}

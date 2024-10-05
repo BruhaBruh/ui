@@ -16,6 +16,13 @@ const config = {
           '2xl': '1400px',
         },
       },
+      keyframes: {
+        dash: {
+          to: {
+            'stroke-dashoffset': '0',
+          },
+        },
+      },
     },
   },
   plugins: [

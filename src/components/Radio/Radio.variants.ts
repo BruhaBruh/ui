@@ -2,13 +2,13 @@ import { cva } from 'class-variance-authority';
 
 export const radioWrapperVariants = cva([
   'group',
-  'inline-flex items-center gap-2xs',
+  'inline-flex items-center gap-sm',
   'typography-body-large',
   'select-none transition',
 ]);
 
 export const radioTargetVariants = cva([
-  'inline-flex size-10 items-center justify-center',
+  'inline-flex size-8 items-center justify-center',
 ]);
 
 export const radioContainerVariants = cva(

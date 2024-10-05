@@ -4,7 +4,7 @@ export const buttonContainerVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',
-    'h-10 rounded-lg',
+    'h-10 min-w-16 rounded-lg',
     '[&>svg]:size-4.5 [&>svg]:min-w-4.5',
     'transition easing-emphasized duration-medium-1',
     'select-none outline-none',

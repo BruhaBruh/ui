@@ -62,6 +62,7 @@ export const BaseToggleableIconButton = React.forwardRef<
         {...buttonProps}
         ref={ref}
         className={cn(
+          'icon-button',
           iconButtonContainerVariants({
             color,
             variant,

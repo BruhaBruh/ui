@@ -31,6 +31,7 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
         {...buttonProps}
         ref={ref}
         className={cn(
+          'fab',
           fabContainerVariants({
             color,
             size,

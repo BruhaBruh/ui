@@ -4,7 +4,7 @@ import { IconButton } from './IconButton';
 import { IconButtonProps } from './IconButton.types';
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Components/IconButton',
+  title: 'Components/Actions/IconButton',
   component: IconButton,
   argTypes: {
     children: {

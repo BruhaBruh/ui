@@ -37,6 +37,7 @@ export const ExtendedFab = React.forwardRef<
         {...buttonProps}
         ref={ref}
         className={cn(
+          'extended-fab',
           extendedFabContainerVariants({
             color,
           }),
@@ -50,12 +51,21 @@ export const ExtendedFab = React.forwardRef<
             React.cloneElement(
               children,
               children.props,
-              <span className={cn(extendedFabLabelVariants())}>
+              <span
+                className={cn(
+                  'extended-fab__label',
+                  extendedFabLabelVariants(),
+                )}
+              >
                 {children.props.children}
               </span>,
             )
           ) : (
-            <span className={cn(extendedFabLabelVariants())}>{children}</span>
+            <span
+              className={cn('extended-fab__label', extendedFabLabelVariants())}
+            >
+              {children}
+            </span>
           )}
         </Slottable>
       </Comp>

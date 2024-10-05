@@ -4,7 +4,7 @@ import { ExtendedFab } from './ExtendedFab';
 import { ExtendedFabProps } from './ExtendedFab.types';
 
 const meta = {
-  title: 'Components/ExtendedFab',
+  title: 'Components/Actions/ExtendedFab',
   component: ExtendedFab,
   argTypes: {
     children: {

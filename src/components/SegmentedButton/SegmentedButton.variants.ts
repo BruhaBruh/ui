@@ -1,9 +1,5 @@
 import { cva } from 'class-variance-authority';
 
-export const segmentedButtonGroupVariants = cva([
-  'inline-grid auto-cols-[1fr] grid-flow-col items-center -space-x-0.25',
-]);
-
 export const segmentedButtonContainerVariants = cva(
   [
     'group relative',
@@ -12,10 +8,14 @@ export const segmentedButtonContainerVariants = cva(
     'first-of-type:rounded-l-lg',
     'last-of-type:rounded-r-lg',
     '[&>svg]:size-4.5 [&>svg]:min-w-4.5',
-    '[&>svg]:scale-100 [&>svg]:starting:scale-0',
-    '[&>svg]:transition-transform',
+    '[&>svg]:[stroke-dasharray:4096]',
+    '[&>svg]:[stroke-dashoffset:4096]',
+    '[&>svg]:animate-[dash_1s_cubic-bezier(.3,0,.8,.15)_forwards]',
+    '[&>svg]:transition-all',
     '[&>svg]:easing-emphasized [&>svg]:duration-short-4',
     '[&>svg:first-of-type]:mr-xs',
+    '[&>svg:first-of-type]:starting:mr-0',
+    '[&>svg:first-of-type]:starting:w-0',
     'transition easing-emphasized duration-medium-1',
     'select-none outline-none',
     'disabled:pointer-events-none',

@@ -4,7 +4,7 @@ import { CheckboxProps } from './Checkbox.types';
 import { CheckboxGroup } from './CheckboxGroup';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Components/Checkbox',
+  title: 'Components/Selection/Checkbox',
   component: Checkbox,
   argTypes: {
     children: {

@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import { sync } from 'glob';
 import path from 'node:path';
 import postcssHoverMediaFeature from 'postcss-hover-media-feature';
@@ -25,7 +26,7 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [tailwindcss, autoprefixer, postcssHoverMediaFeature],
+      plugins: [tailwindcss, autoprefixer, postcssHoverMediaFeature, cssnano],
     },
   },
   build: {

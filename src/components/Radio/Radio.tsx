@@ -71,15 +71,20 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
         ref={ref}
         data-disabled={isDisabled || 'false'}
         data-selected={isSelected || 'false'}
-        className={cn(radioWrapperVariants(), className)}
+        className={cn('radio', radioWrapperVariants(), className)}
       >
-        <span className={cn(radioTargetVariants())}>
-          <span className={cn(radioContainerVariants({ color }))}>
+        <span className={cn('radio__target', radioTargetVariants())}>
+          <span
+            className={cn(
+              'radio__container',
+              radioContainerVariants({ color }),
+            )}
+          >
             <input {...inputProps} className="sr-only" ref={inputRef} />
-            <span />
+            <span className="radio__circle" />
           </span>
         </span>
-        {children && <span>{children}</span>}
+        {children && <span className="radio__label">{children}</span>}
       </label>
     );
   },

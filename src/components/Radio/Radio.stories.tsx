@@ -4,7 +4,7 @@ import { RadioProps } from './Radio.types';
 import { RadioGroup } from './RadioGroup';
 
 const meta: Meta<typeof Radio> = {
-  title: 'Components/Radio',
+  title: 'Components/Selection/Radio',
   component: Radio,
   argTypes: {
     children: {
@@ -67,7 +67,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
   render: (args) => (
-    <RadioGroup label="Любимое животное">
+    <RadioGroup defaultValue="dog" label="Любимое животное">
       <Radio {...args} value="dog">
         Собака
       </Radio>
@@ -83,7 +83,7 @@ export const Playground: Story = {
 
 export const Colors: Story = {
   render: (args) => (
-    <RadioGroup label="Colors">
+    <RadioGroup defaultValue="primary" label="Colors">
       <Radio {...args} color="primary" value="primary">
         Primary
       </Radio>
@@ -116,7 +116,11 @@ export const Colors: Story = {
 
 export const WithDescription: Story = {
   render: ({ color }) => (
-    <RadioGroup label="Любимое животное" description="Кого вы больше любите?">
+    <RadioGroup
+      defaultValue="dog"
+      label="Любимое животное"
+      description="Кого вы больше любите?"
+    >
       <Radio color={color} value="dog">
         Собака
       </Radio>
@@ -132,7 +136,11 @@ export const WithDescription: Story = {
 
 export const WithError: Story = {
   render: ({ color }) => (
-    <RadioGroup label="Любимое животное" errorMessage="Вот ты крыса!">
+    <RadioGroup
+      defaultValue="dog"
+      label="Любимое животное"
+      errorMessage="Вот ты крыса!"
+    >
       <Radio color={color} value="dog">
         Собака
       </Radio>

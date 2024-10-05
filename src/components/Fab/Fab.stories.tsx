@@ -4,7 +4,7 @@ import { Fab } from './Fab';
 import { FabProps } from './Fab.types';
 
 const meta = {
-  title: 'Components/Fab',
+  title: 'Components/Actions/Fab',
   component: Fab,
   argTypes: {
     children: {

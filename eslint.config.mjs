@@ -19,6 +19,7 @@ export default [
         'error',
         { capIsNewExceptions: ['Some', 'None', 'Ok', 'Err'] },
       ],
+      'tailwindcss/no-custom-classname': 'off',
     },
     settings: {
       tailwindcss: {
@@ -31,7 +32,6 @@ export default [
           '!**/dist',
           '!**/build',
         ],
-        whitelist: ['duration-(.*)', 'easing-(.*)'],
         classRegex: '^class(Name)?$', // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
       },
     },

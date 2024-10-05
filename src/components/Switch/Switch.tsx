@@ -88,6 +88,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
         data-pressed={isPressed || 'false'}
         data-icon={isSelected ? Boolean(selectedIcon) : Boolean(unselectedIcon)}
         className={cn(
+          'switch',
           switchContainerVariants({
             color,
           }),
@@ -95,7 +96,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
         )}
       >
         <input {...inputProps} className="sr-only" ref={inputRef} />
-        <span className={cn(switchThumbVariants({ color }))}>
+        <span className={cn('switch__thumb', switchThumbVariants({ color }))}>
           {isSelected ? selectedIcon : unselectedIcon}
         </span>
       </Comp>

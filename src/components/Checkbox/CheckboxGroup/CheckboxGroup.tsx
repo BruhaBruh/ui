@@ -13,6 +13,7 @@ import {
   checkboxGroupDescriptionVariants,
   checkboxGroupErrorVariants,
   checkboxGroupLabelVariants,
+  checkboxGroupListVariants,
   checkboxGroupVariants,
 } from './CheckboxGroup.variants';
 
@@ -96,30 +97,40 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
         {...props}
         {...groupProps}
         ref={ref}
-        className={cn(checkboxGroupVariants(), className)}
+        className={cn('checkbox-group', checkboxGroupVariants(), className)}
       >
-        <span {...labelProps} className={cn(checkboxGroupLabelVariants())}>
+        <span
+          {...labelProps}
+          className={cn('checkbox-group__label', checkboxGroupLabelVariants())}
+        >
           {label}
         </span>
-        <Slottable>
-          {React.isValidElement(children) ? (
-            React.cloneElement(
-              children,
-              children.props,
+        <span
+          className={cn('checkbox-group__list', checkboxGroupListVariants())}
+        >
+          <Slottable>
+            {React.isValidElement(children) ? (
+              React.cloneElement(
+                children,
+                children.props,
+                <CheckboxGroupContext.Provider value={state}>
+                  {children.props.children}
+                </CheckboxGroupContext.Provider>,
+              )
+            ) : (
               <CheckboxGroupContext.Provider value={state}>
-                {children.props.children}
-              </CheckboxGroupContext.Provider>,
-            )
-          ) : (
-            <CheckboxGroupContext.Provider value={state}>
-              {children}
-            </CheckboxGroupContext.Provider>
-          )}
-        </Slottable>
+                {children}
+              </CheckboxGroupContext.Provider>
+            )}
+          </Slottable>
+        </span>
         {description && !(isInvalid || errorMessage) && (
           <span
             {...descriptionProps}
-            className={cn(checkboxGroupDescriptionVariants())}
+            className={cn(
+              'checkbox-group__description',
+              checkboxGroupDescriptionVariants(),
+            )}
           >
             {description}
           </span>
@@ -128,6 +139,8 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
+              'checkbox-group__description',
+              'checkbox-group__description--error',
               checkboxGroupDescriptionVariants(),
               checkboxGroupErrorVariants(),
             )}

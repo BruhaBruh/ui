@@ -5,7 +5,7 @@ import { SegmentedButton } from './SegmentedButton';
 import { SegmentedButtonProps } from './SegmentedButton.types';
 
 const meta = {
-  title: 'Components/SegmentedButton',
+  title: 'Components/Actions/SegmentedButton',
   component: SegmentedButton,
   argTypes: {
     children: {

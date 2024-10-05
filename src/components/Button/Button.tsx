@@ -46,6 +46,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...buttonProps}
         ref={ref}
         className={cn(
+          'button',
           buttonContainerVariants({
             color,
             variant,
@@ -60,12 +61,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             React.cloneElement(
               children,
               children.props,
-              <span className={cn(buttonLabelVariants({ variant }))}>
+              <span
+                className={cn(
+                  'button__label',
+                  buttonLabelVariants({ variant }),
+                )}
+              >
                 {children.props.children}
               </span>,
             )
           ) : (
-            <span className={cn(buttonLabelVariants({ variant }))}>
+            <span
+              className={cn('button__label', buttonLabelVariants({ variant }))}
+            >
               {children}
             </span>
           )}
