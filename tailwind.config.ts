@@ -5,10 +5,9 @@ const config = {
   content: ['./src/**/*.{ts,tsx,mdx}', './.storybook/**/*.{ts,tsx,mdx}'],
   safelist: [
     {
-      pattern: /(rounded|elevation|easing|duration)-.+/,
+      pattern: /(easing|duration)-.+/,
     },
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       container: {
@@ -24,7 +23,11 @@ const config = {
       prefix: 'pw',
       content: './themes/**/*.theme.yaml',
     }),
-    ({ addUtilities }: PluginAPI) => {
+    ({ addUtilities, addVariant }: PluginAPI) => {
+      addVariant('string', ['&:before', '&:after']);
+      addVariant('state', '&:before');
+      addVariant('ring', '&:after');
+
       addUtilities({
         '.elevation-0': {
           'box-shadow': '0px 0px #0000',

@@ -4,6 +4,7 @@ dependencies:
   - core
 selectors:
   - :root
+  - '.light'
   - '[data-theme="light"]'
 
 color:

@@ -4,6 +4,7 @@ dependencies:
   - core
 selectors:
   - :root
+  - '.dark'
   - '[data-theme="dark"]'
 
 color:

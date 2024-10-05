@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-surface text-on-surface typography-body1 min-h-screen font-sans antialiased relative;
+    @apply bg-surface text-on-surface typography-body-large min-h-screen font-sans antialiased relative;
   }
 
   .font-sans {
@@ -16,12 +16,11 @@
     font-style: normal;
     font-variation-settings: 'slnt' 0;
   }
+}
 
-  svg {
-    stroke-width: 3px;
-  }
-
-  /* * {
-    outline: 1px solid red !important;
-  } */
+.string\:absolute:before,
+.string\:absolute:after,
+.state\:absolute:before,
+.ring\:absolute:after {
+  content: "";
 }

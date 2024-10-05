@@ -12,12 +12,19 @@ const config: StorybookConfig = {
     '@storybook/addon-measure',
     '@storybook/addon-outline',
     '@storybook/addon-mdx-gfm',
-    '@chromatic-com/storybook',
   ],
 
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
+
+  docs: {
+    docsMode: false,
   },
 };
 

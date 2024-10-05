@@ -8,7 +8,7 @@ export type UseStoreAction<S> = <Return = S>(
   selector?: Selector<S, Return>,
 ) => [Return, StoreSetter<S>];
 
-export const createFastContext = <T extends {}>(globalInitialState: T) => {
+export const createFastContext = <T extends object>(globalInitialState: T) => {
   const useCreateStore = (initialState: T) => {
     const store = React.useRef(initialState);
     const get = React.useCallback(() => store.current, []);
@@ -44,7 +44,7 @@ export const createFastContext = <T extends {}>(globalInitialState: T) => {
     );
   };
 
-  const useStore = <State extends T, Return extends unknown = State>(
+  const useStore = <State extends T, Return = State>(
     selector?: Selector<State, Return>,
   ): [Return, StoreSetter<State>] => {
     const store = React.useContext(StoreContext);

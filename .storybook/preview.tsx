@@ -1,51 +1,67 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { Unstyled } from '@storybook/blocks';
+import { DocsContainer, DocsContainerProps, Unstyled } from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import '../src/clear.css';
 import './index.css';
+import './storybook-docs.css';
+import { theme } from './theme';
 
 const preview: Preview = {
   parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
+    layout: 'centered',
+    docs: {
+      theme,
+      container: ({
+        children,
+        ...props
+      }: React.PropsWithChildren<DocsContainerProps>) => {
+        document.body.classList.remove('light', 'dark');
+        const searchParams = new URLSearchParams(window.location.search);
+        const globals = searchParams.get('globals');
+        if (globals?.includes('theme:dark')) {
+          document.body.classList.add('dark');
+        } else {
+          document.body.classList.add('light');
+        }
+
+        return (
+          <DocsContainer {...props}>
+            <Unstyled>{children}</Unstyled>
+          </DocsContainer>
+        );
       },
     },
-    layout: 'centered',
     options: {
       storySort: {
         method: 'alphabetical',
         order: [
-          'Theme', [
-            'Palette', ['Light', 'Dark', '*'], 
+          'Theme',
+          [
+            'Palette',
+            'Typography',
             'Elevation',
             'Radius',
             'Duration',
             'Easing',
-            '*'
+            '*',
           ],
-          'Components', [
-            'Buttons', [
-              'Button',
-              'ToggleButton',
-              'IconButton',
-              'ToggleIconButton',
-              '*'
-            ],
-            'Forms', [
-              'Radio',
-              'Checkbox',
-              'Switch',
-              '*'
-            ],
-            '*'
+          'Components',
+          [
+            'Button',
+            'Fab',
+            'ExtendedFab',
+            'IconButton',
+            'SegmentedButton',
+            'Checkbox',
+            'Radio',
+            'Switch',
+            '*',
           ],
         ],
         locales: 'en-US',
-      }
-    }
+      },
+    },
   },
 
   decorators: [
@@ -55,7 +71,7 @@ const preview: Preview = {
         dark: 'dark',
       },
       defaultTheme: 'light',
-      parentSelector: 'body'
+      parentSelector: 'body',
     }),
     (Story) => (
       <Unstyled>
@@ -66,7 +82,7 @@ const preview: Preview = {
     ),
   ],
 
-  tags: ['autodocs'],
+  tags: [],
 };
 
 export default preview;

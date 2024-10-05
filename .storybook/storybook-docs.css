@@ -1,0 +1,19 @@
+#storybook-docs .sbdocs-wrapper {
+  @apply !bg-transparent;
+}
+
+.sb-show-main.sb-main-fullscreen,
+.sb-main-fullscreen {
+  @apply m-0 p-0 block;
+}
+
+.sb-preparing-story,
+.sb-preparing-docs,
+.sb-nopreview,
+.sb-errordisplay {
+  @apply !hidden;
+}
+
+#storybook-docs .sbdocs-content {
+  @apply font-sans max-w-[100ch];
+}

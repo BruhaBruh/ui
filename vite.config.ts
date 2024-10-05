@@ -62,7 +62,7 @@ export default defineConfig({
         ],
       }).reduce((entries, file) => {
         const entry = path.relative('src', file).replace(/\.[^/.]+$/, '');
-        const newEntries = entries;
+        const newEntries: Record<string, string> = entries;
         newEntries[entry] = path.resolve(__dirname, file);
         return entries;
       }, {}),

@@ -6,10 +6,14 @@ export type Props<
   T extends
     | keyof React.JSX.IntrinsicElements
     | React.JSXElementConstructor<unknown>,
-> = React.ComponentProps<T>;
+  OmitProps extends object = object,
+  OmitKeys extends string = '',
+> = Omit<React.ComponentProps<T>, keyof OmitProps | OmitKeys>;
 
 export type PropsWithAsChild<
   T extends
     | keyof React.JSX.IntrinsicElements
     | React.JSXElementConstructor<unknown>,
-> = Props<T> & AsChildProp;
+  OmitProps extends object = object,
+  OmitKeys extends string = '',
+> = Props<T, OmitProps, OmitKeys> & AsChildProp;
