@@ -12,11 +12,4 @@ addons.register('bruhabruh/theme', (api) => {
 
 addons.setConfig({
   theme,
-  toolbar: {
-    title: { hidden: true },
-    zoom: { hidden: false },
-    eject: { hidden: true },
-    copy: { hidden: true },
-    fullscreen: { hidden: false },
-  },
 });

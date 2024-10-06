@@ -32,6 +32,41 @@ const preview: Preview = {
         );
       },
     },
+    viewport: {
+      viewports: {
+        xs: {
+          name: 'None',
+          styles: { width: '320px', height: '900px' },
+          type: 'mobile',
+          isRotated: false,
+        },
+        sm: {
+          name: 'Small',
+          styles: { width: '640px', height: '900px' },
+          type: 'mobile',
+        },
+        md: {
+          name: 'Medium',
+          styles: { width: '768px', height: '900px' },
+          type: 'tablet',
+        },
+        lg: {
+          name: 'Large',
+          styles: { width: '1024px', height: '900px' },
+          type: 'tablet',
+        },
+        xl: {
+          name: 'Extra Large',
+          styles: { width: '1280px', height: '900px' },
+          type: 'desktop',
+        },
+        '2xl': {
+          name: 'Extra Extra Large',
+          styles: { width: '1400px', height: '900px' },
+          type: 'desktop',
+        },
+      },
+    },
     options: {
       storySort: {
         method: 'alphabetical',
