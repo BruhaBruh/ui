@@ -59,6 +59,8 @@ const preview: Preview = {
             ],
             'Selection',
             ['Checkbox', 'Radio', 'Switch', '*'],
+            'Layout',
+            ['PageContainer', 'Container', '*'],
             '*',
           ],
         ],
