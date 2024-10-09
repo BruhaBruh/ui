@@ -63,7 +63,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               children.props,
               <span
                 className={cn(
-                  'button__label',
+                  'button--label',
                   buttonLabelVariants({ variant }),
                 )}
               >
@@ -72,7 +72,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             )
           ) : (
             <span
-              className={cn('button__label', buttonLabelVariants({ variant }))}
+              className={cn('button--label', buttonLabelVariants({ variant }))}
             >
               {children}
             </span>

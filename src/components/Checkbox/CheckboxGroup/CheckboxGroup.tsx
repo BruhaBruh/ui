@@ -101,12 +101,12 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
       >
         <span
           {...labelProps}
-          className={cn('checkbox-group__label', checkboxGroupLabelVariants())}
+          className={cn('checkbox-group--label', checkboxGroupLabelVariants())}
         >
           {label}
         </span>
         <span
-          className={cn('checkbox-group__list', checkboxGroupListVariants())}
+          className={cn('checkbox-group--list', checkboxGroupListVariants())}
         >
           <Slottable>
             {React.isValidElement(children) ? (
@@ -128,7 +128,7 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           <span
             {...descriptionProps}
             className={cn(
-              'checkbox-group__description',
+              'checkbox-group--description',
               checkboxGroupDescriptionVariants(),
             )}
           >
@@ -139,8 +139,8 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
-              'checkbox-group__description',
-              'checkbox-group__description--error',
+              'checkbox-group--description',
+              'checkbox-group--description---error',
               checkboxGroupDescriptionVariants(),
               checkboxGroupErrorVariants(),
             )}

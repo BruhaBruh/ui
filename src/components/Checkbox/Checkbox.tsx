@@ -105,10 +105,10 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         data-selected={isSelected || isIndeterminate || 'false'}
         className={cn('checkbox', checkboxWrapperVariants(), className)}
       >
-        <span className={cn('checkbox__target', checkboxTargetVariants())}>
+        <span className={cn('checkbox--target', checkboxTargetVariants())}>
           <span
             className={cn(
-              'checkbox__container',
+              'checkbox--container',
               checkboxContainerVariants({
                 color,
               }),
@@ -148,7 +148,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
               ))}
           </span>
         </span>
-        {children && <span className="checkbox__label">{children}</span>}
+        {children && <span className="checkbox--label">{children}</span>}
       </label>
     );
   },

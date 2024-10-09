@@ -102,11 +102,11 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
       >
         <span
           {...labelProps}
-          className={cn('radio-group__label', radioGroupLabelVariants())}
+          className={cn('radio-group--label', radioGroupLabelVariants())}
         >
           {label}
         </span>
-        <span className={cn('radio-group__list', radioGroupListVariants())}>
+        <span className={cn('radio-group--list', radioGroupListVariants())}>
           <Slottable>
             {React.isValidElement(children) ? (
               React.cloneElement(
@@ -127,7 +127,7 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
           <span
             {...descriptionProps}
             className={cn(
-              'radio-group__description',
+              'radio-group--description',
               radioGroupDescriptionVariants(),
             )}
           >
@@ -138,8 +138,8 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
           <span
             {...errorMessageProps}
             className={cn(
-              'radio-group__description',
-              'radio-group__description--error',
+              'radio-group--description',
+              'radio-group--description---error',
               radioGroupDescriptionVariants(),
               radioGroupErrorVariants(),
             )}

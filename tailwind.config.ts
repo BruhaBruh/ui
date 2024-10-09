@@ -26,9 +26,9 @@ const config = {
       },
       transitionProperty: {
         DEFAULT:
-          'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, height, width',
+          'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, height, width, font-size',
         'not-color':
-          'opacity, box-shadow, transform, filter, backdrop-filter, height, width',
+          'opacity, box-shadow, transform, filter, backdrop-filter, height, width, font-size',
       },
     },
   },

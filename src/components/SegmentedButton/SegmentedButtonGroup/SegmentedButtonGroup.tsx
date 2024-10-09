@@ -1,3 +1,5 @@
+'use client';
+
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';

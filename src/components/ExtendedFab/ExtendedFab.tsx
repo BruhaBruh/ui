@@ -53,7 +53,7 @@ export const ExtendedFab = React.forwardRef<
               children.props,
               <span
                 className={cn(
-                  'extended-fab__label',
+                  'extended-fab--label',
                   extendedFabLabelVariants(),
                 )}
               >
@@ -62,7 +62,7 @@ export const ExtendedFab = React.forwardRef<
             )
           ) : (
             <span
-              className={cn('extended-fab__label', extendedFabLabelVariants())}
+              className={cn('extended-fab--label', extendedFabLabelVariants())}
             >
               {children}
             </span>

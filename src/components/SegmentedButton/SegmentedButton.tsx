@@ -78,7 +78,7 @@ const SegmentedButtonImpl = React.forwardRef<
           ))}
         <span
           className={cn(
-            'segmented-button__label',
+            'segmented-button--label',
             segmentedButtonLabelVariants(),
           )}
         >

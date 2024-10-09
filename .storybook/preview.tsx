@@ -96,6 +96,8 @@ const preview: Preview = {
             ['Checkbox', 'Radio', 'Switch', '*'],
             'Layout',
             ['PageContainer', 'Container', '*'],
+            'Input',
+            ['TextField', 'TextAreaField', 'SearchField', 'NumberField', '*'],
             '*',
           ],
         ],
