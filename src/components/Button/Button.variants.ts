@@ -5,7 +5,8 @@ export const buttonContainerVariants = cva(
     'group relative',
     'inline-flex items-center justify-center',
     'h-10 min-w-16 rounded-lg',
-    '[&>svg]:size-4.5 [&>svg]:min-w-4.5',
+    '[&>svg]:size-4.5 [&>svg]:starting:size-0',
+    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
     'transition easing-emphasized duration-medium-1',
     'select-none outline-none',
     'disabled:pointer-events-none',
@@ -76,6 +77,7 @@ export const buttonContainerVariants = cva(
         variant: 'text',
         className: [
           'px-sm',
+          '[&>svg]:starting:mr-0',
           '[&>svg:first-child]:mr-2xs',
           '[&>svg:last-child]:ml-2xs',
         ],

@@ -5,7 +5,8 @@ export const iconButtonContainerVariants = cva(
     'group relative',
     'inline-flex items-center justify-center',
     'size-10 min-w-10 rounded-lg',
-    '[&>svg]:size-6 [&>svg]:min-w-6',
+    '[&>svg]:size-6 [&>svg]:starting:size-0',
+    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
     'transition easing-emphasized duration-medium-1',
     'select-none outline-none',
     'disabled:pointer-events-none',
@@ -35,8 +36,8 @@ export const iconButtonContainerVariants = cva(
         filled: [
           'data-[disabled=true]:bg-on-surface/[0.12]',
           'data-[disabled=true]:text-on-surface/[0.38]',
-          'data-[toggleable]:data-[disabled=true]:bg-on-surface/[0.12]',
-          'data-[toggleable]:data-[disabled=true]:text-on-surface/[0.38]',
+          'data-[toggleable]:data-[selected]:data-[disabled=true]:bg-on-surface/[0.12]',
+          'data-[toggleable]:data-[selected]:data-[disabled=true]:text-on-surface/[0.38]',
         ],
         tonal: [
           'data-[toggleable]:data-[selected=false]:bg-surface-container-highest',

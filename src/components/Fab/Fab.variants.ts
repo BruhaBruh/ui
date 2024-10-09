@@ -19,6 +19,8 @@ export const fabContainerVariants = cva(
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-secondary-container',
+    '[&>svg]:starting:size-0',
+    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
   ],
   {
     variants: {
