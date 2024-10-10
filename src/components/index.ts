@@ -1,5 +1,7 @@
+export * from './Badge';
 export * from './Button';
 export * from './Checkbox';
+export * from './CircularProgress';
 export * from './Container';
 export * from './DateField';
 export * from './DateSegment';
@@ -7,6 +9,7 @@ export * from './ExtendedFab';
 export * from './Fab';
 export * from './Field';
 export * from './IconButton';
+export * from './LinearProgress';
 export * from './NumberField';
 export * from './PageContainer';
 export * from './Portal';

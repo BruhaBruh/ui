@@ -18,9 +18,20 @@ const config = {
         },
       },
       keyframes: {
-        dash: {
+        'linear-progress': {
+          from: {
+            transform: 'translateX(0%)',
+          },
           to: {
-            'stroke-dashoffset': '0',
+            transform: 'translateX(50%)',
+          },
+        },
+        'circular-progress': {
+          from: {
+            transform: 'rotate(-90deg)',
+          },
+          to: {
+            transform: 'rotate(270deg)',
           },
         },
       },
@@ -34,7 +45,7 @@ const config = {
   },
   plugins: [
     themePlugin({
-      prefix: 'pw',
+      prefix: 'ui',
       content: './themes/**/*.theme.yaml',
     }),
     ({ addUtilities, addVariant }: PluginAPI) => {

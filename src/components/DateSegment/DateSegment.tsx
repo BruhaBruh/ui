@@ -6,7 +6,7 @@ import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useDateSegment } from 'react-aria';
 import { DateSegmentProps } from './DateSegment.types';
-import { dateSegmentVariants } from './DateSegment.variants';
+import { dateSegmentContainerVariants } from './DateSegment.variants';
 
 export const DateSegment = React.forwardRef<HTMLSpanElement, DateSegmentProps>(
   ({ segment, state, className, asChild, ...props }, forwardedRef) => {
@@ -20,7 +20,11 @@ export const DateSegment = React.forwardRef<HTMLSpanElement, DateSegmentProps>(
         {...props}
         {...segmentProps}
         ref={ref}
-        className={cn(dateSegmentVariants(), className)}
+        className={cn(
+          'date-segment',
+          dateSegmentContainerVariants(),
+          className,
+        )}
         data-placeholder={segment.isPlaceholder}
       >
         {segment.text}

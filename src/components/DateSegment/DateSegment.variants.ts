@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const dateSegmentVariants = cva([
+export const dateSegmentContainerVariants = cva([
   'outline-none',
   'tabular-nums',
   'rounded-3xs',
