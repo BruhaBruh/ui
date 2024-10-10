@@ -141,7 +141,7 @@ export const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
 
     return (
       <Field
-        className={cn('text-field', className)}
+        className={cn('search-field', className)}
         left={left}
         right={
           inputProps.value &&

@@ -13,6 +13,9 @@ export type BaseIconButtonProps = AriaButtonProps &
   PropsWithAsChild<'button', AriaButtonProps> &
   VariantProps<typeof iconButtonContainerVariants> & {
     toggleable?: false;
+    isSelected?: undefined;
+    defaultSelected?: undefined;
+    onChange?: undefined;
   };
 
 export const BaseIconButton = React.forwardRef<

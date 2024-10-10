@@ -141,7 +141,7 @@ export const NumberField = React.forwardRef<HTMLInputElement, NumberFieldProps>(
 
     return (
       <Field
-        className={cn('text-field', className)}
+        className={cn('number-field', className)}
         left={
           decrementButton &&
           (left ? (

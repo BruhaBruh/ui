@@ -64,7 +64,7 @@ export const fieldInputVariants = cva([
   'focus:h-6',
   'placeholder-shown:h-6',
   'group-data-[visible=true]:h-6',
-  'text-on-surface placeholder:text-on-surface/[0.38]',
+  'text-on-surface placeholder:text-on-surface-variant',
   'typography-body-large',
   'transition easing-emphasized duration-short-4',
   'caret-primary',
