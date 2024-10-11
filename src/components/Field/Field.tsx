@@ -48,7 +48,7 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
         data-invalid={isInvalid || 'false'}
         data-visible={isVisible || 'false'}
       >
-        <Slottable>{children}</Slottable>
+        {asChild && <Slottable>{children}</Slottable>}
         <label
           {...labelProps}
           aria-labelledby={labelId}

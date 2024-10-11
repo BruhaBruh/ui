@@ -17,7 +17,7 @@ const meta = {
       },
     },
     value: {
-      description: "CircularProgress's value between 0 and 100",
+      description: "CircularProgress's value between min value and max value",
       table: {
         type: { summary: 'number' },
         defaultValue: {
@@ -28,7 +28,31 @@ const meta = {
       type: 'number',
       control: 'number',
     },
-    indeterminate: {
+    minValue: {
+      description: "CircularProgress's min value",
+      table: {
+        type: { summary: 'number' },
+        defaultValue: {
+          summary: '0',
+        },
+        control: 'number',
+      },
+      type: 'number',
+      control: 'number',
+    },
+    maxValue: {
+      description: "CircularProgress's max value",
+      table: {
+        type: { summary: 'number' },
+        defaultValue: {
+          summary: '100',
+        },
+        control: 'number',
+      },
+      type: 'number',
+      control: 'number',
+    },
+    isIndeterminate: {
       description: "CircularProgress's indeterminate state",
       table: {
         type: { summary: 'true | false' },
@@ -85,11 +109,20 @@ const meta = {
     },
   },
   args: {
+    'aria-label': 'circular progress demo',
     color: 'primary',
-    indeterminate: false,
+    isIndeterminate: false,
     easeInOut: false,
     value: 75,
+    minValue: 0,
+    maxValue: 100,
     asChild: false,
+    children: <section />,
+  },
+  parameters: {
+    controls: {
+      exclude: /aria-label|children/g,
+    },
   },
 } satisfies Meta<typeof CircularProgress>;
 
@@ -113,7 +146,7 @@ export const Colors: Story = {
   ),
   parameters: {
     controls: {
-      exclude: /color/g,
+      exclude: /aria-label|children|color/g,
     },
   },
 };
@@ -121,12 +154,12 @@ export const States: Story = {
   render: (args) => (
     <div className="flex flex-col items-center justify-center gap-xs">
       <CircularProgress {...args} />
-      <CircularProgress {...args} indeterminate />
+      <CircularProgress {...args} isIndeterminate />
     </div>
   ),
   parameters: {
     controls: {
-      exclude: /indeterminate/g,
+      exclude: /aria-label|children|isIndeterminate/g,
     },
   },
 };

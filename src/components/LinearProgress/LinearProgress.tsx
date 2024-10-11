@@ -4,6 +4,7 @@ import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
+import { AriaProgressBarProps, useProgressBar } from 'react-aria';
 import { LinearProgressProps } from './LinearProgress.types';
 import {
   linearProgressContainerVariants,
@@ -12,6 +13,37 @@ import {
   linearProgressTrackVariants,
 } from './LinearProgress.variants';
 
+const splitProps = ({
+  isIndeterminate,
+  formatOptions,
+  value,
+  minValue,
+  maxValue,
+  id,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
+  'aria-details': ariaDetails,
+  ...restProps
+}: LinearProgressProps): [
+  AriaProgressBarProps,
+  Omit<LinearProgressProps, keyof AriaProgressBarProps>,
+] => {
+  const ariaProps = {
+    isIndeterminate,
+    formatOptions,
+    value,
+    minValue,
+    maxValue,
+    id,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-describedby': ariaDescribedBy,
+    'aria-details': ariaDetails,
+  };
+  return [ariaProps, restProps];
+};
+
 export const LinearProgress = React.forwardRef<
   HTMLDivElement,
   LinearProgressProps
@@ -19,25 +51,38 @@ export const LinearProgress = React.forwardRef<
   (
     {
       value = 0,
+      minValue = 0,
+      maxValue = 100,
       color,
-      indeterminate,
       easeInOut,
       className,
       asChild,
       children,
       style,
-      ...props
+      ...restProps
     },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
-    const computedValue = Math.max(0, Math.min(value, 100));
+    const [ariaProps, props] = splitProps(restProps);
+    const { progressBarProps } = useProgressBar({
+      value,
+      minValue,
+      maxValue,
+      ...ariaProps,
+    });
+
+    const percentage = Math.max(
+      0,
+      Math.min(100, ((value - minValue) / (maxValue - minValue)) * 100),
+    );
 
     const Comp = asChild ? Slot : 'div';
 
     return (
       <Comp
         {...props}
+        {...progressBarProps}
         ref={ref}
         className={cn(
           'linear-progress',
@@ -47,14 +92,14 @@ export const LinearProgress = React.forwardRef<
         style={
           {
             ...style,
-            '--progress-value': `${computedValue}%`,
+            '--progress-value': `${percentage}%`,
           } as React.CSSProperties
         }
-        data-indeterminate={indeterminate || 'false'}
+        data-indeterminate={ariaProps.isIndeterminate || 'false'}
         data-ease-in-out={easeInOut || 'false'}
       >
-        <Slottable>{children}</Slottable>
-        {indeterminate && (
+        {asChild && <Slottable>{children}</Slottable>}
+        {ariaProps.isIndeterminate && (
           <span
             className={cn(
               'linear-progress--indeterminate-container',
@@ -87,9 +132,9 @@ export const LinearProgress = React.forwardRef<
             />
           </span>
         )}
-        {!indeterminate && (
+        {!ariaProps.isIndeterminate && (
           <>
-            {computedValue > 0 && (
+            {percentage > 0 && (
               <span
                 className={cn(
                   'linear-progress--indicator',
@@ -97,7 +142,7 @@ export const LinearProgress = React.forwardRef<
                 )}
               />
             )}
-            {computedValue < 100 && (
+            {percentage < 100 && (
               <span
                 className={cn(
                   'linear-progress--track',

@@ -17,7 +17,7 @@ const meta = {
       },
     },
     value: {
-      description: "CircularProgress's value between 0 and 100",
+      description: "LinearProgress's value between min value and max value",
       table: {
         type: { summary: 'number' },
         defaultValue: {
@@ -28,8 +28,32 @@ const meta = {
       type: 'number',
       control: 'number',
     },
-    indeterminate: {
-      description: "CircularProgress's indeterminate state",
+    minValue: {
+      description: "LinearProgress's min value",
+      table: {
+        type: { summary: 'number' },
+        defaultValue: {
+          summary: '0',
+        },
+        control: 'number',
+      },
+      type: 'number',
+      control: 'number',
+    },
+    maxValue: {
+      description: "LinearProgress's max value",
+      table: {
+        type: { summary: 'number' },
+        defaultValue: {
+          summary: '100',
+        },
+        control: 'number',
+      },
+      type: 'number',
+      control: 'number',
+    },
+    isIndeterminate: {
+      description: "LinearProgress's indeterminate state",
       table: {
         type: { summary: 'true | false' },
         defaultValue: {
@@ -41,7 +65,7 @@ const meta = {
     },
     easeInOut: {
       description:
-        "CircularProgress's easeInOut animation state of indeterminate state",
+        "LinearProgress's easeInOut animation state of indeterminate state",
       table: {
         type: { summary: 'true | false' },
         defaultValue: {
@@ -85,12 +109,21 @@ const meta = {
     },
   },
   args: {
+    'aria-label': 'linear progress demo',
     className: 'w-96',
     color: 'primary',
-    indeterminate: false,
+    isIndeterminate: false,
     easeInOut: false,
     value: 75,
+    minValue: 0,
+    maxValue: 100,
     asChild: false,
+    children: <section />,
+  },
+  parameters: {
+    controls: {
+      exclude: /aria-label|className|children/g,
+    },
   },
 } satisfies Meta<typeof LinearProgress>;
 
@@ -114,7 +147,7 @@ export const Colors: Story = {
   ),
   parameters: {
     controls: {
-      exclude: /color/g,
+      exclude: /aria-label|className|children|color/g,
     },
   },
 };
@@ -122,12 +155,12 @@ export const States: Story = {
   render: (args) => (
     <div className="flex flex-col items-center justify-center gap-xs">
       <LinearProgress {...args} />
-      <LinearProgress {...args} indeterminate />
+      <LinearProgress {...args} isIndeterminate />
     </div>
   ),
   parameters: {
     controls: {
-      exclude: /indeterminate/g,
+      exclude: /aria-label|className|children|isIndeterminate/g,
     },
   },
 };

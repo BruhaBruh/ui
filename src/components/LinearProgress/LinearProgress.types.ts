@@ -1,10 +1,13 @@
 import { PropsWithAsChild } from '@/types';
 import { VariantProps } from 'class-variance-authority';
+import { AriaProgressBarProps } from 'react-aria';
 import { linearProgressContainerVariants } from './LinearProgress.variants';
 
-export type LinearProgressProps = PropsWithAsChild<'div'> &
+export type LinearProgressProps = Omit<
+  AriaProgressBarProps,
+  'label' | 'valueLabel'
+> &
+  PropsWithAsChild<'div', AriaProgressBarProps> &
   VariantProps<typeof linearProgressContainerVariants> & {
-    value?: number;
-    indeterminate?: boolean;
     easeInOut?: boolean;
   };

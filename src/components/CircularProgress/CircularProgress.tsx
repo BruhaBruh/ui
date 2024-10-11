@@ -4,6 +4,7 @@ import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
+import { AriaProgressBarProps, useProgressBar } from 'react-aria';
 import { CircularProgressProps } from './CircularProgress.types';
 import {
   circularProgressCircleVariants,
@@ -13,6 +14,37 @@ import {
   circularProgressTrackVariants,
 } from './CircularProgress.variants';
 
+const splitProps = ({
+  isIndeterminate,
+  formatOptions,
+  value,
+  minValue,
+  maxValue,
+  id,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
+  'aria-details': ariaDetails,
+  ...restProps
+}: CircularProgressProps): [
+  AriaProgressBarProps,
+  Omit<CircularProgressProps, keyof AriaProgressBarProps>,
+] => {
+  const ariaProps = {
+    isIndeterminate,
+    formatOptions,
+    value,
+    minValue,
+    maxValue,
+    id,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-describedby': ariaDescribedBy,
+    'aria-details': ariaDetails,
+  };
+  return [ariaProps, restProps];
+};
+
 export const CircularProgress = React.forwardRef<
   HTMLDivElement,
   CircularProgressProps
@@ -20,27 +52,38 @@ export const CircularProgress = React.forwardRef<
   (
     {
       value = 0,
+      minValue = 0,
+      maxValue = 100,
       color,
-      indeterminate,
       easeInOut,
       className,
       asChild,
       children,
       style,
-      ...props
+      ...restProps
     },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
-    const computedValue = indeterminate
-      ? 33
-      : Math.max(0, Math.min(value, 100));
+    const [ariaProps, props] = splitProps(restProps);
+    const { progressBarProps } = useProgressBar({
+      value,
+      minValue,
+      maxValue,
+      ...ariaProps,
+    });
+
+    const percentage = Math.max(
+      0,
+      Math.min(100, ((value - minValue) / (maxValue - minValue)) * 100),
+    );
 
     const Comp = asChild ? Slot : 'div';
 
     return (
       <Comp
         {...props}
+        {...progressBarProps}
         ref={ref}
         className={cn(
           'circular-progress',
@@ -50,17 +93,14 @@ export const CircularProgress = React.forwardRef<
         style={
           {
             ...style,
-            '--progress-value': `${computedValue / 100}`,
+            '--progress-value': `${percentage / 100}`,
           } as React.CSSProperties
         }
-        data-indeterminate={indeterminate}
+        data-indeterminate={ariaProps.isIndeterminate}
         data-ease-in-out={easeInOut}
-        data-show-indicator={computedValue > 0}
+        data-show-indicator={percentage > 0}
       >
-        <Slottable>{children}</Slottable>
-        {/* <span className="absolute left-1/2 top-0 z-1 size-2xs -translate-x-1/2 bg-red-50/25" />
-        <span className="absolute bottom-0 left-1/2 z-1 size-2xs -translate-x-1/2 bg-red-50/25" />
-        <span className="absolute inset-y-0 left-1/2 z-1 border-x border-red-50/25" /> */}
+        {asChild && <Slottable>{children}</Slottable>}
         <svg
           className={cn(
             'circular-progress--circle',
@@ -68,7 +108,7 @@ export const CircularProgress = React.forwardRef<
           )}
           viewBox="0 0 48 48"
         >
-          {computedValue > 0 && (
+          {percentage > 0 && (
             <circle
               className={cn(
                 'circular-progress--indicator',
@@ -84,7 +124,7 @@ export const CircularProgress = React.forwardRef<
               strokeLinecap="round"
             />
           )}
-          {computedValue < 90 && (
+          {percentage < 90 && (
             <circle
               className={cn(
                 'circular-progress--track',

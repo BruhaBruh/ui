@@ -28,7 +28,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         })()}
         data-overflow={(count && count > maxCount) || 'false'}
       >
-        <Slottable>{children}</Slottable>
+        {asChild && <Slottable>{children}</Slottable>}
         {count !== undefined && count > maxCount ? maxCount : count}
       </Comp>
     );
