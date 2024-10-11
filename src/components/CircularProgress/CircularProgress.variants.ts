@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const circularProgressContainerVariants = cva(
-  ['group', 'relative', 'overflow-hidden', 'size-3xl'],
+  ['group', 'relative', 'overflow-hidden', 'size-12'],
   {
     variants: {
       color: {
@@ -29,7 +29,7 @@ export const circularProgressCircleVariants = cva([
 
 export const circularProgressPathVariants = cva([
   'origin-center',
-  'stroke-[calc(var(--ui-spacing-2xs))]',
+  'stroke-[0.25rem]',
   '[stroke-dasharray:2048]',
 ]);
 

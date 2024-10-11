@@ -12,7 +12,7 @@ const config = {
     extend: {
       container: {
         center: true,
-        padding: 'var(--pw-spacing-md)',
+        padding: 'var(--ui-spacing-md)',
         screens: {
           '2xl': '1400px',
         },

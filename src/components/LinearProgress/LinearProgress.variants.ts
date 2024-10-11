@@ -5,7 +5,7 @@ export const linearProgressContainerVariants = cva(
     'group rounded-full',
     'relative string:rounded-full',
     'overflow-hidden',
-    'h-2xs',
+    'h-1',
     'data-[indeterminate=false]:inline-flex',
     'data-[indeterminate=false]:items-stretch',
     'data-[indeterminate=false]:justify-between',
