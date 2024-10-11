@@ -29,6 +29,4 @@ tsconfig.tsbuildinfo
 
 vite.config.ts.timestamp*
 
-.temp/
-
 storybook-static/

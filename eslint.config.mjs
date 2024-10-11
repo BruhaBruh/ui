@@ -1,39 +1,33 @@
-import mainConfig from '@bruhabruh/eslint-config';
-import clientConfig from '@bruhabruh/eslint-config/client.js';
-import importOrderConfig from '@bruhabruh/eslint-config/import-order.js';
-import prettierConfig from '@bruhabruh/eslint-config/prettier.js';
-import tailwind from 'eslint-plugin-tailwindcss';
+import eslint from '@bruhabruh/eslint-config';
 
-export default [
+export default eslint.build(
   {
-    ignores: ['dist', 'node_modules', 'coverage', '.temp'],
+    name: '@bruhabruh/theme/global-ignore',
+    ignores: [
+      'node_modules',
+      'dist',
+      'coverage',
+      '.vscode',
+      'storybook-static',
+    ],
   },
-  ...mainConfig,
-  ...clientConfig,
-  ...importOrderConfig,
-  ...prettierConfig,
-  ...tailwind.configs['flat/recommended'],
+  ...eslint.configs.base.recommended,
+  ...eslint.configs.react.recommended,
+  eslint.configs.importOrder.recommended,
+  eslint.configs.json.recommended,
   {
+    ...eslint.configs.markdown.recommended,
+    ignores: ['**/stories/**/*.mdx'],
+  },
+  eslint.configs.prettier.recommended,
+  eslint.configs.tailwind.recommended,
+  {
+    name: '@bruhabruh/type-safe',
     rules: {
       'new-cap': [
         'error',
         { capIsNewExceptions: ['Some', 'None', 'Ok', 'Err'] },
       ],
-      'tailwindcss/no-custom-classname': 'off',
-    },
-    settings: {
-      tailwindcss: {
-        callees: ['classnames', 'clsx', 'ctl', 'cn', 'cva'],
-        cssFiles: [
-          '**/*.css',
-          '**/*.mdx',
-          '!**/node_modules',
-          '!**/.*',
-          '!**/dist',
-          '!**/build',
-        ],
-        classRegex: '^class(Name)?$', // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
-      },
     },
   },
-];
+);
