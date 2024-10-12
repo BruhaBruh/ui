@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility';
+import { childrenUnwrapper, cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { AriaCheckboxGroupProps, useCheckboxGroup } from 'react-aria';
@@ -109,19 +109,11 @@ const CheckboxGroupImpl = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           className={cn('checkbox-group--list', checkboxGroupListVariants())}
         >
           <Slottable>
-            {React.isValidElement(children) ? (
-              React.cloneElement(
-                children,
-                children.props,
-                <CheckboxGroupContext.Provider value={state}>
-                  {children.props.children}
-                </CheckboxGroupContext.Provider>,
-              )
-            ) : (
+            {childrenUnwrapper(children, (child) => (
               <CheckboxGroupContext.Provider value={state}>
-                {children}
+                {child}
               </CheckboxGroupContext.Provider>
-            )}
+            ))}
           </Slottable>
         </span>
         {description && !(isInvalid || errorMessage) && (

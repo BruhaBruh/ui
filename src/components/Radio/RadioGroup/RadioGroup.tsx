@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility';
+import { childrenUnwrapper, cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { AriaRadioGroupProps, useRadioGroup } from 'react-aria';
@@ -108,19 +108,11 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         </span>
         <span className={cn('radio-group--list', radioGroupListVariants())}>
           <Slottable>
-            {React.isValidElement(children) ? (
-              React.cloneElement(
-                children,
-                children.props,
-                <RadioGroupContext.Provider value={state}>
-                  {children.props.children}
-                </RadioGroupContext.Provider>,
-              )
-            ) : (
+            {childrenUnwrapper(children, (child) => (
               <RadioGroupContext.Provider value={state}>
-                {children}
+                {child}
               </RadioGroupContext.Provider>
-            )}
+            ))}
           </Slottable>
         </span>
         {description && !(isInvalid || errorMessage) && (

@@ -121,15 +121,15 @@ export const Colors: Story = {
 };
 
 export const Group: Story = {
-  render: ({ color }) => (
+  render: (args) => (
     <CheckboxGroup label="Любимое животное">
-      <CheckboxGroup.Item color={color} value="dog">
+      <CheckboxGroup.Item {...args} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
+      <CheckboxGroup.Item {...args} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="rat" isDisabled>
+      <CheckboxGroup.Item {...args} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>
@@ -137,18 +137,18 @@ export const Group: Story = {
 };
 
 export const GroupWithDescription: Story = {
-  render: ({ color }) => (
+  render: (args) => (
     <CheckboxGroup
       label="Любимое животное"
       description="Кого вы больше любите?"
     >
-      <CheckboxGroup.Item color={color} value="dog">
+      <CheckboxGroup.Item {...args} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
+      <CheckboxGroup.Item {...args} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="rat" isDisabled>
+      <CheckboxGroup.Item {...args} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>
@@ -156,15 +156,15 @@ export const GroupWithDescription: Story = {
 };
 
 export const GroupWithError: Story = {
-  render: ({ color }) => (
+  render: (args) => (
     <CheckboxGroup label="Любимое животное" errorMessage="Вот ты крыса!">
-      <CheckboxGroup.Item color={color} value="dog">
+      <CheckboxGroup.Item {...args} value="dog">
         Собака
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="cat" isIndeterminate>
+      <CheckboxGroup.Item {...args} value="cat" isIndeterminate>
         Кот
       </CheckboxGroup.Item>
-      <CheckboxGroup.Item color={color} value="rat" isDisabled>
+      <CheckboxGroup.Item {...args} value="rat" isDisabled>
         Крыса
       </CheckboxGroup.Item>
     </CheckboxGroup>

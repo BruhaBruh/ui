@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks';
-import { cn } from '@/utility';
+import { childrenUnwrapper, cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { ContainerProps } from './Container.types';
@@ -27,26 +27,14 @@ export const Container = React.forwardRef<HTMLElement, ContainerProps>(
         className={cn(containerWrapperVariants({ color }), className)}
       >
         <Slottable>
-          {React.isValidElement(children) ? (
-            React.cloneElement(
-              children,
-              children.props,
-              <section
-                {...containerProps}
-                {...children.props}
-                className={cn(containerVariants(), containerProps?.className)}
-              >
-                {children.props.children}
-              </section>,
-            )
-          ) : (
+          {childrenUnwrapper(children, (child) => (
             <section
               {...containerProps}
               className={cn(containerVariants(), containerProps?.className)}
             >
-              {children}
+              {child}
             </section>
-          )}
+          ))}
         </Slottable>
       </Comp>
     );

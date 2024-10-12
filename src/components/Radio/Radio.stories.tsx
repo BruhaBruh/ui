@@ -114,20 +114,36 @@ export const Colors: Story = {
   },
 };
 
+export const Group: Story = {
+  render: (args) => (
+    <RadioGroup defaultValue="dog" label="Любимое животное">
+      <Radio {...args} value="dog">
+        Собака
+      </Radio>
+      <Radio {...args} value="cat">
+        Кот
+      </Radio>
+      <Radio {...args} value="rat" isDisabled>
+        Крыса
+      </Radio>
+    </RadioGroup>
+  ),
+};
+
 export const WithDescription: Story = {
-  render: ({ color }) => (
+  render: (args) => (
     <RadioGroup
       defaultValue="dog"
       label="Любимое животное"
       description="Кого вы больше любите?"
     >
-      <Radio color={color} value="dog">
+      <Radio {...args} value="dog">
         Собака
       </Radio>
-      <Radio color={color} value="cat">
+      <Radio {...args} value="cat">
         Кот
       </Radio>
-      <Radio color={color} value="rat" isDisabled>
+      <Radio {...args} value="rat" isDisabled>
         Крыса
       </Radio>
     </RadioGroup>
@@ -135,19 +151,19 @@ export const WithDescription: Story = {
 };
 
 export const WithError: Story = {
-  render: ({ color }) => (
+  render: (args) => (
     <RadioGroup
       defaultValue="dog"
       label="Любимое животное"
       errorMessage="Вот ты крыса!"
     >
-      <Radio color={color} value="dog">
+      <Radio {...args} value="dog">
         Собака
       </Radio>
-      <Radio color={color} value="cat">
+      <Radio {...args} value="cat">
         Кот
       </Radio>
-      <Radio color={color} value="rat" isDisabled>
+      <Radio {...args} value="rat" isDisabled>
         Крыса
       </Radio>
     </RadioGroup>

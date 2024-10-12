@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility';
+import { childrenUnwrapper, cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
@@ -57,26 +57,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {leftIcon}
         <Slottable>
-          {React.isValidElement(children) ? (
-            React.cloneElement(
-              children,
-              children.props,
-              <span
-                className={cn(
-                  'button--label',
-                  buttonLabelVariants({ variant }),
-                )}
-              >
-                {children.props.children}
-              </span>,
-            )
-          ) : (
+          {childrenUnwrapper(children, (child) => (
             <span
               className={cn('button--label', buttonLabelVariants({ variant }))}
             >
-              {children}
+              {child}
             </span>
-          )}
+          ))}
         </Slottable>
         {rightIcon}
       </Comp>
