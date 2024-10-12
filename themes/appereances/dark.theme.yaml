@@ -65,3 +65,8 @@ color:
   - outline:
       DEFAULT: '{color.neutral.70}'
       variant: '{color.neutral.80}'
+  - inverse:
+      surface: '{color.neutral.10}'
+      on-surface: '{color.neutral.80}'
+      primary: '{color.blue.80}'
+      on-primary: '{color.on-surface.DEFAULT}'
