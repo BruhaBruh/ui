@@ -16,6 +16,7 @@ export * from './Portal';
 export * from './Radio';
 export * from './SearchField';
 export * from './SegmentedButton';
+export * from './Snackbar';
 export * from './Switch';
 export * from './TextArea';
 export * from './TextField';
