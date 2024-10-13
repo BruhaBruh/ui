@@ -91,8 +91,8 @@ export const Default: Story = {};
 
 export const All: Story = {
   render: (args) => (
-    <div className="flex flex-col items-center gap-xs">
-      <div className="flex items-center gap-xs">
+    <div className="gap-xs flex flex-col items-center">
+      <div className="gap-xs flex items-center">
         <Badge {...args} color="primary" />
         <Badge {...args} color="secondary" />
         <Badge {...args} color="info" />
@@ -100,7 +100,7 @@ export const All: Story = {
         <Badge {...args} color="caution" />
         <Badge {...args} color="critical" />
       </div>
-      <div className="flex items-center gap-xs">
+      <div className="gap-xs flex items-center">
         <Badge {...args} count={32} color="primary" />
         <Badge {...args} count={32} color="secondary" />
         <Badge {...args} count={32} color="info" />
@@ -108,7 +108,7 @@ export const All: Story = {
         <Badge {...args} count={32} color="caution" />
         <Badge {...args} count={32} color="critical" />
       </div>
-      <div className="flex items-center gap-xs">
+      <div className="gap-xs flex items-center">
         <Badge {...args} count={999} color="primary" />
         <Badge {...args} count={999} color="secondary" />
         <Badge {...args} count={999} color="info" />
@@ -116,7 +116,7 @@ export const All: Story = {
         <Badge {...args} count={999} color="caution" />
         <Badge {...args} count={999} color="critical" />
       </div>
-      <div className="flex items-center gap-xs">
+      <div className="gap-xs flex items-center">
         <Badge {...args} count={1000} color="primary" />
         <Badge {...args} count={1000} color="secondary" />
         <Badge {...args} count={1000} color="info" />

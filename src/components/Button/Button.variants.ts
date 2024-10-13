@@ -6,8 +6,8 @@ export const buttonContainerVariants = cva(
     'inline-flex items-center justify-center',
     'h-10 min-w-16 rounded-lg',
     '[&>svg]:size-4.5 [&>svg]:starting:size-0',
-    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
-    'transition easing-emphasized duration-medium-1',
+    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
+    'easing-emphasized duration-medium-1 transition',
     'select-none outline-none',
     'disabled:pointer-events-none',
     'whitespace-nowrap',
@@ -407,7 +407,7 @@ export const buttonContainerVariants = cva(
   },
 );
 
-export const buttonLabelVariants = cva(['truncate typography-label-large'], {
+export const buttonLabelVariants = cva(['typography-label-large truncate'], {
   variants: {
     variant: {
       elevated: [],

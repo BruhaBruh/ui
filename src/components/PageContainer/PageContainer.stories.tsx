@@ -10,7 +10,7 @@ const ToggleButton = () => {
   const [isZoomed, setIsZoomed] = usePageContainerIsZoomed();
 
   return (
-    <div className="flex w-max items-center gap-sm rounded-lg border border-outline p-md">
+    <div className="gap-sm border-outline p-md flex w-max items-center rounded-lg border">
       <Switch
         aria-labelledby="zoom-label"
         id="zoom"
@@ -48,7 +48,7 @@ const meta = {
       <PageContainerProvider>
         <PageContainer
           {...args}
-          className="flex flex-col items-center justify-center elevation-5"
+          className="elevation-5 flex flex-col items-center justify-center"
         >
           <h1 className="mb-xl typography-display-large">Page Container</h1>
           <ToggleButton />

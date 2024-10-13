@@ -134,7 +134,7 @@ export const Default: Story = {};
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-col items-center justify-center gap-xs">
+    <div className="gap-xs flex flex-col items-center justify-center">
       <CircularProgress {...args} color="current" />
       <CircularProgress {...args} color="primary" />
       <CircularProgress {...args} color="secondary" />
@@ -152,7 +152,7 @@ export const Colors: Story = {
 };
 export const States: Story = {
   render: (args) => (
-    <div className="flex flex-col items-center justify-center gap-xs">
+    <div className="gap-xs flex flex-col items-center justify-center">
       <CircularProgress {...args} />
       <CircularProgress {...args} isIndeterminate />
     </div>

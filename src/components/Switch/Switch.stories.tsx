@@ -66,7 +66,7 @@ const Render: React.FC<SwitchProps> = (args) => {
   const [isSelected, setIsSelected] = React.useState(false);
 
   return (
-    <div className="flex items-center gap-sm typography-body-large">
+    <div className="gap-sm typography-body-large flex items-center">
       <Switch
         {...args}
         id="playground"
@@ -92,8 +92,8 @@ export const Playground: Story = {
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="grid gap-sm">
-      <div className="flex items-center gap-sm typography-body-large">
+    <div className="gap-sm grid">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="primary"
@@ -104,7 +104,7 @@ export const Colors: Story = {
           Primary
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="secondary"
@@ -115,13 +115,13 @@ export const Colors: Story = {
           Secondary
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch {...args} id="info" aria-labelledby="info-label" color="info" />
         <label id="info-label" htmlFor="info">
           Info
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="success"
@@ -132,7 +132,7 @@ export const Colors: Story = {
           Success
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="caution"
@@ -143,7 +143,7 @@ export const Colors: Story = {
           Caution
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="critical"
@@ -154,7 +154,7 @@ export const Colors: Story = {
           Critical
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="disabled"
@@ -179,8 +179,8 @@ export const Colors: Story = {
 
 export const WithIcon: Story = {
   render: (args) => (
-    <div className="grid gap-sm">
-      <div className="flex items-center gap-sm typography-body-large">
+    <div className="gap-sm grid">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="selected-icon"
@@ -191,7 +191,7 @@ export const WithIcon: Story = {
           Selected Icon
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="unselected-icon"
@@ -202,7 +202,7 @@ export const WithIcon: Story = {
           Unselected Icon
         </label>
       </div>
-      <div className="flex items-center gap-sm typography-body-large">
+      <div className="gap-sm typography-body-large flex items-center">
         <Switch
           {...args}
           id="both-icons"

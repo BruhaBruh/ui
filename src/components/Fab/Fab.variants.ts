@@ -4,7 +4,7 @@ export const fabContainerVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',
-    'transition easing-emphasized duration-medium-1',
+    'easing-emphasized duration-medium-1 transition',
     'select-none outline-none',
     'elevation-3 data-[lowered=true]:elevation-1',
     'hover:elevation-4 data-[lowered=true]:elevation-2',
@@ -20,7 +20,7 @@ export const fabContainerVariants = cva(
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-secondary-container',
     '[&>svg]:starting:size-0',
-    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
+    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
   ],
   {
     variants: {
@@ -70,9 +70,9 @@ export const fabContainerVariants = cva(
         ],
       },
       size: {
-        sm: ['size-10 rounded-xs string:rounded-xs', '[&>svg]:size-6'],
-        md: ['size-14 rounded-md string:rounded-md', '[&>svg]:size-6'],
-        lg: ['size-24 rounded-2xl string:rounded-2xl', '[&>svg]:size-9'],
+        sm: ['rounded-xs string:rounded-xs size-10', '[&>svg]:size-6'],
+        md: ['string:rounded-md size-14 rounded-md', '[&>svg]:size-6'],
+        lg: ['string:rounded-2xl size-24 rounded-2xl', '[&>svg]:size-9'],
       },
     },
     defaultVariants: {

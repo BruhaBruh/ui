@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const linearProgressContainerVariants = cva(
   [
     'group rounded-full',
-    'relative string:rounded-full',
+    'string:rounded-full relative',
     'overflow-hidden',
     'h-1',
     'data-[indeterminate=false]:inline-flex',
@@ -32,7 +32,7 @@ export const linearProgressContainerVariants = cva(
 export const linearProgressIndeterminateContainerVariants = cva([
   'absolute right-0 top-0',
   'h-full w-[200%]',
-  'inline-flex items-stretch justify-between gap-2xs',
+  'gap-2xs inline-flex items-stretch justify-between',
   'group-data-[ease-in-out=true]:animate-[linear-progress_1s_ease-in-out_infinite]',
   'group-data-[ease-in-out=false]:animate-[linear-progress_1s_linear_infinite]',
 ]);

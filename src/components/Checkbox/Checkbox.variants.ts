@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const checkboxWrapperVariants = cva([
   'group',
-  'inline-flex items-center gap-sm',
+  'gap-sm inline-flex items-center',
   'typography-body-large',
   'select-none transition',
 ]);
@@ -15,10 +15,10 @@ export const checkboxContainerVariants = cva(
   [
     'relative',
     'size-4.5 min-w-4.5',
-    'rounded-[0.125rem]',
+    'rounded-sm',
     'border-2',
     'inline-flex items-center justify-center',
-    'transition easing-emphasized duration-medium-1',
+    'easing-emphasized duration-medium-1 transition',
     'group-data-[disabled=false]:cursor-pointer',
     '[&>svg]:z-1',
     '[&>svg]:absolute',

@@ -6,11 +6,12 @@ import React from 'react';
 import { snackbarContainerVariants } from './Snackbar.variants';
 
 export type SnackbarContent = {
-  content: React.ReactNode;
+  title: React.ReactNode;
+  description?: React.ReactNode;
   actions?: React.ReactNode;
   closeButton?: boolean;
   longerActions?: boolean;
-  asChild?: boolean;
+  asChild?: React.ReactNode;
 } & VariantProps<typeof snackbarContainerVariants>;
 
 export type SnackbarProps = AriaToastProps<SnackbarContent> &

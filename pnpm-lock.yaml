@@ -101,6 +101,12 @@ importers:
       '@storybook/components':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)
+      '@storybook/core-events':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.5)
+      '@storybook/icons':
+        specifier: ^1.2.12
+        version: 1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/manager-api':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)
@@ -2355,6 +2361,14 @@ packages:
     resolution:
       {
         integrity: sha512-Rq28YogakD3FO4F8KwAtGpo1g3t4V/gfCLqTQ8B6oQUFoxLqegkWk/DlwCzvoJndXuQJfdSyM6+r1JcA4Nql5A==,
+      }
+    peerDependencies:
+      storybook: ^8.3.5
+
+  '@storybook/core-events@8.3.5':
+    resolution:
+      {
+        integrity: sha512-tA4ptifvmxDd4n5CYpL2ksEg2YuLr3a9IPvEww+XJWsyx+lTQ5rwbaRyu8CUxJfOsppyz5cf9OOqRcZ0ENcrpQ==,
       }
     peerDependencies:
       storybook: ^8.3.5
@@ -9877,6 +9891,10 @@ snapshots:
       - webpack-sources
 
   '@storybook/components@8.3.5(storybook@8.3.5)':
+    dependencies:
+      storybook: 8.3.5
+
+  '@storybook/core-events@8.3.5(storybook@8.3.5)':
     dependencies:
       storybook: 8.3.5
 

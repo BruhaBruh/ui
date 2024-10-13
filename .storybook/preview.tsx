@@ -124,6 +124,14 @@ const preview: Preview = {
       defaultTheme: 'light',
       parentSelector: 'body',
     }),
+    (Story, ctx) => {
+      const isEnabledDebugScreens = ctx.globals.debugScreens || false;
+      if (typeof window !== 'undefined') {
+        document.body.classList.remove('debug-screens');
+        if (isEnabledDebugScreens) document.body.classList.add('debug-screens');
+      }
+      return <Story />;
+    },
     (Story) => (
       <Unstyled>
         <React.StrictMode>
@@ -134,6 +142,10 @@ const preview: Preview = {
   ],
 
   tags: [],
+
+  initialGlobals: {
+    debugScreens: false,
+  },
 };
 
 export default preview;

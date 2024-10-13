@@ -88,7 +88,7 @@ export const Default: Story = {};
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex max-w-screen-sm flex-wrap items-center justify-center gap-xs">
+    <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-center">
       <ExtendedFab {...args} color="surface" />
       <ExtendedFab {...args} color="primary" />
       <ExtendedFab {...args} color="secondary" />

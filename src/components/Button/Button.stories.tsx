@@ -116,7 +116,7 @@ export const Default: Story = {};
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex max-w-screen-sm flex-wrap items-center justify-center gap-xs">
+    <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-center">
       <Button {...args} color="primary" />
       <Button {...args} color="secondary" />
       <Button {...args} color="info" />
@@ -135,7 +135,7 @@ export const Colors: Story = {
 
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex gap-xs">
+    <div className="gap-xs flex">
       <Button {...args} variant="elevated" />
       <Button {...args} variant="filled" />
       <Button {...args} variant="tonal" />
@@ -152,8 +152,8 @@ export const Variants: Story = {
 
 export const WithIcon: Story = {
   render: ({ children, ...args }) => (
-    <div className="flex items-center gap-xs">
-      <div className="flex flex-col items-center gap-xs">
+    <div className="gap-xs flex items-center">
+      <div className="gap-xs flex flex-col items-center">
         <Button {...args} leftIcon={<IconSquare />}>
           {children}
         </Button>
@@ -161,7 +161,7 @@ export const WithIcon: Story = {
           {children}
         </Button>
       </div>
-      <div className="flex flex-col items-center gap-xs">
+      <div className="gap-xs flex flex-col items-center">
         <Button {...args} rightIcon={<IconSquare />}>
           {children}
         </Button>
@@ -169,7 +169,7 @@ export const WithIcon: Story = {
           {children}
         </Button>
       </div>
-      <div className="flex flex-col items-center gap-xs">
+      <div className="gap-xs flex flex-col items-center">
         <Button {...args} leftIcon={<IconSquare />} rightIcon={<IconSquare />}>
           {children}
         </Button>

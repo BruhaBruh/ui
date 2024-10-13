@@ -7,9 +7,9 @@ export const extendedFabContainerVariants = cva(
     'h-14 min-w-20 rounded-md',
     'px-md',
     '[&>svg]:mr-xs [&>svg]:starting:mr-0',
-    '[&>svg]:size-6 [&>svg]:starting:size-0',
-    '[&>svg]:transition [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
-    'transition easing-emphasized duration-medium-1',
+    '[&>svg]:starting:size-0 [&>svg]:size-6',
+    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
+    'easing-emphasized duration-medium-1 transition',
     'select-none outline-none',
     'elevation-3 data-[lowered=true]:elevation-1',
     'hover:elevation-4 data-[lowered=true]:elevation-2',
@@ -80,5 +80,5 @@ export const extendedFabContainerVariants = cva(
 );
 
 export const extendedFabLabelVariants = cva([
-  'truncate px-2xs typography-label-large',
+  'px-2xs typography-label-large truncate',
 ]);

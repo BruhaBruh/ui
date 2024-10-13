@@ -7,7 +7,7 @@ const EasingPlate: React.FC<{
   return (
     <div
       className={cn(
-        'group flex flex-col items-center gap-2xs typography-title-medium',
+        'gap-2xs typography-title-medium group flex flex-col items-center',
       )}
     >
       <div>
@@ -18,12 +18,12 @@ const EasingPlate: React.FC<{
       </div>
       <div
         className={cn(
-          'flex h-8 w-64 items-center rounded-full border border-outline',
+          'border-outline flex h-8 w-64 items-center rounded-full border',
         )}
       >
         <div
           className={cn(
-            'size-8 rounded-full bg-secondary transition duration-1000',
+            'bg-secondary size-8 rounded-full transition duration-1000',
             'scale-50',
             'group-hover:translate-x-56',
             'group-hover:scale-100',
@@ -39,7 +39,7 @@ export const EasingPresentation: React.FC<{
   easings: string[];
 }> = ({ easings }) => {
   return (
-    <div className="flex flex-wrap justify-between gap-md">
+    <div className="gap-md flex flex-wrap justify-between">
       {easings.map((easing) => (
         <EasingPlate key={easing} easing={easing} />
       ))}

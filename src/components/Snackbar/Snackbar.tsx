@@ -12,6 +12,8 @@ import {
   snackbarCloseButtonVariants,
   snackbarContainerVariants,
   snackbarContentVariants,
+  snackbarDescriptionVariants,
+  snackbarTitleVariants,
 } from './Snackbar.variants';
 
 const splitProps = ({
@@ -42,11 +44,13 @@ export const Snackbar = React.forwardRef<HTMLElement, SnackbarProps>(
     const [{ toast, ...ariaProps }, { state, ...props }] =
       splitProps(restProps);
 
-    const { toastProps, contentProps, closeButtonProps } = useToast(
-      { toast, ...ariaProps },
-      state,
-      ref,
-    );
+    const {
+      toastProps,
+      contentProps,
+      titleProps,
+      descriptionProps,
+      closeButtonProps,
+    } = useToast({ toast, ...ariaProps }, state, ref);
 
     const Comp = toast.content.asChild ? Slot : 'section';
 
@@ -65,11 +69,27 @@ export const Snackbar = React.forwardRef<HTMLElement, SnackbarProps>(
         data-animation={toast.animation}
       >
         <Slottable>
-          {childrenUnwrapper(toast.content.content, (child) => (
+          {childrenUnwrapper(toast.content.asChild, () => (
             <span
               className={cn('snackbar--content', snackbarContentVariants())}
             >
-              {child}
+              <span
+                {...titleProps}
+                className={cn('snackbar--title', snackbarTitleVariants())}
+              >
+                {toast.content.title}
+              </span>
+              {toast.content.description && (
+                <span
+                  {...descriptionProps}
+                  className={cn(
+                    'snackbar--description',
+                    snackbarDescriptionVariants(),
+                  )}
+                >
+                  {toast.content.description}
+                </span>
+              )}
             </span>
           ))}
         </Slottable>

@@ -16,13 +16,19 @@ export const snackbarContainerVariants = cva([
 ]);
 
 export const snackbarContentVariants = cva([
-  'truncate typography-body-medium',
+  'typography-body-medium',
   'px-md py-3.5',
   'group-data-[longer-actions=false]:[&:has(~.snackbar--actions)]:pr-0',
+  'overflow-hidden',
+  'inline-flex w-full flex-col',
 ]);
 
+export const snackbarTitleVariants = cva(['truncate']);
+
+export const snackbarDescriptionVariants = cva(['truncate']);
+
 export const snackbarActionsVariants = cva([
-  'inline-flex items-center justify-end gap-2xs',
+  'gap-2xs inline-flex items-center justify-end',
   '[&_.button]:ring:invisible',
   '[&_.button]:text-inverse-primary',
   '[&_.button:hover]:state:bg-inverse-primary/[0.08]',

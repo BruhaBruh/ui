@@ -120,8 +120,8 @@ export const Playground: Story = {};
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-xs">
-      <div className="flex max-w-screen-sm flex-wrap items-center justify-end gap-xs">
+    <div className="gap-xs flex flex-col">
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
         <p className="typography-title-medium">Default</p>
         <IconButton {...args} color="primary" />
         <IconButton {...args} color="secondary" />
@@ -131,7 +131,7 @@ export const Colors: Story = {
         <IconButton {...args} color="critical" />
         <IconButton {...args} disabled />
       </div>
-      <div className="flex max-w-screen-sm flex-wrap items-center justify-end gap-xs">
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
         <p className="typography-title-medium">Toggleable Not Selected</p>
         <IconButton
           {...(args as Record<string, unknown>)}
@@ -169,7 +169,7 @@ export const Colors: Story = {
           disabled
         />
       </div>
-      <div className="flex max-w-screen-sm flex-wrap items-center justify-end gap-xs">
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
         <p className="typography-title-medium">Toggleable Selected</p>
         <IconButton
           {...(args as Record<string, unknown>)}
@@ -239,15 +239,15 @@ export const Colors: Story = {
 
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-xs">
-      <div className="flex items-center justify-end gap-xs">
+    <div className="gap-xs flex flex-col">
+      <div className="gap-xs flex items-center justify-end">
         <p className="typography-title-medium">Default</p>
         <IconButton {...args} variant="standard" />
         <IconButton {...args} variant="filled" />
         <IconButton {...args} variant="tonal" />
         <IconButton {...args} variant="outlined" />
       </div>
-      <div className="flex items-center justify-end gap-xs">
+      <div className="gap-xs flex items-center justify-end">
         <p className="typography-title-medium">Toggleable Not Selected</p>
         <IconButton
           {...(args as Record<string, unknown>)}
@@ -270,7 +270,7 @@ export const Variants: Story = {
           variant="outlined"
         />
       </div>
-      <div className="flex items-center justify-end gap-xs">
+      <div className="gap-xs flex items-center justify-end">
         <p className="typography-title-medium">Toggleable Selected</p>
         <IconButton
           {...(args as Record<string, unknown>)}

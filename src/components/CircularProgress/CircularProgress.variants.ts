@@ -54,7 +54,7 @@ export const circularProgressIndicatorVariants = cva(
 );
 
 export const circularProgressTrackVariants = cva([
-  'rotate-[-20deg] text-secondary-container',
+  'text-secondary-container rotate-[-20deg]',
   'group-data-[show-indicator=false]:[stroke-dashoffset:0]',
   'group-data-[show-indicator=true]:[stroke-dashoffset:calc(-2048*var(--progress-value)-228)]',
 ]);

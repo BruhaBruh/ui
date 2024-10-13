@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const radioWrapperVariants = cva([
   'group',
-  'inline-flex items-center gap-sm',
+  'gap-sm inline-flex items-center',
   'typography-body-large',
   'select-none transition',
 ]);
@@ -18,12 +18,12 @@ export const radioContainerVariants = cva(
     'rounded-full',
     'border-2 border-current',
     'inline-flex items-center justify-center',
-    'transition easing-emphasized duration-medium-1',
+    'easing-emphasized duration-medium-1 transition',
     'string:rounded-full',
     'group-data-[disabled=false]:cursor-pointer',
     '[&>span]:z-1',
     '[&>span]:absolute [&>span]:rounded-full [&>span]:bg-current',
-    '[&>span]:transition-transform [&>span]:easing-emphasized [&>span]:duration-short-4',
+    '[&>span]:easing-emphasized [&>span]:duration-short-4 [&>span]:transition-transform',
     'group-data-[selected=false]:[&>span]:scale-0',
     'group-data-[selected=true]:[&>span]:scale-100',
     'text-on-surface-variant',

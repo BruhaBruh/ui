@@ -13,7 +13,7 @@ export const snackbarRegionContainerVariants = cva(
     variants: {
       position: {
         topLeft: ['left-md top-md'],
-        top: ['left-1/2 top-md -translate-x-1/2'],
+        top: ['top-md left-1/2 -translate-x-1/2'],
         topRight: ['right-md top-md'],
         right: ['right-md top-1/2 -translate-y-1/2'],
         bottomLeft: ['bottom-md left-md'],
