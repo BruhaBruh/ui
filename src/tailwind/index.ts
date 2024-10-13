@@ -9,16 +9,16 @@ const addMaterialVariants = ({ addVariant }: PluginAPI) => {
   addVariant('ring', '&:after');
 };
 
-export type UIPluginOptions = { debugScreens: DebugScreensOptions };
+export type UIPluginOptions = Partial<{
+  variablePrefix: string;
+  debugScreens: DebugScreensOptions;
+}>;
 
 export const uiPlugin =
-  (
-    options: UIPluginOptions = {
-      debugScreens: {},
-    },
-  ) =>
+  (options: UIPluginOptions = {}) =>
   (api: PluginAPI) => {
-    addDebugScreens(options.debugScreens, api);
+    const variablePrefix = options.variablePrefix || '--ui-';
+    addDebugScreens(variablePrefix, options.debugScreens, api);
     addMaterialVariants(api);
     addMaterialElevations(api);
     addMaterialDurations(api);

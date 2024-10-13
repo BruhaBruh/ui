@@ -10,15 +10,15 @@ export type DebugScreensOptions = Partial<{
   userStyles: Record<string, string>;
 }>;
 
-// px-xs py-2xs after:content-['none'] sm:after:content-['sm'] md:after:content-['md'] lg:after:content-['lg'] xl:after:content-['xl'] 2xl:after:content-['2xl']
 export const addDebugScreens = (
+  variablePrefix: string,
   {
     selector = '.debug-screens',
     prefix = 'screen: ',
     ignore = [],
     position = ['bottom', 'right'],
     userStyles = {},
-  }: DebugScreensOptions,
+  }: DebugScreensOptions = {},
   { addComponents, theme }: PluginAPI,
 ) => {
   const screens = theme('screens') as Record<string, unknown>;
@@ -33,14 +33,14 @@ export const addDebugScreens = (
         position: 'fixed',
         [position[0]]: '0',
         [position[1]]: '0',
-        padding: 'var(--ui-spacing-2xs) var(--ui-spacing-xs)',
-        background: 'var(--ui-color-inverse-surface)',
-        color: 'var(--ui-color-inverse-on-surface)',
-        fontFamily: 'var(--ui-font-family-sans)',
-        fontSize: 'var(--ui-font-size-label-small)',
+        padding: `var(${variablePrefix}spacing-2xs) var(--ui-spacing-xs)`,
+        background: `var(${variablePrefix}color-inverse-surface)`,
+        color: `var(${variablePrefix}color-inverse-on-surface)`,
+        fontFamily: `var(${variablePrefix}font-family-sans)`,
+        fontSize: `var(${variablePrefix}font-size-label-small)`,
         fontWeight: '500',
-        lineHeight: 'var(--ui-line-height-label-small)',
-        letterSpacing: 'var(--ui-letter-spacing-label-small)',
+        lineHeight: `var(${variablePrefix}line-height-label-small)`,
+        letterSpacing: `var(${variablePrefix}letter-spacing-label-small)`,
         content: `"${prefix}none"`,
       },
       userStyles,
