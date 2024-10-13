@@ -4,10 +4,9 @@ export const snackbarRegionContainerVariants = cva(
   [
     'fixed',
     'z-200',
-    'p-md',
-    'overflow-hidden',
     'flex items-stretch',
-    '[counter-reset:snackbar-region]',
+    'data-[empty=false]:w-80',
+    'data-[empty=false]:p-md',
   ],
   {
     variants: {
@@ -39,11 +38,7 @@ export const snackbarRegionContainerVariants = cva(
 );
 
 export const snackbarRegionItemWrapperVariants = cva(
-  [
-    'transition-rows duration-medium-2',
-    'grid',
-    '[counter-increment:snackbar-region]',
-  ],
+  ['transition-rows duration-medium-2', 'grid overflow-hidden'],
   {
     variants: {
       position: {
@@ -60,7 +55,9 @@ export const snackbarRegionItemWrapperVariants = cva(
         entering: [
           'animate-[grid-row_.3s_cubic-bezier(0.05,0.7,0.1,1.0)_forwards]',
         ],
-        queued: [],
+        queued: [
+          'animate-[grid-row_.3s_cubic-bezier(0.05,0.7,0.1,1.0)_forwards]',
+        ],
         exiting: [
           '-z-5',
           'animate-[grid-row-reverse_.3s_cubic-bezier(0.05,0.7,0.1,1.0)_forwards]',
@@ -74,7 +71,7 @@ export const snackbarRegionItemWrapperVariants = cva(
     compoundVariants: [
       {
         position: ['bottomLeft', 'bottom', 'bottomRight'],
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: [
           '[--end-margin-bottom:var(--ui-spacing-xs)]',
           '[&:last-child]:[--end-margin-bottom:0px]',
@@ -82,7 +79,7 @@ export const snackbarRegionItemWrapperVariants = cva(
       },
       {
         position: ['topLeft', 'top', 'topRight', 'left', 'right'],
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: [
           '[--end-margin-bottom:var(--ui-spacing-xs)]',
           '[&:first-child]:[--end-margin-bottom:0px]',
@@ -90,22 +87,22 @@ export const snackbarRegionItemWrapperVariants = cva(
       },
       {
         position: ['topRight', 'right', 'bottomRight'],
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: ['starting:translate-x-[720px]'],
       },
       {
         position: ['topLeft', 'left', 'bottomLeft'],
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: ['starting:translate-x-[-720px]'],
       },
       {
         position: 'top',
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: ['starting:translate-y-[-720px]'],
       },
       {
         position: 'bottom',
-        animation: 'entering',
+        animation: ['queued', 'entering'],
         className: ['starting:translate-y-[720px]'],
       },
       {

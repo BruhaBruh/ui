@@ -104,64 +104,62 @@ const Buttons: React.FC = () => {
   return (
     <div className="gap-xs flex flex-col">
       <Button
-        onPress={() => state.add(toasts.default.content, { timeout: 60000 })}
+        onPress={() => state.add(toasts.default.content, { timeout: 3000 })}
       >
         Default
       </Button>
       <Button
-        onPress={() => state.add(toasts.actions.content, { timeout: 60000 })}
+        onPress={() => state.add(toasts.actions.content, { timeout: 3000 })}
       >
         Actions
       </Button>
       <Button
-        onPress={() => state.add(toasts.twoLines.content, { timeout: 60000 })}
+        onPress={() => state.add(toasts.twoLines.content, { timeout: 3000 })}
       >
         Two Lines
       </Button>
       <Button
         onPress={() =>
-          state.add(toasts.twoLinesActions.content, { timeout: 60000 })
+          state.add(toasts.twoLinesActions.content, { timeout: 3000 })
         }
       >
         Two Lines Actions
       </Button>
       <Button
-        onPress={() => state.add(toasts.longer.content, { timeout: 60000 })}
+        onPress={() => state.add(toasts.longer.content, { timeout: 3000 })}
       >
         Longer Actions
       </Button>
       <Button
         onPress={() =>
-          state.add(toasts.defaultClose.content, { timeout: 60000 })
+          state.add(toasts.defaultClose.content, { timeout: 3000 })
         }
       >
         Default w/ close
       </Button>
       <Button
         onPress={() =>
-          state.add(toasts.actionsClose.content, { timeout: 60000 })
+          state.add(toasts.actionsClose.content, { timeout: 3000 })
         }
       >
         Actions w/ close
       </Button>
       <Button
         onPress={() =>
-          state.add(toasts.twoLinesClose.content, { timeout: 60000 })
+          state.add(toasts.twoLinesClose.content, { timeout: 3000 })
         }
       >
         Two Lines w/ close
       </Button>
       <Button
         onPress={() =>
-          state.add(toasts.twoLinesActionsClose.content, { timeout: 60000 })
+          state.add(toasts.twoLinesActionsClose.content, { timeout: 3000 })
         }
       >
         Two Lines Actions w/ close
       </Button>
       <Button
-        onPress={() =>
-          state.add(toasts.longerClose.content, { timeout: 60000 })
-        }
+        onPress={() => state.add(toasts.longerClose.content, { timeout: 3000 })}
       >
         Longer Actions w/ close
       </Button>
@@ -173,7 +171,6 @@ const meta = {
   title: 'Components/Communication/Snackbar',
   component: Snackbar,
   args: {
-    className: 'w-72',
     state: {
       add(_content, _options) {
         return '';

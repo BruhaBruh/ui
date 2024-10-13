@@ -53,6 +53,7 @@ export const SnackbarRegion = React.forwardRef<
         snackbarRegionContainerVariants({ position }),
         className,
       )}
+      data-empty={state.visibleToasts.length === 0}
     >
       {asChild && <Slottable>{children}</Slottable>}
       {state.visibleToasts.map((toast) => (
@@ -70,6 +71,7 @@ export const SnackbarRegion = React.forwardRef<
               state.remove(toast.key);
             }
           }}
+          data-animation={toast.animation}
         >
           <Snackbar toast={toast} state={state} />
         </div>
