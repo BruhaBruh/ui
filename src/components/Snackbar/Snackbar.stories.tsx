@@ -3,20 +3,24 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../Button';
 import { Snackbar } from './Snackbar';
-import { SnackbarContent } from './Snackbar.types';
-import { SnackbarProvider, useSnackbar } from './SnackbarProvider';
-import { SnackbarRegion } from './SnackbarRegion';
+import { SnackbarContent, SnackbarProps } from './Snackbar.types';
+import {
+  SnackbarProvider,
+  SnackbarProviderProps,
+  useSnackbar,
+} from './SnackbarProvider';
+import { SnackbarRegion, SnackbarRegionProps } from './SnackbarRegion';
 
 const toasts = {
-  default: {
-    key: 'default',
+  oneLine: {
+    key: 'oneLine',
     content: {
       title: 'Hello, world!',
     },
     animation: 'entering',
   },
-  actions: {
-    key: 'actions',
+  oneLineWithAction: {
+    key: 'oneLineWithAction',
     content: {
       title: 'Hello, world!',
       actions: <Button variant="text">Action</Button>,
@@ -31,8 +35,8 @@ const toasts = {
     },
     animation: 'entering',
   },
-  twoLinesActions: {
-    key: 'twoLinesActions',
+  twoLinesWithAction: {
+    key: 'twoLinesWithAction',
     content: {
       title: 'Hello, world!',
       description: 'Something went wrong',
@@ -40,8 +44,8 @@ const toasts = {
     },
     animation: 'entering',
   },
-  longer: {
-    key: 'longer',
+  twoLinesWithLongerAction: {
+    key: 'twoLinesWithLongerAction',
     content: {
       title: 'Hello, world!',
       description: 'Something went wrong',
@@ -50,16 +54,16 @@ const toasts = {
     },
     animation: 'entering',
   },
-  defaultClose: {
-    key: 'defaultClose',
+  oneLineClose: {
+    key: 'oneLineClose',
     content: {
       title: 'Hello, world!',
       closeButton: true,
     },
     animation: 'entering',
   },
-  actionsClose: {
-    key: 'actionsClose',
+  oneLineWithActionClose: {
+    key: 'oneLineWithActionClose',
     content: {
       title: 'Hello, world!',
       actions: <Button variant="text">Action</Button>,
@@ -76,8 +80,8 @@ const toasts = {
     },
     animation: 'entering',
   },
-  twoLinesActionsClose: {
-    key: 'twoLinesActions',
+  twoLinesWithActionClose: {
+    key: 'twoLinesWithActionClose',
     content: {
       title: 'Hello, world!',
       description: 'Something went wrong',
@@ -86,8 +90,8 @@ const toasts = {
     },
     animation: 'entering',
   },
-  longerClose: {
-    key: 'longerClose',
+  twoLinesWithLongerActionClose: {
+    key: 'twoLinesWithLongerActionClose',
     content: {
       title: 'Hello, world!',
       description: 'Something went wrong',
@@ -99,119 +103,298 @@ const toasts = {
   },
 } satisfies Record<string, QueuedToast<SnackbarContent>>;
 
-const Buttons: React.FC = () => {
+type ButtonsProps = {
+  show?: (keyof typeof toasts)[];
+  priority?: number;
+  timeout?: number;
+  toastList?: SnackbarProps['toast'][];
+};
+
+const Buttons: React.FC<ButtonsProps> = ({
+  show = [],
+  toastList = [],
+  ...toastOptions
+}) => {
   const state = useSnackbar();
+
   return (
     <div className="gap-xs flex flex-col">
-      <Button
-        onPress={() => state.add(toasts.default.content, { timeout: 3000 })}
-      >
-        Default
-      </Button>
-      <Button
-        onPress={() => state.add(toasts.actions.content, { timeout: 3000 })}
-      >
-        Actions
-      </Button>
-      <Button
-        onPress={() => state.add(toasts.twoLines.content, { timeout: 3000 })}
-      >
-        Two Lines
-      </Button>
-      <Button
-        onPress={() =>
-          state.add(toasts.twoLinesActions.content, { timeout: 3000 })
-        }
-      >
-        Two Lines Actions
-      </Button>
-      <Button
-        onPress={() => state.add(toasts.longer.content, { timeout: 3000 })}
-      >
-        Longer Actions
-      </Button>
-      <Button
-        onPress={() =>
-          state.add(toasts.defaultClose.content, { timeout: 3000 })
-        }
-      >
-        Default w/ close
-      </Button>
-      <Button
-        onPress={() =>
-          state.add(toasts.actionsClose.content, { timeout: 3000 })
-        }
-      >
-        Actions w/ close
-      </Button>
-      <Button
-        onPress={() =>
-          state.add(toasts.twoLinesClose.content, { timeout: 3000 })
-        }
-      >
-        Two Lines w/ close
-      </Button>
-      <Button
-        onPress={() =>
-          state.add(toasts.twoLinesActionsClose.content, { timeout: 3000 })
-        }
-      >
-        Two Lines Actions w/ close
-      </Button>
-      <Button
-        onPress={() => state.add(toasts.longerClose.content, { timeout: 3000 })}
-      >
-        Longer Actions w/ close
-      </Button>
+      {show.includes('oneLine') && (
+        <Button onPress={() => state.add(toasts.oneLine.content, toastOptions)}>
+          One line
+        </Button>
+      )}
+      {show.includes('oneLineWithAction') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.oneLineWithAction.content, toastOptions)
+          }
+        >
+          One line w/ action
+        </Button>
+      )}
+      {show.includes('twoLines') && (
+        <Button
+          onPress={() => state.add(toasts.twoLines.content, toastOptions)}
+        >
+          Two lines
+        </Button>
+      )}
+      {show.includes('twoLinesWithAction') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.twoLinesWithAction.content, toastOptions)
+          }
+        >
+          Two lines w/ action
+        </Button>
+      )}
+      {show.includes('twoLinesWithLongerAction') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.twoLinesWithLongerAction.content, {
+              timeout: 3000,
+            })
+          }
+        >
+          Two lines w/ longer action
+        </Button>
+      )}
+      {show.includes('oneLineClose') && (
+        <Button
+          onPress={() => state.add(toasts.oneLineClose.content, toastOptions)}
+        >
+          One line w/ close
+        </Button>
+      )}
+      {show.includes('oneLineWithActionClose') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.oneLineWithActionClose.content, toastOptions)
+          }
+        >
+          One line w/ action & close
+        </Button>
+      )}
+      {show.includes('twoLinesClose') && (
+        <Button
+          onPress={() => state.add(toasts.twoLinesClose.content, toastOptions)}
+        >
+          Two lines w/ close
+        </Button>
+      )}
+      {show.includes('twoLinesWithActionClose') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.twoLinesWithActionClose.content, toastOptions)
+          }
+        >
+          Two lines w/ action & close
+        </Button>
+      )}
+      {show.includes('twoLinesWithLongerActionClose') && (
+        <Button
+          onPress={() =>
+            state.add(toasts.twoLinesWithLongerActionClose.content, {
+              timeout: 3000,
+            })
+          }
+        >
+          Two lines w/ longer action & close
+        </Button>
+      )}
+      {toastList.map((toast) => (
+        <Snackbar
+          key={toast.key}
+          className="w-72"
+          state={{
+            add(_content, _options) {
+              return '';
+            },
+            close(_key) {},
+            remove(_key) {},
+            pauseAll() {},
+            resumeAll() {},
+            visibleToasts: Object.values(toasts),
+          }}
+          toast={toast}
+        />
+      ))}
     </div>
   );
 };
 
 const meta = {
   title: 'Components/Communication/Snackbar',
-  component: Snackbar,
-  args: {
-    state: {
-      add(_content, _options) {
-        return '';
+  component: SnackbarProvider,
+  argTypes: {
+    maxVisibleToasts: {
+      description: "Maximum visibles Snackbar's",
+      table: {
+        type: {
+          summary: 'number',
+        },
+        defaultValue: {
+          summary: '3',
+        },
       },
-      close(_key) {},
-      remove(_key) {},
-      pauseAll() {},
-      resumeAll() {},
-      visibleToasts: Object.values(toasts),
+      type: 'number',
+      control: 'number',
     },
-    toast: toasts.default,
+    position: {
+      description: "SnackbarRegion's position",
+      table: {
+        type: {
+          summary:
+            'topLeft | top | topRight | right | bottomRight |  bottom | bottomLeft | left',
+        },
+        defaultValue: {
+          summary: 'bottomRight',
+        },
+      },
+      type: 'string',
+      control: 'select',
+      options: [
+        'topLeft',
+        'top',
+        'topRight',
+        'right',
+        'bottomRight',
+        'bottom',
+        'bottomLeft',
+        'left',
+      ] satisfies SnackbarRegionProps['position'][],
+    },
+    timeout: {
+      description: 'Timeout in milliseconds to auto-dissmis Snackbar',
+      table: {
+        type: {
+          summary: 'number',
+        },
+        defaultValue: {
+          summary: 'undefined',
+        },
+      },
+      type: 'number',
+      control: 'number',
+    },
+    priority: {
+      description: 'Priority of Snackbar',
+      table: {
+        type: {
+          summary: 'number',
+        },
+        defaultValue: {
+          summary: 'undefined',
+        },
+      },
+      type: 'number',
+      control: 'number',
+    },
   },
-  render: () => {
+  render: (args) => {
     return (
-      <SnackbarProvider hasExitAnimation maxVisibleToasts={3}>
-        <SnackbarRegion position="bottomRight" />
-        <Buttons />
+      <SnackbarProvider maxVisibleToasts={args.maxVisibleToasts}>
+        <SnackbarRegion position={args.position} />
+        <Buttons
+          show={args.show}
+          priority={args.priority}
+          timeout={args.timeout}
+          toastList={args.toastList}
+        />
       </SnackbarProvider>
     );
   },
-} satisfies Meta<typeof Snackbar>;
+  args: {
+    maxVisibleToasts: 3,
+    position: 'bottomRight',
+    timeout: 3000,
+    show: [
+      'oneLine',
+      'oneLineWithAction',
+      'twoLines',
+      'twoLinesWithAction',
+      'twoLinesWithLongerAction',
+      'oneLineClose',
+      'oneLineWithActionClose',
+      'twoLinesClose',
+      'twoLinesWithActionClose',
+      'twoLinesWithLongerActionClose',
+    ],
+  },
+  parameters: {
+    controls: {
+      exclude: /show|toastList/g,
+    },
+  },
+} satisfies Meta<
+  React.FC<SnackbarProviderProps & SnackbarRegionProps & ButtonsProps>
+>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Playground: Story = {};
 
-export const WithoutControl: Story = {
-  render: (args) => (
-    <div className="gap-xs flex flex-col">
-      <Snackbar {...args} toast={toasts.default} />
-      <Snackbar {...args} toast={toasts.actions} />
-      <Snackbar {...args} toast={toasts.twoLines} />
-      <Snackbar {...args} toast={toasts.twoLinesActions} />
-      <Snackbar {...args} toast={toasts.longer} />
-      <Snackbar {...args} toast={toasts.defaultClose} />
-      <Snackbar {...args} toast={toasts.actionsClose} />
-      <Snackbar {...args} toast={toasts.twoLinesClose} />
-      <Snackbar {...args} toast={toasts.twoLinesActionsClose} />
-      <Snackbar {...args} toast={toasts.longerClose} />
-    </div>
-  ),
+export const WithoutClose: Story = {
+  args: {
+    show: [
+      'oneLine',
+      'oneLineWithAction',
+      'twoLines',
+      'twoLinesWithAction',
+      'twoLinesWithLongerAction',
+    ],
+  },
+};
+
+export const WithClose: Story = {
+  args: {
+    show: [
+      'oneLineClose',
+      'oneLineWithActionClose',
+      'twoLinesClose',
+      'twoLinesWithActionClose',
+      'twoLinesWithLongerActionClose',
+    ],
+  },
+};
+
+export const OneLine: Story = {
+  args: {
+    show: ['oneLine', 'oneLineClose'],
+    toastList: [toasts.oneLine, toasts.oneLineClose],
+  },
+};
+
+export const OneLineWithAction: Story = {
+  args: {
+    show: ['oneLineWithAction', 'oneLineWithActionClose'],
+    toastList: [toasts.oneLineWithAction, toasts.oneLineWithActionClose],
+  },
+};
+
+export const TwoLines: Story = {
+  args: {
+    show: ['twoLines', 'twoLinesClose'],
+    toastList: [toasts.twoLines, toasts.twoLinesClose],
+  },
+};
+
+export const TwoLinesWithAction: Story = {
+  args: {
+    show: ['twoLinesWithAction', 'twoLinesWithActionClose'],
+    toastList: [toasts.twoLinesWithAction, toasts.twoLinesWithActionClose],
+  },
+};
+
+export const twoLinesWithLongerAction: Story = {
+  args: {
+    show: ['twoLinesWithLongerAction', 'twoLinesWithLongerActionClose'],
+    toastList: [
+      toasts.twoLinesWithLongerAction,
+      toasts.twoLinesWithLongerActionClose,
+    ],
+  },
 };

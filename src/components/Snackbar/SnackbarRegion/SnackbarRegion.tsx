@@ -54,6 +54,30 @@ export const SnackbarRegion = React.forwardRef<
         className,
       )}
       data-empty={state.visibleToasts.length === 0}
+      onMouseEnter={(e) => {
+        state.visibleToasts.forEach((toast) => {
+          toast.timer?.pause();
+        });
+        props.onMouseEnter?.(e);
+      }}
+      onMouseLeave={(e) => {
+        state.visibleToasts.forEach((toast) => {
+          toast.timer?.resume();
+        });
+        props.onMouseLeave?.(e);
+      }}
+      onTouchStart={(e) => {
+        state.visibleToasts.forEach((toast) => {
+          toast.timer?.pause();
+        });
+        props.onTouchStart?.(e);
+      }}
+      onTouchEnd={(e) => {
+        state.visibleToasts.forEach((toast) => {
+          toast.timer?.resume();
+        });
+        props.onTouchEnd?.(e);
+      }}
     >
       {asChild && <Slottable>{children}</Slottable>}
       {state.visibleToasts.map((toast) => (

@@ -62,11 +62,6 @@ export const Snackbar = React.forwardRef<HTMLElement, SnackbarProps>(
         ref={ref}
         className={cn('snackbar', snackbarContainerVariants(), className)}
         data-longer-actions={toast.content.longerActions || 'false'}
-        onMouseEnter={() => toast.timer?.pause()}
-        onMouseLeave={() => toast.timer?.resume()}
-        onTouchStart={() => toast.timer?.pause()}
-        onTouchEnd={() => toast.timer?.resume()}
-        data-animation={toast.animation}
       >
         <Slottable>
           {childrenUnwrapper(toast.content.asChild, () => (
