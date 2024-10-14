@@ -1,6 +1,7 @@
 import { PluginAPI } from 'tailwindcss/types/config';
 import { DebugScreensOptions, addDebugScreens } from './debug-screens';
 import { addMaterialDurations } from './material-durations';
+import { addMaterialEasings } from './material-easings';
 import { addMaterialElevations } from './material-elevations';
 
 const addMaterialVariants = ({ addVariant }: PluginAPI) => {
@@ -21,5 +22,6 @@ export const uiPlugin =
     addDebugScreens(variablePrefix, options.debugScreens, api);
     addMaterialVariants(api);
     addMaterialElevations(api);
+    addMaterialEasings(api);
     addMaterialDurations(api);
   };

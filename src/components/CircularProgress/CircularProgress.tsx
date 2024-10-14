@@ -93,12 +93,12 @@ export const CircularProgress = React.forwardRef<
         style={
           {
             ...style,
-            '--progress-value': `${percentage / 100}`,
+            '--progress-value': `${ariaProps.isIndeterminate ? 0.33 : percentage / 100}`,
           } as React.CSSProperties
         }
         data-indeterminate={ariaProps.isIndeterminate}
         data-ease-in-out={easeInOut}
-        data-show-indicator={percentage > 0}
+        data-show-indicator={ariaProps.isIndeterminate || percentage > 0}
       >
         {asChild && <Slottable>{children}</Slottable>}
         <svg
