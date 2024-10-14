@@ -3,7 +3,7 @@ import { AriaToastProps } from '@react-aria/toast';
 import { QueuedToast, ToastState } from '@react-stately/toast';
 import { VariantProps } from 'class-variance-authority';
 import React from 'react';
-import { snackbarContainerVariants } from './Snackbar.variants';
+import { snackbarVariants } from './Snackbar.variants';
 
 export type SnackbarContent = {
   title: React.ReactNode;
@@ -12,7 +12,7 @@ export type SnackbarContent = {
   closeButton?: boolean;
   longerActions?: boolean;
   asChild?: React.ReactNode;
-} & VariantProps<typeof snackbarContainerVariants>;
+} & VariantProps<typeof snackbarVariants>;
 
 export type SnackbarProps = AriaToastProps<SnackbarContent> &
   Props<'section', AriaToastProps<SnackbarContent>, 'children'> & {

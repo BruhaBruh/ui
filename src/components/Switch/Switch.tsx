@@ -6,10 +6,7 @@ import React from 'react';
 import { AriaSwitchProps, useSwitch } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { SwitchProps } from './Switch.types';
-import {
-  switchContainerVariants,
-  switchThumbVariants,
-} from './Switch.variants';
+import { switchThumbVariants, switchVariants } from './Switch.variants';
 
 const splitProps = ({
   defaultSelected,
@@ -89,7 +86,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
         data-icon={isSelected ? Boolean(selectedIcon) : Boolean(unselectedIcon)}
         className={cn(
           'switch',
-          switchContainerVariants({
+          switchVariants({
             color,
           }),
           className,

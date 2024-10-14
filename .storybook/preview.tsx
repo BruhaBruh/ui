@@ -101,6 +101,8 @@ const preview: Preview = {
               'Tooltip',
               '*',
             ],
+            'Containment',
+            ['Divider', '*'],
             'Selection',
             ['Checkbox', 'Radio', 'Switch', '*'],
             'Layout',

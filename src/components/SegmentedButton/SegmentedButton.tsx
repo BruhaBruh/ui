@@ -7,8 +7,8 @@ import { useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { SegmentedButtonProps } from './SegmentedButton.types';
 import {
-  segmentedButtonContainerVariants,
   segmentedButtonLabelVariants,
+  segmentedButtonVariants,
 } from './SegmentedButton.variants';
 import { SegmentedButtonGroup } from './SegmentedButtonGroup';
 
@@ -55,7 +55,7 @@ const SegmentedButtonImpl = React.forwardRef<
         ref={ref}
         className={cn(
           'segmented-button',
-          segmentedButtonContainerVariants({ color }),
+          segmentedButtonVariants({ color }),
           className,
         )}
         data-disabled={isDisabled || disabled || 'false'}

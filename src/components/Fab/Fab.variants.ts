@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const fabContainerVariants = cva(
+export const fabVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',

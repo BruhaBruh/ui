@@ -9,8 +9,8 @@ import { Snackbar } from '../Snackbar';
 import { useSnackbar } from '../SnackbarProvider';
 import { SnackbarRegionProps } from './SnackbarRegion.types';
 import {
-  snackbarRegionContainerVariants,
   snackbarRegionItemWrapperVariants,
+  snackbarRegionVariants,
 } from './SnackbarRegion.variants';
 
 const splitProps = ({
@@ -50,7 +50,7 @@ export const SnackbarRegion = React.forwardRef<
       ref={ref}
       className={cn(
         'snackbar-region',
-        snackbarRegionContainerVariants({ position }),
+        snackbarRegionVariants({ position }),
         className,
       )}
       data-empty={state.visibleToasts.length === 0}

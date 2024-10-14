@@ -6,10 +6,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { ButtonProps } from './Button.types';
-import {
-  buttonContainerVariants,
-  buttonLabelVariants,
-} from './Button.variants';
+import { buttonLabelVariants, buttonVariants } from './Button.variants';
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -47,7 +44,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           'button',
-          buttonContainerVariants({
+          buttonVariants({
             color,
             variant,
           }),

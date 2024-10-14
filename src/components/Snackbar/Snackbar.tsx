@@ -10,10 +10,10 @@ import { SnackbarContent, SnackbarProps } from './Snackbar.types';
 import {
   snackbarActionsVariants,
   snackbarCloseButtonVariants,
-  snackbarContainerVariants,
   snackbarContentVariants,
   snackbarDescriptionVariants,
   snackbarTitleVariants,
+  snackbarVariants,
 } from './Snackbar.variants';
 
 const splitProps = ({
@@ -60,7 +60,7 @@ export const Snackbar = React.forwardRef<HTMLElement, SnackbarProps>(
         {...toastProps}
         {...contentProps}
         ref={ref}
-        className={cn('snackbar', snackbarContainerVariants(), className)}
+        className={cn('snackbar', snackbarVariants(), className)}
         data-longer-actions={toast.content.longerActions || 'false'}
       >
         <Slottable>

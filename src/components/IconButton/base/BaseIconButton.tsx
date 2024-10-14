@@ -7,11 +7,11 @@ import { Slot } from '@radix-ui/react-slot';
 import { VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { AriaButtonProps, useButton } from 'react-aria';
-import { iconButtonContainerVariants } from '../IconButton.variants';
+import { iconButtonVariants } from '../IconButton.variants';
 
 export type BaseIconButtonProps = AriaButtonProps &
   PropsWithAsChild<'button', AriaButtonProps> &
-  VariantProps<typeof iconButtonContainerVariants> & {
+  VariantProps<typeof iconButtonVariants> & {
     toggleable?: false;
     isSelected?: undefined;
     defaultSelected?: undefined;
@@ -55,7 +55,7 @@ export const BaseIconButton = React.forwardRef<
         ref={ref}
         className={cn(
           'icon-button',
-          iconButtonContainerVariants({
+          iconButtonVariants({
             color,
             variant,
           }),

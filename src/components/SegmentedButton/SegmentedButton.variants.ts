@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const segmentedButtonContainerVariants = cva(
+export const segmentedButtonVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',

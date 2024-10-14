@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const circularProgressContainerVariants = cva(
+export const circularProgressVariants = cva(
   ['group', 'relative', 'overflow-hidden', 'size-12'],
   {
     variants: {

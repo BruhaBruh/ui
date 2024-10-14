@@ -5,7 +5,7 @@ import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { BadgeProps } from './Badge.types';
-import { badgeContainerVariants } from './Badge.variants';
+import { badgeVariants } from './Badge.variants';
 
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   (
@@ -20,7 +20,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       <Comp
         {...props}
         ref={ref}
-        className={cn('badge', badgeContainerVariants({ color }), className)}
+        className={cn('badge', badgeVariants({ color }), className)}
         data-size={(() => {
           if (count === undefined) return 'small';
           if (count < 10 && count <= maxCount) return 'medium';

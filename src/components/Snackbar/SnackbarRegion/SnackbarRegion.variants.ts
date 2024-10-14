@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const snackbarRegionContainerVariants = cva(
+export const snackbarRegionVariants = cva(
   [
     'fixed',
     'z-200',

@@ -8,11 +8,11 @@ import { VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { AriaToggleButtonProps, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
-import { iconButtonContainerVariants } from '../IconButton.variants';
+import { iconButtonVariants } from '../IconButton.variants';
 
 export type BaseToggleableIconButtonProps = AriaToggleButtonProps &
   PropsWithAsChild<'button', AriaToggleButtonProps> &
-  VariantProps<typeof iconButtonContainerVariants> & {
+  VariantProps<typeof iconButtonVariants> & {
     toggleable: true;
   };
 
@@ -63,7 +63,7 @@ export const BaseToggleableIconButton = React.forwardRef<
         ref={ref}
         className={cn(
           'icon-button',
-          iconButtonContainerVariants({
+          iconButtonVariants({
             color,
             variant,
           }),

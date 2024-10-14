@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const badgeContainerVariants = cva(
+export const badgeVariants = cva(
   [
     'tabular-nums',
     'select-none',

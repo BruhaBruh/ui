@@ -8,10 +8,10 @@ import { AriaProgressBarProps, useProgressBar } from 'react-aria';
 import { CircularProgressProps } from './CircularProgress.types';
 import {
   circularProgressCircleVariants,
-  circularProgressContainerVariants,
   circularProgressIndicatorVariants,
   circularProgressPathVariants,
   circularProgressTrackVariants,
+  circularProgressVariants,
 } from './CircularProgress.variants';
 
 const splitProps = ({
@@ -87,7 +87,7 @@ export const CircularProgress = React.forwardRef<
         ref={ref}
         className={cn(
           'circular-progress',
-          circularProgressContainerVariants({ color }),
+          circularProgressVariants({ color }),
           className,
         )}
         style={

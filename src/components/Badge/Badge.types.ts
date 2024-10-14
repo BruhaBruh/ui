@@ -1,9 +1,9 @@
 import { PropsWithAsChild } from '@/types';
 import { VariantProps } from 'class-variance-authority';
-import { badgeContainerVariants } from './Badge.variants';
+import { badgeVariants } from './Badge.variants';
 
 export type BadgeProps = PropsWithAsChild<'span'> &
-  VariantProps<typeof badgeContainerVariants> & {
+  VariantProps<typeof badgeVariants> & {
     count?: number;
     maxCount?: number;
   };

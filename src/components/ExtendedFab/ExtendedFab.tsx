@@ -7,8 +7,8 @@ import React from 'react';
 import { useButton } from 'react-aria';
 import { ExtendedFabProps } from './ExtendedFab.types';
 import {
-  extendedFabContainerVariants,
   extendedFabLabelVariants,
+  extendedFabVariants,
 } from './ExtendedFab.variants';
 
 export const ExtendedFab = React.forwardRef<
@@ -38,7 +38,7 @@ export const ExtendedFab = React.forwardRef<
         ref={ref}
         className={cn(
           'extended-fab',
-          extendedFabContainerVariants({
+          extendedFabVariants({
             color,
           }),
           className,

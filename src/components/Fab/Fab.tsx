@@ -6,7 +6,7 @@ import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { FabProps } from './Fab.types';
-import { fabContainerVariants } from './Fab.variants';
+import { fabVariants } from './Fab.variants';
 
 export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
   (
@@ -32,7 +32,7 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
         ref={ref}
         className={cn(
           'fab',
-          fabContainerVariants({
+          fabVariants({
             color,
             size,
           }),

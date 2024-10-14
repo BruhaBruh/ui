@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const iconButtonContainerVariants = cva(
+export const iconButtonVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',

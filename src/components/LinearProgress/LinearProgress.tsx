@@ -7,10 +7,10 @@ import React from 'react';
 import { AriaProgressBarProps, useProgressBar } from 'react-aria';
 import { LinearProgressProps } from './LinearProgress.types';
 import {
-  linearProgressContainerVariants,
-  linearProgressIndeterminateContainerVariants,
+  linearProgressIndeterminateVariants,
   linearProgressIndicatorVariants,
   linearProgressTrackVariants,
+  linearProgressVariants,
 } from './LinearProgress.variants';
 
 const splitProps = ({
@@ -86,7 +86,7 @@ export const LinearProgress = React.forwardRef<
         ref={ref}
         className={cn(
           'linear-progress',
-          linearProgressContainerVariants({ color }),
+          linearProgressVariants({ color }),
           className,
         )}
         style={
@@ -102,8 +102,8 @@ export const LinearProgress = React.forwardRef<
         {ariaProps.isIndeterminate && (
           <span
             className={cn(
-              'linear-progress--indeterminate-container',
-              linearProgressIndeterminateContainerVariants(),
+              'linear-progress--indeterminate',
+              linearProgressIndeterminateVariants(),
             )}
           >
             <span

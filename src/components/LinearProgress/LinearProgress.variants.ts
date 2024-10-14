@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const linearProgressContainerVariants = cva(
+export const linearProgressVariants = cva(
   [
     'group rounded-full',
     'string:rounded-full relative',
@@ -29,7 +29,7 @@ export const linearProgressContainerVariants = cva(
   },
 );
 
-export const linearProgressIndeterminateContainerVariants = cva([
+export const linearProgressIndeterminateVariants = cva([
   'absolute right-0 top-0',
   'h-full w-[200%]',
   'gap-2xs inline-flex items-stretch justify-between',
