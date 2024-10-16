@@ -94,8 +94,15 @@ export const createContext = <T extends object>(
     return [selectedState, setFn];
   };
 
+  const useHasStore = () => {
+    const store = React.useContext(StoreContext);
+
+    return Boolean(store);
+  };
+
   return {
     Provider,
     useStore,
+    useHasStore,
   };
 };
