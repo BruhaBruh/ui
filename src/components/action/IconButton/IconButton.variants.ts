@@ -6,8 +6,8 @@ export const iconButtonVariants = cva(
     'inline-flex items-center justify-center',
     'size-10 min-w-10 rounded-lg',
     '[&>svg]:starting:size-0 [&>svg]:size-6',
-    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
-    'easing-emphasized duration-medium-1 transition',
+    '[&>svg]:easing-emphasized-decelerate [&>svg]:duration-medium-1 [&>svg]:transition',
+    'easing-emphasized-decelerate duration-medium-1 transition',
     'select-none outline-none',
     'disabled:pointer-events-none',
     'whitespace-nowrap',
@@ -21,7 +21,7 @@ export const iconButtonVariants = cva(
     'ring:transition ring:easing-emphasized-accelerate',
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
-    'ring:ring-secondary-container',
+    'ring:ring-primary-container',
   ],
   {
     variants: {

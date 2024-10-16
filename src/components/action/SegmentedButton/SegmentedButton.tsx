@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn } from '@/utility';
+import { cn, withProvider } from '@/utility';
 import React from 'react';
 import { useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
@@ -10,26 +10,23 @@ import {
   segmentedButtonLabelVariants,
   segmentedButtonVariants,
 } from './SegmentedButton.variants';
+import {
+  SegmentedButtonProvider,
+  useSegmentedButtonContext,
+} from './SegmentedButtonContext/SegmentedButton.context';
 import { SegmentedButtonGroup } from './SegmentedButtonGroup';
+import { SegmentedButtonSelectedIcon } from './SegmentedButtonSelectedIcon';
 
-const SegmentedButtonImpl = React.forwardRef<
+const _SegmentedButton = React.forwardRef<
   HTMLButtonElement,
   SegmentedButtonProps
 >(
   (
-    {
-      color,
-      selectedIcon,
-      isSelected,
-      disabled,
-      isDisabled,
-      className,
-      children,
-      ...props
-    },
+    { color, isSelected, disabled, isDisabled, className, children, ...props },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
+    const [{ selectedIcon }] = useSegmentedButtonContext();
 
     const state = useToggleState({
       elementType: 'button',
@@ -88,8 +85,12 @@ const SegmentedButtonImpl = React.forwardRef<
     );
   },
 );
-SegmentedButtonImpl.displayName = 'SegmentedButton';
+_SegmentedButton.displayName = 'SegmentedButton';
 
-export const SegmentedButton = Object.assign(SegmentedButtonImpl, {
-  Group: SegmentedButtonGroup,
-});
+export const SegmentedButton = Object.assign(
+  withProvider(SegmentedButtonProvider, _SegmentedButton),
+  {
+    Group: SegmentedButtonGroup,
+    SelectedIcon: SegmentedButtonSelectedIcon,
+  },
+);

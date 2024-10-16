@@ -1,13 +1,14 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks';
-import { cn } from '@/utility';
+import { cn, withProvider } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
+import { SegmentedButtonProvider } from '../SegmentedButtonContext/SegmentedButton.context';
 import { SegmentedButtonGroupProps } from './SegmentedButtonGroup.types';
 import { segmentedButtonGroupVariants } from './SegmentedButtonGroup.variants';
 
-export const SegmentedButtonGroup = React.forwardRef<
+const _SegmentedButtonGroup = React.forwardRef<
   HTMLDivElement,
   SegmentedButtonGroupProps
 >(({ asChild, className, children, ...props }, forwardedRef) => {
@@ -29,4 +30,9 @@ export const SegmentedButtonGroup = React.forwardRef<
     </Comp>
   );
 });
-SegmentedButtonGroup.displayName = 'SegmentedButtonGroup';
+_SegmentedButtonGroup.displayName = 'SegmentedButtonGroup';
+
+export const SegmentedButtonGroup = withProvider(
+  SegmentedButtonProvider,
+  _SegmentedButtonGroup,
+);

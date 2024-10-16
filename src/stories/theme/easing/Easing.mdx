@@ -7,11 +7,11 @@ import { EasingPresentation } from "./easing-presentation";
 
 <EasingPresentation 
   easings={[
-    "emphasized",
-    "emphasized-decelerate", 
-    "emphasized-accelerate", 
-    "standard", 
-    "standard-decelerate",
-    "standard-accelerate"
+    ["emphasized", "cubic-bezier(0.2, 0.0, 0, 1.0)"],
+    ["emphasized-decelerate", "cubic-bezier(0.05, 0.7, 0.1, 1.0)"],
+    ["emphasized-accelerate", "cubic-bezier(0.3, 0.0, 0.8, 0.15)"],
+    ["standard", "cubic-bezier(0.2, 0.0, 0, 1.0)"],
+    ["standard-decelerate", "cubic-bezier(0, 0, 0, 1)"],
+    ["standard-accelerate", "cubic-bezier(0.3, 0, 1, 1)"],
   ]}
 />

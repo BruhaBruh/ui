@@ -100,9 +100,38 @@ export const createContext = <T extends object>(
     return Boolean(store);
   };
 
+  const useSetStore = (): StoreSetFn<T> => {
+    const store = React.useContext(StoreContext);
+    if (!store) {
+      throw Error(`Store "${storeName}" not found`);
+    }
+
+    const setFn: StoreSetFn<T> = (valueOrFn) => {
+      if (typeof valueOrFn === 'function') {
+        const newValue = valueOrFn(store.get());
+        store.set(newValue);
+      } else {
+        store.set(valueOrFn);
+      }
+    };
+
+    return setFn;
+  };
+
+  const ProviderWithDepend: typeof Provider = ({ value, children }) => {
+    const hasStore = useHasStore();
+
+    if (hasStore) return children;
+
+    return <Provider value={value}>{children}</Provider>;
+  };
+  ProviderWithDepend.displayName = `${capitalizedStoreName}ProviderWithDepend`;
+
   return {
     Provider,
+    ProviderWithDepend,
     useStore,
     useHasStore,
+    useSetStore,
   };
 };

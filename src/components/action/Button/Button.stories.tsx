@@ -69,24 +69,6 @@ const meta = {
       type: 'boolean',
       control: 'boolean',
     },
-    leftIcon: {
-      description: "Button's left icon",
-      table: {
-        type: { summary: 'React.ReactNode' },
-        defaultValue: {
-          summary: 'undefined',
-        },
-      },
-    },
-    rightIcon: {
-      description: "Button's right icon",
-      table: {
-        type: { summary: 'React.ReactNode' },
-        defaultValue: {
-          summary: 'undefined',
-        },
-      },
-    },
     asChild: {
       description: 'Pass `true` to render as a child element',
       table: {
@@ -154,32 +136,51 @@ export const WithIcon: Story = {
   render: ({ children, ...args }) => (
     <div className="gap-xs flex items-center">
       <div className="gap-xs flex flex-col items-center">
-        <Button {...args} leftIcon={<IconSquare />}>
+        <Button {...args}>
+          <Button.Left>
+            <IconSquare />
+          </Button.Left>
           {children}
         </Button>
-        <Button {...args} className="w-64" leftIcon={<IconSquare />}>
-          {children}
-        </Button>
-      </div>
-      <div className="gap-xs flex flex-col items-center">
-        <Button {...args} rightIcon={<IconSquare />}>
-          {children}
-        </Button>
-        <Button {...args} className="w-64" rightIcon={<IconSquare />}>
+        <Button {...args} className="w-64">
+          <Button.Left>
+            <IconSquare />
+          </Button.Left>
           {children}
         </Button>
       </div>
       <div className="gap-xs flex flex-col items-center">
-        <Button {...args} leftIcon={<IconSquare />} rightIcon={<IconSquare />}>
+        <Button {...args}>
           {children}
+          <Button.Right>
+            <IconSquare />
+          </Button.Right>
         </Button>
-        <Button
-          {...args}
-          className="w-64"
-          leftIcon={<IconSquare />}
-          rightIcon={<IconSquare />}
-        >
+        <Button {...args} className="w-64">
           {children}
+          <Button.Right>
+            <IconSquare />
+          </Button.Right>
+        </Button>
+      </div>
+      <div className="gap-xs flex flex-col items-center">
+        <Button {...args}>
+          <Button.Left>
+            <IconSquare />
+          </Button.Left>
+          {children}
+          <Button.Right>
+            <IconSquare />
+          </Button.Right>
+        </Button>
+        <Button {...args} className="w-64">
+          <Button.Left>
+            <IconSquare />
+          </Button.Left>
+          {children}
+          <Button.Right>
+            <IconSquare />
+          </Button.Right>
         </Button>
       </div>
     </div>

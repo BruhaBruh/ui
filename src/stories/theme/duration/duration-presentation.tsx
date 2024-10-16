@@ -2,20 +2,22 @@ import { cn } from '@/utility';
 import React from 'react';
 
 const DurationPlate: React.FC<{
-  duration: string;
-}> = ({ duration }) => {
+  name: string;
+  duration: number;
+}> = ({ name, duration }) => {
   return (
     <div
       className={cn(
-        'gap-2xs typography-title-medium group flex flex-col items-center',
+        'gap-3xs typography-title-medium group flex flex-col items-center',
       )}
     >
       <div>
-        {duration
+        {name
           .split('-')
           .map((v) => v.charAt(0).toUpperCase() + v.slice(1))
           .join(' ')}
       </div>
+      <div className="typography-label-large">{duration}ms</div>
       <div
         className={cn(
           'border-outline flex h-8 w-48 items-center rounded-full border',
@@ -27,7 +29,7 @@ const DurationPlate: React.FC<{
             'scale-50',
             'group-hover:translate-x-40',
             'group-hover:scale-100',
-            `duration-${duration}`,
+            `duration-${name}`,
           )}
         />
       </div>
@@ -36,12 +38,12 @@ const DurationPlate: React.FC<{
 };
 
 export const DurationPresentation: React.FC<{
-  durations: string[];
+  durations: [string, number][];
 }> = ({ durations }) => {
   return (
     <div className="gap-md flex flex-wrap justify-between">
-      {durations.map((duration) => (
-        <DurationPlate key={duration} duration={duration} />
+      {durations.map(([name, duration]) => (
+        <DurationPlate key={duration} name={name} duration={duration} />
       ))}
     </div>
   );

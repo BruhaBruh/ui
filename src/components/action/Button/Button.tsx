@@ -1,20 +1,21 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { childrenUnwrapper, cn } from '@/utility';
+import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { ButtonProps } from './Button.types';
 import { buttonLabelVariants, buttonVariants } from './Button.variants';
+import { ButtonProvider, useButtonContext } from './ButtonContext';
+import { ButtonLeft } from './ButtonLeft';
+import { ButtonRight } from './ButtonRight';
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant,
       color,
-      leftIcon,
-      rightIcon,
       disabled,
       isDisabled,
       className,
@@ -25,6 +26,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
+    const [{ left, right }] = useButtonContext();
 
     const { buttonProps } = useButton(
       {
@@ -52,7 +54,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         data-disabled={isDisabled || disabled || false}
       >
-        {leftIcon}
+        {left}
         <Slottable>
           {childrenUnwrapper(children, (child) => (
             <span
@@ -62,9 +64,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             </span>
           ))}
         </Slottable>
-        {rightIcon}
+        {right}
       </Comp>
     );
   },
 );
-Button.displayName = 'Button';
+_Button.displayName = 'Button';
+
+export const Button = Object.assign(withProvider(ButtonProvider, _Button), {
+  Left: ButtonLeft,
+  Right: ButtonRight,
+});

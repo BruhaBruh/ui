@@ -61,22 +61,12 @@ const meta = {
       type: 'boolean',
       control: 'boolean',
     },
-    selectedIcon: {
-      description: "SegmentedButton's selected icon",
-      table: {
-        type: { summary: 'React.ReactNode' },
-        defaultValue: {
-          summary: 'undefined',
-        },
-      },
-    },
   },
   args: {
     children: 'SegmentedButton',
     color: 'primary',
     isSelected: false,
     isDisabled: false,
-    selectedIcon: undefined,
   },
 } satisfies Meta<typeof SegmentedButton>;
 
@@ -87,14 +77,14 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {};
 
 export const AnotherSelectedIcon: Story = {
-  args: {
-    selectedIcon: <IconSquareFilled />,
-  },
-  parameters: {
-    controls: {
-      exclude: /selectedIcon/g,
-    },
-  },
+  render: ({ children, ...args }) => (
+    <SegmentedButton {...args}>
+      <SegmentedButton.SelectedIcon>
+        <IconSquareFilled />
+      </SegmentedButton.SelectedIcon>
+      {children}
+    </SegmentedButton>
+  ),
 };
 
 const GroupItemsSingleSelect: React.FC<SegmentedButtonProps> = (args) => {
@@ -162,6 +152,9 @@ const GroupItemsMultiSelect: React.FC<SegmentedButtonProps> = (args) => {
 
   return (
     <SegmentedButton.Group className="w-screen max-w-screen-sm">
+      <SegmentedButton.SelectedIcon>
+        <IconSquareFilled />
+      </SegmentedButton.SelectedIcon>
       <SegmentedButton
         {...args}
         isSelected={selected.includes('first')}

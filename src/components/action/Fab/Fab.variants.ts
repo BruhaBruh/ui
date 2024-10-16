@@ -4,7 +4,7 @@ export const fabVariants = cva(
   [
     'group relative',
     'inline-flex items-center justify-center',
-    'easing-emphasized duration-medium-1 transition',
+    'easing-emphasized-decelerate duration-medium-1 transition',
     'select-none outline-none',
     'elevation-3 data-[lowered=true]:elevation-1',
     'hover:elevation-4 data-[lowered=true]:elevation-2',
@@ -18,9 +18,9 @@ export const fabVariants = cva(
     'ring:easing-emphasized-accelerate',
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
-    'ring:ring-secondary-container',
+    'ring:ring-primary-container',
     '[&>svg]:starting:size-0',
-    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
+    '[&>svg]:easing-emphasized-decelerate [&>svg]:duration-medium-1 [&>svg]:transition',
   ],
   {
     variants: {

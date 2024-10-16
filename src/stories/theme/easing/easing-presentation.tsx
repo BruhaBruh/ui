@@ -2,20 +2,22 @@ import { cn } from '@/utility';
 import React from 'react';
 
 const EasingPlate: React.FC<{
+  name: string;
   easing: string;
-}> = ({ easing }) => {
+}> = ({ name, easing }) => {
   return (
     <div
       className={cn(
-        'gap-2xs typography-title-medium group flex flex-col items-center',
+        'gap-3xs typography-title-medium group flex flex-col items-center',
       )}
     >
       <div>
-        {easing
+        {name
           .split('-')
           .map((v) => v.charAt(0).toUpperCase() + v.slice(1))
           .join(' ')}
       </div>
+      <div className="typography-label-large">{easing}</div>
       <div
         className={cn(
           'border-outline flex h-8 w-64 items-center rounded-full border',
@@ -27,7 +29,7 @@ const EasingPlate: React.FC<{
             'scale-50',
             'group-hover:translate-x-56',
             'group-hover:scale-100',
-            `easing-${easing}`,
+            `easing-${name}`,
           )}
         />
       </div>
@@ -36,12 +38,12 @@ const EasingPlate: React.FC<{
 };
 
 export const EasingPresentation: React.FC<{
-  easings: string[];
+  easings: [string, string][];
 }> = ({ easings }) => {
   return (
     <div className="gap-md flex flex-wrap justify-between">
-      {easings.map((easing) => (
-        <EasingPlate key={easing} easing={easing} />
+      {easings.map(([name, easing]) => (
+        <EasingPlate key={easing} name={name} easing={easing} />
       ))}
     </div>
   );

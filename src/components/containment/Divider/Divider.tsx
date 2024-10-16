@@ -1,6 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
+import { SplitPropsFn } from '@/types';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
@@ -8,7 +9,7 @@ import { SeparatorProps, useSeparator } from 'react-aria';
 import { DividerProps } from './Divider.types';
 import { dividerVariants } from './Divider.variants';
 
-const splitProps = ({
+export const splitProps: SplitPropsFn<SeparatorProps, DividerProps> = ({
   orientation = 'horizontal',
   elementType = 'span',
   id,
@@ -16,12 +17,9 @@ const splitProps = ({
   'aria-labelledby': ariaLabelledBy,
   'aria-describedby': ariaDescribedBy,
   'aria-details': ariaDetails,
-  ...restProps
-}: DividerProps): [
-  SeparatorProps,
-  Omit<DividerProps, keyof SeparatorProps>,
-] => {
-  const ariaProps = {
+  ...props
+}) => [
+  {
     orientation,
     elementType,
     id,
@@ -29,9 +27,9 @@ const splitProps = ({
     'aria-labelledby': ariaLabelledBy,
     'aria-describedby': ariaDescribedBy,
     'aria-details': ariaDetails,
-  };
-  return [ariaProps, restProps];
-};
+  },
+  props,
+];
 
 export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
   (
@@ -44,6 +42,8 @@ export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
 
     const Comp = asChild ? Slot : 'span';
 
+    const orientation = ariaProps.orientation;
+
     return (
       <Comp
         {...props}
@@ -52,7 +52,7 @@ export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
         className={cn(
           'divider',
           dividerVariants({
-            orientation: ariaProps.orientation,
+            orientation,
             inset,
             middleInset,
           }),

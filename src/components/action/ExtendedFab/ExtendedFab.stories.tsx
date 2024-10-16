@@ -40,15 +40,6 @@ const meta = {
         'critical',
       ] satisfies ExtendedFabProps['color'][],
     },
-    icon: {
-      description: "ExtendedFab's icon",
-      table: {
-        type: { summary: 'React.ReactNode' },
-        defaultValue: {
-          summary: 'undefined',
-        },
-      },
-    },
     lowered: {
       description: "ExtendedFab's lowered state",
       table: {
@@ -106,12 +97,12 @@ export const Colors: Story = {
 };
 
 export const WithIcon: Story = {
-  args: {
-    icon: <IconSquare />,
-  },
-  parameters: {
-    controls: {
-      exclude: /icon/g,
-    },
-  },
+  render: ({ children, ...args }) => (
+    <ExtendedFab {...args}>
+      <ExtendedFab.Icon>
+        <IconSquare />
+      </ExtendedFab.Icon>
+      {children}
+    </ExtendedFab>
+  ),
 };

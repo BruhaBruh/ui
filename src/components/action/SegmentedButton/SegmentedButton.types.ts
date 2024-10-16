@@ -5,6 +5,4 @@ import { segmentedButtonVariants } from './SegmentedButton.variants';
 
 export type SegmentedButtonProps = AriaToggleButtonProps &
   Props<'button', AriaToggleButtonProps> &
-  VariantProps<typeof segmentedButtonVariants> & {
-    selectedIcon?: React.ReactNode;
-  };
+  VariantProps<typeof segmentedButtonVariants>;

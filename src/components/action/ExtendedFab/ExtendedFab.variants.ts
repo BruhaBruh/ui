@@ -8,8 +8,8 @@ export const extendedFabVariants = cva(
     'px-md',
     '[&>svg]:mr-xs [&>svg]:starting:mr-0',
     '[&>svg]:starting:size-0 [&>svg]:size-6',
-    '[&>svg]:easing-emphasized [&>svg]:duration-medium-1 [&>svg]:transition',
-    'easing-emphasized duration-medium-1 transition',
+    '[&>svg]:easing-emphasized-decelerate [&>svg]:duration-medium-1 [&>svg]:transition',
+    'easing-emphasized-decelerate duration-medium-1 transition',
     'select-none outline-none',
     'elevation-3 data-[lowered=true]:elevation-1',
     'hover:elevation-4 data-[lowered=true]:elevation-2',
@@ -23,7 +23,7 @@ export const extendedFabVariants = cva(
     'ring:easing-emphasized-accelerate',
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
-    'ring:ring-secondary-container',
+    'ring:ring-primary-container',
   ],
   {
     variants: {

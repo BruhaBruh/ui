@@ -84,6 +84,11 @@ const meta = {
     lowered: false,
     asChild: false,
   },
+  parameters: {
+    controls: {
+      exclude: /children/g,
+    },
+  },
 } satisfies Meta<typeof Fab>;
 
 export default meta;
@@ -106,7 +111,7 @@ export const Colors: Story = {
   ),
   parameters: {
     controls: {
-      exclude: /color/g,
+      exclude: /children|color/g,
     },
   },
 };
@@ -121,7 +126,7 @@ export const Sizes: Story = {
   ),
   parameters: {
     controls: {
-      exclude: /size/g,
+      exclude: /children|size/g,
     },
   },
 };

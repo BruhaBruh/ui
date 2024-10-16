@@ -8,7 +8,7 @@ import { useButton } from 'react-aria';
 import { FabProps } from './Fab.types';
 import { fabVariants } from './Fab.variants';
 
-export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
+const _Fab = React.forwardRef<HTMLButtonElement, FabProps>(
   (
     { color, size, lowered, className, asChild, children, ...props },
     forwardedRef,
@@ -45,4 +45,6 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(
     );
   },
 );
-Fab.displayName = 'Fab';
+_Fab.displayName = 'Fab';
+
+export const Fab = _Fab;

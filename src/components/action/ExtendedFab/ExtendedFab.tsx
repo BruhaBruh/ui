@@ -1,7 +1,7 @@
 'use client';
 
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { childrenUnwrapper, cn } from '@/utility';
+import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
@@ -10,16 +10,19 @@ import {
   extendedFabLabelVariants,
   extendedFabVariants,
 } from './ExtendedFab.variants';
+import {
+  ExtendedFabProvider,
+  useExtendedFabContext,
+} from './ExtendedFabContext';
+import { ExtendedFabIcon } from './ExtendedFabIcon';
 
-export const ExtendedFab = React.forwardRef<
-  HTMLButtonElement,
-  ExtendedFabProps
->(
+const _ExtendedFab = React.forwardRef<HTMLButtonElement, ExtendedFabProps>(
   (
-    { color, lowered, icon, className, asChild, children, ...props },
+    { color, lowered, className, asChild, children, ...props },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
+    const [{ icon }] = useExtendedFabContext();
 
     const { buttonProps } = useButton(
       {
@@ -59,4 +62,11 @@ export const ExtendedFab = React.forwardRef<
     );
   },
 );
-ExtendedFab.displayName = 'Fab';
+_ExtendedFab.displayName = 'Fab';
+
+export const ExtendedFab = Object.assign(
+  withProvider(ExtendedFabProvider, _ExtendedFab),
+  {
+    Icon: ExtendedFabIcon,
+  },
+);
