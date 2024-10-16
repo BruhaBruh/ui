@@ -1,0 +1,217 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { IconSquare, IconSquareFilled } from '@tabler/icons-react';
+import { IconButton } from './IconButton';
+import { IconButtonProps } from './IconButton.types';
+
+const meta: Meta<typeof IconButton> = {
+  title: 'Components/Action/IconButton',
+  component: IconButton,
+  argTypes: {
+    children: {
+      description: 'Child element',
+      table: {
+        type: { summary: 'React.ReactNode' },
+        defaultValue: {
+          summary: 'undefined',
+        },
+        control: 'text',
+      },
+    },
+    color: {
+      description: "IconButton's color",
+      table: {
+        type: {
+          summary: 'primary | secondary | info | success | caution | critical',
+        },
+        defaultValue: {
+          summary: 'primary',
+        },
+      },
+      type: 'string',
+      control: 'select',
+      options: [
+        'primary',
+        'secondary',
+        'info',
+        'success',
+        'caution',
+        'critical',
+      ] satisfies IconButtonProps['color'][],
+    },
+    variant: {
+      description: "IconButton's variant",
+      table: {
+        type: {
+          summary: 'text | elevated | filled | tonal | outlined',
+        },
+        defaultValue: {
+          summary: 'elevated',
+        },
+      },
+      type: 'string',
+      control: 'select',
+      options: [
+        'standard',
+        'filled',
+        'tonal',
+        'outlined',
+      ] satisfies IconButtonProps['variant'][],
+    },
+    isDisabled: {
+      description: "IconButton's disabled state",
+      table: {
+        type: { summary: 'true | false' },
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+      type: 'boolean',
+      control: 'boolean',
+    },
+    toggleable: {
+      description: 'Set `true` to enable toggleable state',
+      table: {
+        type: { summary: 'true | false' },
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+      type: 'boolean',
+      control: 'boolean',
+    },
+    isSelected: {
+      description:
+        'Set `true` to enable selected state, works only with toggleable state',
+      table: {
+        type: { summary: 'true | false' },
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+      type: 'boolean',
+      control: 'boolean',
+    },
+    asChild: {
+      description: 'Pass `true` to render as a child element',
+      table: {
+        type: { summary: 'true | false' },
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+      type: 'boolean',
+      control: 'boolean',
+    },
+  },
+  args: {
+    children: <IconSquare />,
+    color: 'primary',
+    variant: 'standard',
+    isDisabled: false,
+    toggleable: false,
+    isSelected: false,
+    asChild: false,
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof IconButton>;
+
+export const Playground: Story = {};
+
+export const Colors: Story = {
+  render: (args) => (
+    <div className="gap-xs flex flex-col">
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
+        <p className="typography-title-medium">Default</p>
+        <IconButton {...args} color="primary" />
+        <IconButton {...args} color="secondary" />
+        <IconButton {...args} color="info" />
+        <IconButton {...args} color="success" />
+        <IconButton {...args} color="caution" />
+        <IconButton {...args} color="critical" />
+        <IconButton {...args} disabled />
+      </div>
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
+        <p className="typography-title-medium">Toggleable Not Selected</p>
+        <IconButton {...args} toggleable color="primary" />
+        <IconButton {...args} toggleable color="secondary" />
+        <IconButton {...args} toggleable color="info" />
+        <IconButton {...args} toggleable color="success" />
+        <IconButton {...args} toggleable color="caution" />
+        <IconButton {...args} toggleable color="critical" />
+        <IconButton {...args} toggleable disabled />
+      </div>
+      <div className="gap-xs flex max-w-screen-sm flex-wrap items-center justify-end">
+        <p className="typography-title-medium">Toggleable Selected</p>
+        <IconButton {...args} toggleable isSelected color="primary">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected color="secondary">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected color="info">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected color="success">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected color="caution">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected color="critical">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected disabled>
+          <IconSquareFilled />
+        </IconButton>
+      </div>
+    </div>
+  ),
+  parameters: {
+    controls: {
+      exclude: /color|children|toggleable|isSelected/g,
+    },
+  },
+};
+
+export const Variants: Story = {
+  render: (args) => (
+    <div className="gap-xs flex flex-col">
+      <div className="gap-xs flex items-center justify-end">
+        <p className="typography-title-medium">Default</p>
+        <IconButton {...args} variant="standard" />
+        <IconButton {...args} variant="filled" />
+        <IconButton {...args} variant="tonal" />
+        <IconButton {...args} variant="outlined" />
+      </div>
+      <div className="gap-xs flex items-center justify-end">
+        <p className="typography-title-medium">Toggleable Not Selected</p>
+        <IconButton {...args} toggleable variant="standard" />
+        <IconButton {...args} toggleable variant="filled" />
+        <IconButton {...args} toggleable variant="tonal" />
+        <IconButton {...args} toggleable variant="outlined" />
+      </div>
+      <div className="gap-xs flex items-center justify-end">
+        <p className="typography-title-medium">Toggleable Selected</p>
+        <IconButton {...args} toggleable isSelected variant="standard">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected variant="filled">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected variant="tonal">
+          <IconSquareFilled />
+        </IconButton>
+        <IconButton {...args} toggleable isSelected variant="outlined">
+          <IconSquareFilled />
+        </IconButton>
+      </div>
+    </div>
+  ),
+  parameters: {
+    controls: {
+      exclude: /variant|children|toggleable|isSelected/g,
+    },
+  },
+};

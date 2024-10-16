@@ -83,7 +83,7 @@ const preview: Preview = {
           ],
           'Components',
           [
-            'Actions',
+            'Action',
             [
               'Button',
               'Fab',

@@ -32,7 +32,7 @@ const DebugScreensToolbar: React.FC = () => {
 addons.register('ui', (api) => {
   api.on('globalsUpdated', () => {
     const globals = api.getGlobals();
-    const currentTheme = globals.theme;
+    const currentTheme = globals.theme || 'light';
     document.body.classList.remove('light', 'dark');
     document.body.classList.add(currentTheme);
   });
