@@ -81,6 +81,11 @@ const meta = {
     maxCount: 999,
     asChild: false,
   },
+  parameters: {
+    controls: {
+      exclude: /children/g,
+    },
+  },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -91,8 +96,8 @@ export const Playground: Story = {};
 
 export const All: Story = {
   render: (args) => (
-    <div className="gap-xs flex flex-col items-center">
-      <div className="gap-xs flex items-center">
+    <div className="flex flex-col items-center gap-xs">
+      <div className="flex items-center gap-xs">
         <Badge {...args} color="primary" />
         <Badge {...args} color="secondary" />
         <Badge {...args} color="info" />
@@ -100,7 +105,7 @@ export const All: Story = {
         <Badge {...args} color="caution" />
         <Badge {...args} color="critical" />
       </div>
-      <div className="gap-xs flex items-center">
+      <div className="flex items-center gap-xs">
         <Badge {...args} count={32} color="primary" />
         <Badge {...args} count={32} color="secondary" />
         <Badge {...args} count={32} color="info" />
@@ -108,7 +113,7 @@ export const All: Story = {
         <Badge {...args} count={32} color="caution" />
         <Badge {...args} count={32} color="critical" />
       </div>
-      <div className="gap-xs flex items-center">
+      <div className="flex items-center gap-xs">
         <Badge {...args} count={999} color="primary" />
         <Badge {...args} count={999} color="secondary" />
         <Badge {...args} count={999} color="info" />
@@ -116,7 +121,7 @@ export const All: Story = {
         <Badge {...args} count={999} color="caution" />
         <Badge {...args} count={999} color="critical" />
       </div>
-      <div className="gap-xs flex items-center">
+      <div className="flex items-center gap-xs">
         <Badge {...args} count={1000} color="primary" />
         <Badge {...args} count={1000} color="secondary" />
         <Badge {...args} count={1000} color="info" />
@@ -128,7 +133,7 @@ export const All: Story = {
   ),
   parameters: {
     controls: {
-      exclude: /color|count|maxCount/g,
+      exclude: /children|color|count|maxCount/g,
     },
   },
 };

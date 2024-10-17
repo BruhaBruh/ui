@@ -6,19 +6,18 @@ export const buttonVariants = cva(
     'inline-flex items-center justify-center',
     'h-10 min-w-16 rounded-lg',
     '[&>svg]:size-4.5 [&>svg]:starting:size-0',
-    '[&>svg]:easing-emphasized-decelerate [&>svg]:duration-medium-1 [&>svg]:transition',
-    'easing-emphasized-decelerate duration-medium-1 transition',
+    '[&>svg]:transition-[color,width,height,margin_medium-1_emphasized-decelerate]',
+    'transition-[box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
     'select-none outline-none',
     'disabled:pointer-events-none',
     'whitespace-nowrap',
-    'border-2 border-transparent',
+    'border border-transparent',
     '[&>*]:z-1',
     'string:absolute string:rounded-lg',
-    'string:transition string:duration-medium-1',
+    'state:transition-[background-color_medium-1_emphasized]',
     'state:-inset-0.5',
-    'state:easing-emphasized',
     'ring:-inset-1',
-    'ring:easing-emphasized-accelerate',
+    'ring:transition-[box-shadow_medium-1_emphasized-accelerate]',
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-primary-container',
@@ -77,7 +76,8 @@ export const buttonVariants = cva(
         variant: 'text',
         className: [
           'px-sm',
-          '[&>svg]:starting:mr-0',
+          '[&>svg:first-child]:starting:mr-0',
+          '[&>svg:last-child]:starting:ml-0',
           '[&>svg:first-child]:mr-2xs',
           '[&>svg:last-child]:ml-2xs',
         ],
@@ -407,7 +407,7 @@ export const buttonVariants = cva(
   },
 );
 
-export const buttonLabelVariants = cva(['typography-label-large truncate'], {
+export const buttonLabelVariants = cva(['truncate typography-label-large'], {
   variants: {
     variant: {
       elevated: [],

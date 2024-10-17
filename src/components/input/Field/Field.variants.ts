@@ -8,17 +8,16 @@ export const fieldWrapperVariants = cva([
 
 export const fieldContainerVariants = cva([
   '[&_.icon-button]:ring:invisible',
-  'bg-surface-container-highest flex min-h-14 items-start justify-between rounded-lg',
+  'flex min-h-14 items-start justify-between rounded-lg bg-surface-container-highest',
   'px-sm py-xs',
   'relative',
   '[&>*]:z-1',
   'string:absolute string:rounded-lg',
-  'string:transition string:duration-medium-1',
+  'state:transition-[background-color_medium-1_emphasized]',
   'state:inset-0',
-  'state:easing-emphasized',
   'ring:rounded-lg',
   'ring:-inset-0.5',
-  'ring:easing-emphasized-accelerate',
+  'ring:transition-[box-shadow_medium-1_emphasized-accelerate]',
   'ring:hidden group-has-[*:focus-within]:ring:block',
   'ring:ring-4 starting:ring:ring-8',
   'ring:ring-secondary-container',
@@ -28,13 +27,9 @@ export const fieldContainerVariants = cva([
   '[&>*:not(.field--inner-container):last-child]:ml-sm',
   '[&>*:not(.field--inner-container):last-child]:starting:ml-0',
   '[&>svg]:my-2',
-  '[&>svg]:starting:size-0 [&>svg]:size-6',
-  '[&>*:not(.field--inner-container):first-child]:transition',
-  '[&>*:not(.field--inner-container):first-child]:easing-emphasized',
-  '[&>*:not(.field--inner-container):first-child]:duration-medium-1',
-  '[&>*:not(.field--inner-container):last-child]:transition',
-  '[&>*:not(.field--inner-container):last-child]:easing-emphasized',
-  '[&>*:not(.field--inner-container):last-child]:duration-medium-1',
+  '[&>svg]:size-6 [&>svg]:starting:size-0',
+  '[&>*:not(.field--inner-container):first-child]:transition-[color,width,margin,box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
+  '[&>*:not(.field--inner-container):last-child]:transition-[color,width,margin,box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
   'group-data-[disabled=true]:bg-on-surface/[0.04]',
   'hover:group-data-[disabled=false]:state:bg-on-surface/[0.08]',
   'group-data-[invalid=true]:[&>svg:last-child]:text-critical-foreground',
@@ -53,7 +48,7 @@ export const fieldLabelVariants = cva([
   'group-focus-within:typography-body-small',
   'group-has-[*:placeholder-shown]:typography-body-small',
   'group-data-[visible=true]:typography-body-small',
-  'easing-emphasized duration-short-4 transition-all',
+  'transition-[line-height,font-size,font-weight_medium-1_emphasized-decelerate]',
   'group-data-[invalid=true]:text-critical-foreground',
 ]);
 
@@ -66,9 +61,10 @@ export const fieldInputVariants = cva([
   'group-data-[visible=true]:h-6',
   'text-on-surface placeholder:text-on-surface-variant',
   'typography-body-large',
-  'easing-emphasized duration-short-4 transition',
+  'transition-[height,width,box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
   'caret-primary',
   'group-data-[disabled=true]:text-on-surface/[0.38]',
+  'group-data-[disabled=true]:placeholder:text-on-surface/[0.38]',
 ]);
 
 export const fieldSupportTextVariants = cva([

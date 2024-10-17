@@ -7,20 +7,19 @@ export const extendedFabVariants = cva(
     'h-14 min-w-20 rounded-md',
     'px-md',
     '[&>svg]:mr-xs [&>svg]:starting:mr-0',
-    '[&>svg]:starting:size-0 [&>svg]:size-6',
-    '[&>svg]:easing-emphasized-decelerate [&>svg]:duration-medium-1 [&>svg]:transition',
-    'easing-emphasized-decelerate duration-medium-1 transition',
+    '[&>svg]:size-6 [&>svg]:starting:size-0',
+    '[&>svg]:transition-[color,width,height,margin_medium-1_emphasized-decelerate]',
+    'transition-[box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
     'select-none outline-none',
     'elevation-3 data-[lowered=true]:elevation-1',
     'hover:elevation-4 data-[lowered=true]:elevation-2',
     'active:elevation-3 active:data-[lowered=true]:elevation-1',
     '[&>*]:z-1',
     'string:absolute string:rounded-md',
-    'string:transition string:duration-medium-1',
+    'state:transition-[background-color_medium-1_emphasized]',
     'state:inset-0',
-    'state:easing-emphasized',
     'ring:-inset-0.5',
-    'ring:easing-emphasized-accelerate',
+    'ring:transition-[box-shadow_medium-1_emphasized-accelerate]',
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-primary-container',
@@ -80,5 +79,5 @@ export const extendedFabVariants = cva(
 );
 
 export const extendedFabLabelVariants = cva([
-  'px-2xs typography-label-large truncate',
+  'truncate px-2xs typography-label-large',
 ]);

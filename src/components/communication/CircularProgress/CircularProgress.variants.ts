@@ -1,7 +1,14 @@
 import { cva } from 'class-variance-authority';
 
 export const circularProgressVariants = cva(
-  ['group', 'relative', 'overflow-hidden', 'size-12'],
+  [
+    'group',
+    'relative',
+    'overflow-hidden',
+    'size-12',
+    'data-[indeterminate=true]:cursor-progress',
+    'transition-[height,width_medium-1_emphasized-decelerate]',
+  ],
   {
     variants: {
       color: {

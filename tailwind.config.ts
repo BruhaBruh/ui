@@ -10,10 +10,15 @@ const config = {
     },
   ],
   corePlugins: {
+    scale: false,
+    rotate: false,
+    translate: false,
     transitionProperty: false,
     transitionDuration: false,
     transitionTimingFunction: false,
     transitionDelay: false,
+    boxShadow: false,
+    boxShadowColor: false,
   },
   theme: {
     extend: {

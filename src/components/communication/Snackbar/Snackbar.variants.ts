@@ -28,7 +28,7 @@ export const snackbarTitleVariants = cva(['truncate']);
 export const snackbarDescriptionVariants = cva(['truncate']);
 
 export const snackbarActionsVariants = cva([
-  'gap-2xs inline-flex items-center justify-end',
+  'inline-flex items-center justify-end gap-2xs',
   '[&_.button]:ring:invisible',
   '[&_.button]:text-inverse-primary',
   '[&_.button:hover]:state:bg-inverse-primary/[0.08]',

@@ -1,25 +1,17 @@
-import { PluginAPI } from 'tailwindcss/types/config';
+import { ApplyUIPlugin } from '../../ui-plugin.types';
 
-type Position = 'top' | 'left' | 'right' | 'bottom';
-
-export type DebugScreensOptions = Partial<{
-  selector: string;
-  prefix: string;
-  ignore: string[];
-  position: [Position, Position];
-  userStyles: Record<string, string>;
-}>;
-
-export const addDebugScreens = (
-  variablePrefix: string,
+export const applyDebugScreens: ApplyUIPlugin = (
+  { addComponents, theme },
   {
-    selector = '.debug-screens',
-    prefix = 'screen: ',
-    ignore = [],
-    position = ['bottom', 'right'],
-    userStyles = {},
-  }: DebugScreensOptions = {},
-  { addComponents, theme }: PluginAPI,
+    variablePrefix,
+    debugScreens: {
+      selector = '.debug-screens',
+      prefix = 'screen: ',
+      ignore = [],
+      position = ['bottom', 'right'],
+      userStyles = {},
+    },
+  },
 ) => {
   const screens = theme('screens') as Record<string, unknown>;
 

@@ -2,9 +2,9 @@ import { cva } from 'class-variance-authority';
 
 export const radioWrapperVariants = cva([
   'group',
-  'gap-sm inline-flex items-center',
+  'inline-flex items-center gap-sm',
   'typography-body-large',
-  'select-none transition',
+  'select-none',
 ]);
 
 export const radioTargetVariants = cva([
@@ -18,12 +18,12 @@ export const radioContainerVariants = cva(
     'rounded-full',
     'border-2 border-current',
     'inline-flex items-center justify-center',
-    'easing-emphasized duration-medium-1 transition',
+    'transition-[box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
     'string:rounded-full',
     'group-data-[disabled=false]:cursor-pointer',
     '[&>span]:z-1',
     '[&>span]:absolute [&>span]:rounded-full [&>span]:bg-current',
-    '[&>span]:easing-emphasized [&>span]:duration-short-4 [&>span]:transition-transform',
+    '[&>span]:transition-[scale_medium-1_emphasized-decelerate]',
     'group-data-[selected=false]:[&>span]:scale-0',
     'group-data-[selected=true]:[&>span]:scale-100',
     'text-on-surface-variant',
@@ -32,7 +32,7 @@ export const radioContainerVariants = cva(
     'group-has-[:active]:state:bg-on-surface/[0.12]',
     'state:-z-1 state:size-10',
     'state:absolute state:left-1/2 state:top-1/2 state:-translate-x-1/2 state:-translate-y-1/2',
-    'state:transition state:easing-emphasized state:duration-medium-1',
+    'state:transition-[background-color_medium-1_emphasized]',
     'group-data-[disabled=true]:state:hidden',
     'group-data-[disabled=true]:group-data-[selected]:text-on-surface/[0.38]',
   ],

@@ -8,7 +8,7 @@ const DurationPlate: React.FC<{
   return (
     <div
       className={cn(
-        'gap-3xs typography-title-medium group flex flex-col items-center',
+        'group flex flex-col items-center gap-3xs typography-title-medium',
       )}
     >
       <div>
@@ -20,12 +20,12 @@ const DurationPlate: React.FC<{
       <div className="typography-label-large">{duration}ms</div>
       <div
         className={cn(
-          'border-outline flex h-8 w-48 items-center rounded-full border',
+          'flex h-8 w-48 items-center rounded-full border border-outline',
         )}
       >
         <div
           className={cn(
-            'bg-secondary size-8 rounded-full transition ease-linear',
+            'transition easing-[linear] size-8 rounded-full bg-secondary',
             'scale-50',
             'group-hover:translate-x-40',
             'group-hover:scale-100',
@@ -41,7 +41,7 @@ export const DurationPresentation: React.FC<{
   durations: [string, number][];
 }> = ({ durations }) => {
   return (
-    <div className="gap-md flex flex-wrap justify-between">
+    <div className="flex flex-wrap justify-between gap-md">
       {durations.map(([name, duration]) => (
         <DurationPlate key={duration} name={name} duration={duration} />
       ))}

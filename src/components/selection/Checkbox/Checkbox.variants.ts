@@ -2,9 +2,9 @@ import { cva } from 'class-variance-authority';
 
 export const checkboxWrapperVariants = cva([
   'group',
-  'gap-sm inline-flex items-center',
+  'inline-flex items-center gap-sm',
   'typography-body-large',
-  'select-none transition',
+  'select-none',
 ]);
 
 export const checkboxTargetVariants = cva([
@@ -15,15 +15,15 @@ export const checkboxContainerVariants = cva(
   [
     'relative',
     'size-4.5 min-w-4.5',
-    'rounded-sm',
+    'rounded-3xs',
     'border-2',
     'inline-flex items-center justify-center',
-    'easing-emphasized duration-medium-1 transition',
+    'transition-[box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
     'group-data-[disabled=false]:cursor-pointer',
     '[&>svg]:z-1',
     '[&>svg]:absolute',
     '[&>svg]:size-4.5 [&>svg]:starting:size-0',
-    '[&>svg]:transition-not-color [&>svg]:easing-emphasized [&>svg]:duration-medium-1',
+    '[&>svg]:transition-[width,height,margin_medium-1_emphasized-decelerate]',
     'text-on-surface',
     'border-on-surface-variant',
     'group-data-[selected=true]:border-transparent',
@@ -32,7 +32,7 @@ export const checkboxContainerVariants = cva(
     'group-has-[:active]:state:bg-on-surface/[0.12]',
     'state:-z-1 state:size-10 state:rounded-full',
     'state:absolute state:left-1/2 state:top-1/2 state:-translate-x-1/2 state:-translate-y-1/2',
-    'state:transition state:easing-emphasized state:duration-short-4',
+    'state:transition-[background-color_medium-1_emphasized]',
     'group-data-[disabled=false]:group-data-[selected=true]:group-data-[invalid=true]:text-on-critical',
     'group-data-[disabled=false]:group-data-[selected]:group-data-[invalid=true]:border-critical',
     'group-data-[disabled=false]:group-data-[selected=true]:group-data-[invalid=true]:bg-critical',

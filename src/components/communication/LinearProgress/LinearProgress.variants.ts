@@ -3,13 +3,15 @@ import { cva } from 'class-variance-authority';
 export const linearProgressVariants = cva(
   [
     'group rounded-full',
-    'string:rounded-full relative',
+    'relative string:rounded-full',
     'overflow-hidden',
     'h-1',
     'data-[indeterminate=false]:inline-flex',
     'data-[indeterminate=false]:items-stretch',
     'data-[indeterminate=false]:justify-between',
     'data-[indeterminate=false]:gap-2xs',
+    'data-[indeterminate=true]:cursor-progress',
+    'transition-[height,width_medium-1_emphasized-decelerate]',
   ],
   {
     variants: {
@@ -32,7 +34,7 @@ export const linearProgressVariants = cva(
 export const linearProgressIndeterminateVariants = cva([
   'absolute right-0 top-0',
   'h-full w-[200%]',
-  'gap-2xs inline-flex items-stretch justify-between',
+  'inline-flex items-stretch justify-between gap-2xs',
   'group-data-[ease-in-out=true]:animate-[linear-progress_1s_ease-in-out_infinite]',
   'group-data-[ease-in-out=false]:animate-[linear-progress_1s_linear_infinite]',
 ]);

@@ -6,7 +6,7 @@ export const badgeVariants = cva(
     'select-none',
     'rounded-full',
     'overflow-hidden',
-    'easing-emphasized duration-short-3 transition',
+    'transition-[width,height,box-shadow,color,background-color,border-color_short-3_emphasized]',
     'data-[size=small]:size-1.5',
     'data-[size=medium]:size-4',
     'data-[size=large]:h-4',

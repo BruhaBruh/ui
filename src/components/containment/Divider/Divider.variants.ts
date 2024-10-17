@@ -3,13 +3,13 @@ import { cva } from 'class-variance-authority';
 export const dividerVariants = cva(
   [
     'inline-flex shrink-0 items-center justify-center',
-    'after:bg-outline-variant after:size-full after:rounded-full',
+    'after:size-full after:rounded-full after:bg-outline-variant',
   ],
   {
     variants: {
       orientation: {
         horizontal: ['h-0.25 w-full'],
-        vertical: ['w-0.25 h-full'],
+        vertical: ['h-full w-0.25'],
       },
       inset: {
         true: [],
