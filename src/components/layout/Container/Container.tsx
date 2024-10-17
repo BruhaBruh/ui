@@ -24,13 +24,21 @@ export const Container = React.forwardRef<HTMLElement, ContainerProps>(
         {...props}
         ref={ref}
         data-fluid={fluid}
-        className={cn(containerWrapperVariants({ color }), className)}
+        className={cn(
+          'container--wrapper',
+          containerWrapperVariants({ color }),
+          className,
+        )}
       >
         <Slottable>
           {childrenUnwrapper(children, (child) => (
             <section
               {...containerProps}
-              className={cn(containerVariants(), containerProps?.className)}
+              className={cn(
+                'container',
+                containerVariants(),
+                containerProps?.className,
+              )}
             >
               {child}
             </section>

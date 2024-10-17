@@ -6,6 +6,6 @@ export const pageContainerVariants = cva([
   'block',
   'easing-emphasized-decelerate duration-long-4 transition-[transform,border-radius]',
   'scale-100 rounded-none',
-  'data-[is-zoomed=true]:scale-90',
+  'data-[is-zoomed=true]:scale-75',
   'data-[is-zoomed=true]:rounded-3xl',
 ]);

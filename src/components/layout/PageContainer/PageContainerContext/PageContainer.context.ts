@@ -5,9 +5,14 @@ type State = {
   isZoomed: boolean;
 };
 
-const { Provider, useStore } = createContext<State>({
-  isZoomed: false,
-});
+const { Provider, useStore } = createContext<State>(
+  {
+    isZoomed: false,
+  },
+  {
+    storeName: 'PageContainer',
+  },
+);
 
 export const PageContainerProvider = Provider;
 

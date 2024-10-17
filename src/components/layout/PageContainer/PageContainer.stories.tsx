@@ -1,10 +1,7 @@
 import { Switch } from '@/components/selection/Switch';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PageContainer } from './PageContainer';
-import {
-  PageContainerProvider,
-  usePageContainerIsZoomed,
-} from './PageContainer.context';
+import { usePageContainerIsZoomed } from './PageContainerContext';
 
 const ToggleButton = () => {
   const [isZoomed, setIsZoomed] = usePageContainerIsZoomed();
@@ -45,15 +42,13 @@ const meta = {
   },
   render: (args) => {
     return (
-      <PageContainerProvider>
-        <PageContainer
-          {...args}
-          className="elevation-5 flex flex-col items-center justify-center"
-        >
-          <h1 className="mb-xl typography-display-large">Page Container</h1>
-          <ToggleButton />
-        </PageContainer>
-      </PageContainerProvider>
+      <PageContainer
+        {...args}
+        className="elevation-5 flex flex-col items-center justify-center"
+      >
+        <h1 className="mb-xl typography-display-large">Page Container</h1>
+        <ToggleButton />
+      </PageContainer>
     );
   },
   args: {

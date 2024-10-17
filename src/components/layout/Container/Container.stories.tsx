@@ -1,10 +1,6 @@
 import { Switch } from '@/components/selection/Switch';
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  PageContainer,
-  PageContainerProvider,
-  usePageContainerIsZoomed,
-} from '../PageContainer';
+import { PageContainer, usePageContainerIsZoomed } from '../PageContainer';
 import { Container } from './Container';
 import { ContainerProps } from './Container.types';
 
@@ -93,17 +89,22 @@ const meta = {
   },
   parameters: {
     layout: 'fullscreen',
+    controls: {
+      exclude: /containerProps/g,
+    },
   },
   render: (args) => {
     return (
-      <PageContainerProvider>
-        <PageContainer className="elevation-5">
-          <Container {...args} className="py-lg">
-            <h1 className="mb-xl typography-display-large">Container</h1>
-            <ToggleButton />
-          </Container>
-        </PageContainer>
-      </PageContainerProvider>
+      <PageContainer className="elevation-5">
+        <Container
+          {...args}
+          className="py-lg"
+          containerProps={{ className: 'flex flex-col items-center' }}
+        >
+          <h1 className="mb-xl typography-display-large">Container</h1>
+          <ToggleButton />
+        </Container>
+      </PageContainer>
     );
   },
   args: {
@@ -204,7 +205,7 @@ export const Colors: Story = {
   },
   parameters: {
     controls: {
-      exclude: /color/g,
+      exclude: /containerProps|color/g,
     },
   },
 };

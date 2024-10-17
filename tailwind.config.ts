@@ -1,6 +1,6 @@
-import { uiPlugin } from '@/tailwind';
 import themePlugin from '@bruhabruh/theme';
 import { Config } from 'tailwindcss/types/config';
+import { uiPlugin } from './src/tailwind';
 
 const config = {
   content: ['./src/**/*.{ts,tsx,mdx}', './.storybook/**/*.{ts,tsx,mdx}'],
@@ -9,6 +9,12 @@ const config = {
       pattern: /(easing|duration)-.+/,
     },
   ],
+  corePlugins: {
+    transitionProperty: false,
+    transitionDuration: false,
+    transitionTimingFunction: false,
+    transitionDelay: false,
+  },
   theme: {
     extend: {
       container: {
