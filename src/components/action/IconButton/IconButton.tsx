@@ -1,10 +1,10 @@
 'use client';
 
-import { useMergedRefs } from '@/hooks';
+import { useInteractions, useMergedRefs, useRipple } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
-import { useButton, useToggleButton } from 'react-aria';
+import { mergeProps, useButton, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { IconButtonProps } from './IconButton.types';
 import { iconButtonVariants } from './IconButton.variants';
@@ -27,11 +27,26 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ) => {
     const ref = useMergedRefs(forwardedRef);
 
+    const { onStart, onEnd } = useRipple();
+
+    const { interactionsProps } = useInteractions<'button'>({
+      autoFocus: props.autoFocus,
+      isDisabled: isDisabled || disabled,
+    });
+
     const { buttonProps } = useButton(
       {
         elementType: asChild ? (children as React.ElementType) : 'button',
         isDisabled: isDisabled || disabled,
         ...props,
+        onPressStart: (e) => {
+          onStart(e);
+          props.onPressStart?.(e);
+        },
+        onPressUp: (e) => {
+          onEnd(e);
+          props.onPressUp?.(e);
+        },
       },
       ref,
     );
@@ -49,6 +64,14 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         isDisabled: isDisabled || disabled,
         isSelected,
         ...props,
+        onPressStart: (e) => {
+          onStart(e);
+          props.onPressStart?.(e);
+        },
+        onPressUp: (e) => {
+          onEnd(e);
+          props.onPressUp?.(e);
+        },
       },
       state,
       ref,
@@ -59,7 +82,10 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <Comp
         type="button"
-        {...(toggleable ? toggleButtonProps : buttonProps)}
+        {...mergeProps(
+          toggleable ? toggleButtonProps : buttonProps,
+          interactionsProps,
+        )}
         ref={ref}
         className={cn(
           'icon-button',

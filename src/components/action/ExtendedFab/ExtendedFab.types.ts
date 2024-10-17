@@ -7,4 +7,5 @@ export type ExtendedFabProps = AriaButtonProps &
   PropsWithAsChild<'button', AriaButtonProps, 'isDisabled' | 'disabled'> &
   VariantProps<typeof extendedFabVariants> & {
     lowered?: boolean;
+    asFab?: boolean;
   };

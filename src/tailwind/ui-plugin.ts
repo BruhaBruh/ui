@@ -2,9 +2,11 @@ import plugin from 'tailwindcss/plugin';
 import { PluginAPI } from 'tailwindcss/types/config';
 import {
   applyDebugScreens,
+  applyInteractions,
   applyMaterialDurations,
   applyMaterialEasings,
   applyMaterialElevations,
+  applyMaterialRipple,
   applyMaterialVariants,
   applyRotate,
   applyScale,
@@ -21,7 +23,9 @@ const applyPlugin = (api: PluginAPI, options: UIPluginOptions) => {
     applyTranslate,
     applyTransition,
     applyVariable,
+    applyInteractions,
     applyDebugScreens,
+    applyMaterialRipple,
     applyMaterialVariants,
     applyMaterialEasings,
     applyMaterialDurations,

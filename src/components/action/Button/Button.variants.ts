@@ -2,12 +2,12 @@ import { cva } from 'class-variance-authority';
 
 export const buttonVariants = cva(
   [
-    'group relative',
+    'group/button relative',
     'inline-flex items-center justify-center',
     'h-10 min-w-16 rounded-lg',
     '[&>svg]:size-4.5 [&>svg]:starting:size-0',
     '[&>svg]:transition-[color,width,height,margin_medium-1_emphasized-decelerate]',
-    'transition-[box-shadow,color,background-color,border-color_medium-1_emphasized-decelerate]',
+    'transition-[box-shadow,color,background-color,border-color,border-width_medium-1_emphasized-decelerate]',
     'select-none outline-none',
     'disabled:pointer-events-none',
     'whitespace-nowrap',
@@ -21,6 +21,8 @@ export const buttonVariants = cva(
     'ring:hidden focus-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-primary-container',
+    'ripple-wrapper:rounded-lg',
+    'ripple-wrapper:-inset-0.5',
   ],
   {
     variants: {
@@ -28,27 +30,27 @@ export const buttonVariants = cva(
         elevated: [
           'bg-surface-container-low',
           'elevation-1',
-          'hover:elevation-2',
-          'active:elevation-1',
+          'hovered:elevation-2',
+          'pressed:elevation-1',
           'data-[disabled=true]:bg-on-surface/[0.12]',
           'data-[disabled=true]:text-on-surface/[0.38]',
           'data-[disabled=true]:elevation-0',
         ],
         filled: [
-          'hover:elevation-1',
-          'active:elevation-0',
+          'hovered:elevation-1',
+          'pressed:elevation-0',
           'data-[disabled=true]:bg-on-surface/[0.12]',
           'data-[disabled=true]:text-on-surface/[0.38]',
         ],
         tonal: [
-          'hover:elevation-1',
-          'active:elevation-0',
+          'hovered:elevation-1',
+          'pressed:elevation-0',
           'data-[disabled=true]:bg-on-surface/[0.12]',
           'data-[disabled=true]:text-on-surface/[0.38]',
         ],
         outlined: [
           'border-outline',
-          'active:border-outline',
+          'pressed:border-outline',
           'data-[disabled=true]:text-on-surface/[0.38]',
           'data-[disabled=true]:border-on-surface/[0.12]',
         ],
@@ -89,9 +91,10 @@ export const buttonVariants = cva(
         color: 'primary',
         className: [
           'text-primary-foreground',
-          'hover:state:bg-primary/[0.08]',
-          'focus:state:bg-primary/[0.12]',
-          'active:state:bg-primary/[0.12]',
+          'hovered:state:bg-primary/[0.08]',
+          'focus-visible:state:bg-primary/[0.12]',
+          'pressed:state:bg-primary/[0.12]',
+          'ripple:bg-primary/[0.12]',
         ],
       },
       {
@@ -99,9 +102,10 @@ export const buttonVariants = cva(
         color: 'secondary',
         className: [
           'text-secondary-foreground',
-          'hover:state:bg-secondary/[0.08]',
-          'focus:state:bg-secondary/[0.12]',
-          'active:state:bg-secondary/[0.12]',
+          'hovered:state:bg-secondary/[0.08]',
+          'focus-visible:state:bg-secondary/[0.12]',
+          'pressed:state:bg-secondary/[0.12]',
+          'ripple:bg-secondary/[0.12]',
         ],
       },
       {
@@ -109,9 +113,10 @@ export const buttonVariants = cva(
         color: 'info',
         className: [
           'text-info-foreground',
-          'hover:state:bg-info/[0.08]',
-          'focus:state:bg-info/[0.12]',
-          'active:state:bg-info/[0.12]',
+          'hovered:state:bg-info/[0.08]',
+          'focus-visible:state:bg-info/[0.12]',
+          'pressed:state:bg-info/[0.12]',
+          'ripple:bg-info/[0.12]',
         ],
       },
       {
@@ -119,9 +124,10 @@ export const buttonVariants = cva(
         color: 'success',
         className: [
           'text-success-foreground',
-          'hover:state:bg-success/[0.08]',
-          'focus:state:bg-success/[0.12]',
-          'active:state:bg-success/[0.12]',
+          'hovered:state:bg-success/[0.08]',
+          'focus-visible:state:bg-success/[0.12]',
+          'pressed:state:bg-success/[0.12]',
+          'ripple:bg-success/[0.12]',
         ],
       },
       {
@@ -129,9 +135,10 @@ export const buttonVariants = cva(
         color: 'caution',
         className: [
           'text-caution-foreground',
-          'hover:state:bg-caution/[0.08]',
-          'focus:state:bg-caution/[0.12]',
-          'active:state:bg-caution/[0.12]',
+          'hovered:state:bg-caution/[0.08]',
+          'focus-visible:state:bg-caution/[0.12]',
+          'pressed:state:bg-caution/[0.12]',
+          'ripple:bg-caution/[0.12]',
         ],
       },
       {
@@ -139,9 +146,10 @@ export const buttonVariants = cva(
         color: 'critical',
         className: [
           'text-critical-foreground',
-          'hover:state:bg-critical/[0.08]',
-          'focus:state:bg-critical/[0.12]',
-          'active:state:bg-critical/[0.12]',
+          'hovered:state:bg-critical/[0.08]',
+          'focus-visible:state:bg-critical/[0.12]',
+          'pressed:state:bg-critical/[0.12]',
+          'ripple:bg-critical/[0.12]',
         ],
       },
       //#endregion Elevated
@@ -152,9 +160,10 @@ export const buttonVariants = cva(
         color: 'primary',
         className: [
           'bg-primary text-on-primary',
-          'hover:state:bg-on-primary/[0.08]',
-          'focus:state:bg-on-primary/[0.12]',
-          'active:state:bg-on-primary/[0.12]',
+          'hovered:state:bg-on-primary/[0.08]',
+          'focus-visible:state:bg-on-primary/[0.12]',
+          'pressed:state:bg-on-primary/[0.12]',
+          'ripple:bg-on-primary/[0.12]',
         ],
       },
       {
@@ -162,9 +171,10 @@ export const buttonVariants = cva(
         color: 'secondary',
         className: [
           'bg-secondary text-on-secondary',
-          'hover:state:bg-on-secondary/[0.08]',
-          'focus:state:bg-on-secondary/[0.12]',
-          'active:state:bg-on-secondary/[0.12]',
+          'hovered:state:bg-on-secondary/[0.08]',
+          'focus-visible:state:bg-on-secondary/[0.12]',
+          'pressed:state:bg-on-secondary/[0.12]',
+          'ripple:bg-on-secondary/[0.12]',
         ],
       },
       {
@@ -172,9 +182,10 @@ export const buttonVariants = cva(
         color: 'info',
         className: [
           'bg-info text-on-info',
-          'hover:state:bg-on-info/[0.08]',
-          'focus:state:bg-on-info/[0.12]',
-          'active:state:bg-on-info/[0.12]',
+          'hovered:state:bg-on-info/[0.08]',
+          'focus-visible:state:bg-on-info/[0.12]',
+          'pressed:state:bg-on-info/[0.12]',
+          'ripple:bg-on-info/[0.12]',
         ],
       },
       {
@@ -182,9 +193,10 @@ export const buttonVariants = cva(
         color: 'success',
         className: [
           'bg-success text-on-success',
-          'hover:state:bg-on-success/[0.08]',
-          'focus:state:bg-on-success/[0.12]',
-          'active:state:bg-on-success/[0.12]',
+          'hovered:state:bg-on-success/[0.08]',
+          'focus-visible:state:bg-on-success/[0.12]',
+          'pressed:state:bg-on-success/[0.12]',
+          'ripple:bg-on-success/[0.12]',
         ],
       },
       {
@@ -192,9 +204,10 @@ export const buttonVariants = cva(
         color: 'caution',
         className: [
           'bg-caution text-on-caution',
-          'hover:state:bg-on-caution/[0.08]',
-          'focus:state:bg-on-caution/[0.12]',
-          'active:state:bg-on-caution/[0.12]',
+          'hovered:state:bg-on-caution/[0.08]',
+          'focus-visible:state:bg-on-caution/[0.12]',
+          'pressed:state:bg-on-caution/[0.12]',
+          'ripple:bg-on-caution/[0.12]',
         ],
       },
       {
@@ -202,9 +215,10 @@ export const buttonVariants = cva(
         color: 'critical',
         className: [
           'bg-critical text-on-critical',
-          'hover:state:bg-on-critical/[0.08]',
-          'focus:state:bg-on-critical/[0.12]',
-          'active:state:bg-on-critical/[0.12]',
+          'hovered:state:bg-on-critical/[0.08]',
+          'focus-visible:state:bg-on-critical/[0.12]',
+          'pressed:state:bg-on-critical/[0.12]',
+          'ripple:bg-on-critical/[0.12]',
         ],
       },
       //#endregion Filled
@@ -215,9 +229,10 @@ export const buttonVariants = cva(
         color: 'primary',
         className: [
           'bg-primary-container text-on-primary-container',
-          'hover:state:bg-on-primary-container/[0.08]',
-          'focus:state:bg-on-primary-container/[0.12]',
-          'active:state:bg-on-primary-container/[0.12]',
+          'hovered:state:bg-on-primary-container/[0.08]',
+          'focus-visible:state:bg-on-primary-container/[0.12]',
+          'pressed:state:bg-on-primary-container/[0.12]',
+          'ripple:bg-on-primary-container/[0.12]',
         ],
       },
       {
@@ -225,9 +240,10 @@ export const buttonVariants = cva(
         color: 'secondary',
         className: [
           'bg-secondary-container text-on-secondary-container',
-          'hover:state:bg-on-secondary-container/[0.08]',
-          'focus:state:bg-on-secondary-container/[0.12]',
-          'active:state:bg-on-secondary-container/[0.12]',
+          'hovered:state:bg-on-secondary-container/[0.08]',
+          'focus-visible:state:bg-on-secondary-container/[0.12]',
+          'pressed:state:bg-on-secondary-container/[0.12]',
+          'ripple:bg-on-secondary-container/[0.12]',
         ],
       },
       {
@@ -235,9 +251,10 @@ export const buttonVariants = cva(
         color: 'info',
         className: [
           'bg-info-container text-on-info-container',
-          'hover:state:bg-on-info-container/[0.08]',
-          'focus:state:bg-on-info-container/[0.12]',
-          'active:state:bg-on-info-container/[0.12]',
+          'hovered:state:bg-on-info-container/[0.08]',
+          'focus-visible:state:bg-on-info-container/[0.12]',
+          'pressed:state:bg-on-info-container/[0.12]',
+          'ripple:bg-on-info-container/[0.12]',
         ],
       },
       {
@@ -245,9 +262,10 @@ export const buttonVariants = cva(
         color: 'success',
         className: [
           'bg-success-container text-on-success-container',
-          'hover:state:bg-on-success-container/[0.08]',
-          'focus:state:bg-on-success-container/[0.12]',
-          'active:state:bg-on-success-container/[0.12]',
+          'hovered:state:bg-on-success-container/[0.08]',
+          'focus-visible:state:bg-on-success-container/[0.12]',
+          'pressed:state:bg-on-success-container/[0.12]',
+          'ripple:bg-on-success-container/[0.12]',
         ],
       },
       {
@@ -255,9 +273,10 @@ export const buttonVariants = cva(
         color: 'caution',
         className: [
           'bg-caution-container text-on-caution-container',
-          'hover:state:bg-on-caution-container/[0.08]',
-          'focus:state:bg-on-caution-container/[0.12]',
-          'active:state:bg-on-caution-container/[0.12]',
+          'hovered:state:bg-on-caution-container/[0.08]',
+          'focus-visible:state:bg-on-caution-container/[0.12]',
+          'pressed:state:bg-on-caution-container/[0.12]',
+          'ripple:bg-on-caution-container/[0.12]',
         ],
       },
       {
@@ -265,9 +284,10 @@ export const buttonVariants = cva(
         color: 'critical',
         className: [
           'bg-critical-container text-on-critical-container',
-          'hover:state:bg-on-critical-container/[0.08]',
-          'focus:state:bg-on-critical-container/[0.12]',
-          'active:state:bg-on-critical-container/[0.12]',
+          'hovered:state:bg-on-critical-container/[0.08]',
+          'focus-visible:state:bg-on-critical-container/[0.12]',
+          'pressed:state:bg-on-critical-container/[0.12]',
+          'ripple:bg-on-critical-container/[0.12]',
         ],
       },
       //#endregion Tonal
@@ -278,10 +298,11 @@ export const buttonVariants = cva(
         color: 'primary',
         className: [
           'text-primary-foreground',
-          'hover:state:bg-primary/[0.08]',
-          'focus:border-primary',
-          'focus:state:bg-primary/[0.12]',
-          'active:state:bg-primary/[0.12]',
+          'hovered:state:bg-primary/[0.08]',
+          'focus-visible:border-primary',
+          'focus-visible:state:bg-primary/[0.12]',
+          'pressed:state:bg-primary/[0.12]',
+          'ripple:bg-primary/[0.12]',
         ],
       },
       {
@@ -289,10 +310,11 @@ export const buttonVariants = cva(
         color: 'secondary',
         className: [
           'text-secondary-foreground',
-          'hover:state:bg-secondary/[0.08]',
-          'focus:border-secondary',
-          'focus:state:bg-secondary/[0.12]',
-          'active:state:bg-secondary/[0.12]',
+          'hovered:state:bg-secondary/[0.08]',
+          'focus-visible:border-secondary',
+          'focus-visible:state:bg-secondary/[0.12]',
+          'pressed:state:bg-secondary/[0.12]',
+          'ripple:bg-secondary/[0.12]',
         ],
       },
       {
@@ -300,10 +322,11 @@ export const buttonVariants = cva(
         color: 'info',
         className: [
           'text-info-foreground',
-          'hover:state:bg-info/[0.08]',
-          'focus:border-info',
-          'focus:state:bg-info/[0.12]',
-          'active:state:bg-info/[0.12]',
+          'hovered:state:bg-info/[0.08]',
+          'focus-visible:border-info',
+          'focus-visible:state:bg-info/[0.12]',
+          'pressed:state:bg-info/[0.12]',
+          'ripple:bg-info/[0.12]',
         ],
       },
       {
@@ -311,10 +334,11 @@ export const buttonVariants = cva(
         color: 'success',
         className: [
           'text-success-foreground',
-          'hover:state:bg-success/[0.08]',
-          'focus:border-success',
-          'focus:state:bg-success/[0.12]',
-          'active:state:bg-success/[0.12]',
+          'hovered:state:bg-success/[0.08]',
+          'focus-visible:border-success',
+          'focus-visible:state:bg-success/[0.12]',
+          'pressed:state:bg-success/[0.12]',
+          'ripple:bg-success/[0.12]',
         ],
       },
       {
@@ -322,10 +346,11 @@ export const buttonVariants = cva(
         color: 'caution',
         className: [
           'text-caution-foreground',
-          'hover:state:bg-caution/[0.08]',
-          'focus:border-caution',
-          'focus:state:bg-caution/[0.12]',
-          'active:state:bg-caution/[0.12]',
+          'hovered:state:bg-caution/[0.08]',
+          'focus-visible:border-caution',
+          'focus-visible:state:bg-caution/[0.12]',
+          'pressed:state:bg-caution/[0.12]',
+          'ripple:bg-caution/[0.12]',
         ],
       },
       {
@@ -333,10 +358,11 @@ export const buttonVariants = cva(
         color: 'critical',
         className: [
           'text-critical-foreground',
-          'hover:state:bg-critical/[0.08]',
-          'focus:border-critical',
-          'focus:state:bg-critical/[0.12]',
-          'active:state:bg-critical/[0.12]',
+          'hovered:state:bg-critical/[0.08]',
+          'focus-visible:border-critical',
+          'focus-visible:state:bg-critical/[0.12]',
+          'pressed:state:bg-critical/[0.12]',
+          'ripple:bg-critical/[0.12]',
         ],
       },
       //#endregion Outlined
@@ -347,9 +373,10 @@ export const buttonVariants = cva(
         color: 'primary',
         className: [
           'text-primary-foreground',
-          'hover:state:bg-primary/[0.08]',
-          'focus:state:bg-primary/[0.12]',
-          'active:state:bg-primary/[0.12]',
+          'hovered:state:bg-primary/[0.08]',
+          'focus-visible:state:bg-primary/[0.12]',
+          'pressed:state:bg-primary/[0.12]',
+          'ripple:bg-primary/[0.12]',
         ],
       },
       {
@@ -357,9 +384,10 @@ export const buttonVariants = cva(
         color: 'secondary',
         className: [
           'text-secondary-foreground',
-          'hover:state:bg-secondary/[0.08]',
-          'focus:state:bg-secondary/[0.12]',
-          'active:state:bg-secondary/[0.12]',
+          'hovered:state:bg-secondary/[0.08]',
+          'focus-visible:state:bg-secondary/[0.12]',
+          'pressed:state:bg-secondary/[0.12]',
+          'ripple:bg-secondary/[0.12]',
         ],
       },
       {
@@ -367,9 +395,10 @@ export const buttonVariants = cva(
         color: 'info',
         className: [
           'text-info-foreground',
-          'hover:state:bg-info/[0.08]',
-          'focus:state:bg-info/[0.12]',
-          'active:state:bg-info/[0.12]',
+          'hovered:state:bg-info/[0.08]',
+          'focus-visible:state:bg-info/[0.12]',
+          'pressed:state:bg-info/[0.12]',
+          'ripple:bg-info/[0.12]',
         ],
       },
       {
@@ -377,9 +406,10 @@ export const buttonVariants = cva(
         color: 'success',
         className: [
           'text-success-foreground',
-          'hover:state:bg-success/[0.08]',
-          'focus:state:bg-success/[0.12]',
-          'active:state:bg-success/[0.12]',
+          'hovered:state:bg-success/[0.08]',
+          'focus-visible:state:bg-success/[0.12]',
+          'pressed:state:bg-success/[0.12]',
+          'ripple:bg-success/[0.12]',
         ],
       },
       {
@@ -387,9 +417,10 @@ export const buttonVariants = cva(
         color: 'caution',
         className: [
           'text-caution-foreground',
-          'hover:state:bg-caution/[0.08]',
-          'focus:state:bg-caution/[0.12]',
-          'active:state:bg-caution/[0.12]',
+          'hovered:state:bg-caution/[0.08]',
+          'focus-visible:state:bg-caution/[0.12]',
+          'pressed:state:bg-caution/[0.12]',
+          'ripple:bg-caution/[0.12]',
         ],
       },
       {
@@ -397,9 +428,10 @@ export const buttonVariants = cva(
         color: 'critical',
         className: [
           'text-critical-foreground',
-          'hover:state:bg-critical/[0.08]',
-          'focus:state:bg-critical/[0.12]',
-          'active:state:bg-critical/[0.12]',
+          'hovered:state:bg-critical/[0.08]',
+          'focus-visible:state:bg-critical/[0.12]',
+          'pressed:state:bg-critical/[0.12]',
+          'ripple:bg-critical/[0.12]',
         ],
       },
       //#endregion Text

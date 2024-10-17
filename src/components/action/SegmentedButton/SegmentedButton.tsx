@@ -1,9 +1,10 @@
 'use client';
 
+import { useInteractions, useRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn, withProvider } from '@/utility';
 import React from 'react';
-import { useToggleButton } from 'react-aria';
+import { mergeProps, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { SegmentedButtonProps } from './SegmentedButton.types';
 import {
@@ -28,6 +29,13 @@ const _SegmentedButton = React.forwardRef<
     const ref = useMergedRefs(forwardedRef);
     const [{ selectedIcon }] = useSegmentedButtonContext();
 
+    const { onStart, onEnd } = useRipple();
+
+    const { interactionsProps } = useInteractions<'button'>({
+      autoFocus: props.autoFocus,
+      isDisabled: isDisabled || disabled,
+    });
+
     const state = useToggleState({
       elementType: 'button',
       isDisabled: isDisabled || disabled,
@@ -40,6 +48,14 @@ const _SegmentedButton = React.forwardRef<
         isDisabled: isDisabled || disabled,
         isSelected,
         ...props,
+        onPressStart: (e) => {
+          onStart(e);
+          props.onPressStart?.(e);
+        },
+        onPressUp: (e) => {
+          onEnd(e);
+          props.onPressUp?.(e);
+        },
       },
       state,
       ref,
@@ -48,7 +64,7 @@ const _SegmentedButton = React.forwardRef<
     return (
       <button
         type="button"
-        {...buttonProps}
+        {...mergeProps(buttonProps, interactionsProps)}
         ref={ref}
         className={cn(
           'segmented-button',

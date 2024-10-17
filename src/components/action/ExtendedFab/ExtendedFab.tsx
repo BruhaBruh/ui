@@ -1,10 +1,12 @@
 'use client';
 
+import { useInteractions, useRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { useButton } from 'react-aria';
+import { mergeProps, useButton } from 'react-aria';
+import { Fab } from '../Fab';
 import { ExtendedFabProps } from './ExtendedFab.types';
 import {
   extendedFabLabelVariants,
@@ -18,26 +20,53 @@ import { ExtendedFabIcon } from './ExtendedFabIcon';
 
 const _ExtendedFab = React.forwardRef<HTMLButtonElement, ExtendedFabProps>(
   (
-    { color, lowered, className, asChild, children, ...props },
+    { color, lowered, asFab, className, asChild, children, ...props },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
     const [{ icon }] = useExtendedFabContext();
 
+    const { onStart, onEnd } = useRipple();
+
+    const { interactionsProps } = useInteractions<'button'>({
+      autoFocus: props.autoFocus,
+    });
+
     const { buttonProps } = useButton(
       {
         elementType: asChild ? (children as React.ElementType) : 'button',
         ...props,
+        onPressStart: (e) => {
+          onStart(e);
+          props.onPressStart?.(e);
+        },
+        onPressUp: (e) => {
+          onEnd(e);
+          props.onPressUp?.(e);
+        },
       },
       ref,
     );
 
     const Comp = asChild ? Slot : 'button';
 
+    if (asFab)
+      return (
+        <Fab
+          lowered={lowered}
+          className={className}
+          asChild={asChild}
+          color={color}
+          {...props}
+        >
+          {childrenUnwrapper(children, () => icon)}
+        </Fab>
+      );
+
     return (
       <Comp
         type="button"
-        {...buttonProps}
+        {...mergeProps(buttonProps, interactionsProps)}
         ref={ref}
         className={cn(
           'extended-fab',
@@ -62,7 +91,7 @@ const _ExtendedFab = React.forwardRef<HTMLButtonElement, ExtendedFabProps>(
     );
   },
 );
-_ExtendedFab.displayName = 'Fab';
+_ExtendedFab.displayName = 'ExtendedFab';
 
 export const ExtendedFab = Object.assign(
   withProvider(ExtendedFabProvider, _ExtendedFab),

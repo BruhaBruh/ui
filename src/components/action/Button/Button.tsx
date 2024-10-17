@@ -1,10 +1,11 @@
 'use client';
 
+import { useInteractions, useRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { useButton } from 'react-aria';
+import { mergeProps, useButton } from 'react-aria';
 import { ButtonProps } from './Button.types';
 import { buttonLabelVariants, buttonVariants } from './Button.variants';
 import { ButtonProvider, useButtonContext } from './ButtonContext';
@@ -28,11 +29,26 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const ref = useMergedRefs(forwardedRef);
     const [{ left, right }] = useButtonContext();
 
+    const { onStart, onEnd } = useRipple();
+
+    const { interactionsProps } = useInteractions<'button'>({
+      autoFocus: props.autoFocus,
+      isDisabled: isDisabled || disabled,
+    });
+
     const { buttonProps } = useButton(
       {
         elementType: asChild ? (children as React.ElementType) : 'button',
         isDisabled: isDisabled || disabled,
         ...props,
+        onPressStart: (e) => {
+          onStart(e);
+          props.onPressStart?.(e);
+        },
+        onPressUp: (e) => {
+          onEnd(e);
+          props.onPressUp?.(e);
+        },
       },
       ref,
     );
@@ -42,7 +58,7 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         type="button"
-        {...buttonProps}
+        {...mergeProps(buttonProps, interactionsProps)}
         ref={ref}
         className={cn(
           'button',
