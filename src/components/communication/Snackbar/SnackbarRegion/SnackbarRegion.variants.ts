@@ -38,7 +38,10 @@ export const snackbarRegionVariants = cva(
 );
 
 export const snackbarRegionItemWrapperVariants = cva(
-  ['transition-rows duration-medium-2', 'grid'],
+  [
+    'transition-[translate,grid-template-rows,height,width_medium-2_emphasized-decelerate] duration-medium-2',
+    'grid',
+  ],
   {
     variants: {
       position: {
