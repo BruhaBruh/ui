@@ -16,5 +16,5 @@ export type SearchFieldProps = AriaSearchFieldProps &
   > & {
     child?: React.ReactNode;
     right?: (props: IconButtonProps) => React.ReactNode;
-    searchButton?: boolean;
+    clearButton?: boolean;
   };

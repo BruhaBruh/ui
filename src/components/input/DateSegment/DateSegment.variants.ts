@@ -5,6 +5,6 @@ export const dateSegmentVariants = cva([
   'tabular-nums',
   'rounded-3xs',
   'p-3xs',
-  'focus-visible:bg-on-surface/[0.12]',
+  'focus:bg-on-surface/[0.12]',
   'data-[placeholder=true]:text-on-surface-variant',
 ]);

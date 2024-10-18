@@ -57,8 +57,8 @@ const meta = {
         },
       },
     },
-    searchButton: {
-      description: 'SearchField with search button',
+    clearButton: {
+      description: 'SearchField with clear button',
       table: {
         type: { summary: 'true | false' },
         defaultValue: {
@@ -118,7 +118,7 @@ const meta = {
     description: '',
     left: undefined,
     right: undefined,
-    searchButton: false,
+    clearButton: false,
     isDisabled: false,
     isInvalid: false,
     isVisible: false,

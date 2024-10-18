@@ -119,7 +119,7 @@ export const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
       right,
       className,
       isVisible,
-      searchButton,
+      clearButton,
       child,
       asChild,
       ...restProps
@@ -145,7 +145,7 @@ export const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
         left={left}
         right={
           inputProps.value &&
-          searchButton &&
+          clearButton &&
           (right ? (
             right(clearButtonProps)
           ) : (

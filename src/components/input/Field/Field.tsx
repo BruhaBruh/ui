@@ -1,9 +1,10 @@
 'use client';
 
-import { useMergedRefs } from '@/hooks';
+import { useInteractions, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
+import { mergeProps } from 'react-aria';
 import { FieldProps } from './Field.types';
 import {
   fieldContainerVariants,
@@ -39,6 +40,8 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
 
     const Comp = asChild ? Slot : 'div';
 
+    const { interactionsProps } = useInteractions(props);
+
     return (
       <Comp
         {...props}
@@ -50,7 +53,7 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
       >
         {asChild && <Slottable>{children}</Slottable>}
         <label
-          {...labelProps}
+          {...mergeProps(labelProps, interactionsProps)}
           aria-labelledby={labelId}
           className={cn(
             'field--container',
