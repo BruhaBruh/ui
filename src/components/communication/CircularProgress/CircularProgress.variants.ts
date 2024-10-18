@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const circularProgressVariants = cva(
   [
-    'group',
+    'group/circular-progress',
     'relative',
     'overflow-hidden',
     'size-12',
@@ -30,8 +30,7 @@ export const circularProgressVariants = cva(
 export const circularProgressCircleVariants = cva([
   '-rotate-90',
   'absolute inset-0',
-  'group-data-[indeterminate=true]:group-data-[ease-in-out=true]:animate-[circular-progress_1s_ease-in-out_infinite]',
-  'group-data-[indeterminate=true]:group-data-[ease-in-out=false]:animate-[circular-progress_1s_linear_infinite]',
+  'group-data-[indeterminate=true]/circular-progress:animate-[circular-progress_1s_linear_infinite]',
 ]);
 
 export const circularProgressPathVariants = cva([
@@ -62,6 +61,6 @@ export const circularProgressIndicatorVariants = cva(
 
 export const circularProgressTrackVariants = cva([
   'text-secondary-container rotate-[-20deg]',
-  'group-data-[show-indicator=false]:[stroke-dashoffset:0]',
-  'group-data-[show-indicator=true]:[stroke-dashoffset:calc(-2048*var(--progress-value)-228)]',
+  'group-data-[show-indicator=false]/circular-progress:[stroke-dashoffset:0]',
+  'group-data-[show-indicator=true]/circular-progress:[stroke-dashoffset:calc(-2048*var(--progress-value)-228)]',
 ]);

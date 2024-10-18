@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const snackbarVariants = cva([
-  'group',
+  'group/snackbar',
   'overflow-hidden',
   'min-w-72',
   'rounded-xs elevation-3',
@@ -18,7 +18,7 @@ export const snackbarVariants = cva([
 export const snackbarContentVariants = cva([
   'typography-body-medium',
   'px-md py-3.5',
-  'group-data-[longer-actions=false]:[&:has(~.snackbar--actions)]:pr-0',
+  'group-data-[longer-actions=false]/snackbar:[&:has(~.snackbar--actions)]:pr-0',
   'overflow-hidden',
   'inline-flex w-full flex-col',
 ]);
@@ -34,9 +34,9 @@ export const snackbarActionsVariants = cva([
   '[&_.button:hover]:state:bg-inverse-primary/[0.08]',
   '[&_.button:focus]:state:bg-inverse-primary/[0.12]',
   '[&_.button:active]:state:bg-inverse-primary/[0.12]',
-  'group-data-[longer-actions=true]:pb-2xs',
-  'group-data-[longer-actions=true]:pr-xs',
-  'group-data-[longer-actions=false]:pr-2xs',
+  'group-data-[longer-actions=true]/snackbar:pb-2xs',
+  'group-data-[longer-actions=true]/snackbar:pr-xs',
+  'group-data-[longer-actions=false]/snackbar:pr-2xs',
 ]);
 
 export const snackbarCloseButtonVariants = cva([

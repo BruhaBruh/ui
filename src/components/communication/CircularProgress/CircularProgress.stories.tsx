@@ -63,18 +63,6 @@ const meta = {
       type: 'boolean',
       control: 'boolean',
     },
-    easeInOut: {
-      description:
-        "CircularProgress's easeInOut animation state of indeterminate state",
-      table: {
-        type: { summary: 'true | false' },
-        defaultValue: {
-          summary: 'false',
-        },
-      },
-      type: 'boolean',
-      control: 'boolean',
-    },
     color: {
       description: "CircularProgress's color",
       table: {
@@ -112,7 +100,6 @@ const meta = {
     'aria-label': 'circular progress demo',
     color: 'primary',
     isIndeterminate: false,
-    easeInOut: false,
     value: 75,
     minValue: 0,
     maxValue: 100,

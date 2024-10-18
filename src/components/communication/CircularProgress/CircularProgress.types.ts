@@ -10,6 +10,4 @@ export type CircularProgressProps = Omit<
   PropsWithAsChild<'div', AriaProgressBarProps> &
   VariantProps<typeof circularProgressVariants> & {
     value?: number;
-    indeterminate?: boolean;
-    easeInOut?: boolean;
   };

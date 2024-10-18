@@ -31,19 +31,29 @@ const config = {
       },
       keyframes: {
         'linear-progress': {
-          from: {
-            transform: 'translateX(0%)',
+          '0%': {
+            width: '5%',
+            right: 'calc(105% + var(--ui-spacing-2xs))',
           },
-          to: {
-            transform: 'translateX(50%)',
+          '50%': {
+            width: '100%',
+            right: 'calc(-100% - var(--ui-spacing-2xs))',
+          },
+          '50.0001%': {
+            width: '100%',
+            right: 'calc(100% + var(--ui-spacing-2xs))',
+          },
+          '100%': {
+            width: '5%',
+            right: 'calc(-5% - var(--ui-spacing-2xs))',
           },
         },
         'circular-progress': {
           from: {
-            transform: 'rotate(-90deg)',
+            rotate: '-90deg',
           },
           to: {
-            transform: 'rotate(270deg)',
+            rotate: '270deg',
           },
         },
         'grid-row': {

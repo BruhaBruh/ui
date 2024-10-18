@@ -63,18 +63,6 @@ const meta = {
       type: 'boolean',
       control: 'boolean',
     },
-    easeInOut: {
-      description:
-        "LinearProgress's easeInOut animation state of indeterminate state",
-      table: {
-        type: { summary: 'true | false' },
-        defaultValue: {
-          summary: 'false',
-        },
-      },
-      type: 'boolean',
-      control: 'boolean',
-    },
     color: {
       description: "LinearProgress's color",
       table: {
@@ -113,7 +101,6 @@ const meta = {
     className: 'w-96',
     color: 'primary',
     isIndeterminate: false,
-    easeInOut: false,
     value: 75,
     minValue: 0,
     maxValue: 100,
@@ -135,7 +122,7 @@ export const Playground: Story = {};
 
 export const Colors: Story = {
   render: (args) => (
-    <div className="gap-xs flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center gap-xs">
       <LinearProgress {...args} color="current" />
       <LinearProgress {...args} color="primary" />
       <LinearProgress {...args} color="secondary" />
@@ -153,7 +140,7 @@ export const Colors: Story = {
 };
 export const States: Story = {
   render: (args) => (
-    <div className="gap-xs flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center gap-xs">
       <LinearProgress {...args} />
       <LinearProgress {...args} isIndeterminate />
     </div>

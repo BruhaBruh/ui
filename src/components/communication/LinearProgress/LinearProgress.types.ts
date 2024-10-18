@@ -8,6 +8,4 @@ export type LinearProgressProps = Omit<
   'label' | 'valueLabel'
 > &
   PropsWithAsChild<'div', AriaProgressBarProps> &
-  VariantProps<typeof linearProgressVariants> & {
-    easeInOut?: boolean;
-  };
+  VariantProps<typeof linearProgressVariants>;

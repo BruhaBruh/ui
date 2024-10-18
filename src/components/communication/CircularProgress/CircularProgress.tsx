@@ -1,5 +1,6 @@
 'use client';
 
+import { useKeyframes } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
@@ -55,7 +56,6 @@ export const CircularProgress = React.forwardRef<
       minValue = 0,
       maxValue = 100,
       color,
-      easeInOut,
       className,
       asChild,
       children,
@@ -72,6 +72,49 @@ export const CircularProgress = React.forwardRef<
       maxValue,
       ...ariaProps,
     });
+
+    const animateFunction = React.useCallback(
+      (v: number) => {
+        if (!ref.current) return;
+        ref.current.style.setProperty('--progress-value', `${v / 100}`);
+      },
+      [ref],
+    );
+
+    const { startAnimation, endAnimation } = useKeyframes(
+      {
+        0: 5,
+        50: 90,
+        100: 5,
+      },
+      {
+        duration: 3000,
+        fn: animateFunction,
+        infinite: true,
+      },
+    );
+
+    React.useEffect(() => {
+      if (ariaProps.isIndeterminate) {
+        startAnimation();
+      } else {
+        endAnimation();
+        animateFunction(
+          Math.max(
+            0,
+            Math.min(100, ((value - minValue) / (maxValue - minValue)) * 100),
+          ),
+        );
+      }
+    }, [
+      animateFunction,
+      ariaProps.isIndeterminate,
+      endAnimation,
+      maxValue,
+      minValue,
+      startAnimation,
+      value,
+    ]);
 
     const percentage = Math.max(
       0,
@@ -93,11 +136,10 @@ export const CircularProgress = React.forwardRef<
         style={
           {
             ...style,
-            '--progress-value': `${ariaProps.isIndeterminate ? 0.33 : percentage / 100}`,
+            '--progress-value': `${ariaProps.isIndeterminate ? undefined : percentage / 100}`,
           } as React.CSSProperties
         }
         data-indeterminate={ariaProps.isIndeterminate}
-        data-ease-in-out={easeInOut}
         data-show-indicator={ariaProps.isIndeterminate || percentage > 0}
       >
         {asChild && <Slottable>{children}</Slottable>}
@@ -108,7 +150,7 @@ export const CircularProgress = React.forwardRef<
           )}
           viewBox="0 0 48 48"
         >
-          {percentage > 0 && (
+          {(ariaProps.isIndeterminate || percentage > 0) && (
             <circle
               className={cn(
                 'circular-progress--indicator',
@@ -124,7 +166,7 @@ export const CircularProgress = React.forwardRef<
               strokeLinecap="round"
             />
           )}
-          {percentage < 90 && (
+          {(ariaProps.isIndeterminate || percentage < 90) && (
             <circle
               className={cn(
                 'circular-progress--track',

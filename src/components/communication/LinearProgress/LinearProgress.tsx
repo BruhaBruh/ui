@@ -7,7 +7,7 @@ import React from 'react';
 import { AriaProgressBarProps, useProgressBar } from 'react-aria';
 import { LinearProgressProps } from './LinearProgress.types';
 import {
-  linearProgressIndeterminateVariants,
+  linearProgressIndicatorEndVariants,
   linearProgressIndicatorVariants,
   linearProgressTrackVariants,
   linearProgressVariants,
@@ -54,7 +54,6 @@ export const LinearProgress = React.forwardRef<
       minValue = 0,
       maxValue = 100,
       color,
-      easeInOut,
       className,
       asChild,
       children,
@@ -96,41 +95,15 @@ export const LinearProgress = React.forwardRef<
           } as React.CSSProperties
         }
         data-indeterminate={ariaProps.isIndeterminate || false}
-        data-ease-in-out={easeInOut || false}
       >
         {asChild && <Slottable>{children}</Slottable>}
         {ariaProps.isIndeterminate && (
           <span
             className={cn(
-              'linear-progress--indeterminate',
-              linearProgressIndeterminateVariants(),
+              'linear-progress-indicator',
+              linearProgressIndicatorVariants({ color }),
             )}
-          >
-            <span
-              className={cn(
-                'linear-progress-indicator',
-                linearProgressIndicatorVariants({ color }),
-              )}
-            />
-            <span
-              className={cn(
-                'linear-progress-track',
-                linearProgressTrackVariants(),
-              )}
-            />
-            <span
-              className={cn(
-                'linear-progress-indicator',
-                linearProgressIndicatorVariants({ color }),
-              )}
-            />
-            <span
-              className={cn(
-                'linear-progress-track',
-                linearProgressTrackVariants(),
-              )}
-            />
-          </span>
+          />
         )}
         {!ariaProps.isIndeterminate && (
           <>
@@ -142,7 +115,7 @@ export const LinearProgress = React.forwardRef<
                 )}
               />
             )}
-            {percentage < 100 && (
+            {percentage < 97 && (
               <span
                 className={cn(
                   'linear-progress--track',
@@ -150,6 +123,12 @@ export const LinearProgress = React.forwardRef<
                 )}
               />
             )}
+            <span
+              className={cn(
+                'linear-progress--indicator-end',
+                linearProgressIndicatorEndVariants({ color }),
+              )}
+            />
           </>
         )}
       </Comp>
