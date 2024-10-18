@@ -8,7 +8,7 @@ import { SnackbarProviderProps } from './SnackbarProvider.types';
 
 export const SnackbarProvider: React.FC<SnackbarProviderProps> = ({
   children,
-  maxVisibleToasts = 5,
+  maxVisibleToasts = 1,
 }) => {
   const state = useToastState<SnackbarContent>({
     maxVisibleToasts,

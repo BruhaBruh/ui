@@ -5,13 +5,11 @@ import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { AriaToastRegionProps, useToastRegion } from '@react-aria/toast';
 import React from 'react';
+import { mergeProps, useHover } from 'react-aria';
 import { Snackbar } from '../Snackbar';
 import { useSnackbar } from '../SnackbarProvider';
 import { SnackbarRegionProps } from './SnackbarRegion.types';
-import {
-  snackbarRegionItemWrapperVariants,
-  snackbarRegionVariants,
-} from './SnackbarRegion.variants';
+import { snackbarRegionVariants } from './SnackbarRegion.variants';
 
 const splitProps = ({
   'aria-label': ariaLabel,
@@ -41,12 +39,21 @@ export const SnackbarRegion = React.forwardRef<
   const [ariaProps, props] = splitProps(restProps);
   const { regionProps } = useToastRegion(ariaProps, state, ref);
 
+  const { hoverProps } = useHover({
+    onHoverChange: (isHovering) => {
+      if (isHovering) {
+        state.pauseAll();
+      } else {
+        state.resumeAll();
+      }
+    },
+  });
+
   const Comp = asChild ? Slot : 'section';
 
   return (
     <Comp
-      {...props}
-      {...regionProps}
+      {...mergeProps(props, regionProps, hoverProps)}
       ref={ref}
       className={cn(
         'snackbar-region',
@@ -54,51 +61,10 @@ export const SnackbarRegion = React.forwardRef<
         className,
       )}
       data-empty={state.visibleToasts.length === 0}
-      onMouseEnter={(e) => {
-        state.visibleToasts.forEach((toast) => {
-          toast.timer?.pause();
-        });
-        props.onMouseEnter?.(e);
-      }}
-      onMouseLeave={(e) => {
-        state.visibleToasts.forEach((toast) => {
-          toast.timer?.resume();
-        });
-        props.onMouseLeave?.(e);
-      }}
-      onTouchStart={(e) => {
-        state.visibleToasts.forEach((toast) => {
-          toast.timer?.pause();
-        });
-        props.onTouchStart?.(e);
-      }}
-      onTouchEnd={(e) => {
-        state.visibleToasts.forEach((toast) => {
-          toast.timer?.resume();
-        });
-        props.onTouchEnd?.(e);
-      }}
     >
       {asChild && <Slottable>{children}</Slottable>}
       {state.visibleToasts.map((toast) => (
-        <div
-          className={cn(
-            'snackbar-region--item-wrapper',
-            snackbarRegionItemWrapperVariants({
-              position,
-              animation: toast.animation,
-            }),
-          )}
-          key={toast.key}
-          onAnimationEnd={() => {
-            if (toast.animation === 'exiting') {
-              state.remove(toast.key);
-            }
-          }}
-          data-animation={toast.animation}
-        >
-          <Snackbar toast={toast} state={state} />
-        </div>
+        <Snackbar key={toast.key} toast={toast} state={state} />
       ))}
     </Comp>
   );

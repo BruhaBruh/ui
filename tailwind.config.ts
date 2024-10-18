@@ -56,30 +56,6 @@ const config = {
             rotate: '270deg',
           },
         },
-        'grid-row': {
-          from: {
-            'margin-top': 'var(--start-margin-top, inherit)',
-            'margin-bottom': 'var(--start-margin-bottom, inherit)',
-            'grid-template-rows': '0fr',
-          },
-          to: {
-            'margin-top': 'var(--end-margin-top, inherit)',
-            'margin-bottom': 'var(--end-margin-bottom, inherit)',
-            'grid-template-rows': '1fr',
-          },
-        },
-        'grid-row-reverse': {
-          from: {
-            'margin-top': 'var(--end-margin-top, inherit)',
-            'margin-bottom': 'var(--end-margin-bottom, inherit)',
-            'grid-template-rows': '1fr',
-          },
-          to: {
-            'margin-top': 'var(--start-margin-top, inherit)',
-            'margin-bottom': 'var(--start-margin-bottom, inherit)',
-            'grid-template-rows': '0fr',
-          },
-        },
       },
       transitionProperty: {
         DEFAULT:

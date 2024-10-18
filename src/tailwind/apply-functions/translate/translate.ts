@@ -6,6 +6,7 @@ const defaultValuesObject: Record<string, string> = {
   '2/3': '66.666667%',
   '1/4': '25%',
   '3/4': '75%',
+  full: '100%',
 };
 
 export const applyTranslate: ApplyUIPlugin = ({ matchUtilities, theme }) => {

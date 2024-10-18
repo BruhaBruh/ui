@@ -118,7 +118,7 @@ const Buttons: React.FC<ButtonsProps> = ({
   const state = useSnackbar();
 
   return (
-    <div className="gap-xs flex flex-col">
+    <div className="flex flex-col gap-xs">
       {show.includes('oneLine') && (
         <Button onPress={() => state.add(toasts.oneLine.content, toastOptions)}>
           One line
@@ -235,7 +235,7 @@ const meta = {
           summary: 'number',
         },
         defaultValue: {
-          summary: '3',
+          summary: '1',
         },
       },
       type: 'number',
@@ -249,7 +249,7 @@ const meta = {
             'topLeft | top | topRight | right | bottomRight |  bottom | bottomLeft | left',
         },
         defaultValue: {
-          summary: 'bottomRight',
+          summary: 'bottom',
         },
       },
       type: 'string',
@@ -306,8 +306,8 @@ const meta = {
     );
   },
   args: {
-    maxVisibleToasts: 3,
-    position: 'bottomRight',
+    maxVisibleToasts: 1,
+    position: 'bottom',
     timeout: 3000,
     show: [
       'oneLine',

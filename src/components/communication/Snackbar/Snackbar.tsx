@@ -6,6 +6,7 @@ import { childrenUnwrapper, cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { AriaToastProps, useToast } from '@react-aria/toast';
 import React from 'react';
+import { mergeProps } from 'react-aria';
 import { SnackbarContent, SnackbarProps } from './Snackbar.types';
 import {
   snackbarActionsVariants,
@@ -56,12 +57,15 @@ export const Snackbar = React.forwardRef<HTMLElement, SnackbarProps>(
 
     return (
       <Comp
-        {...props}
-        {...toastProps}
-        {...contentProps}
+        {...mergeProps(props, toastProps, contentProps)}
         ref={ref}
         className={cn('snackbar', snackbarVariants(), className)}
         data-longer-actions={toast.content.longerActions || false}
+        data-animation={toast.animation}
+        onTransitionEnd={() => {
+          if (toast.animation !== 'exiting') return;
+          state.remove(toast.key);
+        }}
       >
         <Slottable>
           {childrenUnwrapper(toast.content.asChild, () => (
