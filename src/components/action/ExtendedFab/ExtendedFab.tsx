@@ -1,6 +1,6 @@
 'use client';
 
-import { useInteractions, useRipple } from '@/hooks';
+import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
@@ -26,9 +26,7 @@ const _ExtendedFab = React.forwardRef<HTMLButtonElement, ExtendedFabProps>(
     const ref = useMergedRefs(forwardedRef);
     const [{ icon }] = useExtendedFabContext();
 
-    const { onStart, onEnd } = useRipple();
-
-    const { interactionsProps } = useInteractions<'button'>({
+    const { interactionsProps } = useInteractionsWithRipple<'button'>({
       autoFocus: props.autoFocus,
     });
 
@@ -36,14 +34,6 @@ const _ExtendedFab = React.forwardRef<HTMLButtonElement, ExtendedFabProps>(
       {
         elementType: asChild ? (children as React.ElementType) : 'button',
         ...props,
-        onPressStart: (e) => {
-          onStart(e);
-          props.onPressStart?.(e);
-        },
-        onPressUp: (e) => {
-          onEnd(e);
-          props.onPressUp?.(e);
-        },
       },
       ref,
     );

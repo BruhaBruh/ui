@@ -1,6 +1,6 @@
 'use client';
 
-import { useInteractions, useMergedRefs, useRipple } from '@/hooks';
+import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
@@ -27,11 +27,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ) => {
     const ref = useMergedRefs(forwardedRef);
 
-    const { onStart, onEnd } = useRipple();
-
-    const { interactionsProps } = useInteractions<'button'>({
+    const { interactionsProps } = useInteractionsWithRipple<'button'>({
       autoFocus: props.autoFocus,
-      isDisabled: isDisabled || disabled,
     });
 
     const { buttonProps } = useButton(
@@ -39,14 +36,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         elementType: asChild ? (children as React.ElementType) : 'button',
         isDisabled: isDisabled || disabled,
         ...props,
-        onPressStart: (e) => {
-          onStart(e);
-          props.onPressStart?.(e);
-        },
-        onPressUp: (e) => {
-          onEnd(e);
-          props.onPressUp?.(e);
-        },
       },
       ref,
     );
@@ -64,14 +53,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         isDisabled: isDisabled || disabled,
         isSelected,
         ...props,
-        onPressStart: (e) => {
-          onStart(e);
-          props.onPressStart?.(e);
-        },
-        onPressUp: (e) => {
-          onEnd(e);
-          props.onPressUp?.(e);
-        },
       },
       state,
       ref,

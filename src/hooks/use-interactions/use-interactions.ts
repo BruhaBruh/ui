@@ -14,6 +14,12 @@ import {
   usePress,
 } from 'react-aria';
 
+export type UseInteractions<
+  T extends
+    | keyof React.JSX.IntrinsicElements
+    | React.JSXElementConstructor<unknown> = 'div',
+> = typeof useInteractions<T>;
+
 export const useInteractions = <
   T extends
     | keyof React.JSX.IntrinsicElements

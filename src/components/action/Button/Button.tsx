@@ -1,6 +1,6 @@
 'use client';
 
-import { useInteractions, useRipple } from '@/hooks';
+import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { childrenUnwrapper, cn, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
@@ -29,9 +29,7 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const ref = useMergedRefs(forwardedRef);
     const [{ left, right }] = useButtonContext();
 
-    const { onStart, onEnd } = useRipple();
-
-    const { interactionsProps } = useInteractions<'button'>({
+    const { interactionsProps } = useInteractionsWithRipple<'button'>({
       autoFocus: props.autoFocus,
       isDisabled: isDisabled || disabled,
     });
@@ -41,14 +39,6 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         elementType: asChild ? (children as React.ElementType) : 'button',
         isDisabled: isDisabled || disabled,
         ...props,
-        onPressStart: (e) => {
-          onStart(e);
-          props.onPressStart?.(e);
-        },
-        onPressUp: (e) => {
-          onEnd(e);
-          props.onPressUp?.(e);
-        },
       },
       ref,
     );

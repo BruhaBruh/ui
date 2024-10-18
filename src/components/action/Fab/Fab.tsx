@@ -1,6 +1,6 @@
 'use client';
 
-import { useInteractions, useRipple } from '@/hooks';
+import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
@@ -16,9 +16,7 @@ const _Fab = React.forwardRef<HTMLButtonElement, FabProps>(
   ) => {
     const ref = useMergedRefs(forwardedRef);
 
-    const { onStart, onEnd } = useRipple();
-
-    const { interactionsProps } = useInteractions<'button'>({
+    const { interactionsProps } = useInteractionsWithRipple<'button'>({
       autoFocus: props.autoFocus,
     });
 
@@ -26,14 +24,6 @@ const _Fab = React.forwardRef<HTMLButtonElement, FabProps>(
       {
         elementType: asChild ? (children as React.ElementType) : 'button',
         ...props,
-        onPressStart: (e) => {
-          onStart(e);
-          props.onPressStart?.(e);
-        },
-        onPressUp: (e) => {
-          onEnd(e);
-          props.onPressUp?.(e);
-        },
       },
       ref,
     );
