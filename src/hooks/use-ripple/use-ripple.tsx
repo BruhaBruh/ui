@@ -136,6 +136,7 @@ export const useRipple = ({
   endAnimation = ({ opacity }, t) => opacity(1 - t),
   shortAnimationDuration = 200,
   longAnimationDuration = 1000,
+  centered = false,
 }: Partial<UseRippleOptions> = {}) => {
   const onEnd = React.useCallback(
     (e: PressEvent) => {
@@ -167,8 +168,13 @@ export const useRipple = ({
       ripple.dataset.pressed = 'true';
       ripple.dataset.animationEnded = 'false';
       ripple.className = 'ripple';
-      ripple.style.setProperty('--ripple-x', `${e.x}px`);
-      ripple.style.setProperty('--ripple-y', `${e.y}px`);
+      if (centered) {
+        ripple.style.setProperty('--ripple-x', `${target.clientWidth / 2}px`);
+        ripple.style.setProperty('--ripple-y', `${target.clientHeight / 2}px`);
+      } else {
+        ripple.style.setProperty('--ripple-x', `${e.x}px`);
+        ripple.style.setProperty('--ripple-y', `${e.y}px`);
+      }
       ripple.style.setProperty('--ripple-diameter', `${diameter}px`);
       ripple.setAttribute('aria-hidden', 'true');
       target.appendChild(ripple);

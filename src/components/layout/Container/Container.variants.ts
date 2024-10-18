@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const containerWrapperVariants = cva(['group'], {
+export const containerWrapperVariants = cva(['group/container'], {
   variants: {
     color: {
       surfaceContainerLowest: ['bg-surface-container-lowest text-on-surface'],
@@ -32,5 +32,5 @@ export const containerWrapperVariants = cva(['group'], {
 
 export const containerVariants = cva([
   'container',
-  'group-data-[fluid=true]:max-w-none',
+  'group-data-[fluid=true]/container:max-w-none',
 ]);

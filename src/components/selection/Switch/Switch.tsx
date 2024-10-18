@@ -1,9 +1,10 @@
 'use client';
 
+import { useInteractions } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import React from 'react';
-import { AriaSwitchProps, useSwitch } from 'react-aria';
+import { AriaSwitchProps, mergeProps, useSwitch } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { SwitchProps } from './Switch.types';
 import { switchThumbVariants, switchVariants } from './Switch.variants';
@@ -70,19 +71,22 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [ariaProps, props] = splitProps(restProps);
     const state = useToggleState(ariaProps);
-    const { isSelected, isDisabled, isPressed, labelProps, inputProps } =
-      useSwitch(ariaProps, state, inputRef);
+    const { isSelected, isDisabled, labelProps, inputProps } = useSwitch(
+      ariaProps,
+      state,
+      inputRef,
+    );
 
     const Comp = ariaProps['aria-labelledby'] ? 'span' : 'label';
 
+    const { interactionsProps } = useInteractions(ariaProps);
+
     return (
       <Comp
-        {...labelProps}
-        {...props}
+        {...mergeProps(props, labelProps, interactionsProps)}
         ref={ref}
         data-disabled={isDisabled || false}
         data-selected={isSelected || false}
-        data-pressed={isPressed || false}
         data-icon={isSelected ? Boolean(selectedIcon) : Boolean(unselectedIcon)}
         className={cn(
           'switch',

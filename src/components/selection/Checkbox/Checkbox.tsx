@@ -1,9 +1,10 @@
 'use client';
 
+import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import React from 'react';
-import { AriaCheckboxProps, useCheckbox } from 'react-aria';
+import { AriaCheckboxProps, mergeProps, useCheckbox } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { CheckboxProps } from './Checkbox.types';
 import {
@@ -95,17 +96,23 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       useCheckbox(ariaProps, state, inputRef);
     const isIndeterminate = ariaProps.isIndeterminate;
 
+    const { interactionsProps } = useInteractionsWithRipple(ariaProps, {
+      centered: true,
+    });
+
     return (
       <label
-        {...labelProps}
-        {...props}
+        {...mergeProps(props, labelProps)}
         ref={ref}
         data-disabled={isDisabled || false}
         data-invalid={isInvalid || false}
         data-selected={isSelected || isIndeterminate || false}
         className={cn('checkbox', checkboxWrapperVariants(), className)}
       >
-        <span className={cn('checkbox--target', checkboxTargetVariants())}>
+        <span
+          {...interactionsProps}
+          className={cn('checkbox--target', checkboxTargetVariants())}
+        >
           <span
             className={cn(
               'checkbox--container',

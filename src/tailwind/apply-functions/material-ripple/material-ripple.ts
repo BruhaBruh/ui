@@ -47,8 +47,8 @@ export const applyMaterialRipple: ApplyUIPlugin = ({
 
   addVariant('ripple', '& > .ripple:after');
   addVariant('group-ripple', ':merge(.group):has(&) > .ripple:after');
-  addVariant('peer-ripple', ':merge(.peer):has(&) > .ripple:after');
+  addVariant('peer-ripple', ':merge(.peer):has(~ &) > .ripple:after');
   addVariant('ripple-wrapper', '& > .ripple');
   addVariant('group-ripple-wrapper', ':merge(.group):has(&) > .ripple');
-  addVariant('peer-ripple-wrapper', ':merge(.peer):has(&) > .ripple');
+  addVariant('peer-ripple-wrapper', ':merge(.peer):has(~ &) > .ripple');
 };

@@ -5,7 +5,7 @@ import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { AriaProgressBarProps, useProgressBar } from 'react-aria';
+import { AriaProgressBarProps, mergeProps, useProgressBar } from 'react-aria';
 import { CircularProgressProps } from './CircularProgress.types';
 import {
   circularProgressCircleVariants,
@@ -125,8 +125,7 @@ export const CircularProgress = React.forwardRef<
 
     return (
       <Comp
-        {...props}
-        {...progressBarProps}
+        {...mergeProps(props, progressBarProps)}
         ref={ref}
         className={cn(
           'circular-progress',

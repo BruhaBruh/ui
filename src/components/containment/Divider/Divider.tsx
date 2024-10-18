@@ -5,7 +5,7 @@ import { SplitPropsFn } from '@/types';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { SeparatorProps, useSeparator } from 'react-aria';
+import { SeparatorProps, mergeProps, useSeparator } from 'react-aria';
 import { DividerProps } from './Divider.types';
 import { dividerVariants } from './Divider.variants';
 
@@ -46,8 +46,7 @@ export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
 
     return (
       <Comp
-        {...props}
-        {...separatorProps}
+        {...mergeProps(props, separatorProps)}
         ref={ref}
         className={cn(
           'divider',

@@ -1,9 +1,10 @@
 'use client';
 
+import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import React from 'react';
-import { AriaRadioProps, useRadio } from 'react-aria';
+import { AriaRadioProps, mergeProps, useRadio } from 'react-aria';
 import { RadioProps } from './Radio.types';
 import {
   radioContainerVariants,
@@ -64,16 +65,22 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
       inputRef,
     );
 
+    const { interactionsProps } = useInteractionsWithRipple(ariaProps, {
+      centered: true,
+    });
+
     return (
       <label
-        {...labelProps}
-        {...props}
+        {...mergeProps(props, labelProps)}
         ref={ref}
         data-disabled={isDisabled || false}
         data-selected={isSelected || false}
         className={cn('radio', radioWrapperVariants(), className)}
       >
-        <span className={cn('radio--target', radioTargetVariants())}>
+        <span
+          {...interactionsProps}
+          className={cn('radio--target', radioTargetVariants())}
+        >
           <span
             className={cn(
               'radio--container',

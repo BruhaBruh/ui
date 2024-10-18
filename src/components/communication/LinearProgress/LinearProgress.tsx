@@ -4,7 +4,7 @@ import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { AriaProgressBarProps, useProgressBar } from 'react-aria';
+import { AriaProgressBarProps, mergeProps, useProgressBar } from 'react-aria';
 import { LinearProgressProps } from './LinearProgress.types';
 import {
   linearProgressIndicatorEndVariants,
@@ -80,8 +80,7 @@ export const LinearProgress = React.forwardRef<
 
     return (
       <Comp
-        {...props}
-        {...progressBarProps}
+        {...mergeProps(props, progressBarProps)}
         ref={ref}
         className={cn(
           'linear-progress',

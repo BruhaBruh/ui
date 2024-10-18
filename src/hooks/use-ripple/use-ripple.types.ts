@@ -10,4 +10,5 @@ export type UseRippleOptions = {
   endAnimation: RippleAnimationFn;
   shortAnimationDuration: number;
   longAnimationDuration: number;
+  centered: boolean;
 };
