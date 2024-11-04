@@ -40,7 +40,7 @@ export const circularProgressPathVariants = cva([
 ]);
 
 export const circularProgressIndicatorVariants = cva(
-  ['[stroke-dashoffset:calc(2048*(1-var(--progress-value)))]'],
+  ['[stroke-dashoffset:calc(2048px*(1-var(--progress-value)))]'],
   {
     variants: {
       color: {
@@ -61,6 +61,6 @@ export const circularProgressIndicatorVariants = cva(
 
 export const circularProgressTrackVariants = cva([
   'text-secondary-container rotate-[-20deg]',
-  'group-data-[show-indicator=false]/circular-progress:[stroke-dashoffset:0]',
-  'group-data-[show-indicator=true]/circular-progress:[stroke-dashoffset:calc(-2048*var(--progress-value)-228)]',
+  'group-data-[show-indicator=false]/circular-progress:[stroke-dashoffset:0px]',
+  'group-data-[show-indicator=true]/circular-progress:[stroke-dashoffset:calc(-2048px*var(--progress-value)-228px)]',
 ]);

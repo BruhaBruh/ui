@@ -135,7 +135,9 @@ export const CircularProgress = React.forwardRef<
         style={
           {
             ...style,
-            '--progress-value': `${ariaProps.isIndeterminate ? undefined : percentage / 100}`,
+            '--progress-value': ariaProps.isIndeterminate
+              ? undefined
+              : `${percentage / 100}`,
           } as React.CSSProperties
         }
         data-indeterminate={ariaProps.isIndeterminate}
