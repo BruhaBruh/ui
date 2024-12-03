@@ -1,28 +1,29 @@
 import { ApplyUIPlugin } from '../../ui-plugin.types';
 
 export const applyInteractions: ApplyUIPlugin = ({ addVariant }) => {
-  addVariant('focus-visible', '&[data-focus-visible=true]');
-  addVariant(
-    'group-focus-visible',
-    ':merge(.group)[data-focus-visible=true] &',
-  );
-  addVariant(
-    'peer-focus-visible',
-    ':merge(.peer)[data-focus-visible=true] ~ &',
-  );
-  addVariant('focus-visible-within', '&[data-focus-visible-within=true]');
-  addVariant(
-    'group-focus-visible-within',
-    ':merge(.group)[data-focus-visible-within=true] &',
-  );
-  addVariant(
-    'peer-focus-visible-within',
-    ':merge(.peer)[data-focus-visible-within=true] ~ &',
-  );
-  addVariant('hovered', '&[data-hovered=true]');
-  addVariant('group-hovered', ':merge(.group)[data-hovered=true] &');
-  addVariant('peer-hovered', ':merge(.peer)[data-hovered=true] ~ &');
-  addVariant('pressed', '&[data-pressed=true]');
-  addVariant('group-pressed', ':merge(.group)[data-pressed=true] &');
-  addVariant('peer-pressed', ':merge(.peer)[data-pressed=true] ~ &');
+  const addVariantName = (name: string, defaultSelector?: string) => {
+    if (defaultSelector) {
+      addVariant(name, [`&[data-${name}=true]`, `&${defaultSelector}`]);
+      addVariant(`group-${name}`, [
+        `:merge(.group)[data-${name}=true] &`,
+        `:merge(.group)${defaultSelector} &`,
+      ]);
+      addVariant(`peer-${name}`, [
+        `:merge(.peer)[data-${name}=true] ~ &`,
+        `:merge(.peer)${defaultSelector} ~ &`,
+      ]);
+    } else {
+      addVariant(name, `&[data-${name}=true]`);
+      addVariant(`group-${name}`, `:merge(.group)[data-${name}=true] &`);
+      addVariant(`peer-${name}`, `:merge(.peer)[data-${name}=true] ~ &`);
+    }
+  };
+
+  addVariantName('focused');
+  addVariantName('focused-within');
+  addVariantName('focused-visible');
+  addVariantName('focused-visible-within');
+  addVariantName('hovered');
+  addVariantName('pressed');
+  addVariantName('disabled', ':disabled');
 };

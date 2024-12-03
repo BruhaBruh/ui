@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { deepEqual } from 'fast-equals';
 import React from 'react';
 import {
@@ -59,7 +60,6 @@ export const createContext = <T extends object>(
 
   const defaultSelector: Selector<T, T> = (s) => s;
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const useStore = <_ extends T = T, Return = T>(
     selectorParam?: Selector<T, Return>,
   ): [Return, StoreSetFn<T>] => {
@@ -100,6 +100,11 @@ export const createContext = <T extends object>(
     return Boolean(store);
   };
 
+  const useStoreValue = () => {
+    const [value] = useStore();
+    return value;
+  };
+
   const useSetStore = (): StoreSetFn<T> => {
     const store = React.useContext(StoreContext);
     if (!store) {
@@ -132,6 +137,7 @@ export const createContext = <T extends object>(
     ProviderWithDepend,
     useStore,
     useHasStore,
+    useStoreValue,
     useSetStore,
   };
 };

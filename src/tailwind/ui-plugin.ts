@@ -14,6 +14,7 @@ import {
   applyTranslate,
   applyVariable,
 } from './apply-functions';
+import { generateThemeFile } from './generate-theme-file';
 import { ApplyUIPlugin, UIPluginOptions } from './ui-plugin.types';
 
 const applyPlugin = (api: PluginAPI, options: UIPluginOptions) => {
@@ -82,7 +83,12 @@ export const uiPlugin = plugin.withOptions<Partial<UIPluginOptions>>(
         debugScreens: {
           ...options.debugScreens,
         },
+        generate: {
+          ...options.generate,
+        },
       });
+
+      generateThemeFile(uiAPI, options.generate);
     };
   },
 );

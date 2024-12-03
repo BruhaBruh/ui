@@ -1,18 +1,5 @@
+import { materialDuration, materialEasing } from '@/config';
 import { ApplyUIPlugin } from '../../ui-plugin.types';
-import { defaultDurationValuesObject } from '../material-durations';
-import { defaultEasingValuesObject } from '../material-easings';
-
-const hasInDefaultDurationValues = (
-  key: string,
-): key is keyof typeof defaultDurationValuesObject => {
-  return Object.keys(defaultDurationValuesObject).includes(key);
-};
-
-const hasInDefaultEasingValues = (
-  key: string,
-): key is keyof typeof defaultEasingValuesObject => {
-  return Object.keys(defaultEasingValuesObject).includes(key);
-};
 
 export const applyTransition: ApplyUIPlugin = ({ matchUtilities }) => {
   matchUtilities({
@@ -25,13 +12,13 @@ export const applyTransition: ApplyUIPlugin = ({ matchUtilities }) => {
             item.split(' ');
 
           let easing = rawEasing;
-          if (hasInDefaultEasingValues(easing)) {
-            easing = defaultEasingValuesObject[easing];
+          if (materialEasing.has(easing)) {
+            easing = materialEasing.asString(easing);
           }
 
           let duration = rawDuration;
-          if (hasInDefaultDurationValues(duration)) {
-            duration = defaultDurationValuesObject[duration];
+          if (materialDuration.has(duration)) {
+            duration = materialDuration.asString(duration);
           }
 
           if (rawDelay === undefined)
@@ -40,8 +27,8 @@ export const applyTransition: ApplyUIPlugin = ({ matchUtilities }) => {
               .map((property) => `${property} ${easing} ${duration}`);
 
           let delay = rawDelay;
-          if (hasInDefaultDurationValues(delay)) {
-            delay = defaultDurationValuesObject[delay];
+          if (materialDuration.has(delay)) {
+            delay = materialDuration.asString(delay);
           }
 
           return properties

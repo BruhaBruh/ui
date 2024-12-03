@@ -30,9 +30,10 @@ export const useInteractions = <
     LongPressProps &
     PressHookProps,
 ) => {
-  const { focusProps, isFocusVisible } = useFocusRing(props);
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
   const {
     focusProps: focusVisibleWithinProps,
+    isFocused: isFocusedWithin,
     isFocusVisible: isFocusVisibleWithin,
   } = useFocusRing({
     ...props,
@@ -50,10 +51,13 @@ export const useInteractions = <
       longPressProps as Props<T>,
       pressProps as Props<T>,
       {
-        'data-focus-visible': isFocusVisible,
-        'data-focus-visible-within': isFocusVisibleWithin,
+        'data-focused': isFocused,
+        'data-focused-within': isFocusedWithin,
+        'data-focused-visible': isFocusVisible,
+        'data-focused-visible-within': isFocusVisibleWithin,
         'data-hovered': isHovered,
         'data-pressed': isPressed,
+        'data-disabled': props.isDisabled,
       },
     ),
     isFocusVisible,

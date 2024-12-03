@@ -2,7 +2,7 @@ import {
   UseInteractions,
   useInteractions,
 } from '../use-interactions/use-interactions';
-import { UseRippleOptions, useRipple } from '../use-ripple';
+import { UseRipple, UseRippleOptions, useRipple } from '../use-ripple';
 
 export const useInteractionsWithRipple = <
   T extends
@@ -11,18 +11,22 @@ export const useInteractionsWithRipple = <
 >(
   props: Parameters<UseInteractions<T>>[0],
   rippleOptions: Partial<UseRippleOptions> = {},
-): ReturnType<UseInteractions<T>> => {
-  const { onStart, onEnd } = useRipple(rippleOptions);
-
-  return useInteractions<T>({
+): ReturnType<UseInteractions<T>> & { rippleProps: ReturnType<UseRipple> } => {
+  const rippleProps = useRipple(rippleOptions);
+  const interaction = useInteractions<T>({
     ...props,
     onPressStart: (e) => {
-      onStart(e);
+      // start(e);
       props.onPressStart?.(e);
     },
     onPressUp: (e) => {
-      onEnd(e);
+      // onUnpress(e);
       props.onPressUp?.(e);
     },
   });
+
+  return {
+    ...interaction,
+    rippleProps,
+  };
 };

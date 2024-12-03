@@ -4,6 +4,8 @@ export type Props<
   T extends
     | keyof React.JSX.IntrinsicElements
     | React.JSXElementConstructor<unknown>,
-  OmitProps extends object = object,
-  OmitKeys extends string = '',
+  //@ts-expect-error Empty object is ok
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  OmitProps extends React.ComponentProps<T> = {},
+  OmitKeys extends keyof React.ComponentProps<T> | '' = '',
 > = Omit<React.ComponentProps<T>, keyof OmitProps | OmitKeys>;

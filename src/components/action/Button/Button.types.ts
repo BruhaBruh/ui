@@ -4,5 +4,5 @@ import { AriaButtonProps } from 'react-aria';
 import { buttonVariants } from './Button.variants';
 
 export type ButtonProps = AriaButtonProps &
-  PropsWithAsChild<'button', AriaButtonProps> &
+  PropsWithAsChild<'button', AriaButtonProps, 'disabled'> &
   VariantProps<typeof buttonVariants>;

@@ -14,7 +14,7 @@ export default defineConfig({
     react(),
     dts({
       outDir: 'dist',
-      tsconfigPath: './tsconfig.json',
+      tsconfigPath: './tsconfig.node.json',
       insertTypesEntry: true,
     }),
   ],
@@ -30,19 +30,21 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'react/jsx-runtime',
-        '@internationalized/date',
-        '@radix-ui/react-slot',
-        'class-variance-authority',
-        'clsx',
-        'react-aria',
-        'react-stately',
-        'tailwind-merge',
-        '@bruhabruh/solar-icon-set',
-      ],
+      // external: [
+      //   'react',
+      //   'react-dom',
+      //   'react/jsx-runtime',
+      //   '@internationalized/date',
+      //   '@radix-ui/react-slot',
+      //   'class-variance-authority',
+      //   'clsx',
+      //   'react-aria',
+      //   'react-stately',
+      //   'tailwind-merge',
+      //   'fast-equals',
+      //   'motion',
+      //   'tailwindcss',
+      // ],
       preserveEntrySignatures: 'exports-only',
       output: {
         dir: 'dist',
@@ -58,7 +60,6 @@ export default defineConfig({
           'src/**/*.{stories,types}.{ts,tsx}',
           'src/**/*.d.ts',
           'src/stories/**',
-          'src/types/**',
           'src/utility/**',
         ],
       }).reduce((entries, file) => {

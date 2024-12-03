@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules # Исключение node_modules для избежания конфликтов
+    ports:
+      - '6006:6006'
+    command: ['pnpm', 'run', 'storybook', '--no-open']

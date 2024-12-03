@@ -5,8 +5,6 @@ export const buttonVariants = cva(
     'group/button relative',
     'inline-flex items-center justify-center',
     'h-10 min-w-16 rounded-lg',
-    '[&>svg]:size-4.5 [&>svg]:starting:size-0',
-    '[&>svg]:transition-[color,width,height,margin_medium-1_emphasized-decelerate]',
     'transition-[box-shadow,color,background-color,border-color,border-width_medium-1_emphasized-decelerate]',
     'select-none outline-none',
     'disabled:pointer-events-none',
@@ -18,7 +16,7 @@ export const buttonVariants = cva(
     'state:-inset-0.5',
     'ring:-inset-1',
     'ring:transition-[box-shadow_medium-1_emphasized-accelerate]',
-    'ring:hidden focus-visible:ring:block',
+    'ring:hidden focused-visible:ring:block',
     'ring:ring-4 starting:ring:ring-8',
     'ring:ring-primary-container',
     'ripple-wrapper:rounded-lg',
@@ -92,7 +90,7 @@ export const buttonVariants = cva(
         className: [
           'text-primary-foreground',
           'hovered:state:bg-primary/[0.08]',
-          'focus-visible:state:bg-primary/[0.12]',
+          'focused-visible:state:bg-primary/[0.12]',
           'pressed:state:bg-primary/[0.12]',
           'ripple:bg-primary/[0.12]',
         ],
@@ -103,7 +101,7 @@ export const buttonVariants = cva(
         className: [
           'text-secondary-foreground',
           'hovered:state:bg-secondary/[0.08]',
-          'focus-visible:state:bg-secondary/[0.12]',
+          'focused-visible:state:bg-secondary/[0.12]',
           'pressed:state:bg-secondary/[0.12]',
           'ripple:bg-secondary/[0.12]',
         ],
@@ -114,7 +112,7 @@ export const buttonVariants = cva(
         className: [
           'text-info-foreground',
           'hovered:state:bg-info/[0.08]',
-          'focus-visible:state:bg-info/[0.12]',
+          'focused-visible:state:bg-info/[0.12]',
           'pressed:state:bg-info/[0.12]',
           'ripple:bg-info/[0.12]',
         ],
@@ -125,7 +123,7 @@ export const buttonVariants = cva(
         className: [
           'text-success-foreground',
           'hovered:state:bg-success/[0.08]',
-          'focus-visible:state:bg-success/[0.12]',
+          'focused-visible:state:bg-success/[0.12]',
           'pressed:state:bg-success/[0.12]',
           'ripple:bg-success/[0.12]',
         ],
@@ -136,7 +134,7 @@ export const buttonVariants = cva(
         className: [
           'text-caution-foreground',
           'hovered:state:bg-caution/[0.08]',
-          'focus-visible:state:bg-caution/[0.12]',
+          'focused-visible:state:bg-caution/[0.12]',
           'pressed:state:bg-caution/[0.12]',
           'ripple:bg-caution/[0.12]',
         ],
@@ -147,7 +145,7 @@ export const buttonVariants = cva(
         className: [
           'text-critical-foreground',
           'hovered:state:bg-critical/[0.08]',
-          'focus-visible:state:bg-critical/[0.12]',
+          'focused-visible:state:bg-critical/[0.12]',
           'pressed:state:bg-critical/[0.12]',
           'ripple:bg-critical/[0.12]',
         ],
@@ -161,7 +159,7 @@ export const buttonVariants = cva(
         className: [
           'bg-primary text-on-primary',
           'hovered:state:bg-on-primary/[0.08]',
-          'focus-visible:state:bg-on-primary/[0.12]',
+          'focused-visible:state:bg-on-primary/[0.12]',
           'pressed:state:bg-on-primary/[0.12]',
           'ripple:bg-on-primary/[0.12]',
         ],
@@ -172,7 +170,7 @@ export const buttonVariants = cva(
         className: [
           'bg-secondary text-on-secondary',
           'hovered:state:bg-on-secondary/[0.08]',
-          'focus-visible:state:bg-on-secondary/[0.12]',
+          'focused-visible:state:bg-on-secondary/[0.12]',
           'pressed:state:bg-on-secondary/[0.12]',
           'ripple:bg-on-secondary/[0.12]',
         ],
@@ -183,7 +181,7 @@ export const buttonVariants = cva(
         className: [
           'bg-info text-on-info',
           'hovered:state:bg-on-info/[0.08]',
-          'focus-visible:state:bg-on-info/[0.12]',
+          'focused-visible:state:bg-on-info/[0.12]',
           'pressed:state:bg-on-info/[0.12]',
           'ripple:bg-on-info/[0.12]',
         ],
@@ -194,7 +192,7 @@ export const buttonVariants = cva(
         className: [
           'bg-success text-on-success',
           'hovered:state:bg-on-success/[0.08]',
-          'focus-visible:state:bg-on-success/[0.12]',
+          'focused-visible:state:bg-on-success/[0.12]',
           'pressed:state:bg-on-success/[0.12]',
           'ripple:bg-on-success/[0.12]',
         ],
@@ -205,7 +203,7 @@ export const buttonVariants = cva(
         className: [
           'bg-caution text-on-caution',
           'hovered:state:bg-on-caution/[0.08]',
-          'focus-visible:state:bg-on-caution/[0.12]',
+          'focused-visible:state:bg-on-caution/[0.12]',
           'pressed:state:bg-on-caution/[0.12]',
           'ripple:bg-on-caution/[0.12]',
         ],
@@ -216,7 +214,7 @@ export const buttonVariants = cva(
         className: [
           'bg-critical text-on-critical',
           'hovered:state:bg-on-critical/[0.08]',
-          'focus-visible:state:bg-on-critical/[0.12]',
+          'focused-visible:state:bg-on-critical/[0.12]',
           'pressed:state:bg-on-critical/[0.12]',
           'ripple:bg-on-critical/[0.12]',
         ],
@@ -230,7 +228,7 @@ export const buttonVariants = cva(
         className: [
           'bg-primary-container text-on-primary-container',
           'hovered:state:bg-on-primary-container/[0.08]',
-          'focus-visible:state:bg-on-primary-container/[0.12]',
+          'focused-visible:state:bg-on-primary-container/[0.12]',
           'pressed:state:bg-on-primary-container/[0.12]',
           'ripple:bg-on-primary-container/[0.12]',
         ],
@@ -241,7 +239,7 @@ export const buttonVariants = cva(
         className: [
           'bg-secondary-container text-on-secondary-container',
           'hovered:state:bg-on-secondary-container/[0.08]',
-          'focus-visible:state:bg-on-secondary-container/[0.12]',
+          'focused-visible:state:bg-on-secondary-container/[0.12]',
           'pressed:state:bg-on-secondary-container/[0.12]',
           'ripple:bg-on-secondary-container/[0.12]',
         ],
@@ -252,7 +250,7 @@ export const buttonVariants = cva(
         className: [
           'bg-info-container text-on-info-container',
           'hovered:state:bg-on-info-container/[0.08]',
-          'focus-visible:state:bg-on-info-container/[0.12]',
+          'focused-visible:state:bg-on-info-container/[0.12]',
           'pressed:state:bg-on-info-container/[0.12]',
           'ripple:bg-on-info-container/[0.12]',
         ],
@@ -263,7 +261,7 @@ export const buttonVariants = cva(
         className: [
           'bg-success-container text-on-success-container',
           'hovered:state:bg-on-success-container/[0.08]',
-          'focus-visible:state:bg-on-success-container/[0.12]',
+          'focused-visible:state:bg-on-success-container/[0.12]',
           'pressed:state:bg-on-success-container/[0.12]',
           'ripple:bg-on-success-container/[0.12]',
         ],
@@ -274,7 +272,7 @@ export const buttonVariants = cva(
         className: [
           'bg-caution-container text-on-caution-container',
           'hovered:state:bg-on-caution-container/[0.08]',
-          'focus-visible:state:bg-on-caution-container/[0.12]',
+          'focused-visible:state:bg-on-caution-container/[0.12]',
           'pressed:state:bg-on-caution-container/[0.12]',
           'ripple:bg-on-caution-container/[0.12]',
         ],
@@ -285,7 +283,7 @@ export const buttonVariants = cva(
         className: [
           'bg-critical-container text-on-critical-container',
           'hovered:state:bg-on-critical-container/[0.08]',
-          'focus-visible:state:bg-on-critical-container/[0.12]',
+          'focused-visible:state:bg-on-critical-container/[0.12]',
           'pressed:state:bg-on-critical-container/[0.12]',
           'ripple:bg-on-critical-container/[0.12]',
         ],
@@ -299,8 +297,8 @@ export const buttonVariants = cva(
         className: [
           'text-primary-foreground',
           'hovered:state:bg-primary/[0.08]',
-          'focus-visible:border-primary',
-          'focus-visible:state:bg-primary/[0.12]',
+          'focused-visible:border-primary',
+          'focused-visible:state:bg-primary/[0.12]',
           'pressed:state:bg-primary/[0.12]',
           'ripple:bg-primary/[0.12]',
         ],
@@ -311,8 +309,8 @@ export const buttonVariants = cva(
         className: [
           'text-secondary-foreground',
           'hovered:state:bg-secondary/[0.08]',
-          'focus-visible:border-secondary',
-          'focus-visible:state:bg-secondary/[0.12]',
+          'focused-visible:border-secondary',
+          'focused-visible:state:bg-secondary/[0.12]',
           'pressed:state:bg-secondary/[0.12]',
           'ripple:bg-secondary/[0.12]',
         ],
@@ -323,8 +321,8 @@ export const buttonVariants = cva(
         className: [
           'text-info-foreground',
           'hovered:state:bg-info/[0.08]',
-          'focus-visible:border-info',
-          'focus-visible:state:bg-info/[0.12]',
+          'focused-visible:border-info',
+          'focused-visible:state:bg-info/[0.12]',
           'pressed:state:bg-info/[0.12]',
           'ripple:bg-info/[0.12]',
         ],
@@ -335,8 +333,8 @@ export const buttonVariants = cva(
         className: [
           'text-success-foreground',
           'hovered:state:bg-success/[0.08]',
-          'focus-visible:border-success',
-          'focus-visible:state:bg-success/[0.12]',
+          'focused-visible:border-success',
+          'focused-visible:state:bg-success/[0.12]',
           'pressed:state:bg-success/[0.12]',
           'ripple:bg-success/[0.12]',
         ],
@@ -347,8 +345,8 @@ export const buttonVariants = cva(
         className: [
           'text-caution-foreground',
           'hovered:state:bg-caution/[0.08]',
-          'focus-visible:border-caution',
-          'focus-visible:state:bg-caution/[0.12]',
+          'focused-visible:border-caution',
+          'focused-visible:state:bg-caution/[0.12]',
           'pressed:state:bg-caution/[0.12]',
           'ripple:bg-caution/[0.12]',
         ],
@@ -359,8 +357,8 @@ export const buttonVariants = cva(
         className: [
           'text-critical-foreground',
           'hovered:state:bg-critical/[0.08]',
-          'focus-visible:border-critical',
-          'focus-visible:state:bg-critical/[0.12]',
+          'focused-visible:border-critical',
+          'focused-visible:state:bg-critical/[0.12]',
           'pressed:state:bg-critical/[0.12]',
           'ripple:bg-critical/[0.12]',
         ],
@@ -374,7 +372,7 @@ export const buttonVariants = cva(
         className: [
           'text-primary-foreground',
           'hovered:state:bg-primary/[0.08]',
-          'focus-visible:state:bg-primary/[0.12]',
+          'focused-visible:state:bg-primary/[0.12]',
           'pressed:state:bg-primary/[0.12]',
           'ripple:bg-primary/[0.12]',
         ],
@@ -385,7 +383,7 @@ export const buttonVariants = cva(
         className: [
           'text-secondary-foreground',
           'hovered:state:bg-secondary/[0.08]',
-          'focus-visible:state:bg-secondary/[0.12]',
+          'focused-visible:state:bg-secondary/[0.12]',
           'pressed:state:bg-secondary/[0.12]',
           'ripple:bg-secondary/[0.12]',
         ],
@@ -396,7 +394,7 @@ export const buttonVariants = cva(
         className: [
           'text-info-foreground',
           'hovered:state:bg-info/[0.08]',
-          'focus-visible:state:bg-info/[0.12]',
+          'focused-visible:state:bg-info/[0.12]',
           'pressed:state:bg-info/[0.12]',
           'ripple:bg-info/[0.12]',
         ],
@@ -407,7 +405,7 @@ export const buttonVariants = cva(
         className: [
           'text-success-foreground',
           'hovered:state:bg-success/[0.08]',
-          'focus-visible:state:bg-success/[0.12]',
+          'focused-visible:state:bg-success/[0.12]',
           'pressed:state:bg-success/[0.12]',
           'ripple:bg-success/[0.12]',
         ],
@@ -418,7 +416,7 @@ export const buttonVariants = cva(
         className: [
           'text-caution-foreground',
           'hovered:state:bg-caution/[0.08]',
-          'focus-visible:state:bg-caution/[0.12]',
+          'focused-visible:state:bg-caution/[0.12]',
           'pressed:state:bg-caution/[0.12]',
           'ripple:bg-caution/[0.12]',
         ],
@@ -429,7 +427,7 @@ export const buttonVariants = cva(
         className: [
           'text-critical-foreground',
           'hovered:state:bg-critical/[0.08]',
-          'focus-visible:state:bg-critical/[0.12]',
+          'focused-visible:state:bg-critical/[0.12]',
           'pressed:state:bg-critical/[0.12]',
           'ripple:bg-critical/[0.12]',
         ],
@@ -439,7 +437,7 @@ export const buttonVariants = cva(
   },
 );
 
-export const buttonLabelVariants = cva(['truncate typography-label-large'], {
+export const buttonLabelVariants = cva(['typography-label-large truncate'], {
   variants: {
     variant: {
       elevated: [],

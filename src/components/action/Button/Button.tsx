@@ -2,53 +2,36 @@
 
 import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { childrenUnwrapper, cn, withProvider } from '@/utility';
-import { Slot, Slottable } from '@radix-ui/react-slot';
+import { cn, withProvider } from '@/utility';
+import { Slot } from '@radix-ui/react-slot';
+import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps, useButton } from 'react-aria';
 import { ButtonProps } from './Button.types';
 import { buttonLabelVariants, buttonVariants } from './Button.variants';
 import { ButtonProvider, useButtonContext } from './ButtonContext';
-import { ButtonLeft } from './ButtonLeft';
-import { ButtonRight } from './ButtonRight';
 
 const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      variant,
-      color,
-      disabled,
-      isDisabled,
-      className,
-      asChild,
-      children,
-      ...props
-    },
+    { variant, color, className, asChild, children, ...props },
     forwardedRef,
   ) => {
     const ref = useMergedRefs(forwardedRef);
-    const [{ left, right }] = useButtonContext();
+    const { left, right } = useButtonContext();
 
-    const { interactionsProps } = useInteractionsWithRipple<'button'>({
+    const { interactionsProps, rippleProps } = useInteractionsWithRipple({
       autoFocus: props.autoFocus,
-      isDisabled: isDisabled || disabled,
+      isDisabled: props.isDisabled,
     });
 
-    const { buttonProps } = useButton(
-      {
-        elementType: asChild ? (children as React.ElementType) : 'button',
-        isDisabled: isDisabled || disabled,
-        ...props,
-      },
-      ref,
-    );
+    const { buttonProps } = useButton(props, ref);
 
     const Comp = asChild ? Slot : 'button';
 
     return (
       <Comp
         type="button"
-        {...mergeProps(buttonProps, interactionsProps)}
+        {...mergeProps(buttonProps, interactionsProps, rippleProps)}
         ref={ref}
         className={cn(
           'button',
@@ -58,26 +41,16 @@ const _Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           }),
           className,
         )}
-        data-disabled={isDisabled || disabled || false}
       >
-        {left}
-        <Slottable>
-          {childrenUnwrapper(children, (child) => (
-            <span
-              className={cn('button--label', buttonLabelVariants({ variant }))}
-            >
-              {child}
-            </span>
-          ))}
-        </Slottable>
-        {right}
+        <AnimatePresence mode="wait">{left}</AnimatePresence>
+        <span className={cn('button--label', buttonLabelVariants({ variant }))}>
+          {children}
+        </span>
+        <AnimatePresence mode="wait">{right}</AnimatePresence>
       </Comp>
     );
   },
 );
 _Button.displayName = 'Button';
 
-export const Button = Object.assign(withProvider(ButtonProvider, _Button), {
-  Left: ButtonLeft,
-  Right: ButtonRight,
-});
+export const Button = withProvider(ButtonProvider, _Button);

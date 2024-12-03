@@ -1,173 +1,177 @@
 'use client';
 
+import { materialDuration } from '@/config';
+import { Props } from '@/types';
+import { animate } from 'motion';
+import { AnimationPlaybackControls } from 'motion/react';
 import React from 'react';
-import { PressEvent } from 'react-aria';
-import {
-  RippleAnimationFn,
-  RippleControl,
-  UseRippleOptions,
-} from './use-ripple.types';
+import { PressEvent, usePress } from 'react-aria';
+import { UseRippleOptions } from './use-ripple.types';
 
-class AnimationController {
-  #ripple: HTMLSpanElement;
-  #startAnimation: RippleAnimationFn;
-  #endAnimation: RippleAnimationFn;
-  #shortAnimationDuration: number;
-  #longAnimationDuration: number;
+type RippleData = {
+  id: string | undefined;
+  isAnimationEnded: boolean;
+  isPressed: boolean;
+  animation: 'entering' | 'exiting' | null;
+  controls: AnimationPlaybackControls | undefined;
+};
 
-  constructor(
-    ripple: HTMLSpanElement,
-    startAnimation: RippleAnimationFn,
-    endAnimation: RippleAnimationFn,
-    shortAnimationDuration: number,
-    longAnimationDuration: number,
-  ) {
-    this.#ripple = ripple;
-    this.#startAnimation = startAnimation;
-    this.#endAnimation = endAnimation;
-    this.#shortAnimationDuration = shortAnimationDuration;
-    this.#longAnimationDuration = longAnimationDuration;
-  }
+type Controls = {
+  get: (id: string) => AnimationPlaybackControls | undefined;
+  set: (id: string, controls: AnimationPlaybackControls) => void;
+  remove: (id: string) => void;
+};
 
-  private get startTime(): number {
-    return parseFloat(this.#ripple.dataset.startTime || '0');
-  }
-
-  private set startTime(value: number) {
-    this.#ripple.dataset.startTime = `${value}`;
-  }
-
-  private get endTime(): number {
-    return parseFloat(this.#ripple.dataset.endTime || '0');
-  }
-
-  private set endTime(value: number) {
-    this.#ripple.dataset.endTime = `${value}`;
-  }
-
-  private get t(): number {
-    const delta = this.endTime - this.startTime;
-    const duration = performance.now() - this.startTime;
-    if (delta <= 0) return 0;
-    const t = duration / delta;
-    return Math.min(1, Math.max(t, 0));
-  }
-
-  private get isPressed(): boolean {
-    return this.#ripple.dataset.pressed === 'true';
-  }
-
-  private set isPressed(value: boolean) {
-    this.#ripple.dataset.pressed = `${value}`;
-  }
-
-  private get isAnimationEnded(): boolean {
-    return this.#ripple.dataset.animationEnded === 'true';
-  }
-
-  private set isAnimationEnded(value: boolean) {
-    this.#ripple.dataset.animationEnded = `${value}`;
-  }
-
-  private get rippleControl(): RippleControl {
-    return {
-      scale: (value) => {
-        this.#ripple.style.setProperty('--ripple-scale', `${value}`);
-      },
-      opacity: (value) => {
-        this.#ripple.style.setProperty('--ripple-opacity', `${value}`);
-      },
-    };
-  }
-
-  animate = () => {
-    this.startAnimate(this.startAnimation, this.#longAnimationDuration);
-  };
-
-  handleEndPress = () => {
-    if (!this.isPressed) return;
-    this.isPressed = false;
-    if (this.isAnimationEnded) {
-      this.startAnimate(this.endAnimation, this.#shortAnimationDuration);
-      return;
-    }
-    this.changeDuration(this.#shortAnimationDuration);
-  };
-
-  private startAnimate = (fn: () => void, duration: number) => {
-    this.startTime = performance.now();
-    this.endTime = this.startTime + duration;
-    fn();
-  };
-
-  private startAnimation = () => {
-    this.#startAnimation(this.rippleControl, this.t);
-    if (this.t === 1) {
-      this.isAnimationEnded = true;
-      if (!this.isPressed) {
-        this.startAnimate(this.endAnimation, this.#shortAnimationDuration);
+const rippleData = (
+  ripple: HTMLSpanElement,
+  controls: Controls,
+): RippleData => {
+  const r = ripple;
+  const data: RippleData = {
+    get id(): string | undefined {
+      return r.dataset.id;
+    },
+    set id(value: string | undefined) {
+      r.dataset.id = value;
+    },
+    get isAnimationEnded(): boolean {
+      return r.dataset.isAnimationEnded === 'true';
+    },
+    set isAnimationEnded(value: boolean) {
+      r.dataset.isAnimationEnded = `${value}`;
+    },
+    get isPressed(): boolean {
+      return r.dataset.isPressed === 'true';
+    },
+    set isPressed(value: boolean) {
+      r.dataset.isPressed = `${value}`;
+    },
+    get animation(): 'entering' | 'exiting' | null {
+      const animation = r.dataset.animation;
+      if (animation === 'entering' || animation === 'exiting') {
+        return animation;
       }
-      return;
-    }
-    requestAnimationFrame(this.startAnimation);
+      return null;
+    },
+    set animation(value: 'entering' | 'exiting' | null) {
+      r.dataset.animation = value || undefined;
+    },
+    get controls(): AnimationPlaybackControls | undefined {
+      if (!this.id) return undefined;
+      return controls.get(this.id);
+    },
+    set controls(ctrls: AnimationPlaybackControls | undefined) {
+      if (!this.id) return;
+      if (ctrls) {
+        controls.set(this.id, ctrls);
+      } else {
+        controls.remove(this.id);
+      }
+    },
   };
 
-  private endAnimation = () => {
-    this.#endAnimation(this.rippleControl, this.t);
-    if (this.t === 1) {
-      this.#ripple.remove();
-      return;
-    }
-    requestAnimationFrame(this.endAnimation);
-  };
+  return data;
+};
 
-  private changeDuration = (duration: number) => {
-    const now = performance.now();
-    const endTime = now + duration;
-    const delta = endTime - now;
-    const startTime = now - delta * this.t;
-    this.startTime = startTime;
-    this.endTime = endTime;
-  };
-}
+export type UseRipple = typeof useRipple;
+
+const speedDelta = 2;
 
 export const useRipple = ({
-  startAnimation = ({ scale }, t) => scale(t),
-  endAnimation = ({ opacity }, t) => opacity(1 - t),
-  shortAnimationDuration = 200,
-  longAnimationDuration = 1000,
+  duration = materialDuration['extra-long-4'],
   centered = false,
-}: Partial<UseRippleOptions> = {}) => {
-  const onEnd = React.useCallback(
+}: Partial<UseRippleOptions> = {}): Props<'div'> => {
+  const animationControls = React.useRef<[string, AnimationPlaybackControls][]>(
+    [],
+  );
+  const controls = React.useMemo<Controls>(() => {
+    const c: Controls = {
+      get(id: string): AnimationPlaybackControls | undefined {
+        const tuple = animationControls.current.find((v) => v[0] === id);
+        return tuple?.[1];
+      },
+      set(id: string, ctrls: AnimationPlaybackControls): void {
+        const current = this.get(id);
+        current?.cancel();
+
+        animationControls.current = [
+          ...animationControls.current.filter((v) => v[0] !== id),
+          [id, ctrls],
+        ];
+      },
+      remove(id: string): void {
+        const current = this.get(id);
+        current?.cancel();
+        animationControls.current = animationControls.current.filter(
+          (v) => v[0] !== id,
+        );
+      },
+    };
+
+    return c;
+  }, [animationControls]);
+
+  const animateEnter = React.useCallback(
+    (ripple: HTMLSpanElement, onComplete: () => void) => {
+      return animate(
+        ripple,
+        { '--ripple-scale': 1 },
+        {
+          duration: (duration * 2) / 1000,
+          onComplete: () => {
+            onComplete();
+          },
+        },
+      );
+    },
+    [duration],
+  );
+
+  const animateExit = React.useCallback(
+    (ripple: HTMLSpanElement, onComplete: () => void) => {
+      return animate(
+        ripple,
+        { opacity: 0 },
+        {
+          duration: duration / (speedDelta * 2) / 1000,
+          onComplete: () => {
+            onComplete();
+          },
+        },
+      );
+    },
+    [duration],
+  );
+
+  const onPressUp = React.useCallback(
     (e: PressEvent) => {
       const target = e.target;
       const ripples = target.querySelectorAll<HTMLSpanElement>('span.ripple');
       ripples.forEach((ripple) => {
-        new AnimationController(
-          ripple,
-          startAnimation,
-          endAnimation,
-          shortAnimationDuration,
-          longAnimationDuration,
-        ).handleEndPress();
+        const data = rippleData(ripple, controls);
+        data.isPressed = false;
+        if (data.animation !== 'entering') return;
+        if (data.isAnimationEnded) {
+          data.animation = 'exiting';
+          data.isAnimationEnded = false;
+          data.controls = animateExit(ripple, () => {
+            ripple.remove();
+          });
+          return;
+        }
+        if (!data.controls) return;
+        data.controls.speed = speedDelta * 2;
       });
     },
-    [
-      endAnimation,
-      longAnimationDuration,
-      shortAnimationDuration,
-      startAnimation,
-    ],
+    [animateExit, controls],
   );
 
-  const onStart = React.useCallback(
+  const onPressStart = React.useCallback(
     (e: PressEvent) => {
       const target = e.target;
-      const diameter = Math.max(target.clientWidth, target.clientHeight) * 2;
       const ripple = document.createElement('span');
-      ripple.dataset.pressed = 'true';
-      ripple.dataset.animationEnded = 'false';
-      ripple.className = 'ripple';
+      const data = rippleData(ripple, controls);
+      const diameter = Math.max(target.clientWidth, target.clientHeight) * 2;
       if (centered) {
         ripple.style.setProperty('--ripple-x', `${target.clientWidth / 2}px`);
         ripple.style.setProperty('--ripple-y', `${target.clientHeight / 2}px`);
@@ -175,34 +179,37 @@ export const useRipple = ({
         ripple.style.setProperty('--ripple-x', `${e.x}px`);
         ripple.style.setProperty('--ripple-y', `${e.y}px`);
       }
+      ripple.className = 'ripple';
       ripple.style.setProperty('--ripple-diameter', `${diameter}px`);
       ripple.setAttribute('aria-hidden', 'true');
-      target.appendChild(ripple);
+      target.append(ripple);
 
-      new AnimationController(
-        ripple,
-        startAnimation,
-        endAnimation,
-        shortAnimationDuration,
-        longAnimationDuration,
-      ).animate();
-
-      ripple.addEventListener(
-        'mouseleave',
-        () => {
-          onEnd(e);
-        },
-        { once: true },
-      );
+      data.id = `ripple-${Math.random().toString(16).substring(2)}`;
+      data.isPressed = true;
+      data.isAnimationEnded = false;
+      data.animation = 'entering';
+      data.controls = animateEnter(ripple, () => {
+        if (!data.isPressed) {
+          data.animation = 'exiting';
+          data.controls = animateExit(ripple, () => {
+            ripple.remove();
+          });
+          return;
+        }
+        data.isAnimationEnded = true;
+      });
     },
-    [
-      endAnimation,
-      longAnimationDuration,
-      onEnd,
-      shortAnimationDuration,
-      startAnimation,
-    ],
+    [animateEnter, animateExit, centered, controls],
   );
 
-  return { onStart, onEnd };
+  const { pressProps } = usePress({
+    onPressStart,
+    onPressUp,
+    shouldCancelOnPointerExit: true,
+  });
+
+  return {
+    ...pressProps,
+    onMouseLeave: (e) => onPressUp(e as unknown as PressEvent),
+  };
 };

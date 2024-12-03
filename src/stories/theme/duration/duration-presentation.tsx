@@ -25,7 +25,7 @@ const DurationPlate: React.FC<{
       >
         <div
           className={cn(
-            'transition easing-[linear] size-8 rounded-full bg-secondary',
+            'transition size-8 rounded-full bg-secondary easing-[linear]',
             'scale-50',
             'group-hover:translate-x-40',
             'group-hover:scale-100',

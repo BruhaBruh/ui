@@ -1,28 +1,9 @@
 import { ApplyUIPlugin } from '../../ui-plugin.types';
 
 export const applyMaterialRipple: ApplyUIPlugin = ({
-  addBase,
   addComponents,
   addVariant,
 }) => {
-  addBase({
-    '@keyframes ripple': {
-      from: {
-        scale: '0',
-      },
-      to: {
-        scale: '1',
-      },
-    },
-    '@keyframes ripple-fade': {
-      from: {
-        opacity: '1',
-      },
-      to: {
-        opacity: '0',
-      },
-    },
-  });
   addComponents({
     '.ripple': {
       'z-index': '2',
@@ -33,14 +14,13 @@ export const applyMaterialRipple: ApplyUIPlugin = ({
     '.ripple:after': {
       content: '""',
       position: 'absolute',
-      'aspect-ratio': '1',
       translate: '-50% -50%',
       width: 'var(--ripple-diameter)',
       height: 'var(--ripple-diameter)',
       top: 'var(--ripple-y)',
       left: 'var(--ripple-x)',
       scale: 'var(--ripple-scale, 0)',
-      opacity: 'var(--ripple-opacity, 1)',
+      filter: 'blur(4px)',
       'border-radius': '9999px',
     },
   });

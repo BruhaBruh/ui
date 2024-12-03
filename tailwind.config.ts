@@ -77,6 +77,9 @@ const config = {
           borderRadius: 'var(--ui-border-radius-3xs) 0 0 0',
         },
       },
+      generate: {
+        output: './src/config/tailwind-theme.ts',
+      },
     }),
   ],
 } satisfies Config;

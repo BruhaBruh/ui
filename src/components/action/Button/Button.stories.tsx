@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { IconSquare } from '@tabler/icons-react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
+import { ButtonLeft } from './ButtonLeft';
+import { ButtonRight } from './ButtonRight';
 
 const meta = {
   title: 'Components/Action/Button',
@@ -105,7 +107,7 @@ export const Colors: Story = {
       <Button {...args} color="success" />
       <Button {...args} color="caution" />
       <Button {...args} color="critical" />
-      <Button {...args} disabled />
+      <Button {...args} isDisabled />
     </div>
   ),
   parameters: {
@@ -137,50 +139,50 @@ export const WithIcon: Story = {
     <div className="gap-xs flex items-center">
       <div className="gap-xs flex flex-col items-center">
         <Button {...args}>
-          <Button.Left>
+          <ButtonLeft>
             <IconSquare />
-          </Button.Left>
+          </ButtonLeft>
           {children}
         </Button>
         <Button {...args} className="w-64">
-          <Button.Left>
+          <ButtonLeft>
             <IconSquare />
-          </Button.Left>
+          </ButtonLeft>
           {children}
         </Button>
       </div>
       <div className="gap-xs flex flex-col items-center">
         <Button {...args}>
           {children}
-          <Button.Right>
+          <ButtonRight>
             <IconSquare />
-          </Button.Right>
+          </ButtonRight>
         </Button>
         <Button {...args} className="w-64">
           {children}
-          <Button.Right>
+          <ButtonRight>
             <IconSquare />
-          </Button.Right>
+          </ButtonRight>
         </Button>
       </div>
       <div className="gap-xs flex flex-col items-center">
         <Button {...args}>
-          <Button.Left>
+          <ButtonLeft>
             <IconSquare />
-          </Button.Left>
+          </ButtonLeft>
           {children}
-          <Button.Right>
+          <ButtonRight>
             <IconSquare />
-          </Button.Right>
+          </ButtonRight>
         </Button>
         <Button {...args} className="w-64">
-          <Button.Left>
+          <ButtonLeft>
             <IconSquare />
-          </Button.Left>
+          </ButtonLeft>
           {children}
-          <Button.Right>
+          <ButtonRight>
             <IconSquare />
-          </Button.Right>
+          </ButtonRight>
         </Button>
       </div>
     </div>

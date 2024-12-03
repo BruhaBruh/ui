@@ -1,4 +1,5 @@
 import { createContext } from '@/utility';
+import React from 'react';
 
 export type ButtonContextState = {
   left?: React.ReactNode;
@@ -7,7 +8,7 @@ export type ButtonContextState = {
 
 export const {
   Provider: ButtonProvider,
-  useStore: useButtonContext,
+  useStoreValue: useButtonContext,
   useSetStore: useSetButtonContext,
 } = createContext<ButtonContextState>(
   {},

@@ -5,15 +5,13 @@ export const withProvider = <T extends object, ProviderValue>(
   Component: React.FC<T>,
   value?: ProviderValue,
 ) => {
-  const ProviderWithComponent: React.FC<T> = (props) => {
+  const hoc: React.FC<T> = (props) => {
     return (
       <Provider value={value}>
         <Component {...props} />
       </Provider>
     );
   };
-  if (Provider.displayName && Component.displayName)
-    ProviderWithComponent.displayName = `${Component.displayName}With${Provider.displayName}`;
 
-  return ProviderWithComponent;
+  return hoc;
 };
