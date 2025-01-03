@@ -7,30 +7,19 @@ import {
   applyMaterialEasings,
   applyMaterialElevations,
   applyMaterialRipple,
-  applyMaterialVariants,
-  applyRotate,
-  applyScale,
-  applyTransition,
-  applyTranslate,
-  applyVariable,
+  applyMaterialState,
 } from './apply-functions';
-import { generateThemeFile } from './generate-theme-file';
 import { ApplyUIPlugin, UIPluginOptions } from './ui-plugin.types';
 
 const applyPlugin = (api: PluginAPI, options: UIPluginOptions) => {
   const applyFunctions: ApplyUIPlugin[] = [
-    applyScale,
-    applyRotate,
-    applyTranslate,
-    applyTransition,
-    applyVariable,
-    applyInteractions,
     applyDebugScreens,
-    applyMaterialRipple,
-    applyMaterialVariants,
     applyMaterialEasings,
     applyMaterialDurations,
     applyMaterialElevations,
+    applyMaterialRipple,
+    applyInteractions,
+    applyMaterialState,
   ];
 
   applyFunctions.forEach((apply) => apply(api, options));
@@ -79,16 +68,11 @@ export const uiPlugin = plugin.withOptions<Partial<UIPluginOptions>>(
 
       applyPlugin(uiAPI, {
         ...options,
-        variablePrefix: options.variablePrefix || '--ui-',
+        variablePrefix: options.variablePrefix || '--',
         debugScreens: {
           ...options.debugScreens,
         },
-        generate: {
-          ...options.generate,
-        },
       });
-
-      generateThemeFile(uiAPI, options.generate);
     };
   },
 );

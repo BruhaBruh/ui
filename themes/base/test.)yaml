@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=https://cdn.statically.io/gh/BruhaBruh/theme/main/schema/theme-config.schema.json
+
+dependencies: []
+selectors:
+  - :root
+
+color:
+  - neutral:
+      _generator:
+        base: '#3A4454'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+  - neutral-variant:
+      _generator:
+        base: '#4F5867'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+  - blue:
+      _generator:
+        base: '#2563eb'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+  - green:
+      _generator:
+        base: '#22c55e'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+  - yellow:
+      _generator:
+        base: '#fde047'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+  - red:
+      _generator:
+        base: '#dc2626'
+        modifier:
+          min: 0
+          max: 100
+          step: 1
+          reverse: true
+
+spacing:
+  - base: 0.25rem
+  - 0: 0px
+  - _generator:
+      start: 0.125
+      end: 0.875
+      step: 0.125
+      valuePattern: '{spacing.base} * {i}'
+  - _generator:
+      start: 1
+      end: 16
+      step: 0.5
+      valuePattern: '{spacing.base} * {i}'
+  - _generator:
+      start: 20
+      end: 64
+      step: 4
+      valuePattern: '{spacing.base} * {i}'
+  - 72: '{spacing.base} * 72'
+  - 80: '{spacing.base} * 80'
+  - 96: '{spacing.base} * 96'
+
+font:
+  - sans: 'Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
+  - serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+  - mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'

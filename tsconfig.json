@@ -31,5 +31,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src", "*.mjs", "*.ts", ".prettierrc.mjs"],
-  "exclude": ["node_modules", "dist", "coverage"]
+  "exclude": ["node_modules", "dist", "dist-docs", "coverage"]
 }

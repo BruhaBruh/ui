@@ -6,9 +6,10 @@ export default eslint.build(
     ignores: [
       'node_modules',
       'dist',
+      'dist-docs',
       'coverage',
       '.vscode',
-      'storybook-static',
+      '.generated',
     ],
   },
   ...eslint.configs.base.recommended,

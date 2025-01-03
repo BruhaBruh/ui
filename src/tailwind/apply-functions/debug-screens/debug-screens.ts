@@ -25,7 +25,7 @@ export const applyDebugScreens: ApplyUIPlugin = (
         position: 'fixed',
         [position[0]]: '0',
         [position[1]]: '0',
-        padding: `var(${variablePrefix}spacing-2xs) var(--ui-spacing-xs)`,
+        padding: `var(${variablePrefix}spacing-2xs) var(${variablePrefix}spacing-xs)`,
         background: `var(${variablePrefix}color-inverse-surface)`,
         color: `var(${variablePrefix}color-inverse-on-surface)`,
         fontFamily: `var(${variablePrefix}font-family-sans)`,

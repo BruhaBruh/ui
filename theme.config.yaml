@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://cdn.statically.io/gh/BruhaBruh/theme/main/schema/config.schema.json
+
+prefix: ''
+content: ./themes/**/*.theme.yaml
+output:
+  all:
+    css:
+      - destination: ./src/index.css
+        options:
+          disableTypography: true
