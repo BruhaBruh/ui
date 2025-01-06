@@ -21,6 +21,9 @@ export const RadiusPage: React.FC = () => {
         <div className="flex aspect-square items-center justify-center rounded-sm border border-outline">
           <p className="typography-title-medium">sm</p>
         </div>
+        <div className="flex aspect-square items-center justify-center rounded-base border border-outline">
+          <p className="typography-title-medium">base</p>
+        </div>
         <div className="flex aspect-square items-center justify-center rounded-md border border-outline">
           <p className="typography-title-medium">md</p>
         </div>

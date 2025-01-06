@@ -66,6 +66,11 @@ export const navigationRoutes: NavigationNode[] = [
   },
   {
     type: 'link',
+    text: 'IconButton',
+    href: '/actions/icon-button',
+  },
+  {
+    type: 'link',
     text: 'Fab',
     href: '/actions/fab',
   },

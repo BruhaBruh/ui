@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import { ButtonPage, ExtendedFabPage, FabPage } from './actions';
+import {
+  ButtonPage,
+  ExtendedFabPage,
+  FabPage,
+  IconButtonPage,
+} from './actions';
 import {
   DurationPage,
   EasingPage,
@@ -26,6 +31,7 @@ export const Pages: React.FC = () => {
         <Route path="button" element={<ButtonPage />} />
         <Route path="fab" element={<FabPage />} />
         <Route path="extended-fab" element={<ExtendedFabPage />} />
+        <Route path="icon-button" element={<IconButtonPage />} />
       </Route>
     </Routes>
   );

@@ -14,7 +14,7 @@ export const StoryPlaygroundControls: React.FC<Props<'section'>> = ({
     <section
       {...props}
       className={cn(
-        'grid grid-cols-[repeat(auto-fill,minmax(min-content,14rem))] gap-md',
+        'grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-md',
         className,
       )}
     >

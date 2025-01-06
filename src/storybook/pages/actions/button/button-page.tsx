@@ -26,13 +26,13 @@ export const ButtonPage: React.FC = () => {
           },
           variant: {
             type: 'select',
-            label: 'Variant of button',
+            label: 'Variant of Button',
             defaultValue: 'elevated',
             options: ['elevated', 'filled', 'tonal', 'outlined', 'text'],
           },
           color: {
             type: 'select',
-            label: 'Color of button',
+            label: 'Color of Button',
             defaultValue: 'primary',
             options: [
               'primary',
@@ -57,7 +57,7 @@ export const ButtonPage: React.FC = () => {
           },
           isDisabled: {
             type: 'switch',
-            label: 'Disable state of button',
+            label: 'Disable state of Button',
             defaultValue: false,
           },
         }}

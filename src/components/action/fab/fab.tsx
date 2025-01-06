@@ -44,6 +44,7 @@ export const Fab: React.FC<FabProps> = ({
         }),
         className,
       )}
+      data-lowered={lowered || 'false'}
     >
       {unwrapChildren(
         children,

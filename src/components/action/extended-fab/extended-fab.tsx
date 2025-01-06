@@ -55,6 +55,8 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
         }),
         className,
       )}
+      data-lowered={lowered || 'false'}
+      data-as-fab={asFab || 'false'}
     >
       <AnimatePresence mode="wait">
         {icon && (
