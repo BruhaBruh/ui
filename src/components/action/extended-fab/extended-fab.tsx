@@ -1,7 +1,5 @@
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, withProvider } from '@/utility';
-import { keyFromChildren } from '@/utility/key-from-children/key-from-children';
-import { unwrapChildren } from '@/utility/unwrap-children/unwrap-children';
+import { cn, keyFromChildren, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { AnimatePresence } from 'motion/react';
 import React from 'react';
@@ -9,7 +7,7 @@ import { mergeProps, useButton } from 'react-aria';
 import {
   ExtendedFabContextProvider,
   useExtendedFabContext,
-} from './extended-fab-context/extended-fab.context';
+} from './extended-fab-context';
 import { ExtendedFabInternalIcon } from './extended-fab-internal-icon';
 import { ExtendedFabLabel } from './extended-fab-label';
 import { ExtendedFabProps } from './extended-fab.types';
@@ -59,9 +57,11 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
       )}
     >
       <AnimatePresence mode="wait">
-        <ExtendedFabInternalIcon asFab={asFab} key={keyFromChildren(icon)}>
-          {icon}
-        </ExtendedFabInternalIcon>
+        {icon && (
+          <ExtendedFabInternalIcon asFab={asFab} key={keyFromChildren(icon)}>
+            {icon}
+          </ExtendedFabInternalIcon>
+        )}
       </AnimatePresence>
       <Slottable>
         {unwrapChildren(

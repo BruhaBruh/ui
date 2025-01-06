@@ -2,9 +2,7 @@
 
 import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn, withProvider } from '@/utility';
-import { keyFromChildren } from '@/utility/key-from-children/key-from-children';
-import { unwrapChildren } from '@/utility/unwrap-children/unwrap-children';
+import { cn, keyFromChildren, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { AnimatePresence } from 'motion/react';
 import React from 'react';
@@ -50,7 +48,9 @@ const ButtonImpl: React.FC<ButtonProps> = ({
       )}
     >
       <AnimatePresence mode="wait">
-        <ButtonIcon key={keyFromChildren(leftIcon)}>{leftIcon}</ButtonIcon>
+        {leftIcon && (
+          <ButtonIcon key={keyFromChildren(leftIcon)}>{leftIcon}</ButtonIcon>
+        )}
       </AnimatePresence>
       <Slottable>
         {unwrapChildren(
@@ -66,7 +66,9 @@ const ButtonImpl: React.FC<ButtonProps> = ({
         )}
       </Slottable>
       <AnimatePresence mode="wait">
-        <ButtonIcon key={keyFromChildren(rightIcon)}>{rightIcon}</ButtonIcon>
+        {rightIcon && (
+          <ButtonIcon key={keyFromChildren(rightIcon)}>{rightIcon}</ButtonIcon>
+        )}
       </AnimatePresence>
     </Comp>
   );

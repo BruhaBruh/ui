@@ -61,10 +61,16 @@ export const ExtendedFabPage: React.FC = () => {
           <StoryPlaygroundRender>
             {({ icon, children, ...args }) => (
               <ExtendedFab {...args}>
-                <ExtendedFabIcon>
-                  {icon === 'square' && <IconSquare />}
-                  {icon === 'circle' && <IconCircle />}
-                </ExtendedFabIcon>
+                {icon === 'square' && (
+                  <ExtendedFabIcon>
+                    <IconSquare key={icon} />
+                  </ExtendedFabIcon>
+                )}
+                {icon === 'circle' && (
+                  <ExtendedFabIcon>
+                    <IconCircle key={icon} />
+                  </ExtendedFabIcon>
+                )}
                 {children as React.ReactNode}
               </ExtendedFab>
             )}

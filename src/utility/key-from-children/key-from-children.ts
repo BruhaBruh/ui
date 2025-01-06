@@ -3,7 +3,7 @@ import React from 'react';
 export const keyFromChildren = (children: React.ReactNode): string => {
   const childrenString =
     React.Children.map(children, (child) => {
-      if (React.isValidElement(child)) {
+      if (React.isValidElement<React.PropsWithChildren>(child)) {
         return JSON.stringify({
           type: child.type,
           props: child.props,

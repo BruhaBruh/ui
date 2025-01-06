@@ -67,15 +67,27 @@ export const ButtonPage: React.FC = () => {
           <StoryPlaygroundRender>
             {({ leftIcon, rightIcon, children, ...args }) => (
               <Button {...args}>
-                <ButtonLeftIcon>
-                  {leftIcon === 'square' && <IconSquare />}
-                  {leftIcon === 'circle' && <IconCircle />}
-                </ButtonLeftIcon>
+                {leftIcon === 'square' && (
+                  <ButtonLeftIcon>
+                    <IconSquare key={leftIcon} />
+                  </ButtonLeftIcon>
+                )}
+                {leftIcon === 'circle' && (
+                  <ButtonLeftIcon>
+                    <IconCircle key={leftIcon} />
+                  </ButtonLeftIcon>
+                )}
                 {children as React.ReactNode}
-                <ButtonRightIcon>
-                  {rightIcon === 'square' && <IconSquare />}
-                  {rightIcon === 'circle' && <IconCircle />}
-                </ButtonRightIcon>
+                {rightIcon === 'square' && (
+                  <ButtonRightIcon>
+                    <IconSquare key={rightIcon} />
+                  </ButtonRightIcon>
+                )}
+                {rightIcon === 'circle' && (
+                  <ButtonRightIcon>
+                    <IconCircle key={rightIcon} />
+                  </ButtonRightIcon>
+                )}
               </Button>
             )}
           </StoryPlaygroundRender>
