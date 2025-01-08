@@ -44,11 +44,7 @@ export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
           className="ml-xs flex flex-col overflow-hidden"
         >
           {node.children.map((n, index) => (
-            <NavigationTreeNode
-              key={n.type + index}
-              {...n}
-              href={node.href + n.href}
-            />
+            <NavigationTreeNode key={n.type + index} {...n} />
           ))}
         </motion.section>
       </section>

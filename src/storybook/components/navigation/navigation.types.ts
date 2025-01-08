@@ -5,6 +5,7 @@ export type NavigationNode = (
     }
   | {
       type: 'page';
+      page: React.ReactNode;
     }
 ) & {
   href: string;

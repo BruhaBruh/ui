@@ -1,11 +1,12 @@
-import { Large, NavigationNode } from '@/storybook/components';
 import { cn } from '@/utility';
 import { IconChevronUp, IconFile, IconFolder } from '@tabler/icons-react';
 import { motion } from 'motion/react';
 import React from 'react';
 import { NavLink } from 'react-router';
+import { Large } from '../../typography';
+import { NavigationNode } from '../navigation.types';
 
-export const HomePageNavigationTreeNode: React.FC<NavigationNode> = (node) => {
+export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   if (node.type === 'folder') {
@@ -44,11 +45,7 @@ export const HomePageNavigationTreeNode: React.FC<NavigationNode> = (node) => {
           className="ml-md flex flex-col overflow-hidden"
         >
           {node.children.map((n, index) => (
-            <HomePageNavigationTreeNode
-              key={n.type + index}
-              {...n}
-              href={node.href + n.href}
-            />
+            <NavigatioPageTreeNode key={n.type + index} {...n} />
           ))}
         </motion.section>
       </section>

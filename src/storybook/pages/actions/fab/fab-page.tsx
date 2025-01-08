@@ -15,7 +15,7 @@ import { NavLink } from 'react-router';
 export const FabPage: React.FC = () => {
   return (
     <section className="debug-screens mx-auto w-full max-w-screen-lg">
-      <Title>Actions/Fab</Title>
+      <Title>Fab</Title>
       <StoryPlayground
         className="mb-md"
         arguments={{

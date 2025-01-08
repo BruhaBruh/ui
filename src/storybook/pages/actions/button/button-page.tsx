@@ -15,7 +15,7 @@ import { NavLink } from 'react-router';
 export const ButtonPage: React.FC = () => {
   return (
     <section className="debug-screens mx-auto w-full max-w-screen-lg">
-      <Title>Actions/Button</Title>
+      <Title>Button</Title>
       <StoryPlayground
         className="mb-md"
         arguments={{
