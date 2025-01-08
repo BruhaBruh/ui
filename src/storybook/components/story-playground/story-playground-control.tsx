@@ -1,6 +1,5 @@
 import React from 'react';
-import { Label } from '../label';
-import { Text } from '../text';
+import { Label, Text } from '../typography';
 import { Argument, useStoryPlayground } from './story-playground-context';
 
 export const StoryPlaygroundControl: React.FC<{
@@ -85,11 +84,16 @@ export const StoryPlaygroundControl: React.FC<{
     }));
   };
 
+  const controlId = `control-${arg.label}-${name}`;
+
   return (
     <section>
-      <Label>{arg.label || name}</Label>
+      <Label className="block" asChild>
+        <label htmlFor={controlId}>{arg.label || name}</label>
+      </Label>
       {arg.type === 'switch' && (
         <input
+          id={controlId}
           type="checkbox"
           checked={currentValue as boolean}
           onChange={onChangeSwitch}
@@ -132,6 +136,7 @@ export const StoryPlaygroundControl: React.FC<{
       )}
       {arg.type === 'text' && (
         <input
+          id={controlId}
           className="h-10 rounded-md px-md typography-label-large"
           type="text"
           value={currentValue as string}
@@ -140,6 +145,7 @@ export const StoryPlaygroundControl: React.FC<{
       )}
       {arg.type === 'number' && (
         <input
+          id={controlId}
           className="h-10 rounded-md px-md typography-label-large"
           type="text"
           inputMode="numeric"
@@ -149,6 +155,7 @@ export const StoryPlaygroundControl: React.FC<{
       )}
       {arg.type === 'select' && (
         <select
+          id={controlId}
           className="h-10 appearance-none rounded-md px-md text-center typography-label-large"
           onChange={onChangeSelect}
           value={currentValue as string}

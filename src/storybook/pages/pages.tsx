@@ -20,18 +20,22 @@ export const Pages: React.FC = () => {
   return (
     <Routes>
       <Route index element={<HomePage />} />
-      <Route path="palette" element={<PalettePage />} />
-      <Route path="radius" element={<RadiusPage />} />
-      <Route path="typography" element={<TypographyPage />} />
-      <Route path="elevation" element={<ElevationPage />} />
-      <Route path="duration" element={<DurationPage />} />
-      <Route path="easing" element={<EasingPage />} />
+      <Route path="base">
+        <Route path="palette" element={<PalettePage />} />
+        <Route path="radius" element={<RadiusPage />} />
+        <Route path="typography" element={<TypographyPage />} />
+        <Route path="elevation" element={<ElevationPage />} />
+        <Route path="duration" element={<DurationPage />} />
+        <Route path="easing" element={<EasingPage />} />
+      </Route>
 
-      <Route path="actions">
-        <Route path="button" element={<ButtonPage />} />
-        <Route path="fab" element={<FabPage />} />
-        <Route path="extended-fab" element={<ExtendedFabPage />} />
-        <Route path="icon-button" element={<IconButtonPage />} />
+      <Route path="components">
+        <Route path="actions">
+          <Route path="button" element={<ButtonPage />} />
+          <Route path="fab" element={<FabPage />} />
+          <Route path="extended-fab" element={<ExtendedFabPage />} />
+          <Route path="icon-button" element={<IconButtonPage />} />
+        </Route>
       </Route>
     </Routes>
   );
