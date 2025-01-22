@@ -334,3 +334,7 @@ export const buttonLabelVariants = cva(['truncate typography-label-large'], {
     },
   ],
 });
+
+export const buttonIconVariants = cva([
+  'relative inline-block size-4.5 overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+]);

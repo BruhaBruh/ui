@@ -5,6 +5,7 @@ import { cn } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
 import { ExtendedFabProps } from '../extended-fab.types';
+import { extendedFabIconVariants } from '../extended-fab.variants';
 
 export const ExtendedFabInternalIcon: React.FC<
   React.PropsWithChildren<Pick<ExtendedFabProps, 'asFab'>>
@@ -19,16 +20,14 @@ export const ExtendedFabInternalIcon: React.FC<
         width: 'var(--spacing-6)',
         height: 'var(--spacing-6)',
         opacity: 1,
-        transition: {
-          duration: materialDuration.asMotion('medium-1'),
-          ease: materialEasing['standard'],
-        },
         marginRight: asFab ? 0 : 'var(--spacing-xs)',
       }}
       exit={{ width: 0, height: 0, opacity: 0, marginRight: 0 }}
-      className={cn(
-        'extended-fab--icon relative inline-block overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
-      )}
+      transition={{
+        duration: materialDuration.asMotion('medium-1'),
+        ease: materialEasing['standard'],
+      }}
+      className={cn('extended-fab--icon', extendedFabIconVariants())}
     >
       {children}
     </motion.span>

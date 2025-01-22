@@ -455,3 +455,7 @@ export const iconButtonVariants = cva(
     ],
   },
 );
+
+export const iconButtonIconVariants = cva([
+  'relative inline-block size-6 overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+]);

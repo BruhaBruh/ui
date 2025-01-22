@@ -41,7 +41,10 @@ export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
               opacity: 0,
             },
           }}
-          className="ml-xs flex flex-col overflow-hidden"
+          className={cn(
+            'ml-xs flex flex-col overflow-hidden',
+            isOpen ? 'h-max' : 'h-0',
+          )}
         >
           {node.children.map((n, index) => (
             <NavigationTreeNode key={n.type + index} {...n} />

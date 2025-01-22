@@ -19,17 +19,13 @@ export const ExtendedFabLabel: React.FC<
       animate={{
         width: 'max-content',
         opacity: 1,
-        transition: {
-          duration: materialDuration.asMotion('medium-1'),
-          ease: materialEasing['standard'],
-        },
       }}
       exit={{ width: 0, opacity: 0 }}
-      className={cn(
-        'extended-fab--label relative inline-block overflow-hidden empty:hidden',
-        extendedFabLabelVariants(),
-        asFab && 'hidden',
-      )}
+      transition={{
+        duration: materialDuration.asMotion('medium-1'),
+        ease: materialEasing['standard'],
+      }}
+      className={cn('extended-fab--label', extendedFabLabelVariants({ asFab }))}
     >
       {children}
     </motion.span>

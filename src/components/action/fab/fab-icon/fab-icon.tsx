@@ -1,9 +1,11 @@
 'use client';
 
 import { materialDuration, materialEasing } from '@/config';
+import { cn } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
 import { FabProps } from '../fab.types';
+import { fabIconVariants } from '../fab.variants';
 
 const sizes = {
   sm: 'var(--spacing-6)',
@@ -24,13 +26,13 @@ export const FabIcon: React.FC<
         width: sizes[size],
         height: sizes[size],
         opacity: 1,
-        transition: {
-          duration: materialDuration.asMotion('medium-1'),
-          ease: materialEasing['standard'],
-        },
       }}
       exit={{ width: 0, height: 0, opacity: 0 }}
-      className="fab--icon relative inline-block overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full"
+      transition={{
+        duration: materialDuration.asMotion('medium-1'),
+        ease: materialEasing['standard'],
+      }}
+      className={cn('fab--icon', fabIconVariants({ size }))}
     >
       {children}
     </motion.span>

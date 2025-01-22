@@ -81,3 +81,18 @@ export const fabVariants = cva(
     ],
   },
 );
+
+export const fabIconVariants = cva(
+  [
+    'relative inline-block overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+  ],
+  {
+    variants: {
+      size: {
+        sm: 'size-6',
+        md: 'size-6',
+        lg: 'size-9',
+      },
+    },
+  },
+);

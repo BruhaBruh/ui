@@ -42,7 +42,10 @@ export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
               opacity: 0,
             },
           }}
-          className="ml-md flex flex-col overflow-hidden"
+          className={cn(
+            'ml-xs flex flex-col overflow-hidden',
+            isOpen ? 'h-max' : 'h-0',
+          )}
         >
           {node.children.map((n, index) => (
             <NavigatioPageTreeNode key={n.type + index} {...n} />

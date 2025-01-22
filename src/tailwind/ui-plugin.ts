@@ -1,7 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 import { PluginAPI } from 'tailwindcss/types/config';
 import {
-  applyDebugScreens,
   applyInteractions,
   applyMaterialDurations,
   applyMaterialEasings,
@@ -13,7 +12,6 @@ import { ApplyUIPlugin, UIPluginOptions } from './ui-plugin.types';
 
 const applyPlugin = (api: PluginAPI, options: UIPluginOptions) => {
   const applyFunctions: ApplyUIPlugin[] = [
-    applyDebugScreens,
     applyMaterialEasings,
     applyMaterialDurations,
     applyMaterialElevations,

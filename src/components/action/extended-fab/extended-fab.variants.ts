@@ -81,6 +81,21 @@ export const extendedFabVariants = cva(
   },
 );
 
-export const extendedFabLabelVariants = cva([
-  'truncate px-2xs typography-label-large',
+export const extendedFabLabelVariants = cva(
+  [
+    'relative inline-block w-max overflow-hidden empty:hidden',
+    'truncate px-2xs typography-label-large',
+  ],
+  {
+    variants: {
+      asFab: {
+        true: ['hidden'],
+        false: [],
+      },
+    },
+  },
+);
+
+export const extendedFabIconVariants = cva([
+  'relative inline-block size-6 overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
 ]);

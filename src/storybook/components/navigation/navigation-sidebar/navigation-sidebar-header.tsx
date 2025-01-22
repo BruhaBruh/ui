@@ -25,7 +25,8 @@ export const NavigationSidebarHeader: React.FC = () => {
         color="secondary"
         onPress={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       >
-        {theme === 'dark' ? <IconMoon key={theme} /> : <IconSun key={theme} />}
+        {theme === 'dark' && <IconMoon key={theme} />}
+        {theme === 'light' && <IconSun key={theme} />}
       </IconButton>
     </section>
   );

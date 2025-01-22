@@ -7,28 +7,9 @@ const config = {
   corePlugins: {
     backgroundColor: false,
     textColor: false,
+    borderColor: false,
   },
-  plugins: [
-    themePlugin({
-      prefix: '',
-      content: './themes/**/*.theme.yaml',
-      absolute: false,
-      output: {
-        all: {
-          css: [],
-          tailwind: [],
-        },
-        themes: {},
-      },
-    }),
-    uiPlugin({
-      debugScreens: {
-        userStyles: {
-          borderRadius: 'var(--border-radius-3xs) 0 0 0',
-        },
-      },
-    }),
-  ],
+  plugins: [themePlugin({ content: './themes/**/*.theme.yaml' }), uiPlugin({})],
 } satisfies Config;
 
 export default config;
