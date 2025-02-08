@@ -7,8 +7,8 @@ export type PropsWithAsChild<
   T extends
     | keyof React.JSX.IntrinsicElements
     | React.JSXElementConstructor<unknown>,
+  OmitKeys extends keyof React.ComponentProps<T> | '' = '',
   OmitProps extends
     | Schema<React.ComponentProps<T>, unknown>
     | EmptyObject = EmptyObject,
-  OmitKeys extends keyof React.ComponentProps<T> | '' = '',
-> = Props<T, OmitProps, OmitKeys> & AsChildProp;
+> = Props<T, OmitKeys, OmitProps> & AsChildProp;

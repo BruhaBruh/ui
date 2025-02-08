@@ -1,5 +1,6 @@
 import {
   IconBorderRadius,
+  IconBroadcast,
   IconComponents,
   IconEaseInOut,
   IconHandFinger,
@@ -10,6 +11,7 @@ import {
 } from '@tabler/icons-react';
 import { NavigationNode } from './components';
 import {
+  BadgePage,
   ButtonPage,
   DurationPage,
   EasingPage,
@@ -114,6 +116,20 @@ export const routes: NavigationNode[] = [
             text: 'SegmentedButton',
             href: '/segmented-button',
             page: <SegmentedButtonButtonPage />,
+          },
+        ],
+      },
+      {
+        type: 'folder',
+        text: 'Communications',
+        href: '/communications',
+        icon: <IconBroadcast />,
+        children: [
+          {
+            type: 'page',
+            text: 'Badge',
+            href: '/badge',
+            page: <BadgePage />,
           },
         ],
       },

@@ -5,8 +5,8 @@ export type Props<
   T extends
     | keyof React.JSX.IntrinsicElements
     | React.JSXElementConstructor<unknown>,
+  OmitKeys extends keyof React.ComponentProps<T> | '' = '',
   OmitProps extends
     | Schema<React.ComponentProps<T>, unknown>
     | EmptyObject = EmptyObject,
-  OmitKeys extends keyof React.ComponentProps<T> | '' = '',
 > = Omit<React.ComponentProps<T>, keyof OmitProps | OmitKeys>;
