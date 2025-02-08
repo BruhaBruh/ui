@@ -2,15 +2,14 @@
 
 import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn, keyFromChildren, unwrapChildren, withProvider } from '@/utility';
+import { cn, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
-import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps, useButton } from 'react-aria';
-import { ButtonContextProvider, useButtonContext } from './button-context';
-import { ButtonIcon } from './button-icon';
 import { ButtonProps } from './button.types';
-import { buttonLabelVariants, buttonVariants } from './button.variants';
+import { buttonVariants } from './button.variants';
+import { ButtonContextProvider, useButtonContext } from './context';
+import { InternalButtonIcon } from './internal';
 
 const ButtonImpl: React.FC<ButtonProps> = ({
   variant,
@@ -22,12 +21,9 @@ const ButtonImpl: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const ref = useMergedRefs(forwardedRef);
-  const { leftIcon, rightIcon } = useButtonContext();
+  const [{ leftIcon, rightIcon }] = useButtonContext();
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple({
-    autoFocus: props.autoFocus,
-    isDisabled: props.isDisabled,
-  });
+  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
 
   const { buttonProps } = useButton(props, ref);
 
@@ -36,10 +32,9 @@ const ButtonImpl: React.FC<ButtonProps> = ({
   return (
     <Comp
       type="button"
-      {...mergeProps(buttonProps, interactionsProps, rippleProps)}
+      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
       ref={ref}
       className={cn(
-        'button',
         buttonVariants({
           color,
           variant,
@@ -47,29 +42,23 @@ const ButtonImpl: React.FC<ButtonProps> = ({
         className,
       )}
     >
-      <AnimatePresence mode="wait">
-        {leftIcon && (
-          <ButtonIcon key={keyFromChildren(leftIcon)}>{leftIcon}</ButtonIcon>
-        )}
-      </AnimatePresence>
+      <InternalButtonIcon className="button--icon-left">
+        {leftIcon}
+      </InternalButtonIcon>
       <Slottable>
         {unwrapChildren(
           children,
           (child) => (
-            <span
-              className={cn('button--label', buttonLabelVariants({ variant }))}
-            >
+            <span className={cn(buttonVariants.label({ variant }))}>
               {child}
             </span>
           ),
           !asChild,
         )}
       </Slottable>
-      <AnimatePresence mode="wait">
-        {rightIcon && (
-          <ButtonIcon key={keyFromChildren(rightIcon)}>{rightIcon}</ButtonIcon>
-        )}
-      </AnimatePresence>
+      <InternalButtonIcon className="button--icon-right">
+        {rightIcon}
+      </InternalButtonIcon>
     </Comp>
   );
 };

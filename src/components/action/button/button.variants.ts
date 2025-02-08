@@ -1,79 +1,105 @@
-import { cva } from 'class-variance-authority';
+import { cva } from '@/utility';
 
-export const buttonVariants = cva(
-  [
-    'group/button relative',
-    'h-10 rounded-md',
-    'inline-flex items-center justify-center',
-    'transition easing-standard duration-medium-1',
-    'border-transparent',
-    'overflow-hidden',
-    'whitespace-nowrap outline-none',
-    'is-disabled:pointer-events-none',
-    'ripple-wrapper:rounded-lg',
-    'ripple-wrapper:-inset-1',
-    'is-hovered:hover-state',
-    'in-focus-visible:focus-state',
-    'is-pressed:press-state',
-    'is-disabled:state-transparent',
-  ],
+const variants = cva(
+  {
+    name: 'button group/button',
+    layout: 'relative',
+    box: 'h-10 rounded-md',
+    flex: 'inline-flex items-center justify-center',
+    transitions: 'transition easing-standard duration-medium-1',
+    borders: 'outline-none border-transparent',
+    overflow: 'overflow-hidden',
+    typography: 'whitespace-nowrap',
+    states: [
+      'is-disabled:state-transparent',
+      'is-disabled:pointer-events-none',
+      'is-hovered:hover-state',
+      'in-focus-visible:focus-state',
+      'is-pressed:press-state',
+    ],
+    ripple: ['ripple-wrapper:-inset-1', 'ripple-wrapper:rounded-lg'],
+  },
   {
     variants: {
       variant: {
-        elevated: [
-          'bg-surface-container-low',
-          'elevation-1',
-          'is-hovered:elevation-2',
-          'in-focus-visible:elevation-1',
-          'is-pressed:elevation-1',
-          'is-disabled:elevation-0',
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        filled: [
-          'elevation-0',
-          'is-hovered:elevation-1',
-          'in-focus-visible:elevation-0',
-          'is-pressed:elevation-0',
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        tonal: [
-          'elevation-0',
-          'is-hovered:elevation-1',
-          'in-focus-visible:elevation-0',
-          'is-pressed:elevation-0',
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        outlined: [
-          'bg-transparent',
-          'border',
-          'border-outline',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-          'is-disabled:border-on-surface',
-          'is-disabled:border-opacity-38',
-        ],
-        text: [
-          'bg-transparent',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
+        elevated: {
+          background: [
+            'bg-surface-container-low',
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+          effects: [
+            'elevation-1',
+            'is-disabled:elevation-0',
+            'is-hovered:elevation-2',
+            'in-focus-visible:elevation-1',
+            'is-pressed:elevation-1',
+          ],
+        },
+        filled: {
+          background: [
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+          effects: [
+            'elevation-0',
+            'is-hovered:elevation-1',
+            'in-focus-visible:elevation-0',
+            'is-pressed:elevation-0',
+          ],
+        },
+        tonal: {
+          background: [
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+          effects: [
+            'elevation-0',
+            'is-hovered:elevation-1',
+            'in-focus-visible:elevation-0',
+            'is-pressed:elevation-0',
+          ],
+        },
+        outlined: {
+          background: ['bg-transparent'],
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+          borders: [
+            'border',
+            'border-outline',
+            'is-disabled:border-on-surface',
+            'is-disabled:border-opacity-38',
+          ],
+        },
+        text: {
+          background: 'bg-transparent',
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+        },
       },
       color: {
-        primary: [],
-        secondary: [],
-        info: [],
-        success: [],
-        caution: [],
-        critical: [],
+        primary: {},
+        secondary: {},
+        info: {},
+        success: {},
+        caution: {},
+        critical: {},
       },
     },
     defaultVariants: {
@@ -83,49 +109,74 @@ export const buttonVariants = cva(
     compoundVariants: [
       {
         variant: ['elevated', 'filled', 'tonal', 'outlined'],
-        className: 'px-md',
+        className: { spacing: 'px-md' },
       },
       {
         variant: 'text',
-        className: [
-          'px-sm',
-          '[&>svg:first-child]:starting:mr-0',
-          '[&>svg:last-child]:starting:ml-0',
-          '[&>svg:first-child]:mr-2xs',
-          '[&>svg:last-child]:ml-2xs',
-        ],
+        className: {
+          spacing: [
+            'px-sm',
+            '[&>svg:first-child]:starting:mr-0',
+            '[&>svg:last-child]:starting:ml-0',
+            '[&>svg:first-child]:mr-2xs',
+            '[&>svg:last-child]:ml-2xs',
+          ],
+        },
       },
-
       // #region Elevated
       {
         variant: 'elevated',
         color: 'primary',
-        className: ['state-primary text-primary ripple:bg-primary'],
+        className: {
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
       },
       {
         variant: 'elevated',
         color: 'secondary',
-        className: ['state-secondary text-secondary ripple:bg-secondary'],
+        className: {
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: 'state-secondary',
+        },
       },
       {
         variant: 'elevated',
         color: 'info',
-        className: ['state-info text-info ripple:bg-info'],
+        className: {
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: 'state-info',
+        },
       },
       {
         variant: 'elevated',
         color: 'success',
-        className: ['state-success text-success ripple:bg-success'],
+        className: {
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: 'state-success',
+        },
       },
       {
         variant: 'elevated',
         color: 'caution',
-        className: ['state-caution text-caution ripple:bg-caution'],
+        className: {
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: 'state-caution',
+        },
       },
       {
         variant: 'elevated',
         color: 'critical',
-        className: ['state-critical text-critical ripple:bg-critical'],
+        className: {
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: 'state-critical',
+        },
       },
       // #endregion Elevated
 
@@ -133,42 +184,62 @@ export const buttonVariants = cva(
       {
         variant: 'filled',
         color: 'primary',
-        className: [
-          'bg-primary state-on-primary text-on-primary ripple:bg-on-primary',
-        ],
+        className: {
+          background: 'bg-primary',
+          typography: 'text-on-primary',
+          ripple: 'ripple:bg-on-primary',
+          states: 'state-on-primary',
+        },
       },
       {
         variant: 'filled',
         color: 'secondary',
-        className: [
-          'bg-secondary state-on-secondary text-on-secondary ripple:bg-on-secondary',
-        ],
+        className: {
+          background: 'bg-secondary',
+          typography: 'text-on-secondary',
+          ripple: 'ripple:bg-on-secondary',
+          states: 'state-on-secondary',
+        },
       },
       {
         variant: 'filled',
         color: 'info',
-        className: ['bg-info state-on-info text-on-info ripple:bg-on-info'],
+        className: {
+          background: 'bg-info',
+          typography: 'text-on-info',
+          ripple: 'ripple:bg-on-info',
+          states: 'state-on-info',
+        },
       },
       {
         variant: 'filled',
         color: 'success',
-        className: [
-          'bg-success state-on-success text-on-success ripple:bg-on-success',
-        ],
+        className: {
+          background: 'bg-success',
+          typography: 'text-on-success',
+          ripple: 'ripple:bg-on-success',
+          states: 'state-on-success',
+        },
       },
       {
         variant: 'filled',
         color: 'caution',
-        className: [
-          'bg-caution state-on-caution text-on-caution ripple:bg-on-caution',
-        ],
+        className: {
+          background: 'bg-caution',
+          typography: 'text-on-caution',
+          ripple: 'ripple:bg-on-caution',
+          states: 'state-on-caution',
+        },
       },
       {
         variant: 'filled',
         color: 'critical',
-        className: [
-          'bg-critical state-on-critical text-on-critical ripple:bg-on-critical',
-        ],
+        className: {
+          background: 'bg-critical',
+          typography: 'text-on-critical',
+          ripple: 'ripple:bg-on-critical',
+          states: 'state-on-critical',
+        },
       },
       // #endregion Filled
 
@@ -176,50 +247,62 @@ export const buttonVariants = cva(
       {
         variant: 'tonal',
         color: 'primary',
-        className: [
-          'bg-primary-container state-on-primary-container',
-          'text-on-primary-container ripple:bg-on-primary-container',
-        ],
+        className: {
+          background: 'bg-primary-container',
+          typography: 'text-on-primary-container',
+          ripple: 'ripple:bg-on-primary-container',
+          states: 'state-on-primary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'secondary',
-        className: [
-          'bg-secondary-container state-on-secondary-container',
-          'text-on-secondary-container ripple:bg-on-secondary-container',
-        ],
+        className: {
+          background: 'bg-secondary-container',
+          typography: 'text-on-secondary-container',
+          ripple: 'ripple:bg-on-secondary-container',
+          states: 'state-on-secondary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'info',
-        className: [
-          'bg-info-container state-on-info-container',
-          'text-on-info-container ripple:bg-on-info-container',
-        ],
+        className: {
+          background: 'bg-info-container',
+          typography: 'text-on-info-container',
+          ripple: 'ripple:bg-on-info-container',
+          states: 'state-on-info-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'success',
-        className: [
-          'bg-success-container state-on-success-container',
-          'text-on-success-container ripple:bg-on-success-container',
-        ],
+        className: {
+          background: 'bg-success-container',
+          typography: 'text-on-success-container',
+          ripple: 'ripple:bg-on-success-container',
+          states: 'state-on-success-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'caution',
-        className: [
-          'bg-caution-container state-on-caution-container',
-          'text-on-caution-container ripple:bg-on-caution-container',
-        ],
+        className: {
+          background: 'bg-caution-container',
+          typography: 'text-on-caution-container',
+          ripple: 'ripple:bg-on-caution-container',
+          states: 'state-on-caution-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'critical',
-        className: [
-          'bg-critical-container state-on-critical-container',
-          'text-on-critical-container ripple:bg-on-critical-container',
-        ],
+        className: {
+          background: 'bg-critical-container',
+          typography: 'text-on-critical-container',
+          ripple: 'ripple:bg-on-critical-container',
+          states: 'state-on-critical-container',
+        },
       },
       // #endregion Tonal
 
@@ -227,50 +310,56 @@ export const buttonVariants = cva(
       {
         variant: 'outlined',
         color: 'primary',
-        className: [
-          'state-primary text-primary ripple:bg-primary',
-          'in-focus-visible:border-primary',
-        ],
+        className: {
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: ['state-primary', 'in-focus-visible:border-primary'],
+        },
       },
       {
         variant: 'outlined',
         color: 'secondary',
-        className: [
-          'state-secondary text-secondary ripple:bg-secondary',
-          'in-focus-visible:border-secondary',
-        ],
+        className: {
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: ['state-secondary', 'in-focus-visible:border-secondary'],
+        },
       },
       {
         variant: 'outlined',
         color: 'info',
-        className: [
-          'state-info text-info ripple:bg-info',
-          'in-focus-visible:border-info',
-        ],
+        className: {
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: ['state-info', 'in-focus-visible:border-info'],
+        },
       },
       {
         variant: 'outlined',
         color: 'success',
-        className: [
-          'state-success text-success ripple:bg-success',
-          'in-focus-visible:border-success',
-        ],
+        className: {
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: ['state-success', 'in-focus-visible:border-success'],
+        },
       },
       {
         variant: 'outlined',
         color: 'caution',
-        className: [
-          'state-caution text-caution ripple:bg-caution',
-          'in-focus-visible:border-caution',
-        ],
+        className: {
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: ['state-caution', 'in-focus-visible:border-caution'],
+        },
       },
       {
         variant: 'outlined',
         color: 'critical',
-        className: [
-          'state-critical text-critical ripple:bg-critical',
-          'in-focus-visible:border-critical',
-        ],
+        className: {
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: ['state-critical', 'in-focus-visible:border-critical'],
+        },
       },
       // #endregion Outlined
 
@@ -278,63 +367,102 @@ export const buttonVariants = cva(
       {
         variant: 'text',
         color: 'primary',
-        className: ['state-primary text-primary ripple:bg-primary'],
+        className: {
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
       },
       {
         variant: 'text',
         color: 'secondary',
-        className: ['state-secondary text-secondary ripple:bg-secondary'],
+        className: {
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: 'state-secondary',
+        },
       },
       {
         variant: 'text',
         color: 'info',
-        className: ['state-info text-info ripple:bg-info'],
+        className: {
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: 'state-info',
+        },
       },
       {
         variant: 'text',
         color: 'success',
-        className: ['state-success text-success ripple:bg-success'],
+        className: {
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: 'state-success',
+        },
       },
       {
         variant: 'text',
         color: 'caution',
-        className: ['state-caution text-caution ripple:bg-caution'],
+        className: {
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: 'state-caution',
+        },
       },
       {
         variant: 'text',
         color: 'critical',
-        className: ['state-critical text-critical ripple:bg-critical'],
+        className: {
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: 'state-critical',
+        },
       },
       // #endregion Text
     ],
   },
 );
 
-export const buttonLabelVariants = cva(['truncate typography-label-large'], {
-  variants: {
-    variant: {
-      elevated: [],
-      filled: [],
-      tonal: [],
-      outlined: [],
-      text: [],
-    },
+const labelVariants = cva(
+  {
+    name: 'button--label',
+    typography: ['typography-label-large', 'truncate'],
   },
-  defaultVariants: {
-    variant: 'elevated',
+  {
+    variants: {
+      variant: {
+        elevated: {},
+        filled: {},
+        tonal: {},
+        outlined: {},
+        text: {},
+      },
+    },
+    defaultVariants: {
+      variant: 'elevated',
+    },
+    compoundVariants: [
+      {
+        variant: ['elevated', 'filled', 'tonal', 'outlined'],
+        className: { spacing: 'px-xs' },
+      },
+      {
+        variant: 'text',
+        className: { spacing: 'px-2xs' },
+      },
+    ],
   },
-  compoundVariants: [
-    {
-      variant: ['elevated', 'filled', 'tonal', 'outlined'],
-      className: ['px-xs'],
-    },
-    {
-      variant: 'text',
-      className: 'px-2xs',
-    },
-  ],
+);
+
+const iconVariants = cva({
+  name: 'button--icon',
+  layout: 'relative inline-block',
+  box: 'size-4.5',
+  overflow: 'overflow-hidden empty:hidden',
+  other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
 });
 
-export const buttonIconVariants = cva([
-  'relative inline-block size-4.5 overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
-]);
+export const buttonVariants = Object.assign(variants, {
+  label: labelVariants,
+  icon: iconVariants,
+});

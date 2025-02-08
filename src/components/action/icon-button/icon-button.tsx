@@ -1,15 +1,14 @@
 'use client';
 
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, keyFromChildren, unwrapChildren } from '@/utility';
+import { cn, unwrapChildren } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
-import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps, useButton, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
-import { IconButtonIcon } from './icon-button-icon';
 import { IconButtonProps } from './icon-button.types';
 import { iconButtonVariants } from './icon-button.variants';
+import { InternalIconButtonIcon } from './internal';
 
 export const IconButton: React.FC<IconButtonProps> = ({
   variant,
@@ -24,15 +23,11 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   const ref = useMergedRefs(forwardedRef);
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple({
-    autoFocus: props.autoFocus,
-    isDisabled: props.isDisabled,
-  });
+  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
 
   const { buttonProps } = useButton(props, ref);
 
   const state = useToggleState(props);
-
   const { buttonProps: toggleButtonProps } = useToggleButton(props, state, ref);
 
   const Comp = asChild ? Slot : 'button';
@@ -41,13 +36,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
     <Comp
       type="button"
       {...mergeProps(
-        isToggleable ? buttonProps : toggleButtonProps,
         interactionsProps,
         rippleProps,
+        isToggleable ? buttonProps : toggleButtonProps,
       )}
       ref={ref}
       className={cn(
-        'icon-button',
         iconButtonVariants({
           variant,
           color,
@@ -56,17 +50,13 @@ export const IconButton: React.FC<IconButtonProps> = ({
         }),
         className,
       )}
-      data-toggleable={isToggleable || 'false'}
-      data-selected={(isToggleable && isSelected) || 'false'}
+      data-toggleable={isToggleable ?? false}
+      data-selected={(isToggleable && isSelected) ?? false}
     >
       {unwrapChildren(
         children,
         (child) => (
-          <AnimatePresence mode="wait">
-            <IconButtonIcon key={keyFromChildren(child)}>
-              {child}
-            </IconButtonIcon>
-          </AnimatePresence>
+          <InternalIconButtonIcon>{child}</InternalIconButtonIcon>
         ),
         !asChild,
       )}

@@ -19,6 +19,7 @@ import {
   IconButtonPage,
   PalettePage,
   RadiusPage,
+  SegmentedButtonButtonPage,
   TypographyPage,
 } from './pages';
 
@@ -107,6 +108,12 @@ export const routes: NavigationNode[] = [
             text: 'ExtendedFab',
             href: '/extended-fab',
             page: <ExtendedFabPage />,
+          },
+          {
+            type: 'page',
+            text: 'SegmentedButton',
+            href: '/segmented-button',
+            page: <SegmentedButtonButtonPage />,
           },
         ],
       },

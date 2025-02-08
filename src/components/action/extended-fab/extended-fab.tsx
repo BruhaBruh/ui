@@ -1,17 +1,12 @@
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, keyFromChildren, unwrapChildren, withProvider } from '@/utility';
+import { cn, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
-import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps, useButton } from 'react-aria';
-import {
-  ExtendedFabContextProvider,
-  useExtendedFabContext,
-} from './extended-fab-context';
-import { ExtendedFabInternalIcon } from './extended-fab-internal-icon';
-import { ExtendedFabLabel } from './extended-fab-label';
+import { ExtendedFabContextProvider, useExtendedFabContext } from './context';
 import { ExtendedFabProps } from './extended-fab.types';
 import { extendedFabVariants } from './extended-fab.variants';
+import { InternalExtendedFabIcon, InternalExtendedFabLabel } from './internal';
 
 const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
   color,
@@ -24,12 +19,10 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
   ...props
 }) => {
   const ref = useMergedRefs(forwardedRef);
-  const { icon } = useExtendedFabContext();
+  const [{ icon }] = useExtendedFabContext();
 
   const { interactionsProps, rippleProps } =
-    useInteractionsWithRipple<'button'>({
-      autoFocus: props.autoFocus,
-    });
+    useInteractionsWithRipple<'button'>(props);
 
   const { buttonProps } = useButton(
     {
@@ -44,10 +37,9 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
   return (
     <Comp
       type="button"
-      {...mergeProps(buttonProps, interactionsProps, rippleProps)}
+      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
       ref={ref}
       className={cn(
-        'extended-fab',
         extendedFabVariants({
           color,
           lowered,
@@ -55,40 +47,22 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
         }),
         className,
       )}
-      data-lowered={lowered || 'false'}
-      data-as-fab={asFab || 'false'}
+      data-lowered={lowered ?? false}
+      data-as-fab={asFab ?? false}
     >
-      <AnimatePresence mode="wait">
-        {icon && (
-          <ExtendedFabInternalIcon asFab={asFab} key={keyFromChildren(icon)}>
-            {icon}
-          </ExtendedFabInternalIcon>
-        )}
-      </AnimatePresence>
+      <InternalExtendedFabIcon asFab={asFab ?? false}>
+        {icon}
+      </InternalExtendedFabIcon>
       <Slottable>
         {unwrapChildren(
           children,
           (child) => (
-            <AnimatePresence mode="wait">
-              <ExtendedFabLabel asFab={asFab} key={`${asFab}`}>
-                {child}
-              </ExtendedFabLabel>
-            </AnimatePresence>
+            <InternalExtendedFabLabel asFab={asFab ?? false}>
+              {child}
+            </InternalExtendedFabLabel>
           ),
           !asChild,
         )}
-
-        {/* {unwrapChildren(
-          children,
-          (child) => (
-            <AnimatePresence mode="wait">
-              <ExtendedFabLabel key={keyFromChildren(child)}>
-                {child}
-              </ExtendedFabLabel>
-            </AnimatePresence>
-          ),
-          !asChild,
-        )} */}
       </Slottable>
     </Comp>
   );

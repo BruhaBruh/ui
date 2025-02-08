@@ -1,14 +1,13 @@
 'use client';
 
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, keyFromChildren, unwrapChildren } from '@/utility';
+import { cn, unwrapChildren } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
-import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps, useButton } from 'react-aria';
-import { FabIcon } from './fab-icon';
 import { FabProps } from './fab.types';
 import { fabVariants } from './fab.variants';
+import { InternalFabIcon } from './internal/internal-fab-icon';
 
 export const Fab: React.FC<FabProps> = ({
   color,
@@ -22,9 +21,7 @@ export const Fab: React.FC<FabProps> = ({
 }) => {
   const ref = useMergedRefs(forwardedRef);
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple({
-    autoFocus: props.autoFocus,
-  });
+  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
 
   const { buttonProps } = useButton(props, ref);
 
@@ -33,7 +30,7 @@ export const Fab: React.FC<FabProps> = ({
   return (
     <Comp
       type="button"
-      {...mergeProps(buttonProps, interactionsProps, rippleProps)}
+      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
       ref={ref}
       className={cn(
         'fab',
@@ -44,16 +41,12 @@ export const Fab: React.FC<FabProps> = ({
         }),
         className,
       )}
-      data-lowered={lowered || 'false'}
+      data-lowered={lowered ?? 'false'}
     >
       {unwrapChildren(
         children,
         (child) => (
-          <AnimatePresence mode="wait">
-            <FabIcon key={keyFromChildren(child)} size={size || 'md'}>
-              {child}
-            </FabIcon>
-          </AnimatePresence>
+          <InternalFabIcon size={size ?? 'md'}>{child}</InternalFabIcon>
         ),
         !asChild,
       )}

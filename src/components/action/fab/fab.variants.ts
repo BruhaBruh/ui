@@ -1,65 +1,96 @@
-import { cva } from 'class-variance-authority';
+import { cva } from '@/utility';
 
-export const fabVariants = cva(
-  [
-    'group/fab relative',
-    'inline-flex items-center justify-center',
-    'transition easing-standard duration-medium-1',
-    'border-transparent',
-    'overflow-hidden',
-    'whitespace-nowrap outline-none',
-    'ripple-wrapper:-inset-1',
-    'is-hovered:hover-state',
-    'in-focus-visible:focus-state',
-    'is-pressed:press-state',
-  ],
+const variants = cva(
+  {
+    name: 'fab group/fab',
+    layout: 'relative',
+    flex: 'inline-flex items-center justify-center',
+    transitions: 'transition easing-standard duration-medium-1',
+    borders: 'outline-none border-transparent',
+    overflow: 'overflow-hidden',
+    typography: 'whitespace-wrap',
+    states: [
+      'is-hovered:hover-state',
+      'in-focus-visible:focus-state',
+      'is-pressed:press-state',
+    ],
+    ripple: 'ripple-wrapper:-inset-1',
+  },
   {
     variants: {
       color: {
-        surface: ['state-primary text-primary ripple:bg-primary'],
-        primary: [
-          'bg-primary-container state-on-primary-container',
-          'text-on-primary-container ripple:bg-on-primary-container',
-        ],
-        secondary: [
-          'bg-secondary-container state-on-secondary-container',
-          'text-on-secondary-container ripple:bg-on-secondary-container',
-        ],
-        info: [
-          'bg-info-container state-on-info-container',
-          'text-on-info-container ripple:bg-on-info-container',
-        ],
-        success: [
-          'bg-success-container state-on-success-container',
-          'text-on-success-container ripple:bg-on-success-container',
-        ],
-        caution: [
-          'bg-caution-container state-on-caution-container',
-          'text-on-caution-container ripple:bg-on-caution-container',
-        ],
-        critical: [
-          'bg-critical-container state-on-critical-container',
-          'text-on-critical-container ripple:bg-on-critical-container',
-        ],
+        surface: {
+          typography: 'state-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
+        primary: {
+          background: 'bg-primary-container',
+          typography: 'text-on-primary-container',
+          ripple: 'ripple:bg-on-primary-container',
+          states: 'state-on-primary-container',
+        },
+        secondary: {
+          background: 'bg-secondary-container',
+          typography: 'text-on-secondary-container',
+          ripple: 'ripple:bg-on-secondary-container',
+          states: 'state-on-secondary-container',
+        },
+        info: {
+          background: 'bg-info-container',
+          typography: 'text-on-info-container',
+          ripple: 'ripple:bg-on-info-container',
+          states: 'state-on-info-container',
+        },
+        success: {
+          background: 'bg-success-container',
+          typography: 'text-on-success-container',
+          ripple: 'ripple:bg-on-success-container',
+          states: 'state-on-success-container',
+        },
+        caution: {
+          background: 'bg-caution-container',
+          typography: 'text-on-caution-container',
+          ripple: 'ripple:bg-on-caution-container',
+          states: 'state-on-caution-container',
+        },
+        critical: {
+          background: 'bg-critical-container',
+          typography: 'text-on-critical-container',
+          ripple: 'ripple:bg-on-critical-container',
+          states: 'state-on-critical-container',
+        },
       },
       size: {
-        sm: ['size-10 rounded-xs'],
-        md: ['size-14 rounded-md p-md'],
-        lg: ['size-24 rounded-2xl p-md'],
+        sm: {
+          box: 'size-10 rounded-xs',
+        },
+        md: {
+          box: 'size-14 rounded-md',
+          spacing: 'p-md',
+        },
+        lg: {
+          box: 'size-24 rounded-2xl',
+          spacing: 'p-md',
+        },
       },
       lowered: {
-        true: [
-          'elevation-1',
-          'is-hovered:elevation-2',
-          'in-focus-visible:elevation-1',
-          'is-pressed:elevation-1',
-        ],
-        false: [
-          'elevation-3',
-          'is-hovered:elevation-4',
-          'in-focus-visible:elevation-3',
-          'is-pressed:elevation-3',
-        ],
+        true: {
+          effects: [
+            'elevation-1',
+            'is-hovered:elevation-2',
+            'in-focus-visible:elevation-1',
+            'is-pressed:elevation-1',
+          ],
+        },
+        false: {
+          effects: [
+            'elevation-3',
+            'is-hovered:elevation-4',
+            'in-focus-visible:elevation-3',
+            'is-pressed:elevation-3',
+          ],
+        },
       },
     },
     defaultVariants: {
@@ -71,28 +102,46 @@ export const fabVariants = cva(
       {
         color: 'surface',
         lowered: false,
-        className: ['bg-surface-container-high'],
+        className: {
+          background: 'bg-surface-container-high',
+        },
       },
       {
         color: 'surface',
         lowered: true,
-        className: ['bg-surface-container-low'],
+        className: {
+          background: 'bg-surface-container-low',
+        },
       },
     ],
   },
 );
 
-export const fabIconVariants = cva(
-  [
-    'relative inline-block overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
-  ],
+const iconVariants = cva(
+  {
+    name: 'fab--icon',
+    layout: 'relative',
+    flex: 'inline-flex',
+    overflow: 'overflow-hidden empty:hidden',
+    other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+  },
   {
     variants: {
       size: {
-        sm: 'size-6',
-        md: 'size-6',
-        lg: 'size-9',
+        sm: {
+          box: 'size-6',
+        },
+        md: {
+          box: 'size-6',
+        },
+        lg: {
+          box: 'size-9',
+        },
       },
     },
   },
 );
+
+export const fabVariants = Object.assign(variants, {
+  icon: iconVariants,
+});

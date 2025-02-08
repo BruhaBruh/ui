@@ -1,61 +1,77 @@
-import { cva } from 'class-variance-authority';
+import { cva } from '@/utility';
 
-export const iconButtonVariants = cva(
-  [
-    'group/icon-button relative',
-    'size-10 rounded-md',
-    'inline-flex items-center justify-center',
-    'transition easing-standard duration-medium-1',
-    'border-transparent',
-    'overflow-hidden',
-    'whitespace-nowrap outline-none',
-    'is-disabled:pointer-events-none',
-    'ripple-wrapper:-inset-1',
-    'is-hovered:hover-state',
-    'in-focus-visible:focus-state',
-    'is-pressed:press-state',
-    'is-disabled:state-transparent',
-  ],
+const variants = cva(
+  {
+    name: 'icon-button group/icon-button',
+    layout: 'relative',
+    box: 'size-10 rounded-md',
+    flex: 'inline-flex items-center justify-center',
+    transitions: 'transition easing-standard duration-medium-1',
+    borders: 'outline-none border-transparent',
+    overflow: 'overflow-hidden',
+    typography: 'whitespace-nowrap',
+    states: [
+      'is-disabled:state-transparent',
+      'is-disabled:pointer-events-none',
+      'is-hovered:hover-state',
+      'in-focus-visible:focus-state',
+      'is-pressed:press-state',
+    ],
+    ripple: 'ripple-wrapper:-inset-1',
+  },
   {
     variants: {
       variant: {
-        standard: [
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        filled: [
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        tonal: [
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
-        outlined: [
-          'border',
-          'is-disabled:text-on-surface',
-          'is-disabled:text-opacity-38',
-        ],
+        standard: {
+          background: 'bg-transparent',
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+        },
+        filled: {
+          background: [
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+        },
+        tonal: {
+          background: [
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typograhpy: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+        },
+        outlined: {
+          borders: 'border',
+          typography: [
+            'is-disabled:text-on-surface',
+            'is-disabled:text-opacity-38',
+          ],
+        },
       },
       color: {
-        primary: [],
-        secondary: [],
-        info: [],
-        success: [],
-        caution: [],
-        critical: [],
+        primary: {},
+        secondary: {},
+        info: {},
+        success: {},
+        caution: {},
+        critical: {},
       },
       isToggleable: {
-        true: [],
-        false: [],
+        true: {},
+        false: {},
       },
       isSelected: {
-        true: [],
-        false: [],
+        true: {},
+        false: {},
       },
     },
     defaultVariants: {
@@ -70,86 +86,137 @@ export const iconButtonVariants = cva(
         variant: 'standard',
         isToggleable: true,
         isSelected: false,
-        className:
-          'state-on-surface-variant text-on-surface-variant ripple:bg-on-surface-variant',
+        className: {
+          typography: 'text-on-surface-variant',
+          ripple: 'ripple:bg-on-surface-variant',
+          states: 'state-on-surface-variant',
+        },
       },
       {
         variant: 'standard',
         color: 'primary',
         isToggleable: false,
-        className: 'state-primary text-primary ripple:bg-primary',
+        className: {
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
       },
       {
         variant: 'standard',
         color: 'primary',
         isToggleable: true,
         isSelected: true,
-        className: 'state-primary text-primary ripple:bg-primary',
+        className: {
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
       },
       {
         variant: 'standard',
         color: 'secondary',
         isToggleable: false,
-        className: 'state-secondary text-secondary ripple:bg-secondary',
+        className: {
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: 'state-secondary',
+        },
       },
       {
         variant: 'standard',
         color: 'secondary',
         isToggleable: true,
         isSelected: true,
-        className: 'state-secondary text-secondary ripple:bg-secondary',
+        className: {
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: 'state-secondary',
+        },
       },
       {
         variant: 'standard',
         color: 'info',
         isToggleable: false,
-        className: 'state-info text-info ripple:bg-info',
+        className: {
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: 'state-info',
+        },
       },
       {
         variant: 'standard',
         color: 'info',
         isToggleable: true,
         isSelected: true,
-        className: 'state-info text-info ripple:bg-info',
+        className: {
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: 'state-info',
+        },
       },
       {
         variant: 'standard',
         color: 'success',
         isToggleable: false,
-        className: 'state-success text-success ripple:bg-success',
+        className: {
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: 'state-success',
+        },
       },
       {
         variant: 'standard',
         color: 'success',
         isToggleable: true,
         isSelected: true,
-        className: 'state-success text-success ripple:bg-success',
+        className: {
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: 'state-success',
+        },
       },
       {
         variant: 'standard',
         color: 'caution',
         isToggleable: false,
-        className: 'state-caution text-caution ripple:bg-caution',
+        className: {
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: 'state-caution',
+        },
       },
       {
         variant: 'standard',
         color: 'caution',
         isToggleable: true,
         isSelected: true,
-        className: 'state-caution text-caution ripple:bg-caution',
+        className: {
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: 'state-caution',
+        },
       },
       {
         variant: 'standard',
         color: 'critical',
         isToggleable: false,
-        className: 'state-critical text-critical ripple:bg-critical',
+        className: {
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: 'state-critical',
+        },
       },
       {
         variant: 'standard',
         color: 'critical',
         isToggleable: true,
         isSelected: true,
-        className: 'state-critical text-critical ripple:bg-critical',
+        className: {
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: 'state-critical',
+        },
       },
       // #endregion Standard
 
@@ -158,137 +225,211 @@ export const iconButtonVariants = cva(
         variant: 'filled',
         color: 'primary',
         isToggleable: false,
-        className:
-          'bg-primary state-on-primary text-on-primary ripple:bg-on-primary',
+        className: {
+          background: 'bg-primary',
+          typography: 'text-on-primary',
+          ripple: 'ripple:bg-on-primary',
+          states: 'state-on-primary',
+        },
       },
       {
         variant: 'filled',
         color: 'primary',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-primary text-primary ripple:bg-primary',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-primary',
+          ripple: 'ripple:bg-primary',
+          states: 'state-primary',
+        },
       },
       {
         variant: 'filled',
         color: 'primary',
         isToggleable: true,
         isSelected: true,
-        className:
-          'bg-primary state-on-primary text-on-primary ripple:bg-on-primary',
+        className: {
+          background: 'bg-primary',
+          typography: 'text-on-primary',
+          ripple: 'ripple:bg-on-primary',
+          states: 'state-on-primary',
+        },
       },
       {
         variant: 'filled',
         color: 'secondary',
         isToggleable: false,
-        className:
-          'bg-secondary state-on-secondary text-on-secondary ripple:bg-on-secondary',
+        className: {
+          background: 'bg-secondary',
+          typography: 'text-on-secondary',
+          ripple: 'ripple:bg-on-secondary',
+          states: 'state-on-secondary',
+        },
       },
       {
         variant: 'filled',
         color: 'secondary',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-secondary text-secondary ripple:bg-secondary',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-secondary',
+          ripple: 'ripple:bg-secondary',
+          states: 'state-secondary',
+        },
       },
       {
         variant: 'filled',
         color: 'secondary',
         isToggleable: true,
         isSelected: true,
-        className:
-          'bg-secondary state-on-secondary text-on-secondary ripple:bg-on-secondary',
+        className: {
+          background: 'bg-secondary',
+          typography: 'text-on-secondary',
+          ripple: 'ripple:bg-on-secondary',
+          states: 'state-on-secondary',
+        },
       },
       {
         variant: 'filled',
         color: 'info',
         isToggleable: false,
-        className: 'bg-info state-on-info text-on-info ripple:bg-on-info',
+        className: {
+          background: 'bg-info',
+          typography: 'text-on-info',
+          ripple: 'ripple:bg-on-info',
+          states: 'state-on-info',
+        },
       },
       {
         variant: 'filled',
         color: 'info',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-info text-info ripple:bg-info',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-info',
+          ripple: 'ripple:bg-info',
+          states: 'state-info',
+        },
       },
       {
         variant: 'filled',
         color: 'info',
         isToggleable: true,
         isSelected: true,
-        className: 'bg-info state-on-info text-on-info ripple:bg-on-info',
+        className: {
+          background: 'bg-info',
+          typography: 'text-on-info',
+          ripple: 'ripple:bg-on-info',
+          states: 'state-on-info',
+        },
       },
       {
         variant: 'filled',
         color: 'success',
         isToggleable: false,
-        className:
-          'bg-success state-on-success text-on-success ripple:bg-on-success',
+        className: {
+          background: 'bg-success',
+          typography: 'text-on-success',
+          ripple: 'ripple:bg-on-success',
+          states: 'state-on-success',
+        },
       },
       {
         variant: 'filled',
         color: 'success',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-success text-success ripple:bg-success',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-success',
+          ripple: 'ripple:bg-success',
+          states: 'state-success',
+        },
       },
       {
         variant: 'filled',
         color: 'success',
         isToggleable: true,
         isSelected: true,
-        className:
-          'bg-success state-on-success text-on-success ripple:bg-on-success',
+        className: {
+          background: 'bg-success',
+          typography: 'text-on-success',
+          ripple: 'ripple:bg-on-success',
+          states: 'state-on-success',
+        },
       },
       {
         variant: 'filled',
         color: 'caution',
         isToggleable: false,
-        className:
-          'bg-caution state-on-caution text-on-caution ripple:bg-on-caution',
+        className: {
+          background: 'bg-caution',
+          typography: 'text-on-caution',
+          ripple: 'ripple:bg-on-caution',
+          states: 'state-on-caution',
+        },
       },
       {
         variant: 'filled',
         color: 'caution',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-caution text-caution ripple:bg-caution',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-caution',
+          ripple: 'ripple:bg-caution',
+          states: 'state-caution',
+        },
       },
       {
         variant: 'filled',
         color: 'caution',
         isToggleable: true,
         isSelected: true,
-        className:
-          'bg-caution state-on-caution text-on-caution ripple:bg-on-caution',
+        className: {
+          background: 'bg-caution',
+          typography: 'text-on-caution',
+          ripple: 'ripple:bg-on-caution',
+          states: 'state-on-caution',
+        },
       },
       {
         variant: 'filled',
         color: 'critical',
         isToggleable: false,
-        className:
-          'bg-critical state-on-critical text-on-critical ripple:bg-on-critical',
+        className: {
+          background: 'bg-critical',
+          typography: 'text-on-critical',
+          ripple: 'ripple:bg-on-critical',
+          states: 'state-on-critical',
+        },
       },
       {
         variant: 'filled',
         color: 'critical',
         isToggleable: true,
         isSelected: false,
-        className:
-          'bg-surface-container-highest state-critical text-critical ripple:bg-critical',
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-critical',
+          ripple: 'ripple:bg-critical',
+          states: 'state-critical',
+        },
       },
       {
         variant: 'filled',
         color: 'critical',
         isToggleable: true,
         isSelected: true,
-        className:
-          'bg-critical state-on-critical text-on-critical ripple:bg-on-critical',
+        className: {
+          background: 'bg-critical',
+          typography: 'text-on-critical',
+          ripple: 'ripple:bg-on-critical',
+          states: 'state-on-critical',
+        },
       },
       // #endregion Filled
 
@@ -297,124 +438,150 @@ export const iconButtonVariants = cva(
         variant: 'tonal',
         isToggleable: true,
         isSelected: false,
-        className: [
-          'bg-surface-container-highest text-on-surface-variant',
-          'state-on-surface-variant ripple:bg-on-surface-variant',
-        ],
+        className: {
+          background: 'bg-surface-container-highest',
+          typography: 'text-on-surface-variant',
+          ripple: 'ripple:bg-on-surface-variant',
+          states: 'state-on-surface-variant',
+        },
       },
       {
         variant: 'tonal',
         color: 'primary',
         isToggleable: false,
-        className: [
-          'bg-primary-container state-on-primary-container',
-          'text-on-primary-container ripple:bg-on-primary-container',
-        ],
+        className: {
+          background: 'bg-primary-container',
+          typography: 'text-on-primary-container',
+          ripple: 'ripple:bg-on-primary-container',
+          states: 'state-on-primary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'primary',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-primary-container state-on-primary-container',
-          'text-on-primary-container ripple:bg-on-primary-container',
-        ],
+        className: {
+          background: 'bg-primary-container',
+          typography: 'text-on-primary-container',
+          ripple: 'ripple:bg-on-primary-container',
+          states: 'state-on-primary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'secondary',
         isToggleable: false,
-        className: [
-          'bg-secondary-container state-on-secondary-container',
-          'text-on-secondary-container ripple:bg-on-secondary-container',
-        ],
+        className: {
+          background: 'bg-secondary-container',
+          typography: 'text-on-secondary-container',
+          ripple: 'ripple:bg-on-secondary-container',
+          states: 'state-on-secondary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'secondary',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-secondary-container state-on-secondary-container',
-          'text-on-secondary-container ripple:bg-on-secondary-container',
-        ],
+        className: {
+          background: 'bg-secondary-container',
+          typography: 'text-on-secondary-container',
+          ripple: 'ripple:bg-on-secondary-container',
+          states: 'state-on-secondary-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'info',
         isToggleable: false,
-        className: [
-          'bg-info-container state-on-info-container',
-          'text-on-info-container ripple:bg-on-info-container',
-        ],
+        className: {
+          background: 'bg-info-container',
+          typography: 'text-on-info-container',
+          ripple: 'ripple:bg-on-info-container',
+          states: 'state-on-info-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'info',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-info-container state-on-info-container',
-          'text-on-info-container ripple:bg-on-info-container',
-        ],
+        className: {
+          background: 'bg-info-container',
+          typography: 'text-on-info-container',
+          ripple: 'ripple:bg-on-info-container',
+          states: 'state-on-info-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'success',
         isToggleable: false,
-        className: [
-          'bg-success-container state-on-success-container',
-          'text-on-success-container ripple:bg-on-success-container',
-        ],
+        className: {
+          background: 'bg-success-container',
+          typography: 'text-on-success-container',
+          ripple: 'ripple:bg-on-success-container',
+          states: 'state-on-success-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'success',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-success-container state-on-success-container',
-          'text-on-success-container ripple:bg-on-success-container',
-        ],
+        className: {
+          background: 'bg-success-container',
+          typography: 'text-on-success-container',
+          ripple: 'ripple:bg-on-success-container',
+          states: 'state-on-success-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'caution',
         isToggleable: false,
-        className: [
-          'bg-caution-container state-on-caution-container',
-          'text-on-caution-container ripple:bg-on-caution-container',
-        ],
+        className: {
+          background: 'bg-caution-container',
+          typography: 'text-on-caution-container',
+          ripple: 'ripple:bg-on-caution-container',
+          states: 'state-on-caution-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'caution',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-caution-container state-on-caution-container',
-          'text-on-caution-container ripple:bg-on-caution-container',
-        ],
+        className: {
+          background: 'bg-caution-container',
+          typography: 'text-on-caution-container',
+          ripple: 'ripple:bg-on-caution-container',
+          states: 'state-on-caution-container',
+        },
       },
       {
         variant: 'tonal',
         color: 'critical',
         isToggleable: false,
-        className: [
-          'bg-critical-container state-on-critical-container',
-          'text-on-critical-container ripple:bg-on-critical-container',
-        ],
+        className: {
+          background: 'bg-critical-container',
+          typography: 'text-on-critical-container',
+          ripple: 'ripple:bg-on-critical-container',
+          states: 'state-on-critical-container',
+        },
       },
       {
         variant: 'tonal',
-        color: 'caution',
+        color: 'critical',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-critical-container state-on-critical-container',
-          'text-on-critical-container ripple:bg-on-critical-container',
-        ],
+        className: {
+          background: 'bg-critical-container',
+          typography: 'text-on-critical-container',
+          ripple: 'ripple:bg-on-critical-container',
+          states: 'state-on-critical-container',
+        },
       },
       // #endregion Tonal
 
@@ -422,40 +589,63 @@ export const iconButtonVariants = cva(
       {
         variant: 'outlined',
         isToggleable: false,
-        className: [
-          'border-outline state-on-surface-variant',
-          'text-on-surface-variant ripple:bg-on-surface-variant',
-          'is-disabled:border-on-surface',
-          'is-disabled:border-opacity-12',
-        ],
+        className: {
+          background: 'bg-transparent',
+          typography: 'text-on-surface-variant',
+          borders: [
+            'border-outline',
+            'is-disabled:border-on-surface',
+            'is-disabled:border-opacity-12',
+          ],
+          ripple: 'ripple:bg-on-surface-variant',
+          states: 'state-on-surface-variant',
+        },
       },
       {
         variant: 'outlined',
         isToggleable: true,
         isSelected: false,
-        className: [
-          'border-outline state-on-surface-variant',
-          'text-on-surface-variant ripple:bg-on-surface-variant',
-          'is-disabled:border-on-surface',
-          'is-disabled:border-opacity-12',
-        ],
+        className: {
+          background: 'bg-transparent',
+          typography: 'text-on-surface-variant',
+          borders: [
+            'border-outline',
+            'is-disabled:border-on-surface',
+            'is-disabled:border-opacity-12',
+          ],
+          ripple: 'ripple:bg-on-surface-variant',
+          states: 'state-on-surface-variant',
+        },
       },
       {
         variant: 'outlined',
         isToggleable: true,
         isSelected: true,
-        className: [
-          'bg-inverse-surface state-inverse-on-surface',
-          'text-inverse-on-surface ripple:bg-inverse-on-surface',
-          'is-disabled:bg-on-surface',
-          'is-disabled:bg-opacity-12',
-        ],
+        className: {
+          background: [
+            'bg-inverse-surface',
+            'is-disabled:bg-on-surface',
+            'is-disabled:bg-opacity-12',
+          ],
+          typography: 'text-inverse-on-surface',
+          ripple: 'ripple:bg-inverse-on-surface',
+          states: 'state-inverse-on-surface',
+        },
       },
       // #endregion Outlined
     ],
   },
 );
 
-export const iconButtonIconVariants = cva([
-  'relative inline-block size-6 overflow-hidden empty:hidden [&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
-]);
+const iconVariants = cva({
+  name: 'icon-button--icon',
+  layout: 'relative',
+  box: 'size-6',
+  flex: 'inline-flex',
+  overflow: 'overflow-hidden empty:hidden',
+  other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+});
+
+export const iconButtonVariants = Object.assign(variants, {
+  icon: iconVariants,
+});

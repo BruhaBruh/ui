@@ -11,7 +11,7 @@ export const StoryFrame: React.FC<Props<'section'>> = ({
     <section
       {...props}
       className={cn(
-        'relative mb-sm flex min-h-64 items-center justify-center gap-md rounded-lg border border-outline p-lg',
+        'relative mb-sm flex min-h-64 items-center justify-center gap-md rounded-lg border p-lg border-outline',
         className,
       )}
     >
