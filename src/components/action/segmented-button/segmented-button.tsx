@@ -39,7 +39,7 @@ export const SegmentedButton: React.FC<SegmentedButtonProps> = ({
       {...mergeProps(interactionsProps, rippleProps, buttonProps)}
       className={cn(segmentedButtonVariants({ isSelected, color }), className)}
       ref={ref}
-      data-selected={isSelected}
+      data-is-selected={isSelected}
     >
       <AnimatePresence mode="wait">
         {!isSelected && (

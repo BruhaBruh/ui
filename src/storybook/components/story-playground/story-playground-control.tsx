@@ -1,3 +1,4 @@
+import { Checkbox } from '@/components';
 import React from 'react';
 import { Label, Text } from '../typography';
 import { Argument, useStoryPlayground } from './story-playground-context';
@@ -9,35 +10,33 @@ export const StoryPlaygroundControl: React.FC<{
   const [state, setState] = useStoryPlayground();
   const currentValue = state.values[name];
 
-  const onChangeSwitch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeSwitch = (isSelected: boolean) => {
     setState((p) => ({
       ...p,
       values: {
         ...p.values,
-        [name]: e.target.checked,
+        [name]: isSelected,
       },
     }));
   };
 
-  const onChangeCheckbox =
-    (opt: string): React.ChangeEventHandler<HTMLInputElement> =>
-    (e) => {
-      setState((p) => {
-        const newValue = ((p.values[name] as string[]) || []).filter(
-          (v) => v !== opt,
-        );
+  const onChangeCheckbox = (opt: string) => (isSeleceted: boolean) => {
+    setState((p) => {
+      const newValue = ((p.values[name] as string[]) || []).filter(
+        (v) => v !== opt,
+      );
 
-        if (e.target.checked) newValue.push(opt);
+      if (isSeleceted) newValue.push(opt);
 
-        return {
-          ...p,
-          values: {
-            ...p.values,
-            [name]: newValue,
-          },
-        };
-      });
-    };
+      return {
+        ...p,
+        values: {
+          ...p.values,
+          [name]: newValue,
+        },
+      };
+    });
+  };
 
   const onChangeRadio =
     (opt: string): React.ChangeEventHandler<HTMLInputElement> =>
@@ -92,27 +91,22 @@ export const StoryPlaygroundControl: React.FC<{
         <label htmlFor={controlId}>{arg.label || name}</label>
       </Label>
       {arg.type === 'switch' && (
-        <input
+        <Checkbox
           id={controlId}
-          type="checkbox"
-          checked={currentValue as boolean}
+          isSelected={currentValue as boolean}
           onChange={onChangeSwitch}
         />
       )}
       {arg.type === 'checkbox' && (
         <section className="grid grid-cols-2 gap-sm">
           {Array.from(new Set(arg.options)).map((opt) => (
-            <label
+            <Checkbox
               key={opt}
-              className="flex items-center gap-2xs typography-label-large"
+              isSelected={(currentValue as string[]).includes(opt)}
+              onChange={onChangeCheckbox(opt)}
             >
-              <input
-                type="checkbox"
-                checked={(currentValue as string[]).includes(opt)}
-                onChange={onChangeCheckbox(opt)}
-              />
-              <span>{opt}</span>
-            </label>
+              {opt}
+            </Checkbox>
           ))}
         </section>
       )}

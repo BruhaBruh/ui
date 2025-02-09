@@ -2,6 +2,7 @@ import { cva } from '@/utility';
 
 const variants = cva(
   {
+    name: 'badge group/badge',
     box: 'rounded-full',
     layout: 'z-10',
     flex: 'inline-flex items-center justify-center',

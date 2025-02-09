@@ -2,6 +2,7 @@ import { cva } from '@/utility';
 
 const variants = cva(
   {
+    name: 'divider group/divider',
     layout: 'relative',
     flex: 'inline-flex items-center justify-center',
     box: [

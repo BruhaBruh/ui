@@ -17,6 +17,7 @@ import { NavigationNode } from './components';
 import {
   BadgePage,
   ButtonPage,
+  CheckboxPage,
   DividerPage,
   DurationPage,
   EasingPage,
@@ -164,7 +165,14 @@ export const routes: NavigationNode[] = [
         text: 'Selections',
         href: '/selections',
         icon: <IconSquareCheck />,
-        children: [],
+        children: [
+          {
+            type: 'page',
+            text: 'Checkbox',
+            href: '/checkbox',
+            page: <CheckboxPage />,
+          },
+        ],
       },
       {
         type: 'folder',
