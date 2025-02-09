@@ -21,23 +21,17 @@ const ExtendedFabImpl: React.FC<ExtendedFabProps> = ({
   const ref = useMergedRefs(forwardedRef);
   const [{ icon }] = useExtendedFabContext();
 
-  const { interactionsProps, rippleProps } =
-    useInteractionsWithRipple<'button'>(props);
+  const { buttonProps } = useButton(props, ref);
 
-  const { buttonProps } = useButton(
-    {
-      elementType: asChild ? (children as React.ElementType) : 'button',
-      ...props,
-    },
-    ref,
-  );
+  const { interactionsProps, rippleProps } =
+    useInteractionsWithRipple<'button'>(buttonProps);
 
   const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
       type="button"
-      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
+      {...mergeProps(interactionsProps, rippleProps)}
       ref={ref}
       className={cn(
         extendedFabVariants({

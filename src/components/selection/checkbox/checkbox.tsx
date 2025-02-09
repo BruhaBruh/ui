@@ -5,7 +5,7 @@ import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { IconCheck, IconMinus } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { mergeProps, useCheckbox } from 'react-aria';
+import { useCheckbox } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { CheckboxProps } from './checkbox.types';
 import { checkboxVariants } from './checkbox.variants';
@@ -41,12 +41,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   );
 
   const { interactionsProps, rippleProps } = useInteractionsWithRipple<'label'>(
-    { ...props, isDisabled },
+    { ...labelProps, isDisabled },
   );
 
   return (
     <label
-      {...mergeProps(labelProps, interactionsProps)}
+      aria-label={children ? undefined : 'Checkbox'}
+      {...interactionsProps}
       className={cn(
         checkboxVariants({ color: isInvalid ? 'critical' : color }),
         className,

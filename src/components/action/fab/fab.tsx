@@ -21,16 +21,17 @@ export const Fab: React.FC<FabProps> = ({
 }) => {
   const ref = useMergedRefs(forwardedRef);
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
-
   const { buttonProps } = useButton(props, ref);
+
+  const { interactionsProps, rippleProps } =
+    useInteractionsWithRipple<'button'>(buttonProps);
 
   const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
       type="button"
-      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
+      {...mergeProps(interactionsProps, rippleProps)}
       ref={ref}
       className={cn(
         'fab',

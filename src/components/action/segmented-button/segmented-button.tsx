@@ -24,19 +24,20 @@ export const SegmentedButton: React.FC<SegmentedButtonProps> = ({
   const ref = useMergedRefs(forwardedRef);
   const state = useSegmentedButtonGroupContext();
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
-
   const { buttonProps, isSelected } = useToggleButtonGroupItem(
-    props,
+    { ...props, elementType: 'button' },
     state,
     ref,
   );
+
+  const { interactionsProps, rippleProps } =
+    useInteractionsWithRipple<'button'>(buttonProps);
 
   const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
-      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
+      {...mergeProps(interactionsProps, rippleProps)}
       className={cn(segmentedButtonVariants({ isSelected, color }), className)}
       ref={ref}
       data-is-selected={isSelected}

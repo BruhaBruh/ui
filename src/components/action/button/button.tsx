@@ -23,16 +23,17 @@ const ButtonImpl: React.FC<ButtonProps> = ({
   const ref = useMergedRefs(forwardedRef);
   const [{ leftIcon, rightIcon }] = useButtonContext();
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
-
   const { buttonProps } = useButton(props, ref);
+
+  const { interactionsProps, rippleProps } =
+    useInteractionsWithRipple<'button'>(buttonProps);
 
   const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
       type="button"
-      {...mergeProps(interactionsProps, rippleProps, buttonProps)}
+      {...mergeProps(interactionsProps, rippleProps)}
       ref={ref}
       className={cn(
         buttonVariants({

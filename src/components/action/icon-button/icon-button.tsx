@@ -23,23 +23,22 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   const ref = useMergedRefs(forwardedRef);
 
-  const { interactionsProps, rippleProps } = useInteractionsWithRipple(props);
-
   const { buttonProps } = useButton(props, ref);
 
   const state = useToggleState(props);
   const { buttonProps: toggleButtonProps } = useToggleButton(props, state, ref);
+
+  const { interactionsProps, rippleProps } =
+    useInteractionsWithRipple<'button'>(
+      isToggleable ? buttonProps : toggleButtonProps,
+    );
 
   const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
       type="button"
-      {...mergeProps(
-        interactionsProps,
-        rippleProps,
-        isToggleable ? buttonProps : toggleButtonProps,
-      )}
+      {...mergeProps(interactionsProps, rippleProps)}
       ref={ref}
       className={cn(
         iconButtonVariants({
