@@ -75,44 +75,44 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           )}
         >
           <AnimatePresence mode="wait">
-            {isSelected && (
+            {isSelected ? (
               <motion.span
-                key={`select-${isSelected}`}
-                initial={{ width: 0, height: 0, opacity: 0 }}
+                key="selected"
+                initial={{ width: 0, height: 0 }}
                 animate={{
+                  opacity: 1,
                   width: 'var(--spacing-4-5)',
                   height: 'var(--spacing-4-5)',
-                  opacity: 1,
                 }}
-                exit={{ width: 0, height: 0, opacity: 0 }}
+                exit={{ width: 0, height: 0 }}
                 transition={{
                   duration: materialDuration.asMotion('medium-1'),
                   ease: materialEasing['standard'],
                 }}
-                className={cn(checkboxVariants.icon(), className)}
+                className={cn(checkboxVariants.icon())}
               >
                 <IconCheck />
               </motion.span>
-            )}
-            {!isSelected && isIndeterminate && (
+            ) : null}
+            {!isSelected && isIndeterminate ? (
               <motion.span
-                key={`indeterminate-${isIndeterminate}`}
-                initial={{ width: 0, height: 0, opacity: 0 }}
+                key="indeterminate"
+                initial={{ width: 0, height: 0 }}
                 animate={{
+                  opacity: 1,
                   width: 'var(--spacing-4-5)',
                   height: 'var(--spacing-4-5)',
-                  opacity: 1,
                 }}
-                exit={{ width: 0, height: 0, opacity: 0 }}
+                exit={{ width: 0, height: 0 }}
                 transition={{
                   duration: materialDuration.asMotion('medium-1'),
                   ease: materialEasing['standard'],
                 }}
-                className={cn(checkboxVariants.icon(), className)}
+                className={cn(checkboxVariants.icon())}
               >
                 <IconMinus />
               </motion.span>
-            )}
+            ) : null}
           </AnimatePresence>
         </span>
       </span>
