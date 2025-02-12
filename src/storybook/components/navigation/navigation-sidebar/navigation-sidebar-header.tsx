@@ -8,25 +8,23 @@ export const NavigationSidebarHeader: React.FC = () => {
     (localStorage.getItem('theme') || 'light') as 'light' | 'dark',
   );
 
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    document.body.classList.remove('dark', 'light');
+    document.body.classList.add(theme);
+    document.body.style.colorScheme = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <section className="flex items-center gap-md p-sm">
       <NavLink className="flex-1" to="/" end>
-        <p className="typography-title-medium">@bruhabruh/ui{theme}</p>
+        <p className="typography-title-medium">@bruhabruh/ui</p>
         <p className="typography-label-small text-secondary">v2.0.0</p>
       </NavLink>
       <IconButton
         color="secondary"
-        onPress={() =>
-          setTheme((p) => {
-            const newTheme = p === 'dark' ? 'light' : 'dark';
-            if (typeof window === 'undefined') return newTheme;
-            document.body.classList.remove('dark', 'light');
-            document.body.classList.add(newTheme);
-            document.body.style.colorScheme = newTheme;
-            localStorage.setItem('theme', newTheme);
-            return newTheme;
-          })
-        }
+        onPress={() => setTheme((p) => (p === 'dark' ? 'light' : 'dark'))}
       >
         {theme === 'dark' && <IconMoon key={theme} />}
         {theme === 'light' && <IconSun key={theme} />}
