@@ -36,11 +36,6 @@ export const SwitchPage: React.FC = () => {
               'critical',
             ],
           },
-          isSelected: {
-            type: 'switch',
-            label: 'Selected state of Switch',
-            defaultValue: false,
-          },
           isDisabled: {
             type: 'switch',
             label: 'Disable state of Switch',

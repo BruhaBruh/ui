@@ -29,6 +29,7 @@ import {
   RadioPage,
   RadiusPage,
   SegmentedButtonButtonPage,
+  SliderPage,
   SwitchPage,
   TypographyPage,
 } from './pages';
@@ -185,6 +186,12 @@ export const routes: NavigationNode[] = [
             text: 'Switch',
             href: '/switch',
             page: <SwitchPage />,
+          },
+          {
+            type: 'page',
+            text: 'Slider',
+            href: '/slider',
+            page: <SliderPage />,
           },
         ],
       },
