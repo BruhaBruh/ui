@@ -29,9 +29,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
   const { buttonProps: toggleButtonProps } = useToggleButton(props, state, ref);
 
   const { interactionsProps, rippleProps } =
-    useInteractionsWithRipple<'button'>(
-      isToggleable ? buttonProps : toggleButtonProps,
-    );
+    useInteractionsWithRipple<'button'>({
+      ...(isToggleable ? buttonProps : toggleButtonProps),
+      isDisabled: props.isDisabled,
+    });
 
   const Comp = asChild ? Slot : 'button';
 

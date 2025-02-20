@@ -26,7 +26,10 @@ const ButtonImpl: React.FC<ButtonProps> = ({
   const { buttonProps } = useButton(props, ref);
 
   const { interactionsProps, rippleProps } =
-    useInteractionsWithRipple<'button'>(buttonProps);
+    useInteractionsWithRipple<'button'>({
+      ...buttonProps,
+      isDisabled: props.isDisabled,
+    });
 
   const Comp = asChild ? Slot : 'button';
 
