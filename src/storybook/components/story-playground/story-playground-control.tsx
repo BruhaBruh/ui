@@ -1,4 +1,4 @@
-import { Checkbox } from '@/components';
+import { Checkbox, Radio, RadioGroup } from '@/components';
 import React from 'react';
 import { Label, Text } from '../typography';
 import { Argument, useStoryPlayground } from './story-playground-context';
@@ -38,17 +38,15 @@ export const StoryPlaygroundControl: React.FC<{
     });
   };
 
-  const onChangeRadio =
-    (opt: string): React.ChangeEventHandler<HTMLInputElement> =>
-    () => {
-      setState((p) => ({
-        ...p,
-        values: {
-          ...p.values,
-          [name]: opt,
-        },
-      }));
-    };
+  const onChangeRadio = (opt: string) => {
+    setState((p) => ({
+      ...p,
+      values: {
+        ...p.values,
+        [name]: opt,
+      },
+    }));
+  };
 
   const onChangeText: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setState((p) => ({
@@ -111,22 +109,13 @@ export const StoryPlaygroundControl: React.FC<{
         </section>
       )}
       {arg.type === 'radio' && (
-        <section className="grid grid-cols-2 gap-sm">
+        <RadioGroup onChange={onChangeRadio}>
           {Array.from(new Set(arg.options)).map((opt) => (
-            <label
-              key={opt}
-              className="flex items-center gap-2xs typography-label-large"
-            >
-              <input
-                type="radio"
-                name={`${name}-arg`}
-                checked={currentValue === opt}
-                onChange={onChangeRadio(opt)}
-              />
-              <span>{opt}</span>
-            </label>
+            <Radio key={opt} value={opt}>
+              {opt}
+            </Radio>
           ))}
-        </section>
+        </RadioGroup>
       )}
       {arg.type === 'text' && (
         <input

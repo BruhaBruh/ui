@@ -65,10 +65,7 @@ export const CheckboxPage: React.FC = () => {
               const [selected, setSelected] = React.useState<string[]>([]);
 
               return (
-                <section
-                  role="group"
-                  className="flex flex-col items-center justify-center gap-3xs"
-                >
+                <CheckboxGroup>
                   <Checkbox
                     {...args}
                     value="a"
@@ -120,7 +117,7 @@ export const CheckboxPage: React.FC = () => {
                   >
                     {children as React.ReactNode}
                   </Checkbox>
-                </section>
+                </CheckboxGroup>
               );
             }}
           </StoryPlaygroundRender>
@@ -140,10 +137,6 @@ export const CheckboxPage: React.FC = () => {
             </CheckboxGroupItem>
             <CheckboxGroupItem value="c">Example</CheckboxGroupItem>
           </CheckboxGroup>
-          <section
-            role="group"
-            className="flex flex-col items-center justify-center gap-3xs"
-          ></section>
         </StoryFrame>
       </Story>
       <Story className="mb-md">
@@ -157,7 +150,7 @@ export const CheckboxPage: React.FC = () => {
           <Checkbox isDisabled aria-label="Test" value="c" />
         </StoryFrame>
       </Story>
-      <Story className="mb-md">
+      <Story>
         <Subtitle>Colors</Subtitle>
         <StoryFrame>
           <Checkbox color="primary" aria-label="Test" value="a" isSelected />

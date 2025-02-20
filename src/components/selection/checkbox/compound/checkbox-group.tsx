@@ -32,13 +32,13 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       ref={ref}
       className={cn(checkboxGroupVariants(), className)}
     >
-      <span {...labelProps} className={cn(checkboxGroupVariants.label())}>
-        {props.label}
-      </span>
+      {props.label && (
+        <span {...labelProps} className={cn(checkboxGroupVariants.label())}>
+          {props.label}
+        </span>
+      )}
       <CheckboxGroupContextProvider state={state}>
-        <section className={cn(checkboxGroupVariants.list())}>
-          {children}
-        </section>
+        {children}
       </CheckboxGroupContextProvider>
       {props.description && (
         <p
@@ -48,7 +48,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
           {props.description}
         </p>
       )}
-      {isInvalid && (
+      {isInvalid && validationErrors.join(' ') && (
         <p
           {...errorMessageProps}
           className={cn(checkboxGroupVariants.errorMessage())}
