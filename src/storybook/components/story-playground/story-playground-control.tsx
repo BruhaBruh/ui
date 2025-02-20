@@ -1,4 +1,4 @@
-import { Checkbox, Radio, RadioGroup } from '@/components';
+import { Checkbox, Radio, RadioGroup, Switch } from '@/components';
 import React from 'react';
 import { Label, Text } from '../typography';
 import { Argument, useStoryPlayground } from './story-playground-context';
@@ -89,7 +89,7 @@ export const StoryPlaygroundControl: React.FC<{
         <label htmlFor={controlId}>{arg.label || name}</label>
       </Label>
       {arg.type === 'switch' && (
-        <Checkbox
+        <Switch
           id={controlId}
           isSelected={currentValue as boolean}
           onChange={onChangeSwitch}

@@ -41,7 +41,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <label
-      aria-label={children ? undefined : 'Checkbox'}
       {...interactionsProps}
       className={cn(
         checkboxVariants({ color: isInvalid ? 'critical' : color }),

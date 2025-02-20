@@ -30,7 +30,6 @@ export const Radio: React.FC<RadioProps> = ({
 
   return (
     <label
-      aria-label={children ? undefined : 'Radio'}
       {...interactionsProps}
       className={cn(
         radioVariants({ color: state.isInvalid ? 'critical' : color }),

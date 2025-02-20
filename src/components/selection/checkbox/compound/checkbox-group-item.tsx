@@ -29,7 +29,6 @@ export const CheckboxGroupItem: React.FC<CheckboxGroupItemProps> = ({
 
   return (
     <label
-      aria-label={children ? undefined : 'Checkbox'}
       {...interactionsProps}
       className={cn(
         checkboxGroupVariants.item({ color: isInvalid ? 'critical' : color }),
