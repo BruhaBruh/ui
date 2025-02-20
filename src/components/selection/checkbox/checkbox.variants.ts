@@ -256,7 +256,6 @@ const labelVariants = cva({
 const iconVariants = cva({
   name: 'checkbox--icon',
   layout: 'absolute inline-block',
-  // box: '-inset-0.5 size-4.5',
   transitions: 'transition easing-standard duration-medium-1',
   overflow: 'overflow-hidden empty:hidden',
   other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',

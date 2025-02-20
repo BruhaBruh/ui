@@ -5,35 +5,23 @@ import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { IconCheck, IconMinus } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useCheckbox } from 'react-aria';
-import { useToggleState } from 'react-stately';
-import { CheckboxProps } from './checkbox.types';
-import { checkboxVariants } from './checkbox.variants';
+import { useCheckboxGroupItem } from 'react-aria';
+import { useCheckboxGroupContext } from '../context';
+import { CheckboxGroupItemProps } from './checkbox-group-item.types';
+import { checkboxGroupVariants } from './checkbox-group.variants';
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const CheckboxGroupItem: React.FC<CheckboxGroupItemProps> = ({
   color,
   className,
   children,
-  isReadOnly,
-  isRequired,
   isIndeterminate = false,
   ref: forwardedRef,
   ...props
 }) => {
   const ref = useMergedRefs(forwardedRef);
-  const state = useToggleState(props);
-
-  const { inputProps, labelProps, isInvalid, isSelected, isDisabled } =
-    useCheckbox(
-      {
-        ...props,
-        isIndeterminate,
-        isReadOnly,
-        isRequired,
-      },
-      state,
-      ref,
-    );
+  const state = useCheckboxGroupContext();
+  const { inputProps, labelProps, isSelected, isInvalid, isDisabled } =
+    useCheckboxGroupItem({ ...props, isIndeterminate }, state, ref);
 
   const { interactionsProps, rippleProps } = useInteractionsWithRipple<'label'>(
     { ...labelProps, isDisabled },
@@ -44,7 +32,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       aria-label={children ? undefined : 'Checkbox'}
       {...interactionsProps}
       className={cn(
-        checkboxVariants({ color: isInvalid ? 'critical' : color }),
+        checkboxGroupVariants.item({ color: isInvalid ? 'critical' : color }),
         className,
       )}
       data-is-selected={isSelected}
@@ -55,14 +43,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         {...rippleProps}
         aria-hidden={true}
         className={cn(
-          checkboxVariants.markWrapper({
+          checkboxGroupVariants.item.markWrapper({
             color: isInvalid ? 'critical' : color,
           }),
         )}
       >
         <span
           className={cn(
-            checkboxVariants.mark({
+            checkboxGroupVariants.item.mark({
               color: isInvalid ? 'critical' : color,
               isSelected,
               isIndeterminate,
@@ -84,7 +72,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                   duration: materialDuration.asMotion('medium-1'),
                   ease: materialEasing['standard'],
                 }}
-                className={cn(checkboxVariants.icon())}
+                className={cn(checkboxGroupVariants.item.icon())}
               >
                 <IconCheck />
               </motion.span>
@@ -103,7 +91,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                   duration: materialDuration.asMotion('medium-1'),
                   ease: materialEasing['standard'],
                 }}
-                className={cn(checkboxVariants.icon())}
+                className={cn(checkboxGroupVariants.item.icon())}
               >
                 <IconMinus />
               </motion.span>
@@ -112,7 +100,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         </span>
       </span>
       {children && (
-        <span className={cn(checkboxVariants.label())}>{children}</span>
+        <span className={cn(checkboxGroupVariants.item.label())}>
+          {children}
+        </span>
       )}
     </label>
   );

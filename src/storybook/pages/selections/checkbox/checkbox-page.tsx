@@ -1,4 +1,4 @@
-import { Checkbox } from '@/components';
+import { Checkbox, CheckboxGroup, CheckboxGroupItem } from '@/components';
 import {
   Story,
   StoryFrame,
@@ -130,18 +130,20 @@ export const CheckboxPage: React.FC = () => {
       <Story className="mb-md">
         <Subtitle>Group</Subtitle>
         <StoryFrame>
+          <CheckboxGroup
+            label="Checkbox Group"
+            description="Checkbox Description"
+          >
+            <CheckboxGroupItem value="a">Example</CheckboxGroupItem>
+            <CheckboxGroupItem value="b" isIndeterminate>
+              Example
+            </CheckboxGroupItem>
+            <CheckboxGroupItem value="c">Example</CheckboxGroupItem>
+          </CheckboxGroup>
           <section
             role="group"
             className="flex flex-col items-center justify-center gap-3xs"
-          >
-            <Checkbox value="a" isSelected>
-              Example
-            </Checkbox>
-            <Checkbox value="b" isIndeterminate>
-              Example
-            </Checkbox>
-            <Checkbox value="c">Example</Checkbox>
-          </section>
+          ></section>
         </StoryFrame>
       </Story>
       <Story className="mb-md">
