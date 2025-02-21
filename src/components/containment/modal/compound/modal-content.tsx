@@ -4,6 +4,7 @@ import { Portal } from '@/components/utility';
 import { useMergedRefs } from '@/hooks';
 import { Props } from '@/types';
 import { cn } from '@/utility';
+import { AnimatePresence } from 'motion/react';
 import React from 'react';
 import { mergeProps } from 'react-aria';
 import { useModalContext } from '../context';
@@ -19,30 +20,32 @@ export const ModalContent = React.forwardRef<HTMLElement, ModalContentProps>(
     const [{ state, modalProps, overlayProps, underlayProps }] =
       useModalContext();
 
-    if (!state?.isOpen) return null;
-
     return (
       <Portal>
-        <section
-          {...underlayProps}
-          onClick={(e) => {
-            if (e.currentTarget === e.target) state.close();
-            underlayProps?.onMouseDown?.(e);
-          }}
-          onTouchStart={(e) => {
-            if (e.currentTarget === e.target) state.close();
-            underlayProps?.onTouchStart?.(e);
-          }}
-          className={cn(modalVariants.underlay())}
-        >
-          <section
-            {...mergeProps(props, modalProps)}
-            className={cn(modalVariants(), className)}
-            ref={ref}
-          >
-            {React.cloneElement(children(state.close), overlayProps)}
-          </section>
-        </section>
+        <AnimatePresence mode="wait">
+          {state?.isOpen && (
+            <section
+              {...underlayProps}
+              onClick={(e) => {
+                if (e.currentTarget === e.target) state.close();
+                underlayProps?.onMouseDown?.(e);
+              }}
+              onTouchStart={(e) => {
+                if (e.currentTarget === e.target) state.close();
+                underlayProps?.onTouchStart?.(e);
+              }}
+              className={cn(modalVariants.underlay())}
+            >
+              <section
+                {...mergeProps(props, modalProps)}
+                className={cn(modalVariants(), className)}
+                ref={ref}
+              >
+                {React.cloneElement(children(state.close), overlayProps)}
+              </section>
+            </section>
+          )}
+        </AnimatePresence>
       </Portal>
     );
   },
