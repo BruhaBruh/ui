@@ -10,14 +10,10 @@ import { SegmentedButtonGroupContextProvider } from '../../context';
 import { segmentedButtonVariants } from '../../segmented-button.variants';
 import { SegmentedButtonGroupProps } from './segmented-button-group.types';
 
-export const SegmentedButtonGroup: React.FC<SegmentedButtonGroupProps> = ({
-  density,
-  className,
-  asChild,
-  children,
-  ref: forwardedRef,
-  ...props
-}) => {
+export const SegmentedButtonGroup = React.forwardRef<
+  HTMLElement,
+  SegmentedButtonGroupProps
+>(({ density, className, asChild, children, ...props }, forwardedRef) => {
   const state = useToggleGroupState(props);
   const ref = useMergedRefs(forwardedRef);
   const { groupProps } = useToggleButtonGroup(props, state, ref);
@@ -35,4 +31,5 @@ export const SegmentedButtonGroup: React.FC<SegmentedButtonGroupProps> = ({
       </SegmentedButtonGroupContextProvider>
     </Comp>
   );
-};
+});
+SegmentedButtonGroup.displayName = 'SegmentedButtonGroup';

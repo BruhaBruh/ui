@@ -31,6 +31,7 @@ import {
   SegmentedButtonButtonPage,
   SliderPage,
   SwitchPage,
+  TooltipPage,
   TypographyPage,
 } from './pages';
 
@@ -139,6 +140,12 @@ export const routes: NavigationNode[] = [
             text: 'Badge',
             href: '/badge',
             page: <BadgePage />,
+          },
+          {
+            type: 'page',
+            text: 'Tooltip',
+            href: '/tooltip',
+            page: <TooltipPage />,
           },
         ],
       },

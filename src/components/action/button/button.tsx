@@ -11,60 +11,58 @@ import { buttonVariants } from './button.variants';
 import { ButtonContextProvider, useButtonContext } from './context';
 import { InternalButtonIcon } from './internal';
 
-const ButtonImpl: React.FC<ButtonProps> = ({
-  variant,
-  color,
-  className,
-  asChild,
-  children,
-  ref: forwardedRef,
-  ...props
-}) => {
-  const ref = useMergedRefs(forwardedRef);
-  const [{ leftIcon, rightIcon }] = useButtonContext();
+const ButtonImpl = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { variant, color, className, asChild, children, ...props },
+    forwardedRef,
+  ) => {
+    const ref = useMergedRefs(forwardedRef);
+    const [{ leftIcon, rightIcon }] = useButtonContext();
 
-  const { buttonProps } = useButton(props, ref);
+    const { buttonProps } = useButton(props, ref);
 
-  const { interactionsProps, rippleProps } =
-    useInteractionsWithRipple<'button'>({
-      ...buttonProps,
-      isDisabled: props.isDisabled,
-    });
+    const { interactionsProps, rippleProps } =
+      useInteractionsWithRipple<'button'>({
+        ...buttonProps,
+        isDisabled: props.isDisabled,
+      });
 
-  const Comp = asChild ? Slot : 'button';
+    const Comp = asChild ? Slot : 'button';
 
-  return (
-    <Comp
-      type="button"
-      {...mergeProps(interactionsProps, rippleProps)}
-      ref={ref}
-      className={cn(
-        buttonVariants({
-          color,
-          variant,
-        }),
-        className,
-      )}
-    >
-      <InternalButtonIcon className="button--icon-left">
-        {leftIcon}
-      </InternalButtonIcon>
-      <Slottable>
-        {unwrapChildren(
-          children,
-          (child) => (
-            <span className={cn(buttonVariants.label({ variant }))}>
-              {child}
-            </span>
-          ),
-          !asChild,
+    return (
+      <Comp
+        type="button"
+        {...mergeProps(props, interactionsProps, rippleProps)}
+        ref={ref}
+        className={cn(
+          buttonVariants({
+            color,
+            variant,
+          }),
+          className,
         )}
-      </Slottable>
-      <InternalButtonIcon className="button--icon-right">
-        {rightIcon}
-      </InternalButtonIcon>
-    </Comp>
-  );
-};
+      >
+        <InternalButtonIcon className="button--icon-left">
+          {leftIcon}
+        </InternalButtonIcon>
+        <Slottable>
+          {unwrapChildren(
+            children,
+            (child) => (
+              <span className={cn(buttonVariants.label({ variant }))}>
+                {child}
+              </span>
+            ),
+            !asChild,
+          )}
+        </Slottable>
+        <InternalButtonIcon className="button--icon-right">
+          {rightIcon}
+        </InternalButtonIcon>
+      </Comp>
+    );
+  },
+);
+ButtonImpl.displayName = 'Button';
 
 export const Button = withProvider(ButtonContextProvider, ButtonImpl);

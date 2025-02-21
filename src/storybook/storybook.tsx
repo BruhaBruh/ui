@@ -7,9 +7,9 @@ import {
 
 export const Storybook: React.FC = () => {
   return (
-    <section className="flex h-screen w-screen bg-surface text-on-surface">
+    <section className="flex min-h-screen w-screen bg-surface text-on-surface">
       <NavigationSidebar />
-      <main className="flex-1 overflow-y-auto p-lg">
+      <main className="flex-1 p-lg">
         <NavigationBreadcrumbs />
         <NavigationRoutes />
       </main>
