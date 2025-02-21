@@ -989,6 +989,7 @@
   --color-inverse-on-surface: var(--color-neutral-95, #f2f0f4);
   --color-inverse-primary: var(--color-primary-20, #002a78);
   --color-inverse-on-primary: var(--color-primary-95, #eff0ff);
+  --color-scrim: var(--color-primary-0, #000000);
 }
 
 .dark, [data-theme="dark"] {
@@ -1032,4 +1033,5 @@
   --color-inverse-on-surface: var(--color-neutral-5, #101114);
   --color-inverse-primary: var(--color-primary-80, #b4c5ff);
   --color-inverse-on-primary: var(--color-primary-5, #000e35);
+  --color-scrim: var(--color-primary-0, #000000);
 }

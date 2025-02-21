@@ -2,6 +2,7 @@ import { cva } from '@/utility';
 
 const variants = cva(
   {
+    name: 'tooltip group/tooltip',
     overflow: 'overflow-hidden',
     layout: 'relative',
     box: 'h-full w-max max-w-full',
@@ -44,7 +45,8 @@ const variants = cva(
 
 const wrapperVariants = cva(
   {
-    layout: 'fixed z-30 h-max',
+    name: 'tooltip--wrapper',
+    layout: 'fixed z-20 h-max',
   },
   {
     variants: {
@@ -91,12 +93,15 @@ const wrapperVariants = cva(
 );
 
 const subheadVariants = cva({
+  name: 'tooltip--subhead',
   typography: 'text-balance typography-title-small text-on-surface-variant',
   spacing: 'mb-2xs',
 });
 
 const textVariants = cva(
-  {},
+  {
+    name: 'tooltip--text',
+  },
   {
     variants: {
       variant: {
@@ -115,6 +120,7 @@ const textVariants = cva(
 );
 
 const actionsVariants = cva({
+  name: 'tooltip--actions',
   box: 'items-centeer inline-flex gap-xs',
   spacing: 'mt-sm',
 });

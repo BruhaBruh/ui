@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext } from '@/utility';
-import React, { DOMAttributes } from 'react';
+import React from 'react';
 import { AriaTooltipProps } from 'react-aria';
 import { TooltipTriggerState } from 'react-stately';
 
@@ -12,7 +12,7 @@ export type TooltipContextState = {
   state?: TooltipTriggerState;
   tooltipProps?: AriaTooltipProps;
   trigger?: HTMLElement | null;
-  triggerTooltipProps?: DOMAttributes<Element>;
+  triggerTooltipProps?: React.DOMAttributes<HTMLElement>;
 };
 
 const { useStore, useSetStore, Provider } = createContext<TooltipContextState>(

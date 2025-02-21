@@ -49,3 +49,4 @@ color:
     - inverse-on-surface: '{color.neutral.95}'
     - inverse-primary: '{color.primary.20}'
     - inverse-on-primary: '{color.primary.95}'
+    - scrim: '{color.primary.0}'
