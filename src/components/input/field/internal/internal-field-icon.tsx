@@ -3,13 +3,13 @@ import { cn, keyFromChildren } from '@/utility';
 import { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { menuVariants } from '../menu.variants';
+import { fieldVariants } from '../field.variants';
 
-export const InternalMenuItemIcon: React.FC<
+export const InternalFieldIcon: React.FC<
   React.PropsWithChildren<{
     className?: string;
   }> &
-    VariantProps<typeof menuVariants.icon>
+    VariantProps<typeof fieldVariants.icon>
 > = ({ position, className, children }) => {
   return (
     <AnimatePresence mode="sync">
@@ -41,7 +41,7 @@ export const InternalMenuItemIcon: React.FC<
             duration: materialDuration.asMotion('medium-1'),
             ease: materialEasing['standard'],
           }}
-          className={cn(menuVariants.icon({ position }), className)}
+          className={cn(fieldVariants.icon({ position }), className)}
         >
           {children}
         </motion.span>

@@ -38,13 +38,13 @@ const InternalMenuItemImpl: React.FC<{
       className={cn(menuVariants.item({ isSelected }))}
       data-is-selected={isSelected ?? false}
     >
-      <InternalMenuItemIcon className="menu--icon-left">
+      <InternalMenuItemIcon position="left" className="menu--icon-left">
         {isSelected
           ? (checkIcon ?? <IconCheck key="menu--check-icon" />)
           : left}
       </InternalMenuItemIcon>
       <span className={cn(menuVariants.label())}>{item.rendered}</span>
-      <InternalMenuItemIcon className="menu--icon-right">
+      <InternalMenuItemIcon position="right" className="menu--icon-right">
         {right}
       </InternalMenuItemIcon>
     </li>

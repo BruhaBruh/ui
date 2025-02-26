@@ -105,7 +105,7 @@ export const MenuPage: React.FC = () => {
             </MenuTrigger>
             <MenuContent
               selectionMode="multiple"
-              selectedKeys={['item-3']}
+              defaultSelectedKeys={['item-3']}
               disabledKeys={['item-3']}
             >
               <MenuSection title="test">

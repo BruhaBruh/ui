@@ -40,7 +40,7 @@ const itemVariants = cva(
     layout: 'relative',
     borders: 'outline-none border-transparent',
     overflow: 'overflow-hidden',
-    flex: 'inline-flex items-center gap-sm',
+    flex: 'inline-flex items-center',
     typography: [
       'typography-label-large',
       'is-disabled:text-on-surface',
@@ -92,19 +92,37 @@ const labelVariants = cva({
   box: 'min-w-16',
 });
 
-const iconVariants = cva({
-  name: 'menu--icon',
-  typography: [
-    'text-on-surface-variant',
-    'group-data-[is-selected=true]/menu--item:text-on-primary-container',
-    'group-is-disabled/menu--item:text-on-surface',
-    'group-is-disabled/menu--item:text-opacity-38',
-  ],
-  layout: 'relative inline-block',
-  box: 'size-6',
-  overflow: 'overflow-hidden empty:hidden',
-  other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
-});
+const iconVariants = cva(
+  {
+    name: 'menu--icon',
+    typography: [
+      'text-on-surface-variant',
+      'group-data-[is-selected=true]/menu--item:text-on-primary-container',
+      'group-is-disabled/menu--item:text-on-surface',
+      'group-is-disabled/menu--item:text-opacity-38',
+    ],
+    layout: 'relative inline-block',
+    box: 'size-6',
+    overflow: 'overflow-hidden empty:hidden',
+    other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
+  },
+  {
+    variants: {
+      position: {
+        left: {
+          box: 'mr-sm',
+        },
+        right: {
+          box: 'ml-sm',
+        },
+        none: {},
+      },
+    },
+    defaultVariants: {
+      position: 'none',
+    },
+  },
+);
 
 const dividerVariants = cva({
   name: 'menu--divider',

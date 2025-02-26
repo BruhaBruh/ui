@@ -35,6 +35,7 @@ import {
   SegmentedButtonButtonPage,
   SliderPage,
   SwitchPage,
+  TextFieldPage,
   TooltipPage,
   TypographyPage,
 } from './pages';
@@ -235,7 +236,14 @@ export const routes: NavigationNode[] = [
         text: 'Inputs',
         href: '/inputs',
         icon: <IconForms />,
-        children: [],
+        children: [
+          {
+            type: 'page',
+            text: 'TextField',
+            href: '/text-field',
+            page: <TextFieldPage />,
+          },
+        ],
       },
     ],
   },

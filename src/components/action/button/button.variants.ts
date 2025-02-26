@@ -17,7 +17,7 @@ const variants = cva(
       'in-focus-visible:focus-state',
       'is-pressed:press-state',
     ],
-    ripple: ['ripple-wrapper:-inset-1', 'ripple-wrapper:rounded-lg'],
+    ripple: ['ripple-wrapper:-inset-1', 'ripple-wrapper:rounded-md'],
   },
   {
     variants: {
