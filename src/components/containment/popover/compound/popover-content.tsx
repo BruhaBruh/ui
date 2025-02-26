@@ -8,11 +8,14 @@ import { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { AriaPopoverProps, mergeProps, usePopover } from 'react-aria';
+import { OverlayTriggerState } from 'react-stately';
 import { usePopoverContext } from '../context';
 import { popoverVariants } from '../popover.variants';
 
 export type PopoverContentProps = Props<'section'> &
-  VariantProps<typeof popoverVariants>;
+  VariantProps<typeof popoverVariants> & {
+    state?: OverlayTriggerState;
+  };
 
 const positionToPlacement = (
   position: PopoverContentProps['position'],
@@ -56,15 +59,23 @@ const calculateMotionPosition = (
 };
 
 export const PopoverContent: React.FC<PopoverContentProps> = ({
-  className,
   position = 'top',
+  state: popoverState,
+  className,
   children,
   ...props
 }) => {
   const ref = React.useRef<HTMLElement>(null);
   const [
-    { triggerRef, state, popoverProps: ariaPopoverProps, triggerPopoverProps },
+    {
+      triggerRef,
+      state: contextState,
+      popoverProps: ariaPopoverProps,
+      triggerPopoverProps,
+    },
   ] = usePopoverContext();
+
+  const state = popoverState ?? contextState;
 
   const { popoverProps } = usePopover(
     {

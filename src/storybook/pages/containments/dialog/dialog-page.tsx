@@ -18,7 +18,7 @@ export const DialogPage: React.FC = () => {
   return (
     <section className="debug-screens mx-auto w-full max-w-screen-lg">
       <Title>Dialog</Title>
-      <Story className="mb-md">
+      <Story>
         <Subtitle>Playground</Subtitle>
         <StoryFrame>
           <Modal>
