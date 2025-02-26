@@ -20,4 +20,6 @@ export type FieldProps = Omit<
   } & {
     left?: React.ReactNode;
     right?: React.ReactNode;
+  } & {
+    fieldClassName?: string;
   };

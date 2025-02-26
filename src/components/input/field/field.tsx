@@ -1,9 +1,8 @@
 'use client';
 
-import { useInteractions } from '@/hooks';
 import { cn, withProvider } from '@/utility';
 import React from 'react';
-import { mergeProps, useField } from 'react-aria';
+import { mergeProps, useField, useFocusRing, useHover } from 'react-aria';
 import { FieldContextProvider } from './context';
 import { FieldProps } from './field.types';
 import { fieldVariants } from './field.variants';
@@ -14,6 +13,7 @@ const FieldImpl: React.FC<FieldProps> = ({
   right,
   isInvalid,
   isDisabled,
+  fieldClassName,
   children,
   className,
   ...props
@@ -21,20 +21,42 @@ const FieldImpl: React.FC<FieldProps> = ({
   const { labelProps, fieldProps, descriptionProps, errorMessageProps } =
     useField(props);
 
-  const { interactionsProps } = useInteractions<'label'>({
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing({});
+  const {
+    focusProps: focusVisibleWithinProps,
+    isFocused: isFocusedWithin,
+    isFocusVisible: isFocusVisibleWithin,
+  } = useFocusRing({
+    ...props,
+    within: true,
+  });
+  const { hoverProps, isHovered } = useHover({
     isDisabled: isDisabled ?? false,
   });
 
   return (
     <section className={cn(fieldVariants.wrapper(), className)}>
       <label
-        {...mergeProps(interactionsProps, labelProps)}
+        {...mergeProps(
+          focusProps,
+          focusVisibleWithinProps,
+          hoverProps,
+          focus,
+          labelProps,
+        )}
         className={cn(
           fieldVariants({
             isInvalid,
             isDisabled,
           }),
+          fieldClassName,
         )}
+        data-is-disabled={isDisabled ?? false}
+        data-is-hovered={isHovered}
+        data-in-focus={isFocused}
+        data-in-focus-within={isFocusedWithin}
+        data-in-focus-visible={isFocusVisible}
+        data-in-focus-visible-within={isFocusVisibleWithin}
       >
         <InternalFieldIcon position="left" className="field--left-icon">
           {left}

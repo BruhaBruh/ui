@@ -6,10 +6,10 @@ import { motion } from 'motion/react';
 import React from 'react';
 import { mergeProps, useFocus, useTextField } from 'react-aria';
 import { Field } from '../field';
-import { TextFieldProps } from './text-field.types';
-import { textFieldVariants } from './text-field.variants';
+import { TextAreaFieldProps } from './text-area-field.types';
+import { textAreaFieldVariants } from './text-area-field.variants';
 
-export const TextField: React.FC<TextFieldProps> = ({
+export const TextAreaField: React.FC<TextAreaFieldProps> = ({
   left,
   right,
   isDisabled,
@@ -21,9 +21,29 @@ export const TextField: React.FC<TextFieldProps> = ({
   errorMessage,
   ...props
 }) => {
-  const ref = React.useRef<HTMLInputElement>(null);
-  const { inputProps } = useTextField(
-    { ...props, label, description, errorMessage, isDisabled, isInvalid },
+  const ref = React.useRef<HTMLTextAreaElement>(null);
+  const [height, setHeight] = React.useState<string>('auto');
+
+  const { inputProps } = useTextField<'textarea'>(
+    {
+      ...props,
+      label,
+      description,
+      errorMessage,
+      isDisabled,
+      isInvalid,
+      inputElementType: 'textarea',
+      onChange: (value) => {
+        props.onChange?.(value);
+        const textarea = ref.current;
+        if (textarea) {
+          if (textarea) {
+            textarea.style.height = 'auto';
+            setHeight(`${textarea.scrollHeight}px`);
+          }
+        }
+      },
+    },
     ref,
   );
   const [inFocus, setInFocus] = React.useState(false);
@@ -37,7 +57,7 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <Field
-      className={cn(textFieldVariants(), className)}
+      className={cn(textAreaFieldVariants(), className)}
       left={left}
       right={right}
       isInvalid={isInvalid}
@@ -48,22 +68,23 @@ export const TextField: React.FC<TextFieldProps> = ({
       fieldClassName={fieldClassName}
     >
       {(fieldProps) => (
-        <motion.input
+        <motion.textarea
           {...(mergeProps(
             props,
             fieldProps,
             focusProps,
             inputProps,
-          ) as React.ComponentProps<typeof motion.input>)}
+          ) as React.ComponentProps<typeof motion.textarea>)}
           animate={{
-            height: isExpanded ? 'auto' : 0,
+            height: isExpanded ? height : 0,
             opacity: isExpanded ? 1 : 0,
           }}
           transition={{
             duration: materialDuration.asMotion('medium-1'),
             ease: materialEasing['standard'],
           }}
-          className={cn(textFieldVariants.input())}
+          className={cn(textAreaFieldVariants.textArea())}
+          rows={1}
           ref={ref}
         />
       )}

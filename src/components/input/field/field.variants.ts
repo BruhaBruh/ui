@@ -4,13 +4,13 @@ const variants = cva(
   {
     name: 'field group/field',
     layout: 'relative',
-    box: 'h-14 w-full rounded-md',
+    box: 'min-h-14 w-full rounded-md',
     flex: 'inline-flex items-center justify-between',
     transitions: 'transition easing-standard duration-medium-1',
     borders: 'border-2 outline-none',
     overflow: 'overflow-hidden',
     background: [
-      'bg-surface-container',
+      'bg-surface-container-highest',
       'is-disabled:bg-on-surface',
       'is-disabled:bg-opacity-8',
     ],
@@ -62,7 +62,7 @@ const contentVariants = cva({
     'easing-standard duration-medium-1',
   ],
   overflow: 'overflow-hidden',
-  typography: 'whitespace-nowrap',
+  typography: 'whitespace-nowrap typography-body-large',
 });
 
 const labelVariants = cva(
@@ -75,6 +75,7 @@ const labelVariants = cva(
     ],
     transitions: 'transition easing-standard duration-medium-1',
     overflow: 'overflow-hidden',
+    other: 'select-none',
   },
   {
     variants: {

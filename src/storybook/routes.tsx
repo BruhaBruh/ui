@@ -39,6 +39,7 @@ import {
   TooltipPage,
   TypographyPage,
 } from './pages';
+import { TextAreaFieldPage } from './pages/inputs/text-area-field';
 
 export const routes: NavigationNode[] = [
   {
@@ -242,6 +243,12 @@ export const routes: NavigationNode[] = [
             text: 'TextField',
             href: '/text-field',
             page: <TextFieldPage />,
+          },
+          {
+            type: 'page',
+            text: 'TextAreaField',
+            href: '/text-area-field',
+            page: <TextAreaFieldPage />,
           },
         ],
       },
