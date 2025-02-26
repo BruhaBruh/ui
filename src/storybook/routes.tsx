@@ -28,6 +28,7 @@ import {
   IconButtonPage,
   MenuPage,
   ModalPage,
+  NumberFieldPage,
   PalettePage,
   PopoverPage,
   RadioPage,
@@ -35,11 +36,11 @@ import {
   SegmentedButtonButtonPage,
   SliderPage,
   SwitchPage,
+  TextAreaFieldPage,
   TextFieldPage,
   TooltipPage,
   TypographyPage,
 } from './pages';
-import { TextAreaFieldPage } from './pages/inputs/text-area-field';
 
 export const routes: NavigationNode[] = [
   {
@@ -249,6 +250,12 @@ export const routes: NavigationNode[] = [
             text: 'TextAreaField',
             href: '/text-area-field',
             page: <TextAreaFieldPage />,
+          },
+          {
+            type: 'page',
+            text: 'NumberField',
+            href: '/number-field',
+            page: <NumberFieldPage />,
           },
         ],
       },

@@ -53,7 +53,6 @@ export const TextFieldPage: React.FC = () => {
           <TextField
             label="Preferred contact method"
             errorMessage="Supporting text"
-            placeholder="Placeholder..."
             isInvalid
           />
         </StoryFrame>

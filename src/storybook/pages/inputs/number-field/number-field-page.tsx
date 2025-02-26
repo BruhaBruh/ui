@@ -1,35 +1,35 @@
-import { TextAreaField } from '@/components';
+import { NumberField } from '@/components';
 import { Story, StoryFrame, Subtitle, Title } from '@/storybook/components';
 import { IconSearch, IconXboxX } from '@tabler/icons-react';
 import React from 'react';
 
-export const TextAreaFieldPage: React.FC = () => {
+export const NumberFieldPage: React.FC = () => {
   return (
     <section className="debug-screens mx-auto w-full max-w-screen-lg">
-      <Title>TextAreaField</Title>
+      <Title>NumberField</Title>
       <Story className="mb-md">
         <Subtitle>Playground</Subtitle>
         <StoryFrame>
-          <TextAreaField />
+          <NumberField />
         </StoryFrame>
       </Story>
       <Story className="mb-md">
         <Subtitle>Disabled</Subtitle>
         <StoryFrame>
-          <TextAreaField
+          <NumberField
             label="Preferred contact method"
             description="Supporting text"
             left={<IconSearch />}
             right={<IconXboxX />}
             isDisabled
-            value="Example"
+            value={10}
           />
         </StoryFrame>
       </Story>
       <Story className="mb-md">
         <Subtitle>With icons</Subtitle>
         <StoryFrame>
-          <TextAreaField
+          <NumberField
             label="Preferred contact method"
             description="Supporting text"
             left={<IconSearch />}
@@ -40,7 +40,7 @@ export const TextAreaFieldPage: React.FC = () => {
       <Story className="mb-md">
         <Subtitle>With placeholder</Subtitle>
         <StoryFrame>
-          <TextAreaField
+          <NumberField
             label="Preferred contact method"
             description="Supporting text"
             placeholder="Placeholder..."
@@ -50,7 +50,7 @@ export const TextAreaFieldPage: React.FC = () => {
       <Story>
         <Subtitle>With error messsage</Subtitle>
         <StoryFrame>
-          <TextAreaField
+          <NumberField
             label="Preferred contact method"
             errorMessage="Supporting text"
             isInvalid

@@ -16,6 +16,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       variant,
       color,
       isToggleable,
+      isDisabled,
       isSelected,
       className,
       asChild,
@@ -26,11 +27,11 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ) => {
     const ref = useMergedRefs(forwardedRef);
 
-    const { buttonProps } = useButton(props, ref);
+    const { buttonProps } = useButton({ ...props, isDisabled }, ref);
 
-    const state = useToggleState(props);
+    const state = useToggleState({ ...props, isDisabled });
     const { buttonProps: toggleButtonProps } = useToggleButton(
-      props,
+      { ...props, isDisabled },
       state,
       ref,
     );
@@ -38,7 +39,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     const { interactionsProps, rippleProps } =
       useInteractionsWithRipple<'button'>({
         ...(isToggleable ? buttonProps : toggleButtonProps),
-        isDisabled: props.isDisabled,
+        isDisabled,
       });
 
     const Comp = asChild ? Slot : 'button';
@@ -46,7 +47,11 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <Comp
         type="button"
-        {...mergeProps(props, interactionsProps, rippleProps)}
+        {...mergeProps(
+          isToggleable ? toggleButtonProps : buttonProps,
+          interactionsProps,
+          rippleProps,
+        )}
         ref={ref}
         className={cn(
           iconButtonVariants({
