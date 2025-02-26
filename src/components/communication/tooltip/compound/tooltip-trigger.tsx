@@ -45,6 +45,7 @@ export const TooltipTrigger = React.forwardRef<
     return () => {
       setState((prev) => ({
         ...prev,
+        state: undefined,
         triggerTooltipProps: undefined,
         trigger: null,
       }));
