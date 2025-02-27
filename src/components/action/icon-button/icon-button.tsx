@@ -48,6 +48,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       <Comp
         type="button"
         {...mergeProps(
+          props,
           isToggleable ? toggleButtonProps : buttonProps,
           interactionsProps,
           rippleProps,
