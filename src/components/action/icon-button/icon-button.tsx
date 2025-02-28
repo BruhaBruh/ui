@@ -1,10 +1,11 @@
 'use client';
 
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, unwrapChildren } from '@/utility';
+import { Props } from '@/types';
+import { cn, mergeProps, unwrapChildren } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
-import { mergeProps, useButton, useToggleButton } from 'react-aria';
+import { useButton, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { IconButtonProps } from './icon-button.types';
 import { iconButtonVariants } from './icon-button.variants';
@@ -38,7 +39,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 
     const { interactionsProps, rippleProps } =
       useInteractionsWithRipple<'button'>({
-        ...(isToggleable ? buttonProps : toggleButtonProps),
         isDisabled,
       });
 
@@ -48,7 +48,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       <Comp
         type="button"
         {...mergeProps(
-          props,
+          props as Props<'button'>,
           isToggleable ? toggleButtonProps : buttonProps,
           interactionsProps,
           rippleProps,

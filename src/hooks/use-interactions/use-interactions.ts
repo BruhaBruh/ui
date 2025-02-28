@@ -1,13 +1,13 @@
 'use client';
 
 import { Props } from '@/types';
+import { mergeProps } from '@/utility';
 import React from 'react';
 import {
   AriaFocusRingProps,
   HoverProps,
   LongPressProps,
   PressHookProps,
-  mergeProps,
   useFocusRing,
   useHover,
   useLongPress,
@@ -58,7 +58,7 @@ export const useInteractions = <
         'data-is-hovered': isHovered,
         'data-is-pressed': isPressed,
         'data-is-disabled': props.isDisabled,
-      },
+      } as unknown as Props<T>,
     ),
     isFocusVisible,
     isFocusWithinVisible: isFocusVisibleWithin,

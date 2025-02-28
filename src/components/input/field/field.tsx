@@ -1,8 +1,9 @@
 'use client';
 
-import { cn, withProvider } from '@/utility';
+import { Props } from '@/types';
+import { cn, mergeProps, withProvider } from '@/utility';
 import React from 'react';
-import { mergeProps, useField, useFocusRing, useHover } from 'react-aria';
+import { useField, useFocusRing, useHover } from 'react-aria';
 import { FieldContextProvider } from './context';
 import { FieldProps } from './field.types';
 import { fieldVariants } from './field.variants';
@@ -21,7 +22,9 @@ const FieldImpl: React.FC<FieldProps> = ({
   const { labelProps, fieldProps, descriptionProps, errorMessageProps } =
     useField(props);
 
-  const { focusProps, isFocused, isFocusVisible } = useFocusRing({});
+  const { focusProps, isFocused, isFocusVisible } = useFocusRing({
+    isTextInput: true,
+  });
   const {
     focusProps: focusVisibleWithinProps,
     isFocused: isFocusedWithin,
@@ -38,10 +41,9 @@ const FieldImpl: React.FC<FieldProps> = ({
     <section className={cn(fieldVariants.wrapper(), className)}>
       <label
         {...mergeProps(
-          focusProps,
+          focusProps as Props<'label'>,
           focusVisibleWithinProps,
           hoverProps,
-          focus,
           labelProps,
         )}
         className={cn(

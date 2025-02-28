@@ -2,10 +2,11 @@
 'use client';
 
 import { useInteractionsWithRipple } from '@/hooks';
-import { cn, withProvider } from '@/utility';
+import { Props } from '@/types';
+import { cn, mergeProps, withProvider } from '@/utility';
 import { IconCheck } from '@tabler/icons-react';
 import React from 'react';
-import { mergeProps, useMenuItem } from 'react-aria';
+import { useMenuItem } from 'react-aria';
 import { Node, TreeState } from 'react-stately';
 import { MenuItemContextProvider, useMenuItemContext } from '../context';
 import { menuVariants } from '../menu.variants';
@@ -33,7 +34,11 @@ const InternalMenuItemImpl: React.FC<{
 
   return (
     <li
-      {...mergeProps(menuItemProps, interactionsProps, rippleProps)}
+      {...(mergeProps(
+        menuItemProps,
+        interactionsProps,
+        rippleProps,
+      ) as Props<'li'>)}
       ref={ref}
       className={cn(menuVariants.item({ isSelected }))}
       data-is-selected={isSelected ?? false}

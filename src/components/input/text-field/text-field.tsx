@@ -1,10 +1,11 @@
 'use client';
 
 import { materialDuration, materialEasing } from '@/config';
-import { cn } from '@/utility';
+import { Props } from '@/types';
+import { cn, mergeProps } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
-import { mergeProps, useFocus, useTextField } from 'react-aria';
+import { useFocus, useTextField } from 'react-aria';
 import { Field } from '../field';
 import { TextFieldProps } from './text-field.types';
 import { textFieldVariants } from './text-field.variants';
@@ -50,7 +51,7 @@ export const TextField: React.FC<TextFieldProps> = ({
       {(fieldProps) => (
         <motion.input
           {...(mergeProps(
-            props,
+            props as Props<'input'>,
             fieldProps,
             focusProps,
             inputProps,

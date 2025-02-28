@@ -2,10 +2,10 @@
 
 import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
-import { cn, unwrapChildren, withProvider } from '@/utility';
+import { cn, mergeProps, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { mergeProps, useButton } from 'react-aria';
+import { useButton } from 'react-aria';
 import { ButtonProps } from './button.types';
 import { buttonVariants } from './button.variants';
 import { ButtonContextProvider, useButtonContext } from './context';

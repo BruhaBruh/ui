@@ -3,10 +3,9 @@
 import { Portal } from '@/components/utility';
 import { useMergedRefs } from '@/hooks';
 import { Props } from '@/types';
-import { cn } from '@/utility';
+import { cn, mergeProps } from '@/utility';
 import { AnimatePresence } from 'motion/react';
 import React from 'react';
-import { mergeProps } from 'react-aria';
 import { useModalContext } from '../context';
 import { modalVariants } from '../modal.variants';
 

@@ -1,10 +1,10 @@
 'use client';
 
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, unwrapChildren } from '@/utility';
+import { cn, mergeProps, unwrapChildren } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
-import { mergeProps, useButton } from 'react-aria';
+import { useButton } from 'react-aria';
 import { FabProps } from './fab.types';
 import { fabVariants } from './fab.variants';
 import { InternalFabIcon } from './internal/internal-fab-icon';

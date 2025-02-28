@@ -73,14 +73,22 @@ const rippleData = (
   return data;
 };
 
-export type UseRipple = typeof useRipple;
+export type UseRipple<
+  T extends
+    | keyof React.JSX.IntrinsicElements
+    | React.JSXElementConstructor<unknown> = 'div',
+> = typeof useRipple<T>;
 
 const speedDelta = 2;
 
-export const useRipple = ({
+export const useRipple = <
+  T extends
+    | keyof React.JSX.IntrinsicElements
+    | React.JSXElementConstructor<unknown> = 'div',
+>({
   duration = materialDuration['extra-long-4'],
   centered = false,
-}: Partial<UseRippleOptions> = {}): Props<'div'> => {
+}: Partial<UseRippleOptions> = {}): Props<T> => {
   const animationControls = React.useRef<[string, AnimationPlaybackControls][]>(
     [],
   );
@@ -210,6 +218,6 @@ export const useRipple = ({
 
   return {
     ...pressProps,
-    onMouseLeave: (e) => onPressUp(e as unknown as PressEvent),
-  };
+    onMouseLeave: (e: MouseEvent) => onPressUp(e as unknown as PressEvent),
+  } as unknown as Props<T>;
 };

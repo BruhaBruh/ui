@@ -2,12 +2,13 @@
 
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn } from '@/utility';
+import { Props } from '@/types';
+import { cn, mergeProps } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import { IconCheck } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { mergeProps, useToggleButtonGroupItem } from 'react-aria';
+import { useToggleButtonGroupItem } from 'react-aria';
 import { useSegmentedButtonGroupContext } from './context';
 import { SegmentedButtonProps } from './segmented-button.types';
 import { segmentedButtonVariants } from './segmented-button.variants';
@@ -46,7 +47,11 @@ export const SegmentedButton = React.forwardRef<
 
     return (
       <Comp
-        {...mergeProps(props, interactionsProps, rippleProps)}
+        {...mergeProps(
+          props as Props<'button'>,
+          interactionsProps,
+          rippleProps,
+        )}
         className={cn(
           segmentedButtonVariants({ isSelected, color }),
           className,

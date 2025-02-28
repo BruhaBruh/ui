@@ -2,10 +2,10 @@
 
 import { materialDuration, materialEasing } from '@/config';
 import { useMergedRefs } from '@/hooks';
-import { cn } from '@/utility';
+import { cn, mergeProps } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
-import { mergeProps, useDialog } from 'react-aria';
+import { useDialog } from 'react-aria';
 import { DialogProps } from './dialog.types';
 import { dialogVariants } from './dialog.variants';
 

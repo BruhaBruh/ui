@@ -3,11 +3,11 @@
 import { Portal } from '@/components/utility';
 import { materialDuration, materialEasing } from '@/config';
 import { Props } from '@/types';
-import { cn } from '@/utility';
+import { cn, mergeProps } from '@/utility';
 import { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { AriaPopoverProps, mergeProps, usePopover } from 'react-aria';
+import { AriaPopoverProps, usePopover } from 'react-aria';
 import { OverlayTriggerState } from 'react-stately';
 import { usePopoverContext } from '../context';
 import { popoverVariants } from '../popover.variants';
@@ -79,7 +79,11 @@ export const PopoverContent: React.FC<PopoverContentProps> = ({
 
   const { popoverProps } = usePopover(
     {
-      ...mergeProps(props, triggerPopoverProps, ariaPopoverProps),
+      ...mergeProps(
+        props as Props<'section'>,
+        triggerPopoverProps,
+        ariaPopoverProps as Props<'section'>,
+      ),
       placement: positionToPlacement(position),
       triggerRef: triggerRef ?? React.createRef(),
       popoverRef: ref,

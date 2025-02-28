@@ -2,11 +2,11 @@
 
 import { materialDuration, materialEasing } from '@/config';
 import { Props } from '@/types';
-import { cn, throttle } from '@/utility';
+import { cn, mergeProps, throttle } from '@/utility';
 import { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { mergeProps, useTooltip } from 'react-aria';
+import { useTooltip } from 'react-aria';
 import { useTooltipContext } from '../context';
 import { tooltipVariants } from '../tooltip.variants';
 
@@ -96,7 +96,11 @@ export const TooltipContent: React.FC<TooltipContentProps> = ({
   ] = useTooltipContext();
 
   const { tooltipProps } = useTooltip(
-    mergeProps(props, triggerTooltipProps, ariaTooltipProps),
+    mergeProps(
+      props as Props<'section'>,
+      triggerTooltipProps,
+      ariaTooltipProps,
+    ),
     state,
   );
 

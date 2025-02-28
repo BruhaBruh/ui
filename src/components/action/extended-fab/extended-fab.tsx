@@ -1,8 +1,8 @@
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { cn, unwrapChildren, withProvider } from '@/utility';
+import { cn, mergeProps, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import { mergeProps, useButton } from 'react-aria';
+import { useButton } from 'react-aria';
 import { ExtendedFabContextProvider, useExtendedFabContext } from './context';
 import { ExtendedFabProps } from './extended-fab.types';
 import { extendedFabVariants } from './extended-fab.variants';

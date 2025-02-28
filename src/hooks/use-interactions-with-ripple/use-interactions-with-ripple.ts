@@ -1,3 +1,4 @@
+import { Props } from '@/types';
 import {
   UseInteractions,
   useInteractions,
@@ -11,7 +12,9 @@ export const useInteractionsWithRipple = <
 >(
   props: Parameters<UseInteractions<T>>[0],
   rippleOptions: Partial<UseRippleOptions> = {},
-): ReturnType<UseInteractions<T>> & { rippleProps: ReturnType<UseRipple> } => {
+): ReturnType<UseInteractions<T>> & {
+  rippleProps: ReturnType<UseRipple<T>>;
+} => {
   const rippleProps = useRipple(rippleOptions);
   const interaction = useInteractions<T>({
     ...props,
@@ -27,6 +30,6 @@ export const useInteractionsWithRipple = <
 
   return {
     ...interaction,
-    rippleProps,
+    rippleProps: rippleProps as Props<T>,
   };
 };
