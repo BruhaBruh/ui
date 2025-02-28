@@ -65,7 +65,13 @@ const installDependencies = async (
   const dependencySpinner = ora(
     `Installing ${notInstalledDependencies.join(', ')} dependencies`,
   ).start();
-  await addDependencies(notInstalledDependencies, packageManager);
+  try {
+    await addDependencies(notInstalledDependencies, packageManager);
+  } catch {
+    logger.error(
+      `Fail install ${notInstalledDependencies.join(', ')} dependencies`,
+    );
+  }
   dependencySpinner.succeed();
 
   const notInstalledDevDependencies = devDependencies.filter((dependency) => {
@@ -83,7 +89,13 @@ const installDependencies = async (
   const devDependencySpinner = ora(
     `Installing ${notInstalledDevDependencies.join(', ')} dev dependencies`,
   ).start();
-  await addDependencies(notInstalledDevDependencies, packageManager);
+  try {
+    await addDependencies(notInstalledDevDependencies, packageManager, true);
+  } catch {
+    logger.error(
+      `Fail install ${notInstalledDevDependencies.join(', ')} dependencies`,
+    );
+  }
   devDependencySpinner.succeed();
 };
 
