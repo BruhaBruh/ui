@@ -4,12 +4,16 @@ import { existsSync } from 'fs';
 import { mkdir, readFile, writeFile } from 'fs/promises';
 import ora from 'ora';
 import path from 'path';
-import packageJson from '../../../package.json';
 import { Config, Registry } from '../types';
 import { addDependencies } from '../utils/add-dependencies';
 import { getPackageManager } from '../utils/get-package-manager';
 import { highlighter } from '../utils/highlighter';
 import { logger } from '../utils/logger';
+
+const getPackageJson = async () => {
+  const data = await readFile('package.json', { encoding: 'utf-8' });
+  return JSON.parse(data);
+};
 
 export const add = new Command()
   .name('add')
@@ -50,6 +54,8 @@ const installDependencies = async (
 ) => {
   const packageManager = await getPackageManager(process.cwd());
 
+  const packageJson = await getPackageJson();
+
   const installedDependencies = Object.keys(packageJson.dependencies);
   const installedDevDependencies = Object.keys(packageJson.devDependencies);
 
@@ -62,17 +68,19 @@ const installDependencies = async (
     return !installedDependencies.includes(dependencyName);
   });
 
-  const dependencySpinner = ora(
-    `Installing ${notInstalledDependencies.join(', ')} dependencies`,
-  ).start();
-  try {
-    await addDependencies(notInstalledDependencies, packageManager);
-  } catch {
-    logger.error(
-      `Fail install ${notInstalledDependencies.join(', ')} dependencies`,
-    );
+  if (notInstalledDependencies.length > 0) {
+    const dependencySpinner = ora(
+      `Installing ${notInstalledDependencies.join(', ')} dependencies`,
+    ).start();
+    try {
+      await addDependencies(notInstalledDependencies, packageManager);
+    } catch {
+      logger.error(
+        `Fail install ${notInstalledDependencies.join(', ')} dependencies`,
+      );
+    }
+    dependencySpinner.succeed();
   }
-  dependencySpinner.succeed();
 
   const notInstalledDevDependencies = devDependencies.filter((dependency) => {
     const split = dependency.split('@');
@@ -86,17 +94,19 @@ const installDependencies = async (
     );
   });
 
-  const devDependencySpinner = ora(
-    `Installing ${notInstalledDevDependencies.join(', ')} dev dependencies`,
-  ).start();
-  try {
-    await addDependencies(notInstalledDevDependencies, packageManager, true);
-  } catch {
-    logger.error(
-      `Fail install ${notInstalledDevDependencies.join(', ')} dependencies`,
-    );
+  if (notInstalledDevDependencies.length > 0) {
+    const devDependencySpinner = ora(
+      `Installing ${notInstalledDevDependencies.join(', ')} dev dependencies`,
+    ).start();
+    try {
+      await addDependencies(notInstalledDevDependencies, packageManager, true);
+    } catch {
+      logger.error(
+        `Fail install ${notInstalledDevDependencies.join(', ')} dependencies`,
+      );
+    }
+    devDependencySpinner.succeed();
   }
-  devDependencySpinner.succeed();
 };
 
 const addFiles = async (files: Registry['files'], config: Config) => {
@@ -108,6 +118,7 @@ const addFiles = async (files: Registry['files'], config: Config) => {
 const addFile = async (file: Registry['files'][number], config: Config) => {
   const directory = config.directories[file.type];
   const filePath = `${directory}/${file.name}`;
+  if (existsSync(filePath)) return;
   let content = file.content;
   const types: Registry['files'][number]['type'][] = [
     'components',
