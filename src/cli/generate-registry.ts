@@ -16,8 +16,13 @@ const CONFIG = {
     'react-aria',
     'react-stately',
     'tailwind-merge',
+    '@tabler/icons-react',
   ],
-  devDependencies: ['@bruhabruh/type-safe', 'tailwindcss@^3'],
+  devDependencies: [
+    '@bruhabruh/type-safe',
+    '@bruhabruh/theme',
+    'tailwindcss@^3',
+  ],
   files: [
     {
       type: 'components',

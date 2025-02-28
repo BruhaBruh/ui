@@ -14,7 +14,7 @@ export const init = new Command()
         type: 'text',
         name: 'registry',
         message: `Registry configuration:`,
-        initial: 'https://ui.bruhabruh/registry.json',
+        initial: 'https://ui.bruhabruh.ru/registry.json',
       },
     ])) as Pick<Config, 'registry'>;
 
