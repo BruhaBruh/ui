@@ -6,7 +6,7 @@ import ora from 'ora';
 import path from 'path';
 import packageJson from '../../../package.json';
 import { Config, Registry } from '../types';
-import { addDependency } from '../utils/add-dependency';
+import { addDependencies } from '../utils/add-dependencies';
 import { getPackageManager } from '../utils/get-package-manager';
 import { highlighter } from '../utils/highlighter';
 import { logger } from '../utils/logger';
@@ -53,36 +53,38 @@ const installDependencies = async (
   const installedDependencies = Object.keys(packageJson.dependencies);
   const installedDevDependencies = Object.keys(packageJson.devDependencies);
 
-  for (let i = 0; i < dependencies.length; i++) {
-    const dependency = dependencies[i];
+  const notInstalledDependencies = dependencies.filter((dependency) => {
     const split = dependency.split('@');
     const dependencyName =
       split.length === 1 || (dependency.startsWith('@') && split.length === 2)
         ? split.join('@')
         : split.slice(0, -1).join('@');
-    if (installedDependencies.includes(dependencyName)) continue;
-    const dependencySpinner = ora(
-      `Installing ${dependency} dependency`,
-    ).start();
-    await addDependency(dependency, packageManager);
-    dependencySpinner.succeed();
-  }
+    return !installedDependencies.includes(dependencyName);
+  });
 
-  for (let i = 0; i < devDependencies.length; i++) {
-    const dependency = devDependencies[i];
+  const dependencySpinner = ora(
+    `Installing ${notInstalledDependencies.join(', ')} dependencies`,
+  ).start();
+  await addDependencies(notInstalledDependencies, packageManager);
+  dependencySpinner.succeed();
+
+  const notInstalledDevDependencies = devDependencies.filter((dependency) => {
     const split = dependency.split('@');
     const dependencyName =
       split.length === 1 || (dependency.startsWith('@') && split.length === 2)
         ? split.join('@')
         : split.slice(0, -1).join('@');
-    if (installedDependencies.includes(dependencyName)) continue;
-    if (installedDevDependencies.includes(dependencyName)) continue;
-    const dependencySpinner = ora(
-      `Installing ${dependency} dev dependency`,
-    ).start();
-    await addDependency(dependency, packageManager, true);
-    dependencySpinner.succeed();
-  }
+    return (
+      !installedDependencies.includes(dependencyName) &&
+      !installedDevDependencies.includes(dependencyName)
+    );
+  });
+
+  const devDependencySpinner = ora(
+    `Installing ${notInstalledDevDependencies.join(', ')} dev dependencies`,
+  ).start();
+  await addDependencies(notInstalledDevDependencies, packageManager);
+  devDependencySpinner.succeed();
 };
 
 const addFiles = async (files: Registry['files'], config: Config) => {
