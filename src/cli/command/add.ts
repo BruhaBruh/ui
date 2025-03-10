@@ -32,12 +32,12 @@ export const add = new Command()
     ) as Config;
 
     const registrySpinner = ora(`Getting registry`).start();
-    // const registry = (await fetch(config.registry).then((r) =>
-    //   r.json(),
-    // )) as Registry;
-    const registry = JSON.parse(
-      await readFile('./public/registry.json', { encoding: 'utf-8' }),
-    ) as Registry;
+    const registry = (await fetch(config.registry).then((r) =>
+      r.json(),
+    )) as Registry;
+    // const registry = JSON.parse(
+    //   await readFile('./public/registry.json', { encoding: 'utf-8' }),
+    // ) as Registry;
     registrySpinner.succeed();
 
     await installDependencies(registry.dependencies, registry.devDependencies);
