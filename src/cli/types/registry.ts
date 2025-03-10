@@ -4,6 +4,13 @@ export type Registry = {
   files: {
     name: string;
     content: string;
-    type: 'components' | 'hooks' | 'config' | 'tailwind' | 'types' | 'utility';
+    type:
+      | 'index'
+      | 'components'
+      | 'hooks'
+      | 'config'
+      | 'tailwind'
+      | 'types'
+      | 'utility';
   }[];
 };

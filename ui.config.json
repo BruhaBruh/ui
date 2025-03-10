@@ -1,19 +1,5 @@
 {
-  "registry": "https://ui.bruhabruh/registry.json",
-  "directories": {
-    "components": "output/components",
-    "config": "output/config",
-    "hooks": "output/hooks",
-    "tailwind": "output/tailwind",
-    "types": "output/types",
-    "utility": "output/utility"
-  },
-  "aliases": {
-    "components": "$/components",
-    "config": "$/config",
-    "hooks": "$/hooks",
-    "tailwind": "$/tailwind",
-    "types": "$/types",
-    "utility": "$/utility"
-  }
+  "registry": "https://ui.bruhabruh.ru/registry.json",
+  "directory": "output",
+  "alias": "$/"
 }

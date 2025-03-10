@@ -25,6 +25,10 @@ const CONFIG = {
   ],
   files: [
     {
+      type: 'index',
+      path: './src/index.ts',
+    },
+    {
       type: 'components',
       path: './src/components',
     },
@@ -51,9 +55,13 @@ const CONFIG = {
   ] as { type: Registry['files'][number]['type']; path: string }[],
 };
 
-function getFiles(dir: string): string[] {
-  return fs.readdirSync(dir).flatMap((file) => {
-    const fullPath = path.join(dir, file);
+function getFiles(dirOrFile: string): string[] {
+  const stat = fs.statSync(dirOrFile);
+  if (stat.isFile()) {
+    return [dirOrFile];
+  }
+  return fs.readdirSync(dirOrFile).flatMap((file) => {
+    const fullPath = path.join(dirOrFile, file);
     return fs.statSync(fullPath).isDirectory()
       ? getFiles(fullPath)
       : [fullPath];
@@ -67,7 +75,10 @@ function generateRegistry() {
     files: CONFIG.files.flatMap((dir) => {
       if (!fs.existsSync(dir.path)) return [];
       return getFiles(dir.path).map((filePath) => ({
-        name: path.relative('./', filePath).split('/').slice(2).join('/'),
+        name:
+          dir.type === 'index'
+            ? path.relative('./', filePath).split('/').slice(1).join('/')
+            : path.relative('./', filePath).split('/').slice(2).join('/'),
         content: fs.readFileSync(filePath, 'utf-8'),
         type: dir.type,
       }));

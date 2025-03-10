@@ -32,12 +32,12 @@ export const add = new Command()
     ) as Config;
 
     const registrySpinner = ora(`Getting registry`).start();
-    const registry = (await fetch(config.registry).then((r) =>
-      r.json(),
-    )) as Registry;
-    // const registry = JSON.parse(
-    //   await readFile('./public/registry.json', { encoding: 'utf-8' }),
-    // ) as Registry;
+    // const registry = (await fetch(config.registry).then((r) =>
+    //   r.json(),
+    // )) as Registry;
+    const registry = JSON.parse(
+      await readFile('./public/registry.json', { encoding: 'utf-8' }),
+    ) as Registry;
     registrySpinner.succeed();
 
     await installDependencies(registry.dependencies, registry.devDependencies);
@@ -116,8 +116,11 @@ const addFiles = async (files: Registry['files'], config: Config) => {
 };
 
 const addFile = async (file: Registry['files'][number], config: Config) => {
-  const directory = config.directories[file.type];
-  const filePath = `${directory}/${file.name}`;
+  const directory = config.directory;
+  const filePath =
+    file.type === 'index'
+      ? `${directory}/${file.name}`
+      : `${directory}/${file.type}/${file.name}`;
   if (existsSync(filePath)) return;
   let content = file.content;
   const types: Registry['files'][number]['type'][] = [
@@ -129,7 +132,7 @@ const addFile = async (file: Registry['files'][number], config: Config) => {
     'utility',
   ];
   types.forEach((type) => {
-    content = content.replaceAll(`@/${type}`, config.aliases[type]);
+    content = content.replaceAll(`@/${type}`, `${config.alias}/${type}`);
   });
   const fileSpinner = ora(`Adding ${file.name}`).start();
   await mkdir(path.dirname(filePath), { recursive: true });
