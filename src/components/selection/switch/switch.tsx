@@ -1,5 +1,3 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractions, useMergedRefs } from '@/hooks';
 import { cn, withProvider } from '@/utility';
@@ -8,7 +6,7 @@ import React from 'react';
 import { useSwitch } from 'react-aria';
 import { useToggleState } from 'react-stately';
 import { SwitchContextProvider, useSwitchContext } from './context';
-import { SwitchProps } from './switch.types';
+import type { SwitchProps } from './switch.types';
 import { switchVariants } from './switch.variants';
 
 const SwitchImpl = React.forwardRef<HTMLInputElement, SwitchProps>(

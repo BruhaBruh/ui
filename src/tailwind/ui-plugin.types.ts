@@ -1,5 +1,5 @@
-import { PluginAPI } from 'tailwindcss/types/config';
-import { DebugScreensOptions } from './apply-functions';
+import type { PluginAPI } from 'tailwindcss/types/config';
+import type { DebugScreensOptions } from './apply-functions';
 
 export type UIPluginOptions = {
   variablePrefix: string;

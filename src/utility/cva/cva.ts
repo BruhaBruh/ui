@@ -1,5 +1,10 @@
 import { cva as baseCva } from 'class-variance-authority';
-import { BaseConfig, ClassCategories, Config, ResultFn } from './cva.types';
+import type {
+  BaseConfig,
+  ClassCategories,
+  Config,
+  ResultFn,
+} from './cva.types';
 import { mergeClassCategories } from './merge-class-categories';
 
 export const cva = <T>(

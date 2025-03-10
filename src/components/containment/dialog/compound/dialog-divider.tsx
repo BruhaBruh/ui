@@ -1,8 +1,7 @@
-'use client';
-
 import { cn } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
-import { Divider, DividerProps } from '../../divider';
+import type { VariantProps } from 'class-variance-authority';
+import type { DividerProps } from '../../divider';
+import { Divider } from '../../divider';
 import { dialogVariants } from '../dialog.variants';
 
 export const DialogDivider: React.FC<

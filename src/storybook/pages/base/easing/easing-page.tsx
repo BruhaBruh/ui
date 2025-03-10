@@ -1,6 +1,6 @@
 import { Label, Subtitle, Title } from '@/storybook/components';
 import { cn } from '@/utility';
-import React from 'react';
+import type React from 'react';
 
 export const EasingPage: React.FC = () => {
   return (

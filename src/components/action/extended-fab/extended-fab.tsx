@@ -4,7 +4,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
 import { ExtendedFabContextProvider, useExtendedFabContext } from './context';
-import { ExtendedFabProps } from './extended-fab.types';
+import type { ExtendedFabProps } from './extended-fab.types';
 import { extendedFabVariants } from './extended-fab.variants';
 import { InternalExtendedFabIcon, InternalExtendedFabLabel } from './internal';
 

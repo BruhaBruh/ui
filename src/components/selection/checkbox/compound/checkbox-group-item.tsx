@@ -1,5 +1,3 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
@@ -8,7 +6,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { useCheckboxGroupItem } from 'react-aria';
 import { useCheckboxGroupContext } from '../context';
-import { CheckboxGroupItemProps } from './checkbox-group-item.types';
+import type { CheckboxGroupItemProps } from './checkbox-group-item.types';
 import { checkboxGroupVariants } from './checkbox-group.variants';
 
 export const CheckboxGroupItem = React.forwardRef<

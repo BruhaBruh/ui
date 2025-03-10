@@ -1,9 +1,7 @@
-'use client';
-
 import { createContext } from '@/utility';
-import React from 'react';
-import { AriaButtonProps } from 'react-aria';
-import { OverlayTriggerState } from 'react-stately';
+import type React from 'react';
+import type { AriaButtonProps } from 'react-aria';
+import type { OverlayTriggerState } from 'react-stately';
 
 export type ModalContextState = {
   triggerProps?: AriaButtonProps<'button'>;

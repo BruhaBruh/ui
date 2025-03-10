@@ -1,17 +1,15 @@
 /** eslint-disable no-negated-condition */
-'use client';
-
 import { useInteractionsWithRipple } from '@/hooks';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps, withProvider } from '@/utility';
 import { IconCheck } from '@tabler/icons-react';
 import React from 'react';
 import { useMenuItem } from 'react-aria';
-import { Node, TreeState } from 'react-stately';
+import type { Node, TreeState } from 'react-stately';
 import { MenuItemContextProvider, useMenuItemContext } from '../context';
 import { menuVariants } from '../menu.variants';
 import { InternalMenuItemIcon } from './internal-menu-item-icon';
-import { Item } from './item';
+import type { Item } from './item';
 
 const InternalMenuItemImpl: React.FC<{
   item: Node<Item>;

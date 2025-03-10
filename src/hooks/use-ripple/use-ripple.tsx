@@ -1,12 +1,11 @@
-'use client';
-
 import { materialDuration } from '@/config';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { animate } from 'motion';
-import { AnimationPlaybackControls } from 'motion/react';
+import type { AnimationPlaybackControls } from 'motion/react';
 import React from 'react';
-import { PressEvent, usePress } from 'react-aria';
-import { UseRippleOptions } from './use-ripple.types';
+import type { PressEvent } from 'react-aria';
+import { usePress } from 'react-aria';
+import type { UseRippleOptions } from './use-ripple.types';
 
 type RippleData = {
   id: string | undefined;

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import React from 'react';
 import { NavLink } from 'react-router';
 import { Large } from '../../typography';
-import { NavigationNode } from '../navigation.types';
+import type { NavigationNode } from '../navigation.types';
 
 export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
   const [isOpen, setIsOpen] = React.useState(true);

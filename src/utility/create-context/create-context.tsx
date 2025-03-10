@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { deepEqual } from 'fast-equals';
 import React from 'react';
-import {
+import type {
   ContextOptions,
   Selector,
   StoreSetFn,

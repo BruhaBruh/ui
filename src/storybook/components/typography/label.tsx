@@ -1,7 +1,7 @@
-import { PropsWithAsChild } from '@/types';
+import type { PropsWithAsChild } from '@/types';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
-import React from 'react';
+import type React from 'react';
 
 export const Label: React.FC<PropsWithAsChild<'p'>> = ({
   className,

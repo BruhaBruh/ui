@@ -9,7 +9,7 @@ import {
   Title,
 } from '@/storybook/components';
 import { IconCheck, IconX } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 
 export const SwitchPage: React.FC = () => {
   return (

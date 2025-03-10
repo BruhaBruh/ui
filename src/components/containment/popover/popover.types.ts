@@ -1,4 +1,4 @@
-import { AriaPopoverProps, OverlayTriggerProps } from 'react-aria';
+import type { AriaPopoverProps, OverlayTriggerProps } from 'react-aria';
 
 export type PopoverProps = React.PropsWithChildren<
   Omit<AriaPopoverProps, 'triggerRef' | 'popoverRef' | 'placement'> &

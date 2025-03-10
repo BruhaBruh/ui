@@ -1,9 +1,7 @@
-'use client';
-
 import { withProvider } from '@/utility';
 import React from 'react';
 import { TooltipContextProvider, useTooltipSetContext } from './context';
-import { TooltipProps } from './tooltip.types';
+import type { TooltipProps } from './tooltip.types';
 
 const TooltipImpl: React.FC<TooltipProps> = ({ children, ...tooltipProps }) => {
   const setState = useTooltipSetContext();

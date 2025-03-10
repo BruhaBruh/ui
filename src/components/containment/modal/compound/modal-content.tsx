@@ -1,8 +1,6 @@
-'use client';
-
 import { Portal } from '@/components/utility';
 import { useMergedRefs } from '@/hooks';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps } from '@/utility';
 import { AnimatePresence } from 'motion/react';
 import React from 'react';

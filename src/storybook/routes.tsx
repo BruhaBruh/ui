@@ -13,7 +13,7 @@ import {
   IconTimeDuration30,
   IconTypography,
 } from '@tabler/icons-react';
-import { NavigationNode } from './components';
+import type { NavigationNode } from './components';
 import {
   BadgePage,
   ButtonPage,

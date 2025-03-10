@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { NavigationSidebarHeader } from './navigation-sidebar-header';
 import { NavigationTree } from './navigation-tree';
 

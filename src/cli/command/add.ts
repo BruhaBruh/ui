@@ -4,7 +4,7 @@ import { existsSync } from 'fs';
 import { mkdir, readFile, writeFile } from 'fs/promises';
 import ora from 'ora';
 import path from 'path';
-import { Config, Registry } from '../types';
+import type { Config, Registry } from '../types';
 import { addDependencies } from '../utils/add-dependencies';
 import { getPackageManager } from '../utils/get-package-manager';
 import { highlighter } from '../utils/highlighter';

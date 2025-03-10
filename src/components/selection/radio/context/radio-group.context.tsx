@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import { RadioGroupState } from 'react-stately';
+import type { RadioGroupState } from 'react-stately';
 
 const RadioGroupContext = React.createContext<RadioGroupState | null>(null);
 

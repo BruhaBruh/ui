@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { writeFile } from 'fs/promises';
 import prompts from 'prompts';
-import { Config } from '../types';
+import type { Config } from '../types';
 import { highlighter } from '../utils/highlighter';
 import { logger } from '../utils/logger';
 

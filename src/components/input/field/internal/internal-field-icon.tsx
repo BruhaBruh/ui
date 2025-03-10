@@ -1,8 +1,8 @@
 import { materialDuration, materialEasing } from '@/config';
 import { cn, keyFromChildren } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
-import React from 'react';
+import type React from 'react';
 import { fieldVariants } from '../field.variants';
 
 export const InternalFieldIcon: React.FC<

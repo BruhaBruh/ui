@@ -1,8 +1,8 @@
-import { AriaProps } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { AriaNumberFieldProps } from 'react-aria';
-import { FieldProps } from '../field';
-import { numberFieldVariants } from './number-field.variants';
+import type { AriaProps } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { AriaNumberFieldProps } from 'react-aria';
+import type { FieldProps } from '../field';
+import type { numberFieldVariants } from './number-field.variants';
 
 export type NumberFieldProps = Omit<
   AriaProps<'label', AriaNumberFieldProps, 'errorMessage'>,

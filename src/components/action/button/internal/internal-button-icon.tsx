@@ -1,7 +1,7 @@
 import { materialDuration, materialEasing } from '@/config';
 import { cn, keyFromChildren } from '@/utility';
 import { AnimatePresence, motion } from 'motion/react';
-import React from 'react';
+import type React from 'react';
 import { buttonVariants } from '../button.variants';
 
 export const InternalButtonIcon: React.FC<

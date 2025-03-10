@@ -1,8 +1,6 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import { IconCheck } from '@tabler/icons-react';
@@ -10,7 +8,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { useToggleButtonGroupItem } from 'react-aria';
 import { useSegmentedButtonGroupContext } from './context';
-import { SegmentedButtonProps } from './segmented-button.types';
+import type { SegmentedButtonProps } from './segmented-button.types';
 import { segmentedButtonVariants } from './segmented-button.variants';
 
 export const SegmentedButton = React.forwardRef<

@@ -1,8 +1,8 @@
-import { AriaProps } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import React from 'react';
-import { AriaFieldProps } from 'react-aria';
-import { fieldVariants } from './field.variants';
+import type { AriaProps } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type React from 'react';
+import type { AriaFieldProps } from 'react-aria';
+import type { fieldVariants } from './field.variants';
 
 export type FieldProps = Omit<
   AriaProps<'label', AriaFieldProps, 'errorMessage'>,

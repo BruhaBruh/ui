@@ -9,7 +9,7 @@ import {
   Title,
 } from '@/storybook/components';
 import { IconCoins, IconSquare } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 
 export const SegmentedButtonButtonPage: React.FC = () => {
   return (

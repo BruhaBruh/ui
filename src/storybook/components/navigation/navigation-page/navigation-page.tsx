@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 import { Title } from '../../typography';
-import { NavigationNode } from '../navigation.types';
+import type { NavigationNode } from '../navigation.types';
 import { NavigationPageTree } from './navigation-page-tree';
 
 export const NavigationPage: React.FC<{ node: NavigationNode }> = ({

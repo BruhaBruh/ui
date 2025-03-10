@@ -1,7 +1,7 @@
-import { AriaProps } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { AriaCheckboxGroupItemProps } from 'react-aria';
-import { checkboxGroupVariants } from './checkbox-group.variants';
+import type { AriaProps } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { AriaCheckboxGroupItemProps } from 'react-aria';
+import type { checkboxGroupVariants } from './checkbox-group.variants';
 
 export type CheckboxGroupItemProps = AriaProps<
   'input',

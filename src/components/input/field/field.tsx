@@ -1,11 +1,9 @@
-'use client';
-
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps, withProvider } from '@/utility';
-import React from 'react';
+import type React from 'react';
 import { useField, useFocusRing, useHover } from 'react-aria';
 import { FieldContextProvider } from './context';
-import { FieldProps } from './field.types';
+import type { FieldProps } from './field.types';
 import { fieldVariants } from './field.variants';
 import { InternalFieldIcon } from './internal/internal-field-icon';
 

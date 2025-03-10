@@ -1,8 +1,8 @@
-import { AriaProps } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { AriaTextFieldProps } from 'react-aria';
-import { FieldProps } from '../field';
-import { textAreaFieldVariants } from './text-area-field.variants';
+import type { AriaProps } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { AriaTextFieldProps } from 'react-aria';
+import type { FieldProps } from '../field';
+import type { textAreaFieldVariants } from './text-area-field.variants';
 
 export type TextAreaFieldProps = Omit<
   AriaProps<'label', AriaTextFieldProps<HTMLTextAreaElement>, 'errorMessage'>,

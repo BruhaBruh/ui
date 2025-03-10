@@ -1,6 +1,6 @@
 import { Button, Modal, ModalContent, ModalTrigger } from '@/components';
 import { Story, StoryFrame, Subtitle, Title } from '@/storybook/components';
-import React from 'react';
+import type React from 'react';
 
 export const ModalPage: React.FC = () => {
   return (

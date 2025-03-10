@@ -9,7 +9,7 @@ import {
   Title,
 } from '@/storybook/components';
 import { cn } from '@/utility';
-import React from 'react';
+import type React from 'react';
 
 export const DividerPage: React.FC = () => {
   return (

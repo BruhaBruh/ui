@@ -1,12 +1,10 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useMergedRefs } from '@/hooks';
 import { cn, mergeProps } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
 import { useDialog } from 'react-aria';
-import { DialogProps } from './dialog.types';
+import type { DialogProps } from './dialog.types';
 import { dialogVariants } from './dialog.variants';
 
 const DialogImpl = React.forwardRef<HTMLElement, DialogProps>(

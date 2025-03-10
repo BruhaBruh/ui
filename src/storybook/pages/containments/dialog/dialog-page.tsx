@@ -12,7 +12,7 @@ import {
 } from '@/components';
 import { Story, StoryFrame, Subtitle, Title } from '@/storybook/components';
 import { IconArrowBackUp } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 
 export const DialogPage: React.FC = () => {
   return (

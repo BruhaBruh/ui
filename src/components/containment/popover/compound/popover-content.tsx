@@ -1,14 +1,13 @@
-'use client';
-
 import { Portal } from '@/components/utility';
 import { materialDuration, materialEasing } from '@/config';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { AriaPopoverProps, usePopover } from 'react-aria';
-import { OverlayTriggerState } from 'react-stately';
+import type { AriaPopoverProps } from 'react-aria';
+import { usePopover } from 'react-aria';
+import type { OverlayTriggerState } from 'react-stately';
 import { usePopoverContext } from '../context';
 import { popoverVariants } from '../popover.variants';
 

@@ -1,6 +1,4 @@
-'use client';
-
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn } from '@/utility';
 import { dialogVariants } from '../dialog.variants';
 

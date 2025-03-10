@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationNode } from './navigation.types';
+import type { NavigationNode } from './navigation.types';
 
 export const NavigationContext = React.createContext<NavigationNode[]>([]);
 

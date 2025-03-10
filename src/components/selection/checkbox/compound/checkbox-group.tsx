@@ -1,12 +1,10 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import React from 'react';
 import { useCheckboxGroup } from 'react-aria';
 import { useCheckboxGroupState } from 'react-stately';
 import { CheckboxGroupContextProvider } from '../context';
-import { CheckboxGroupProps } from './checkbox-group.types';
+import type { CheckboxGroupProps } from './checkbox-group.types';
 import { checkboxGroupVariants } from './checkbox-group.variants';
 
 export const CheckboxGroup = React.forwardRef<HTMLElement, CheckboxGroupProps>(

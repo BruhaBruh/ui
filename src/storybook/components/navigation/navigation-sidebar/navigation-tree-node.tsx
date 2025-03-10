@@ -3,7 +3,7 @@ import { IconChevronUp, IconFile, IconFolder } from '@tabler/icons-react';
 import { motion } from 'motion/react';
 import React from 'react';
 import { NavLink } from 'react-router';
-import { NavigationNode } from '../navigation.types';
+import type { NavigationNode } from '../navigation.types';
 
 export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
   const [isOpen, setIsOpen] = React.useState(true);

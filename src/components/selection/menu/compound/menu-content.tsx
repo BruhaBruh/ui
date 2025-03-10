@@ -1,13 +1,14 @@
-'use client';
-
-import { PopoverContent, PopoverContentProps } from '@/components/containment';
+import type { PopoverContentProps } from '@/components/containment';
+import { PopoverContent } from '@/components/containment';
 import { cn } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import React from 'react';
-import { AriaMenuProps, useMenu } from 'react-aria';
+import type { AriaMenuProps } from 'react-aria';
+import { useMenu } from 'react-aria';
 import { useTreeState } from 'react-stately';
 import { useMenuSetContext } from '../context';
-import { InternalMenuItem, InternalMenuSection, Item } from '../internal';
+import type { Item } from '../internal';
+import { InternalMenuItem, InternalMenuSection } from '../internal';
 import { menuVariants } from '../menu.variants';
 
 export type MenuContentProps = AriaMenuProps<Item> &

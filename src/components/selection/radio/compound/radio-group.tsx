@@ -1,12 +1,10 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import React from 'react';
 import { useRadioGroup } from 'react-aria';
 import { useRadioGroupState } from 'react-stately';
 import { RadioGroupContextProvider } from '../context';
-import { RadioGroupProps } from './radio-group.types';
+import type { RadioGroupProps } from './radio-group.types';
 import { radioGroupVariants } from './radio-group.variants';
 
 export const RadioGroup = React.forwardRef<HTMLElement, RadioGroupProps>(

@@ -1,7 +1,8 @@
 import { Checkbox, Radio, RadioGroup, Switch } from '@/components';
-import React from 'react';
+import type React from 'react';
 import { Label, Text } from '../typography';
-import { Argument, useStoryPlayground } from './story-playground-context';
+import type { Argument } from './story-playground-context';
+import { useStoryPlayground } from './story-playground-context';
 
 export const StoryPlaygroundControl: React.FC<{
   name: string;

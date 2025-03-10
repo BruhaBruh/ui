@@ -1,6 +1,4 @@
-'use client';
-
-import { ContextState } from '@/types';
+import type { ContextState } from '@/types';
 import React from 'react';
 
 export type ButtonContextState = ContextState<{

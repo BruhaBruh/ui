@@ -1,11 +1,9 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useSeparator } from 'react-aria';
-import { DividerProps } from './divider.types';
+import type { DividerProps } from './divider.types';
 import { dividerVariants } from './divider.variants';
 
 export const Divider = React.forwardRef<HTMLElement, DividerProps>(

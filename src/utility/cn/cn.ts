@@ -1,4 +1,5 @@
-import { ClassValue, clsx } from 'clsx';
+import type { ClassValue } from 'clsx';
+import { clsx } from 'clsx';
 import { extendTailwindMerge, mergeConfigs, validators } from 'tailwind-merge';
 
 const twMerge = extendTailwindMerge((c) =>

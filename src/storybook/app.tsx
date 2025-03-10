@@ -1,6 +1,7 @@
 import { materialDuration, materialEasing } from '@/config';
 import { MotionConfig } from 'motion/react';
-import React, { Suspense } from 'react';
+import type React from 'react';
+import { Suspense } from 'react';
 import { NavigationProvider } from './components';
 import { routes } from './routes';
 import { Storybook } from './storybook';

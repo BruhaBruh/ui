@@ -1,10 +1,8 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
-import { BadgeProps } from './badge.types';
+import type { BadgeProps } from './badge.types';
 import { badgeVariants } from './badge.variants';
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(

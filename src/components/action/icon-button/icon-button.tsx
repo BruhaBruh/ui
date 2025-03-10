@@ -1,13 +1,11 @@
-'use client';
-
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps, unwrapChildren } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton, useToggleButton } from 'react-aria';
 import { useToggleState } from 'react-stately';
-import { IconButtonProps } from './icon-button.types';
+import type { IconButtonProps } from './icon-button.types';
 import { iconButtonVariants } from './icon-button.variants';
 import { InternalIconButtonIcon } from './internal';
 

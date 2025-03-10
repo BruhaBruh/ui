@@ -1,9 +1,7 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps, throttle } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { useTooltip } from 'react-aria';

@@ -1,5 +1,5 @@
 import { materialDuration } from '../../../../config';
-import { ApplyUIPlugin } from '../../../ui-plugin.types';
+import type { ApplyUIPlugin } from '../../../ui-plugin.types';
 
 export const applyMaterialDurations: ApplyUIPlugin = ({ matchUtilities }) => {
   matchUtilities(

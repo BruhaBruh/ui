@@ -1,3 +1,3 @@
-import { PopoverProps } from '@/components/containment';
+import type { PopoverProps } from '@/components/containment';
 
 export type MenuProps = PopoverProps;

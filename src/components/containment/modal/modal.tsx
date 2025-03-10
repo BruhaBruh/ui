@@ -1,12 +1,10 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { withProvider } from '@/utility';
 import React from 'react';
 import { useModalOverlay, useOverlayTrigger } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 import { ModalContextProvider, useModalSetContext } from './context';
-import { ModalProps } from './modal.types';
+import type { ModalProps } from './modal.types';
 
 const ModalImpl = React.forwardRef<HTMLElement, ModalProps>(
   (

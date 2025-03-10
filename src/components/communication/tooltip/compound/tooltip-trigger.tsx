@@ -1,13 +1,9 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
-import { AriaProps } from '@/types';
+import type { AriaProps } from '@/types';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
-import {
-  TooltipTriggerProps as AriaTooltipTriggerProps,
-  useTooltipTrigger,
-} from 'react-aria';
+import type { TooltipTriggerProps as AriaTooltipTriggerProps } from 'react-aria';
+import { useTooltipTrigger } from 'react-aria';
 import { useTooltipTriggerState } from 'react-stately';
 import { useTooltipContext, useTooltipSetContext } from '../context';
 

@@ -1,18 +1,13 @@
-'use client';
-
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { mergeProps } from '@/utility';
-import React from 'react';
-import {
+import type React from 'react';
+import type {
   AriaFocusRingProps,
   HoverProps,
   LongPressProps,
   PressHookProps,
-  useFocusRing,
-  useHover,
-  useLongPress,
-  usePress,
 } from 'react-aria';
+import { useFocusRing, useHover, useLongPress, usePress } from 'react-aria';
 
 export type UseInteractions<
   T extends

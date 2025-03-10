@@ -1,6 +1,6 @@
-import { PropsWithAsChild } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { badgeVariants } from './badge.variants';
+import type { PropsWithAsChild } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { badgeVariants } from './badge.variants';
 
 export type BadgeProps = PropsWithAsChild<'section', 'children'> &
   VariantProps<typeof badgeVariants> & {

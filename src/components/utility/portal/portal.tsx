@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { PortalProps } from './portal.types';
+import type { PortalProps } from './portal.types';
 
 export const Portal: React.FC<PortalProps> = ({ children, container }) => {
   const [mounted, setMounted] = React.useState(false);

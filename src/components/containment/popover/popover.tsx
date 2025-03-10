@@ -1,9 +1,7 @@
-'use client';
-
 import { withProvider } from '@/utility';
 import React from 'react';
 import { PopoverContextProvider, usePopoverSetContext } from './context';
-import { PopoverProps } from './popover.types';
+import type { PopoverProps } from './popover.types';
 
 const PopoverImpl: React.FC<PopoverProps> = ({ children, ...popoverProps }) => {
   const setState = usePopoverSetContext();

@@ -1,8 +1,8 @@
 import { materialDuration, materialEasing } from '@/config';
 import { cn, keyFromChildren } from '@/utility';
 import { AnimatePresence, motion } from 'motion/react';
-import React from 'react';
-import { FabProps } from '../fab.types';
+import type React from 'react';
+import type { FabProps } from '../fab.types';
 import { fabVariants } from '../fab.variants';
 
 const sizes = {

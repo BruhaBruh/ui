@@ -1,7 +1,7 @@
-import { EmptyObject, Schema } from '@bruhabruh/type-safe';
-import React from 'react';
-import { AsChildProp } from './as-prop';
-import { Props } from './props';
+import type { EmptyObject, Schema } from '@bruhabruh/type-safe';
+import type React from 'react';
+import type { AsChildProp } from './as-prop';
+import type { Props } from './props';
 
 export type PropsWithAsChild<
   T extends

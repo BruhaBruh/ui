@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { useNavigationTree } from '../navigation.context';
 import { NavigationTreeNode } from './navigation-tree-node';
 

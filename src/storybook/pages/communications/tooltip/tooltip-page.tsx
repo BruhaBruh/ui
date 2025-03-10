@@ -1,10 +1,10 @@
+import type { TooltipContentProps } from '@/components';
 import {
   Button,
   IconButton,
   Tooltip,
   TooltipActions,
   TooltipContent,
-  TooltipContentProps,
   TooltipSubhead,
   TooltipText,
   TooltipTrigger,
@@ -29,7 +29,7 @@ import {
   IconChevronUpRight,
   IconSquare,
 } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 
 export const TooltipPage: React.FC = () => {
   return (

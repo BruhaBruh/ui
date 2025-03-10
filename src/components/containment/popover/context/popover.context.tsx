@@ -1,8 +1,6 @@
-'use client';
-
 import { createContext } from '@/utility';
-import { AriaPopoverProps, OverlayTriggerProps } from 'react-aria';
-import { OverlayTriggerState } from 'react-stately';
+import type { AriaPopoverProps, OverlayTriggerProps } from 'react-aria';
+import type { OverlayTriggerState } from 'react-stately';
 
 export type PopoverContextState = {
   state?: OverlayTriggerState;

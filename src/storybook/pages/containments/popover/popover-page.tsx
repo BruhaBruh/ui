@@ -1,9 +1,9 @@
+import type { PopoverContentProps } from '@/components';
 import {
   Button,
   IconButton,
   Popover,
   PopoverContent,
-  PopoverContentProps,
   PopoverTrigger,
 } from '@/components';
 import { Story, StoryFrame, Subtitle, Title } from '@/storybook/components';
@@ -17,7 +17,7 @@ import {
   IconChevronUpLeft,
   IconChevronUpRight,
 } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 
 const PopoverStory: React.FC<
   Pick<PopoverContentProps, 'position' | 'children'>

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Registry } from './types';
+import type { Registry } from './types';
 import { highlighter } from './utils/highlighter';
 import { logger } from './utils/logger';
 

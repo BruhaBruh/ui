@@ -1,7 +1,7 @@
-import { AriaProps } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { AriaRadioProps } from 'react-aria';
-import { radioVariants } from './radio.variants';
+import type { AriaProps } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { AriaRadioProps } from 'react-aria';
+import type { radioVariants } from './radio.variants';
 
 export type RadioProps = AriaProps<'input', AriaRadioProps> &
   VariantProps<typeof radioVariants>;

@@ -1,5 +1,5 @@
 import { themePlugin } from '@bruhabruh/theme';
-import { Config } from 'tailwindcss/types/config';
+import type { Config } from 'tailwindcss/types/config';
 import { uiPlugin } from './src/tailwind';
 
 const config = {

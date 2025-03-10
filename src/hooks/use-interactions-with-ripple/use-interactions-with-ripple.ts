@@ -1,9 +1,8 @@
-import { Props } from '@/types';
-import {
-  UseInteractions,
-  useInteractions,
-} from '../use-interactions/use-interactions';
-import { UseRipple, UseRippleOptions, useRipple } from '../use-ripple';
+import type { Props } from '@/types';
+import type { UseInteractions } from '../use-interactions/use-interactions';
+import { useInteractions } from '../use-interactions/use-interactions';
+import type { UseRipple, UseRippleOptions } from '../use-ripple';
+import { useRipple } from '../use-ripple';
 
 export const useInteractionsWithRipple = <
   T extends

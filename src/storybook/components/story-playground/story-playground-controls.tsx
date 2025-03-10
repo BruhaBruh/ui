@@ -1,6 +1,6 @@
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn } from '@/utility';
-import React from 'react';
+import type React from 'react';
 import { useStoryPlayground } from './story-playground-context';
 import { StoryPlaygroundControl } from './story-playground-control';
 

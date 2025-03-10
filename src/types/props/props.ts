@@ -1,5 +1,5 @@
-import { EmptyObject, Schema } from '@bruhabruh/type-safe';
-import React from 'react';
+import type { EmptyObject, Schema } from '@bruhabruh/type-safe';
+import type React from 'react';
 
 export type Props<
   T extends

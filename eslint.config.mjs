@@ -23,6 +23,13 @@ export default eslint.build(
   eslint.configs.prettier.recommended,
   eslint.configs.tailwind.recommended,
   {
+    name: '@bruhabruh/type-imports',
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/consistent-type-imports': 'error',
+    },
+  },
+  {
     name: '@bruhabruh/type-safe',
     rules: {
       'new-cap': [

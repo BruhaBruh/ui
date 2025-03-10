@@ -1,4 +1,4 @@
-import { EmptyObject, UnknownRecord } from '@bruhabruh/type-safe';
+import type { EmptyObject, UnknownRecord } from '@bruhabruh/type-safe';
 import React from 'react';
 
 type BaseArgument<

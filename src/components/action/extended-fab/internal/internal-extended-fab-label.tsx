@@ -1,8 +1,8 @@
 import { materialDuration, materialEasing } from '@/config';
 import { cn } from '@/utility';
 import { AnimatePresence, motion } from 'motion/react';
-import React from 'react';
-import { ExtendedFabProps } from '../extended-fab.types';
+import type React from 'react';
+import type { ExtendedFabProps } from '../extended-fab.types';
 import { extendedFabVariants } from '../extended-fab.variants';
 
 export const InternalExtendedFabLabel: React.FC<

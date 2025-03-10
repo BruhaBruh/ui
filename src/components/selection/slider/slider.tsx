@@ -1,12 +1,10 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import React from 'react';
 import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
 import { SliderThumb } from './internal';
-import { SliderProps } from './slider.types';
+import type { SliderProps } from './slider.types';
 import { sliderVariants } from './slider.variants';
 
 export const Slider = React.forwardRef<HTMLElement, SliderProps>(

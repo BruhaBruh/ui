@@ -1,12 +1,10 @@
-'use client';
-
 import { useInteractionsWithRipple } from '@/hooks';
 import { useMergedRefs } from '@/hooks/use-merge-refs';
 import { cn, mergeProps, unwrapChildren, withProvider } from '@/utility';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useButton } from 'react-aria';
-import { ButtonProps } from './button.types';
+import type { ButtonProps } from './button.types';
 import { buttonVariants } from './button.variants';
 import { ButtonContextProvider, useButtonContext } from './context';
 import { InternalButtonIcon } from './internal';

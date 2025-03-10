@@ -1,4 +1,4 @@
-import { ApplyUIPlugin } from '../../../ui-plugin.types';
+import type { ApplyUIPlugin } from '../../../ui-plugin.types';
 
 const defaultValuesObject = {
   0: '0px 0px #0000',

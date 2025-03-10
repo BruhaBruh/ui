@@ -1,9 +1,7 @@
-'use client';
-
 import { createContext } from '@/utility';
-import { AriaMenuOptions } from 'react-aria';
-import { TreeState } from 'react-stately';
-import { Item } from '../internal';
+import type { AriaMenuOptions } from 'react-aria';
+import type { TreeState } from 'react-stately';
+import type { Item } from '../internal';
 
 export type MenuContextState = {
   state?: TreeState<Item>;

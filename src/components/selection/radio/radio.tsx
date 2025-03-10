@@ -1,5 +1,3 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
@@ -7,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { useRadio } from 'react-aria';
 import { useRadioGroupContext } from './context';
-import { RadioProps } from './radio.types';
+import type { RadioProps } from './radio.types';
 import { radioVariants } from './radio.variants';
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(

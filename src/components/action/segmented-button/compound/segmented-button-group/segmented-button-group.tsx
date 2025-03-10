@@ -1,5 +1,3 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
 import { Slot } from '@radix-ui/react-slot';
@@ -8,7 +6,7 @@ import { useToggleButtonGroup } from 'react-aria';
 import { useToggleGroupState } from 'react-stately';
 import { SegmentedButtonGroupContextProvider } from '../../context';
 import { segmentedButtonVariants } from '../../segmented-button.variants';
-import { SegmentedButtonGroupProps } from './segmented-button-group.types';
+import type { SegmentedButtonGroupProps } from './segmented-button-group.types';
 
 export const SegmentedButtonGroup = React.forwardRef<
   HTMLElement,

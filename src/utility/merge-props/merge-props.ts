@@ -1,4 +1,4 @@
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn } from '../cn';
 
 /* eslint-disable no-param-reassign */

@@ -1,4 +1,4 @@
-import { UnknownRecord } from '@bruhabruh/type-safe';
+import type { UnknownRecord } from '@bruhabruh/type-safe';
 import React from 'react';
 
 export const unwrapChildren = (

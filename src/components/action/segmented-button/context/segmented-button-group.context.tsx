@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import { ToggleGroupState } from 'react-stately';
+import type { ToggleGroupState } from 'react-stately';
 
 const SegmentedButtonGroupContext =
   React.createContext<ToggleGroupState | null>(null);

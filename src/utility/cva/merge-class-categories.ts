@@ -1,5 +1,5 @@
-import { ClassValue } from 'class-variance-authority/types';
-import { ClassCategories } from './cva.types';
+import type { ClassValue } from 'class-variance-authority/types';
+import type { ClassCategories } from './cva.types';
 
 export const mergeClassCategories = (
   classCategories: ClassCategories,

@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavigationNode } from '../navigation.types';
+import type React from 'react';
+import type { NavigationNode } from '../navigation.types';
 import { NavigatioPageTreeNode } from './navigation-page-tree-node';
 
 export const NavigationPageTree: React.FC<{

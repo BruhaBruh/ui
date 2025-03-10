@@ -1,5 +1,3 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useInteractionsWithRipple, useMergedRefs } from '@/hooks';
 import { cn } from '@/utility';
@@ -8,7 +6,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { useCheckbox } from 'react-aria';
 import { useToggleState } from 'react-stately';
-import { CheckboxProps } from './checkbox.types';
+import type { CheckboxProps } from './checkbox.types';
 import { checkboxVariants } from './checkbox.variants';
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(

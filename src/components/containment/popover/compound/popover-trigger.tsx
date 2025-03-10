@@ -1,11 +1,10 @@
-'use client';
-
 import { useMergedRefs } from '@/hooks';
-import { AriaProps } from '@/types';
+import type { AriaProps } from '@/types';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import React from 'react';
 import { useOverlayTrigger } from 'react-aria';
-import { OverlayTriggerProps, useOverlayTriggerState } from 'react-stately';
+import type { OverlayTriggerProps } from 'react-stately';
+import { useOverlayTriggerState } from 'react-stately';
 import { usePopoverContext, usePopoverSetContext } from '../context';
 
 export type PopoverTriggerProps = AriaProps<'button', OverlayTriggerProps>;

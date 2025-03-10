@@ -1,11 +1,13 @@
-import { PopoverTrigger, PopoverTriggerProps } from '@/components/containment';
+import type { PopoverTriggerProps } from '@/components/containment';
+import { PopoverTrigger } from '@/components/containment';
 import { useMergedRefs } from '@/hooks';
 import { mergeProps } from '@/utility';
 import React from 'react';
-import { AriaMenuTriggerProps, useMenuTrigger } from 'react-aria';
+import type { AriaMenuTriggerProps } from 'react-aria';
+import { useMenuTrigger } from 'react-aria';
 import { useMenuTriggerState } from 'react-stately';
 import { useMenuSetContext } from '../context';
-import { Item } from '../internal';
+import type { Item } from '../internal';
 
 export type MenuTriggerProps = AriaMenuTriggerProps & PopoverTriggerProps;
 

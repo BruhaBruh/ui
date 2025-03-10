@@ -9,7 +9,7 @@ import {
   Title,
 } from '@/storybook/components';
 import { IconCircle, IconSquare } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 import { NavLink } from 'react-router';
 
 export const IconButtonPage: React.FC = () => {

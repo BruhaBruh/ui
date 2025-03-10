@@ -1,5 +1,5 @@
-import { EmptyObject, Schema } from '@bruhabruh/type-safe';
-import { AsChildProp } from './as-prop';
+import type { EmptyObject, Schema } from '@bruhabruh/type-safe';
+import type { AsChildProp } from './as-prop';
 
 export type AriaProps<
   T extends React.ElementType,

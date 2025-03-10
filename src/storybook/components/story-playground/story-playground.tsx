@@ -1,9 +1,8 @@
 import React from 'react';
-import { Story, StoryProps } from '../story';
-import {
-  StoryPlaygroundContext,
-  StoryPlaygroundState,
-} from './story-playground-context';
+import type { StoryProps } from '../story';
+import { Story } from '../story';
+import type { StoryPlaygroundState } from './story-playground-context';
+import { StoryPlaygroundContext } from './story-playground-context';
 
 const computeDefaultValues = (
   args: StoryPlaygroundState['arguments'],

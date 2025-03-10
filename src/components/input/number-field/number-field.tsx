@@ -1,14 +1,12 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
-import { Props } from '@/types';
+import type { Props } from '@/types';
 import { cn, mergeProps } from '@/utility';
 import { motion } from 'motion/react';
 import React from 'react';
 import { useFocus, useNumberField } from 'react-aria';
 import { useNumberFieldState } from 'react-stately';
 import { Field } from '../field';
-import { NumberFieldProps } from './number-field.types';
+import type { NumberFieldProps } from './number-field.types';
 import { numberFieldVariants } from './number-field.variants';
 
 export const NumberField: React.FC<NumberFieldProps> = ({

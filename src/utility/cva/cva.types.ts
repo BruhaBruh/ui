@@ -1,5 +1,5 @@
-import { cva } from 'class-variance-authority';
-import {
+import type { cva } from 'class-variance-authority';
+import type {
   ClassProp as BaseClassProp,
   ClassValue,
   StringToBoolean,

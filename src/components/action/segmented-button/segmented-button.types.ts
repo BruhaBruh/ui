@@ -1,7 +1,7 @@
-import { AriaPropsWithAsChild } from '@/types';
-import { VariantProps } from 'class-variance-authority';
-import { useToggleButtonGroupItem } from 'react-aria';
-import { segmentedButtonVariants } from './segmented-button.variants';
+import type { AriaPropsWithAsChild } from '@/types';
+import type { VariantProps } from 'class-variance-authority';
+import type { useToggleButtonGroupItem } from 'react-aria';
+import type { segmentedButtonVariants } from './segmented-button.variants';
 
 type AriaToggleButtonGroupItemProps = Parameters<
   typeof useToggleButtonGroupItem

@@ -1,9 +1,7 @@
-'use client';
-
 import { createContext } from '@/utility';
-import React from 'react';
-import { AriaTooltipProps } from 'react-aria';
-import { TooltipTriggerState } from 'react-stately';
+import type React from 'react';
+import type { AriaTooltipProps } from 'react-aria';
+import type { TooltipTriggerState } from 'react-stately';
 
 export type TooltipContextState = {
   subhead?: React.ReactNode;

@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import { CheckboxGroupState } from 'react-stately';
+import type { CheckboxGroupState } from 'react-stately';
 
 const CheckboxGroupContext = React.createContext<CheckboxGroupState | null>(
   null,

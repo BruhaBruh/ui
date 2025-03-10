@@ -1,14 +1,13 @@
-'use client';
-
 import { materialDuration, materialEasing } from '@/config';
 import { useMergedRefs } from '@/hooks';
-import { AriaProps } from '@/types';
+import type { AriaProps } from '@/types';
 import { cn } from '@/utility';
-import { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
-import { AriaSliderThumbOptions, useSliderThumb } from 'react-aria';
-import { SliderState } from 'react-stately';
+import type { AriaSliderThumbOptions } from 'react-aria';
+import { useSliderThumb } from 'react-aria';
+import type { SliderState } from 'react-stately';
 import { sliderVariants } from '../slider.variants';
 
 export type SliderThumbProps = Omit<

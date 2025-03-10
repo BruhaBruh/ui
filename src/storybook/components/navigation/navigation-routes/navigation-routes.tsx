@@ -1,8 +1,8 @@
-import React from 'react';
+import type React from 'react';
 import { Route, Routes } from 'react-router';
 import { NavigationPage } from '../navigation-page';
 import { useNavigationTree } from '../navigation.context';
-import { NavigationNode } from '../navigation.types';
+import type { NavigationNode } from '../navigation.types';
 
 const nodesToRoutes = (
   nodes: NavigationNode[],
