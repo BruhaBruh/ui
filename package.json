@@ -1,6 +1,6 @@
 {
   "name": "@bruhabruh/ui",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "type": "module",
   "description": "BruhaBruh UI Library",
   "author": "BruhaBruh",
@@ -26,21 +26,23 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@antfu/ni": "^23.3.1",
+    "@antfu/ni": "^24.2.0",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "commander": "^13.1.0",
+    "embla-carousel": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "fast-equals": "^5.2.2",
     "kleur": "^4.1.5",
-    "motion": "^12.4.10",
+    "motion": "^12.5.0",
     "ora": "^8.2.0",
     "prompts": "^2.4.2",
     "react": "^19.0.0",
-    "react-aria": "^3.38.0",
+    "react-aria": "^3.38.1",
     "react-dom": "^19.0.0",
-    "react-scan": "^0.2.13",
-    "react-stately": "^3.36.0",
+    "react-scan": "^0.2.14",
+    "react-stately": "^3.36.1",
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
@@ -73,7 +75,7 @@
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "vite": "^6.2.1",
+    "vite": "^6.2.2",
     "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.0.8"
   },

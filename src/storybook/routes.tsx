@@ -17,7 +17,9 @@ import type { NavigationNode } from './components';
 import {
   BadgePage,
   ButtonPage,
+  CarouselPage,
   CheckboxPage,
+  ContainerPage,
   DialogPage,
   DividerPage,
   DurationPage,
@@ -185,6 +187,18 @@ export const routes: NavigationNode[] = [
             text: 'Popover',
             href: '/popover',
             page: <PopoverPage />,
+          },
+          {
+            type: 'page',
+            text: 'Container',
+            href: '/container',
+            page: <ContainerPage />,
+          },
+          {
+            type: 'page',
+            text: 'Carousel',
+            href: '/carousel',
+            page: <CarouselPage />,
           },
         ],
       },

@@ -456,7 +456,8 @@ const labelVariants = cva(
 
 const iconVariants = cva({
   name: 'button--icon',
-  layout: 'relative inline-block',
+  layout: 'relative',
+  flex: 'inline-flex',
   box: 'size-4.5',
   overflow: 'overflow-hidden empty:hidden',
   other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',

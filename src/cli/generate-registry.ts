@@ -17,6 +17,8 @@ const CONFIG = {
     'react-stately',
     'tailwind-merge',
     '@tabler/icons-react',
+    'embla-carousel',
+    'embla-carousel-react',
   ],
   devDependencies: [
     '@bruhabruh/type-safe',
