@@ -1,18 +1,26 @@
-import type { Props } from '@/types';
+import { useMergedRefs } from '@/hooks';
+import type { PropsWithAsChild } from '@/types';
 import { cn } from '@/utility';
+import { Slot } from '@radix-ui/react-slot';
+import React from 'react';
 import { carouselVariants } from '../carousel.variants';
 
-export const CarouselSlideContent: React.FC<Props<'article'>> = ({
-  className,
-  children,
-  ...props
-}) => {
+export const CarouselSlideContent = React.forwardRef<
+  HTMLElement,
+  PropsWithAsChild<'section'>
+>(({ asChild, className, children, ...props }, forwardedRef) => {
+  const ref = useMergedRefs(forwardedRef);
+
+  const Comp = asChild ? Slot : 'section';
+
   return (
-    <section
+    <Comp
       {...props}
+      ref={ref}
       className={cn(carouselVariants.slideContent(), className)}
     >
       {children}
-    </section>
+    </Comp>
   );
-};
+});
+CarouselSlideContent.displayName = 'CarouselSlideContent';

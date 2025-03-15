@@ -365,12 +365,12 @@
     },
     {
       "name": "containment/carousel/compound/carousel-slide-content.tsx",
-      "content": "import type { Props } from '@/types';\nimport { cn } from '@/utility';\nimport { carouselVariants } from '../carousel.variants';\n\nexport const CarouselSlideContent: React.FC<Props<'article'>> = ({\n  className,\n  children,\n  ...props\n}) => {\n  return (\n    <section\n      {...props}\n      className={cn(carouselVariants.slideContent(), className)}\n    >\n      {children}\n    </section>\n  );\n};\n",
+      "content": "import { useMergedRefs } from '@/hooks';\nimport type { PropsWithAsChild } from '@/types';\nimport { cn } from '@/utility';\nimport { Slot } from '@radix-ui/react-slot';\nimport React from 'react';\nimport { carouselVariants } from '../carousel.variants';\n\nexport const CarouselSlideContent = React.forwardRef<\n  HTMLElement,\n  PropsWithAsChild<'section'>\n>(({ asChild, className, children, ...props }, forwardedRef) => {\n  const ref = useMergedRefs(forwardedRef);\n\n  const Comp = asChild ? Slot : 'section';\n\n  return (\n    <Comp\n      {...props}\n      ref={ref}\n      className={cn(carouselVariants.slideContent(), className)}\n    >\n      {children}\n    </Comp>\n  );\n});\nCarouselSlideContent.displayName = 'CarouselSlideContent';\n",
       "type": "components"
     },
     {
       "name": "containment/carousel/compound/carousel-slide.tsx",
-      "content": "import type { Props } from '@/types';\nimport { cn } from '@/utility';\nimport { carouselVariants } from '../carousel.variants';\n\nexport const CarouselSlide: React.FC<Props<'article'>> = ({\n  className,\n  children,\n  ...props\n}) => {\n  return (\n    <article {...props} className={cn(carouselVariants.slide(), className)}>\n      {children}\n    </article>\n  );\n};\n",
+      "content": "import { useMergedRefs } from '@/hooks';\nimport type { PropsWithAsChild } from '@/types';\nimport { cn } from '@/utility';\nimport { Slot } from '@radix-ui/react-slot';\nimport React from 'react';\nimport { carouselVariants } from '../carousel.variants';\n\nexport const CarouselSlide = React.forwardRef<\n  HTMLElement,\n  PropsWithAsChild<'article'>\n>(({ asChild, className, children, ...props }, forwardedRef) => {\n  const ref = useMergedRefs(forwardedRef);\n\n  const Comp = asChild ? Slot : 'article';\n\n  return (\n    <Comp\n      {...props}\n      ref={ref}\n      className={cn(carouselVariants.slide(), className)}\n    >\n      {children}\n    </Comp>\n  );\n});\nCarouselSlide.displayName = 'CarouselSlide';\n",
       "type": "components"
     },
     {
