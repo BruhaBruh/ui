@@ -530,7 +530,7 @@
     },
     {
       "name": "containment/index.ts",
-      "content": "export * from './container';\nexport * from './dialog';\nexport * from './divider';\nexport * from './modal';\nexport * from './popover';\nexport * from './carousel';\n",
+      "content": "export * from './carousel';\nexport * from './container';\nexport * from './dialog';\nexport * from './divider';\nexport * from './modal';\nexport * from './popover';\n",
       "type": "components"
     },
     {
