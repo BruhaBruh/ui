@@ -7,4 +7,5 @@ export type SliderProps = AriaProps<'section', AriaSliderProps> &
   VariantProps<typeof sliderVariants> & {
     formatOptions?: Intl.NumberFormatOptions;
     variant?: 'continuous' | 'centered';
+    isActiveThumb?: (index: number, withMultipleThumbs: boolean) => boolean;
   };

@@ -32,7 +32,7 @@ const labelVariants = cva({
 
 const trackVariants = cva({
   name: 'slider--track',
-  flex: 'inline-flex items-center justify-between',
+  flex: 'inline-flex items-center',
   box: 'h-12',
   layout: 'relative',
 });
@@ -40,7 +40,7 @@ const trackVariants = cva({
 const activeTrackVariants = cva(
   {
     name: 'slider--active-track',
-    layout: 'relative',
+    layout: 'absolute',
     box: 'h-4',
     flex: 'inline-flex items-center',
     background: 'bg-primary',
@@ -94,7 +94,7 @@ const activeTrackVariants = cva(
 const inactiveTrackVariants = cva(
   {
     name: 'slider--inactive-track',
-    layout: 'relative',
+    layout: 'absolute',
     box: 'h-4',
     flex: 'inline-flex items-center',
     background: 'bg-secondary-container',
@@ -139,7 +139,7 @@ const inactiveTrackVariants = cva(
           ],
         },
         center: {
-          borders: 'rounded-xs',
+          borders: 'rounded-3xs',
         },
         right: {
           borders: 'rounded-l-xs rounded-r-3xl',

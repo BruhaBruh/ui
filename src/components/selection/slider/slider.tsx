@@ -10,6 +10,9 @@ import { sliderVariants } from './slider.variants';
 export const Slider = React.forwardRef<HTMLElement, SliderProps>(
   (
     {
+      isActiveThumb = (index, withMultipleThumbs) => {
+        return withMultipleThumbs ? index % 2 === 1 : index === 0;
+      },
       color,
       variant = 'continuous',
       className,
@@ -26,6 +29,7 @@ export const Slider = React.forwardRef<HTMLElement, SliderProps>(
       ...props,
       minValue,
       maxValue,
+      step,
       numberFormatter,
     });
 
@@ -36,8 +40,26 @@ export const Slider = React.forwardRef<HTMLElement, SliderProps>(
     );
 
     const percent = state.values.map((v) =>
-      Math.floor(state.getValuePercent(v) * 100),
+      Number.parseFloat((state.getValuePercent(v) * 100).toFixed(2)),
     );
+
+    const trackStyles = Array(percent.length + 1)
+      .fill(null)
+      .map((_, index, arr) => {
+        const percentBefore = percent[index - 1] ?? 0;
+        let currentTrackPercent = percent[index] - percentBefore;
+        const isFirst = index === 0;
+        const isLast = index + 1 === arr.length;
+        const inCenter = !isFirst && !isLast;
+        if (isLast) {
+          currentTrackPercent = 100 - percentBefore;
+        }
+
+        return {
+          width: `calc(${currentTrackPercent}% - ${inCenter ? '16px' : '8px'})`,
+          left: isFirst ? '0%' : `calc(${percentBefore}% + 8px)`,
+        };
+      });
 
     return (
       <section
@@ -67,22 +89,42 @@ export const Slider = React.forwardRef<HTMLElement, SliderProps>(
               state={state}
               trackRef={ref}
               color={color}
+              formatter={numberFormatter}
             />
           ))}
-          <section
-            style={{
-              width: `calc(${percent[0]}% - 8px)`,
-            }}
-            className={cn(
-              percent.length === 2 || variant === 'centered'
-                ? sliderVariants.inactiveTrack({ position: 'left', color })
-                : sliderVariants.activeTrack({ position: 'left', color }),
-            )}
-          />
-          {percent.length === 2 && (
+          {trackStyles.map((style, index, arr) => {
+            const isFirst = index === 0;
+            const isLast = index + 1 === arr.length;
+            const withMultipleThumbs = arr.length !== 2;
+
+            let position: 'center' | 'right' | 'left' = 'center';
+            if (isFirst) position = 'left';
+            if (isLast) position = 'right';
+
+            return (
+              <section
+                key={index}
+                style={style}
+                className={cn(
+                  variant === 'continuous' &&
+                    isActiveThumb(index, withMultipleThumbs)
+                    ? sliderVariants.activeTrack({
+                        position,
+                        color,
+                      })
+                    : sliderVariants.inactiveTrack({
+                        position,
+                        color,
+                      }),
+                )}
+              />
+            );
+          })}
+
+          {/* {trackWidth.length === 3 && (
             <section
               style={{
-                width: `calc(100% - (100% - ${percent[1]}%) - ${percent[0]}% - 16px)`,
+                width: trackWidth[1],
               }}
               className={cn(sliderVariants.activeTrack({ color }))}
             >
@@ -93,12 +135,12 @@ export const Slider = React.forwardRef<HTMLElement, SliderProps>(
           )}
           <section
             style={{
-              width: `calc(100% - ${percent[1] ?? percent[0]}% - 8px)`,
+              width: trackWidth[2] ?? trackWidth[1],
             }}
             className={cn(
               sliderVariants.inactiveTrack({ position: 'right', color }),
             )}
-          />
+          /> */}
         </section>
       </section>
     );

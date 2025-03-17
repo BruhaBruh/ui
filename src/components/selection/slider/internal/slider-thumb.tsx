@@ -16,10 +16,11 @@ export type SliderThumbProps = Omit<
 > & {
   state: SliderState;
   index: number;
+  formatter: Intl.NumberFormat;
 } & VariantProps<typeof sliderVariants.thumb>;
 
 export const SliderThumb = React.forwardRef<HTMLInputElement, SliderThumbProps>(
-  ({ color, trackRef, state, index = 0, name }, forwardedRef) => {
+  ({ formatter, color, trackRef, state, index = 0, name }, forwardedRef) => {
     const ref = useMergedRefs(forwardedRef);
     const { thumbProps, inputProps, isDragging } = useSliderThumb(
       {
@@ -61,7 +62,7 @@ export const SliderThumb = React.forwardRef<HTMLInputElement, SliderThumbProps>(
               }}
               className={cn(sliderVariants.tooltip())}
             >
-              {state.values[index]}
+              {formatter.format(state.values[index])}
             </motion.section>
           )}
         </AnimatePresence>
