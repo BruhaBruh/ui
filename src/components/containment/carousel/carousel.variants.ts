@@ -7,7 +7,7 @@ const variants = cva({
 
 const containerVariants = cva({
   name: 'carousel--container',
-  flex: 'flex items-center justify-center',
+  box: 'grid grid-cols-[max-content,1fr,max-content]',
   spacing: 'gap-2xs',
 });
 
@@ -21,6 +21,7 @@ const viewVariants = cva({
   flex: 'flex-1',
   overflow: 'overflow-hidden',
   spacing: 'p-3xs',
+  box: 'col-start-2',
 });
 
 const viewContainerVariants = cva({
