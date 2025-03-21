@@ -31,13 +31,8 @@ const trackVariants = cva(
     layout: 'relative',
     flex: 'inline-flex items-center',
     transitions: 'transition easing-standard duration-medium-1',
-    borders: [
-      'border-2 border-outline',
-      'group-is-disabled/switch:border-opacity-12',
-    ],
+    borders: ['border-2'],
     box: 'h-8 w-13 rounded-full',
-    typography: 'group-is-disabled/switch:text-opacity-38',
-    background: ['group-is-disabled/switch:bg-opacity-12'],
   },
   {
     variants: {
@@ -54,11 +49,15 @@ const trackVariants = cva(
           borders: 'border-transparent',
           background: [
             'bg-surface-container-highest',
-            'group-is-disabled/switch:bg-on-surface',
+            'group-is-disabled/switch:bg-on-surface/12',
           ],
-          typography: 'group-is-disabled/switch:text-on-surface',
+          typography: 'group-is-disabled/switch:text-on-surface/38',
         },
         false: {
+          borders: [
+            'border-outline',
+            'group-is-disabled/switch:border-outline/12',
+          ],
           typography: 'text-surface-container-highest',
         },
       },
@@ -130,9 +129,9 @@ const thumbWrapperVariants = cva(
     background: 'bg-transparent',
     states: [
       'group-is-disabled/switch:state-transparent',
-      'group-is-hovered/switch:hover-state',
-      'group-in-focus-visible/switch:focus-state',
-      'group-is-pressed/switch:press-state',
+      'group-is-hovered/switch:state-hover',
+      'group-in-focus-visible/switch:state-focus',
+      'group-is-pressed/switch:state-press',
     ],
   },
   {
@@ -206,10 +205,7 @@ const thumbVariants = cva(
           background: ['group-is-disabled/switch:bg-surface'],
         },
         false: {
-          background: [
-            'group-is-disabled/switch:bg-on-surface',
-            'group-is-disabled/switch:bg-opacity-38',
-          ],
+          background: ['group-is-disabled/switch:bg-on-surface/38'],
         },
       },
     },

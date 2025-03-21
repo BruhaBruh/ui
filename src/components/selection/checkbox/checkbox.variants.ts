@@ -36,9 +36,9 @@ const markWrapperVariants = cva(
     overflow: 'overflow-hidden',
     states: [
       'group-is-disabled/checkbox:state-transparent',
-      'group-is-hovered/checkbox:hover-state',
-      'group-in-focus-visible/checkbox:focus-state',
-      'group-is-pressed/checkbox:press-state',
+      'group-is-hovered/checkbox:state-hover',
+      'group-in-focus-visible/checkbox:state-focus',
+      'group-is-pressed/checkbox:state-press',
     ],
     ripple: ['ripple-wrapper:inset-0', 'ripple-wrapper:rounded-full'],
   },
@@ -122,8 +122,7 @@ const markVariants = cva(
         className: {
           borders: [
             'border-outline',
-            'group-is-disabled/checkbox:border-on-surface',
-            'group-is-disabled/checkbox:border-opacity-38',
+            'group-is-disabled/checkbox:border-on-surface/38',
           ],
         },
       },
@@ -131,20 +130,14 @@ const markVariants = cva(
         isSelected: true,
         className: {
           typography: 'group-is-disabled/checkbox:text-surface',
-          background: [
-            'group-is-disabled/checkbox:bg-on-surface',
-            'group-is-disabled/checkbox:bg-opacity-38',
-          ],
+          background: ['group-is-disabled/checkbox:bg-on-surface/38'],
         },
       },
       {
         isIndeterminate: true,
         className: {
           typography: 'group-is-disabled/checkbox:text-surface',
-          background: [
-            'group-is-disabled/checkbox:bg-on-surface',
-            'group-is-disabled/checkbox:bg-opacity-38',
-          ],
+          background: ['group-is-disabled/checkbox:bg-on-surface/38'],
         },
       },
       {

@@ -45,10 +45,8 @@ const activeTrackVariants = cva(
     flex: 'inline-flex items-center',
     background: 'bg-primary',
     overflow: 'overflow-hidden',
-    states: [
-      'group-is-disabled/slider:bg-on-surface',
-      'group-is-disabled/slider:bg-opacity-38',
-    ],
+    transitions: 'transition easing-standard duration-medium-1',
+    states: ['group-is-disabled/slider:bg-on-surface/38'],
   },
   {
     variants: {
@@ -97,34 +95,38 @@ const inactiveTrackVariants = cva(
     layout: 'absolute',
     box: 'h-4',
     flex: 'inline-flex items-center',
-    background: 'bg-secondary-container',
     overflow: 'overflow-hidden',
+    transitions: 'transition easing-standard duration-medium-1',
     states: [
-      'group-is-disabled/slider:bg-on-surface',
-      'group-is-disabled/slider:bg-opacity-12',
-      'group-is-disabled/slider:after:bg-on-surface',
-      'group-is-disabled/slider:after:bg-opacity-38',
+      'group-is-disabled/slider:bg-on-surface/12',
+      'group-is-disabled/slider:after:bg-on-surface/38',
     ],
   },
   {
     variants: {
       color: {
         primary: {
+          background: 'bg-primary-container',
           after: 'after:bg-primary',
         },
         secondary: {
+          background: 'bg-secondary-container',
           after: 'after:bg-secondary',
         },
         info: {
+          background: 'bg-info-container',
           after: 'after:bg-info',
         },
         success: {
+          background: 'bg-success-container',
           after: 'after:bg-success',
         },
         caution: {
+          background: 'bg-caution-container',
           after: 'after:bg-caution',
         },
         critical: {
+          background: 'bg-critical-container',
           after: 'after:bg-critical',
         },
       },
@@ -170,10 +172,7 @@ const thumbVariants = cva(
     box: 'h-11',
     borders: 'rounded-full',
     layout: 'relative top-1/2',
-    states: [
-      'group-is-disabled/slider:bg-on-surface',
-      'group-is-disabled/slider:bg-opacity-38',
-    ],
+    states: ['group-is-disabled/slider:bg-on-surface/38'],
   },
   {
     variants: {
@@ -212,7 +211,7 @@ const thumbVariants = cva(
 const tooltipVariants = cva({
   name: 'slider--tooltip',
   layout: 'absolute bottom-full left-1/2',
-  transforms: '-translate-x-1/2 -translate-y-1',
+  transforms: '-translate-y-1',
   spacing: 'px-4 py-3',
   background: 'bg-inverse-surface',
   typography: 'typography-label-large text-inverse-on-surface',

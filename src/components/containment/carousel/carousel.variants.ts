@@ -7,7 +7,7 @@ const variants = cva({
 
 const containerVariants = cva({
   name: 'carousel--container',
-  box: 'grid grid-cols-[max-content,1fr,max-content]',
+  box: 'grid grid-cols-[max-content_1fr_max-content]',
   spacing: 'gap-2xs',
 });
 
@@ -56,7 +56,7 @@ const circleVariants = cva(
     flex: 'flex items-center justify-center',
     spacing: 'size-6',
     transitions: 'transition easing-standard duration-medium-1',
-    other: '[&>*]:size-4',
+    other: '[&>*]:size-4 cursor-pointer',
   },
   {
     variants: {

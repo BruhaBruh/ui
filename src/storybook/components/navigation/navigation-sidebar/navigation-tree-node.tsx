@@ -19,7 +19,7 @@ export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
           <span className="typography-label-large">{node.text}</span>
           <IconChevronUp
             className={cn(
-              'easing-medium-1 ml-auto transition duration-short-2',
+              'easing-standard ml-auto transition duration-short-2',
               isOpen && '-rotate-180',
             )}
           />

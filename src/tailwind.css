@@ -1,3 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-*: initial;
+  --radius-*: initial;
+  --spacing-*: initial;
+  --font-*: initial;
+}
+
+@import './theme.generated.css';
+@import './tailwind/index.css';

@@ -51,28 +51,14 @@ const wrapperVariants = cva(
   {
     variants: {
       position: {
-        'top-left': {
-          layout: ['-translate-x-full', '-translate-y-full'],
-        },
-        top: {
-          layout: ['-translate-x-1/2', '-translate-y-full'],
-        },
-        'top-right': {
-          layout: ['-translate-y-full'],
-        },
-        right: {
-          layout: ['-translate-y-1/2'],
-        },
+        'top-left': {},
+        top: {},
+        'top-right': {},
+        right: {},
         'bottom-right': {},
-        bottom: {
-          layout: ['-translate-x-1/2'],
-        },
-        'bottom-left': {
-          layout: ['-translate-x-full'],
-        },
-        left: {
-          layout: ['-translate-x-full', '-translate-y-1/2'],
-        },
+        bottom: {},
+        'bottom-left': {},
+        left: {},
       },
       variant: {
         plain: {

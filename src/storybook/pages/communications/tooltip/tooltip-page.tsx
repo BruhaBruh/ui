@@ -115,7 +115,7 @@ export const TooltipPage: React.FC = () => {
             <TooltipTrigger>
               <div />
             </TooltipTrigger>
-            <TooltipContent className="relative !left-auto !top-auto !translate-x-0 !translate-y-0">
+            <TooltipContent className="relative !left-auto !top-auto !transform-none">
               <TooltipText>Plain tooltip</TooltipText>
             </TooltipContent>
           </Tooltip>
@@ -131,7 +131,7 @@ export const TooltipPage: React.FC = () => {
             <TooltipContent
               position="top-right"
               variant="rich"
-              className="relative !left-auto !top-auto !translate-x-0 !translate-y-0"
+              className="relative !left-auto !top-auto !transform-none"
             >
               <TooltipSubhead>Rich tooltip</TooltipSubhead>
               <TooltipText>

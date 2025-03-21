@@ -2,8 +2,7 @@
 
 dependencies:
   - semantic
-selectors:
-  - :root
+selectors: []
 
 text:
   - display-large: '3.5625rem'

@@ -15,9 +15,10 @@ const variants = cva(
     overflow: 'overflow-hidden',
     typography: 'whitespace-nowrap',
     states: [
-      'is-hovered:hover-state',
-      'in-focus-visible:focus-state',
-      'is-pressed:press-state',
+      'cursor-pointer',
+      'is-hovered:state-hover',
+      'in-focus-visible:state-focus',
+      'is-pressed:state-press',
     ],
     ripple: 'ripple-wrapper:-inset-1',
   },

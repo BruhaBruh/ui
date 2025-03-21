@@ -1,4 +1,5 @@
-:root {
+/* #region core theme */
+@theme {
   --color-neutral-0: #000000;
   --color-neutral-1: #030405;
   --color-neutral-2: #07070a;
@@ -809,43 +810,65 @@
   --color-green-100: #ffffff;
   --spacing-base: 0.25rem;
   --spacing-0: 0rem;
-  --spacing-0-125: 0.03125rem;
-  --spacing-0-25: 0.0625rem;
-  --spacing-0-375: 0.09375rem;
-  --spacing-0-5: 0.125rem;
-  --spacing-0-625: 0.15625rem;
-  --spacing-0-75: 0.1875rem;
-  --spacing-0-875: 0.21875rem;
+  --spacing-0e: 0.03125rem;
+  --spacing-0\.125: 0.03125rem;
+  --spacing-0q: 0.0625rem;
+  --spacing-0\.25: 0.0625rem;
+  --spacing-0qe: 0.09375rem;
+  --spacing-0\.375: 0.09375rem;
+  --spacing-0h: 0.125rem;
+  --spacing-0\.5: 0.125rem;
+  --spacing-0he: 0.15625rem;
+  --spacing-0\.625: 0.15625rem;
+  --spacing-0hq: 0.1875rem;
+  --spacing-0\.75: 0.1875rem;
+  --spacing-0hqe: 0.21875rem;
+  --spacing-0\.875: 0.21875rem;
   --spacing-1: 0.25rem;
-  --spacing-1-5: 0.375rem;
+  --spacing-1h: 0.375rem;
+  --spacing-1\.5: 0.375rem;
   --spacing-2: 0.5rem;
-  --spacing-2-5: 0.625rem;
+  --spacing-2h: 0.625rem;
+  --spacing-2\.5: 0.625rem;
   --spacing-3: 0.75rem;
-  --spacing-3-5: 0.875rem;
+  --spacing-3h: 0.875rem;
+  --spacing-3\.5: 0.875rem;
   --spacing-4: 1rem;
-  --spacing-4-5: 1.125rem;
+  --spacing-4h: 1.125rem;
+  --spacing-4\.5: 1.125rem;
   --spacing-5: 1.25rem;
-  --spacing-5-5: 1.375rem;
+  --spacing-5h: 1.375rem;
+  --spacing-5\.5: 1.375rem;
   --spacing-6: 1.5rem;
-  --spacing-6-5: 1.625rem;
+  --spacing-6h: 1.625rem;
+  --spacing-6\.5: 1.625rem;
   --spacing-7: 1.75rem;
-  --spacing-7-5: 1.875rem;
+  --spacing-7h: 1.875rem;
+  --spacing-7\.5: 1.875rem;
   --spacing-8: 2rem;
-  --spacing-8-5: 2.125rem;
+  --spacing-8h: 2.125rem;
+  --spacing-8\.5: 2.125rem;
   --spacing-9: 2.25rem;
-  --spacing-9-5: 2.375rem;
+  --spacing-9h: 2.375rem;
+  --spacing-9\.5: 2.375rem;
   --spacing-10: 2.5rem;
-  --spacing-10-5: 2.625rem;
+  --spacing-10h: 2.625rem;
+  --spacing-10\.5: 2.625rem;
   --spacing-11: 2.75rem;
-  --spacing-11-5: 2.875rem;
+  --spacing-11h: 2.875rem;
+  --spacing-11\.5: 2.875rem;
   --spacing-12: 3rem;
-  --spacing-12-5: 3.125rem;
+  --spacing-12h: 3.125rem;
+  --spacing-12\.5: 3.125rem;
   --spacing-13: 3.25rem;
-  --spacing-13-5: 3.375rem;
+  --spacing-13h: 3.375rem;
+  --spacing-13\.5: 3.375rem;
   --spacing-14: 3.5rem;
-  --spacing-14-5: 3.625rem;
+  --spacing-14h: 3.625rem;
+  --spacing-14\.5: 3.625rem;
   --spacing-15: 3.75rem;
-  --spacing-15-5: 3.875rem;
+  --spacing-15h: 3.875rem;
+  --spacing-15\.5: 3.875rem;
   --spacing-16: 4rem;
   --spacing-20: 5rem;
   --spacing-24: 6rem;
@@ -865,6 +888,188 @@
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+/* #endregion core theme */
+/* #region dark theme */
+@theme {
+  --color-primary: var(--color-primary-80, #b4c5ff);
+  --color-on-primary: var(--color-primary-20, #002a78);
+  --color-primary-container: var(--color-primary-30, #244290);
+  --color-on-primary-container: var(--color-primary-90, #dbe1ff);
+  --color-secondary: var(--color-secondary-80, #c1c5dd);
+  --color-on-secondary: var(--color-secondary-20, #2b3042);
+  --color-secondary-container: var(--color-secondary-30, #414659);
+  --color-on-secondary-container: var(--color-secondary-90, #dde1f9);
+  --color-info: var(--color-blue-80, #b4c5ff);
+  --color-on-info: var(--color-blue-20, #1b2d60);
+  --color-info-container: var(--color-blue-30, #334478);
+  --color-on-info-container: var(--color-blue-90, #dbe1ff);
+  --color-success: var(--color-green-80, #9bd4a0);
+  --color-on-success: var(--color-green-20, #003915);
+  --color-success-container: var(--color-green-30, #1c5129);
+  --color-on-success-container: var(--color-green-90, #b7f1bb);
+  --color-caution: var(--color-yellow-80, #d9c76f);
+  --color-on-caution: var(--color-yellow-20, #393000);
+  --color-caution-container: var(--color-yellow-30, #524600);
+  --color-on-caution-container: var(--color-yellow-90, #f6e388);
+  --color-critical: var(--color-red-80, #ffb4ab);
+  --color-on-critical: var(--color-red-20, #690005);
+  --color-critical-container: var(--color-red-30, #93000a);
+  --color-on-critical-container: var(--color-red-90, #ffdad6);
+  --color-surface-dim: var(--color-neutral-6, #131316);
+  --color-surface: var(--color-neutral-6, #131316);
+  --color-surface-bright: var(--color-neutral-24, #39393c);
+  --color-surface-container-lowest: var(--color-neutral-4, #0d0e11);
+  --color-surface-container-low: var(--color-neutral-10, #1b1b1f);
+  --color-surface-container: var(--color-neutral-12, #1f1f23);
+  --color-surface-container-high: var(--color-neutral-17, #292a2d);
+  --color-surface-container-highest: var(--color-neutral-22, #343438);
+  --color-on-surface: var(--color-neutral-90, #e4e2e6);
+  --color-on-surface-variant: var(--color-neutral-variant-80, #c5c6d0);
+  --color-outline: var(--color-neutral-variant-60, #8f909a);
+  --color-outline-variant: var(--color-neutral-variant-30, #45464f);
+  --color-inverse-surface: var(--color-neutral-80, #c7c6ca);
+  --color-inverse-on-surface: var(--color-neutral-5, #101114);
+  --color-inverse-primary: var(--color-primary-80, #b4c5ff);
+  --color-inverse-on-primary: var(--color-primary-5, #000e35);
+  --color-scrim: var(--color-primary-0, #000000);
+}
+
+.dark, [data-theme="dark"] {
+  --color-primary: var(--color-primary-80, #b4c5ff);
+  --color-on-primary: var(--color-primary-20, #002a78);
+  --color-primary-container: var(--color-primary-30, #244290);
+  --color-on-primary-container: var(--color-primary-90, #dbe1ff);
+  --color-secondary: var(--color-secondary-80, #c1c5dd);
+  --color-on-secondary: var(--color-secondary-20, #2b3042);
+  --color-secondary-container: var(--color-secondary-30, #414659);
+  --color-on-secondary-container: var(--color-secondary-90, #dde1f9);
+  --color-info: var(--color-blue-80, #b4c5ff);
+  --color-on-info: var(--color-blue-20, #1b2d60);
+  --color-info-container: var(--color-blue-30, #334478);
+  --color-on-info-container: var(--color-blue-90, #dbe1ff);
+  --color-success: var(--color-green-80, #9bd4a0);
+  --color-on-success: var(--color-green-20, #003915);
+  --color-success-container: var(--color-green-30, #1c5129);
+  --color-on-success-container: var(--color-green-90, #b7f1bb);
+  --color-caution: var(--color-yellow-80, #d9c76f);
+  --color-on-caution: var(--color-yellow-20, #393000);
+  --color-caution-container: var(--color-yellow-30, #524600);
+  --color-on-caution-container: var(--color-yellow-90, #f6e388);
+  --color-critical: var(--color-red-80, #ffb4ab);
+  --color-on-critical: var(--color-red-20, #690005);
+  --color-critical-container: var(--color-red-30, #93000a);
+  --color-on-critical-container: var(--color-red-90, #ffdad6);
+  --color-surface-dim: var(--color-neutral-6, #131316);
+  --color-surface: var(--color-neutral-6, #131316);
+  --color-surface-bright: var(--color-neutral-24, #39393c);
+  --color-surface-container-lowest: var(--color-neutral-4, #0d0e11);
+  --color-surface-container-low: var(--color-neutral-10, #1b1b1f);
+  --color-surface-container: var(--color-neutral-12, #1f1f23);
+  --color-surface-container-high: var(--color-neutral-17, #292a2d);
+  --color-surface-container-highest: var(--color-neutral-22, #343438);
+  --color-on-surface: var(--color-neutral-90, #e4e2e6);
+  --color-on-surface-variant: var(--color-neutral-variant-80, #c5c6d0);
+  --color-outline: var(--color-neutral-variant-60, #8f909a);
+  --color-outline-variant: var(--color-neutral-variant-30, #45464f);
+  --color-inverse-surface: var(--color-neutral-80, #c7c6ca);
+  --color-inverse-on-surface: var(--color-neutral-5, #101114);
+  --color-inverse-primary: var(--color-primary-80, #b4c5ff);
+  --color-inverse-on-primary: var(--color-primary-5, #000e35);
+  --color-scrim: var(--color-primary-0, #000000);
+}
+/* #endregion dark theme */
+/* #region light theme */
+@theme {
+  --color-primary: var(--color-primary-40, #3f5aa9);
+  --color-on-primary: var(--color-primary-100, #ffffff);
+  --color-primary-container: var(--color-primary-90, #dbe1ff);
+  --color-on-primary-container: var(--color-primary-10, #00174b);
+  --color-secondary: var(--color-secondary-40, #595e72);
+  --color-on-secondary: var(--color-secondary-100, #ffffff);
+  --color-secondary-container: var(--color-secondary-90, #dde1f9);
+  --color-on-secondary-container: var(--color-secondary-10, #161b2c);
+  --color-info: var(--color-blue-40, #4b5c91);
+  --color-on-info: var(--color-blue-100, #ffffff);
+  --color-info-container: var(--color-blue-90, #dbe1ff);
+  --color-on-info-container: var(--color-blue-10, #01174a);
+  --color-success: var(--color-green-40, #35693f);
+  --color-on-success: var(--color-green-100, #ffffff);
+  --color-success-container: var(--color-green-90, #b7f1bb);
+  --color-on-success-container: var(--color-green-10, #002109);
+  --color-caution: var(--color-yellow-40, #6c5e0f);
+  --color-on-caution: var(--color-yellow-100, #ffffff);
+  --color-caution-container: var(--color-yellow-90, #f6e388);
+  --color-on-caution-container: var(--color-yellow-10, #211b00);
+  --color-critical: var(--color-red-40, #ba1a1a);
+  --color-on-critical: var(--color-red-100, #ffffff);
+  --color-critical-container: var(--color-red-90, #ffdad6);
+  --color-on-critical-container: var(--color-red-10, #410002);
+  --color-surface-dim: var(--color-neutral-87, #dbd9dd);
+  --color-surface: var(--color-neutral-98, #fbf8fd);
+  --color-surface-bright: var(--color-neutral-98, #fbf8fd);
+  --color-surface-container-lowest: var(--color-neutral-100, #ffffff);
+  --color-surface-container-low: var(--color-neutral-96, #f5f3f7);
+  --color-surface-container: var(--color-neutral-94, #efedf1);
+  --color-surface-container-high: var(--color-neutral-92, #e9e7ec);
+  --color-surface-container-highest: var(--color-neutral-90, #e4e2e6);
+  --color-on-surface: var(--color-neutral-10, #1b1b1f);
+  --color-on-surface-variant: var(--color-neutral-variant-30, #45464f);
+  --color-outline: var(--color-neutral-variant-50, #757680);
+  --color-outline-variant: var(--color-neutral-variant-80, #c5c6d0);
+  --color-inverse-surface: var(--color-neutral-20, #303034);
+  --color-inverse-on-surface: var(--color-neutral-95, #f2f0f4);
+  --color-inverse-primary: var(--color-primary-20, #002a78);
+  --color-inverse-on-primary: var(--color-primary-95, #eff0ff);
+  --color-scrim: var(--color-primary-0, #000000);
+}
+
+:root, .light, [data-theme="light"] {
+  --color-primary: var(--color-primary-40, #3f5aa9);
+  --color-on-primary: var(--color-primary-100, #ffffff);
+  --color-primary-container: var(--color-primary-90, #dbe1ff);
+  --color-on-primary-container: var(--color-primary-10, #00174b);
+  --color-secondary: var(--color-secondary-40, #595e72);
+  --color-on-secondary: var(--color-secondary-100, #ffffff);
+  --color-secondary-container: var(--color-secondary-90, #dde1f9);
+  --color-on-secondary-container: var(--color-secondary-10, #161b2c);
+  --color-info: var(--color-blue-40, #4b5c91);
+  --color-on-info: var(--color-blue-100, #ffffff);
+  --color-info-container: var(--color-blue-90, #dbe1ff);
+  --color-on-info-container: var(--color-blue-10, #01174a);
+  --color-success: var(--color-green-40, #35693f);
+  --color-on-success: var(--color-green-100, #ffffff);
+  --color-success-container: var(--color-green-90, #b7f1bb);
+  --color-on-success-container: var(--color-green-10, #002109);
+  --color-caution: var(--color-yellow-40, #6c5e0f);
+  --color-on-caution: var(--color-yellow-100, #ffffff);
+  --color-caution-container: var(--color-yellow-90, #f6e388);
+  --color-on-caution-container: var(--color-yellow-10, #211b00);
+  --color-critical: var(--color-red-40, #ba1a1a);
+  --color-on-critical: var(--color-red-100, #ffffff);
+  --color-critical-container: var(--color-red-90, #ffdad6);
+  --color-on-critical-container: var(--color-red-10, #410002);
+  --color-surface-dim: var(--color-neutral-87, #dbd9dd);
+  --color-surface: var(--color-neutral-98, #fbf8fd);
+  --color-surface-bright: var(--color-neutral-98, #fbf8fd);
+  --color-surface-container-lowest: var(--color-neutral-100, #ffffff);
+  --color-surface-container-low: var(--color-neutral-96, #f5f3f7);
+  --color-surface-container: var(--color-neutral-94, #efedf1);
+  --color-surface-container-high: var(--color-neutral-92, #e9e7ec);
+  --color-surface-container-highest: var(--color-neutral-90, #e4e2e6);
+  --color-on-surface: var(--color-neutral-10, #1b1b1f);
+  --color-on-surface-variant: var(--color-neutral-variant-30, #45464f);
+  --color-outline: var(--color-neutral-variant-50, #757680);
+  --color-outline-variant: var(--color-neutral-variant-80, #c5c6d0);
+  --color-inverse-surface: var(--color-neutral-20, #303034);
+  --color-inverse-on-surface: var(--color-neutral-95, #f2f0f4);
+  --color-inverse-primary: var(--color-primary-20, #002a78);
+  --color-inverse-on-primary: var(--color-primary-95, #eff0ff);
+  --color-scrim: var(--color-primary-0, #000000);
+}
+/* #endregion light theme */
+/* #region semantic theme */
+@theme {
   --radius-base: 1rem;
   --radius-3xs: 0.25rem;
   --radius-2xs: 0.5rem;
@@ -901,6 +1106,10 @@
   --text-7xl: 4.5rem;
   --text-8xl: 6rem;
   --text-9xl: 8rem;
+}
+/* #endregion semantic theme */
+/* #region typography theme */
+@theme {
   --leading-display-large: 4rem;
   --leading-display-medium: 3.25rem;
   --leading-display-small: 2.75rem;
@@ -948,90 +1157,111 @@
   --tracking-label-small: 0.042rem;
 }
 
-:root, .light, [data-theme="light"] {
-  --color-primary: var(--color-primary-40, #3f5aa9);
-  --color-on-primary: var(--color-primary-100, #ffffff);
-  --color-primary-container: var(--color-primary-90, #dbe1ff);
-  --color-on-primary-container: var(--color-primary-10, #00174b);
-  --color-secondary: var(--color-secondary-40, #595e72);
-  --color-on-secondary: var(--color-secondary-100, #ffffff);
-  --color-secondary-container: var(--color-secondary-90, #dde1f9);
-  --color-on-secondary-container: var(--color-secondary-10, #161b2c);
-  --color-info: var(--color-blue-40, #4b5c91);
-  --color-on-info: var(--color-blue-100, #ffffff);
-  --color-info-container: var(--color-blue-90, #dbe1ff);
-  --color-on-info-container: var(--color-blue-10, #01174a);
-  --color-success: var(--color-green-40, #35693f);
-  --color-on-success: var(--color-green-100, #ffffff);
-  --color-success-container: var(--color-green-90, #b7f1bb);
-  --color-on-success-container: var(--color-green-10, #002109);
-  --color-caution: var(--color-yellow-40, #6c5e0f);
-  --color-on-caution: var(--color-yellow-100, #ffffff);
-  --color-caution-container: var(--color-yellow-90, #f6e388);
-  --color-on-caution-container: var(--color-yellow-10, #211b00);
-  --color-critical: var(--color-red-40, #ba1a1a);
-  --color-on-critical: var(--color-red-100, #ffffff);
-  --color-critical-container: var(--color-red-90, #ffdad6);
-  --color-on-critical-container: var(--color-red-10, #410002);
-  --color-surface-dim: var(--color-neutral-87, #dbd9dd);
-  --color-surface: var(--color-neutral-98, #fbf8fd);
-  --color-surface-bright: var(--color-neutral-98, #fbf8fd);
-  --color-surface-container-lowest: var(--color-neutral-100, #ffffff);
-  --color-surface-container-low: var(--color-neutral-96, #f5f3f7);
-  --color-surface-container: var(--color-neutral-94, #efedf1);
-  --color-surface-container-high: var(--color-neutral-92, #e9e7ec);
-  --color-surface-container-highest: var(--color-neutral-90, #e4e2e6);
-  --color-on-surface: var(--color-neutral-10, #1b1b1f);
-  --color-on-surface-variant: var(--color-neutral-variant-30, #45464f);
-  --color-outline: var(--color-neutral-variant-50, #757680);
-  --color-outline-variant: var(--color-neutral-variant-80, #c5c6d0);
-  --color-inverse-surface: var(--color-neutral-20, #303034);
-  --color-inverse-on-surface: var(--color-neutral-95, #f2f0f4);
-  --color-inverse-primary: var(--color-primary-20, #002a78);
-  --color-inverse-on-primary: var(--color-primary-95, #eff0ff);
-  --color-scrim: var(--color-primary-0, #000000);
+@layer components {
+  .typography-display-large {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-display-large, 4rem);
+    font-size: var(--text-display-large, 3.5625rem);
+    letter-spacing: var(--tracking-display-large, -0.021rem);
+  }
+  .typography-display-medium {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-display-medium, 3.25rem);
+    font-size: var(--text-display-medium, 2.8125rem);
+    letter-spacing: var(--tracking-display-medium, 0rem);
+  }
+  .typography-display-small {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-display-small, 2.75rem);
+    font-size: var(--text-display-small, 2.25rem);
+    letter-spacing: var(--tracking-display-small, 0rem);
+  }
+  .typography-headline-large {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-headline-large, 2.5rem);
+    font-size: var(--text-headline-large, 2rem);
+    letter-spacing: var(--tracking-headline-large, 0rem);
+  }
+  .typography-headline-medium {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-headline-medium, 2.25rem);
+    font-size: var(--text-headline-medium, 1.75rem);
+    letter-spacing: var(--tracking-headline-medium, 0rem);
+  }
+  .typography-headline-small {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-headline-small, 2rem);
+    font-size: var(--text-headline-small, 1.5rem);
+    letter-spacing: var(--tracking-headline-small, 0rem);
+  }
+  .typography-title-large {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-title-large, 1.75rem);
+    font-size: var(--text-title-large, 1.375rem);
+    letter-spacing: var(--tracking-title-large, 0rem);
+  }
+  .typography-title-medium {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 500;
+    line-height: var(--leading-title-medium, 1.5rem);
+    font-size: var(--text-title-medium, 1rem);
+    letter-spacing: var(--tracking-title-medium, 0.013rem);
+  }
+  .typography-title-small {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 500;
+    line-height: var(--leading-title-small, 1.25rem);
+    font-size: var(--text-title-small, 0.875rem);
+    letter-spacing: var(--tracking-title-small, 0.008rem);
+  }
+  .typography-body-large {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-body-large, 1.5rem);
+    font-size: var(--text-body-large, 1rem);
+    letter-spacing: var(--tracking-body-large, 0.042rem);
+  }
+  .typography-body-medium {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-body-medium, 1.25rem);
+    font-size: var(--text-body-medium, 0.875rem);
+    letter-spacing: var(--tracking-body-medium, 0.021rem);
+  }
+  .typography-body-small {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 400;
+    line-height: var(--leading-body-small, 1rem);
+    font-size: var(--text-body-small, 0.75rem);
+    letter-spacing: var(--tracking-body-small, 0.033rem);
+  }
+  .typography-label-large {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 500;
+    line-height: var(--leading-label-large, 1.25rem);
+    font-size: var(--text-label-large, 0.875rem);
+    letter-spacing: var(--tracking-label-large, 0.008rem);
+  }
+  .typography-label-medium {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 500;
+    line-height: var(--leading-label-medium, 1rem);
+    font-size: var(--text-label-medium, 0.75rem);
+    letter-spacing: var(--tracking-label-medium, 0.042rem);
+  }
+  .typography-label-small {
+    font-family: var(--font-sans, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-weight: 500;
+    line-height: var(--leading-label-small, 1rem);
+    font-size: var(--text-label-small, 0.6875rem);
+    letter-spacing: var(--tracking-label-small, 0.042rem);
+  }
 }
-
-.dark, [data-theme="dark"] {
-  --color-primary: var(--color-primary-80, #b4c5ff);
-  --color-on-primary: var(--color-primary-20, #002a78);
-  --color-primary-container: var(--color-primary-30, #244290);
-  --color-on-primary-container: var(--color-primary-90, #dbe1ff);
-  --color-secondary: var(--color-secondary-80, #c1c5dd);
-  --color-on-secondary: var(--color-secondary-20, #2b3042);
-  --color-secondary-container: var(--color-secondary-30, #414659);
-  --color-on-secondary-container: var(--color-secondary-90, #dde1f9);
-  --color-info: var(--color-blue-80, #b4c5ff);
-  --color-on-info: var(--color-blue-20, #1b2d60);
-  --color-info-container: var(--color-blue-30, #334478);
-  --color-on-info-container: var(--color-blue-90, #dbe1ff);
-  --color-success: var(--color-green-80, #9bd4a0);
-  --color-on-success: var(--color-green-20, #003915);
-  --color-success-container: var(--color-green-30, #1c5129);
-  --color-on-success-container: var(--color-green-90, #b7f1bb);
-  --color-caution: var(--color-yellow-80, #d9c76f);
-  --color-on-caution: var(--color-yellow-20, #393000);
-  --color-caution-container: var(--color-yellow-30, #524600);
-  --color-on-caution-container: var(--color-yellow-90, #f6e388);
-  --color-critical: var(--color-red-80, #ffb4ab);
-  --color-on-critical: var(--color-red-20, #690005);
-  --color-critical-container: var(--color-red-30, #93000a);
-  --color-on-critical-container: var(--color-red-90, #ffdad6);
-  --color-surface-dim: var(--color-neutral-6, #131316);
-  --color-surface: var(--color-neutral-6, #131316);
-  --color-surface-bright: var(--color-neutral-24, #39393c);
-  --color-surface-container-lowest: var(--color-neutral-4, #0d0e11);
-  --color-surface-container-low: var(--color-neutral-10, #1b1b1f);
-  --color-surface-container: var(--color-neutral-12, #1f1f23);
-  --color-surface-container-high: var(--color-neutral-17, #292a2d);
-  --color-surface-container-highest: var(--color-neutral-22, #343438);
-  --color-on-surface: var(--color-neutral-90, #e4e2e6);
-  --color-on-surface-variant: var(--color-neutral-variant-80, #c5c6d0);
-  --color-outline: var(--color-neutral-variant-60, #8f909a);
-  --color-outline-variant: var(--color-neutral-variant-30, #45464f);
-  --color-inverse-surface: var(--color-neutral-80, #c7c6ca);
-  --color-inverse-on-surface: var(--color-neutral-5, #101114);
-  --color-inverse-primary: var(--color-primary-80, #b4c5ff);
-  --color-inverse-on-primary: var(--color-primary-5, #000e35);
-  --color-scrim: var(--color-primary-0, #000000);
-}
+/* #endregion typography theme */
