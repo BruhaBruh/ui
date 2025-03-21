@@ -1,0 +1,136 @@
+@theme {
+  --duration-short-1: 50ms;
+  --duration-short-2: 100ms;
+  --duration-short-3: 150ms;
+  --duration-short-4: 200ms;
+  --duration-medium-1: 250ms;
+  --duration-medium-2: 300ms;
+  --duration-medium-3: 350ms;
+  --duration-medium-4: 400ms;
+  --duration-long-1: 450ms;
+  --duration-long-2: 500ms;
+  --duration-long-3: 550ms;
+  --duration-long-4: 600ms;
+  --duration-extra-long-1: 700ms;
+  --duration-extra-long-2: 800ms;
+  --duration-extra-long-3: 900ms;
+  --duration-extra-long-4: 1000ms;
+
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --easing-standard-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  --elevation-0: 0px 0px #0000;
+  --elevation-1:
+    rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  --elevation-2:
+    rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+  --elevation-3:
+    rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+  --elevation-4:
+    rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
+    rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+  --elevation-5:
+    rgba(0, 0, 0, 0.2) 0px 7px 8px -4px, rgba(0, 0, 0, 0.14) 0px 12px 17px 2px,
+    rgba(0, 0, 0, 0.12) 0px 5px 22px 4px;
+
+  --state-hover: 8%;
+  --state-focus: 10%;
+  --state-press: 10%;
+  --state-drag: 16%;
+}
+
+@custom-variant in-focus (&[data-in-focus=true]);
+@custom-variant in-focus-within (&[data-in-focus-within=true]);
+@custom-variant in-focus-visible (&[data-in-focus-visible=true]);
+@custom-variant in-focus-visible-within (&[data-in-focus-visible-within=true]);
+@custom-variant is-hovered (&[data-is-hovered=true]);
+@custom-variant is-pressed (&[data-is-pressed=true]);
+@custom-variant is-disabled (&[data-is-disabled=true]);
+
+@utility duration-* {
+  transition-duration: --value(--duration- *);
+}
+
+@utility easing-* {
+  transition-timing-function: --value(--easing- *);
+}
+
+@utility elevation-* {
+  box-shadow: --value(--elevation- *);
+}
+
+@property --ui-background-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --ui-state-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --ui-background-opacity {
+  syntax: '<percent>';
+  inherits: false;
+  initial-value: 100%;
+}
+
+@utility bg-* {
+  --ui-background-color: --value(--color- *);
+  --ui-background-opacity: 100%;
+  background: color-mix(
+    in oklab,
+    var(--ui-background-color) var(--ui-background-opacity),
+    var(--ui-state-color)
+  );
+}
+
+@utility state-transparent {
+  --ui-state-color: transparent;
+  --ui-background-opacity: 100%;
+}
+
+@utility state-* {
+  --ui-state-color: --value(--color- *);
+  --ui-background-opacity: calc(100% - --value(--state- *));
+  background: color-mix(
+    in oklab,
+    var(--ui-background-color) var(--ui-background-opacity),
+    var(--ui-state-color)
+  );
+}
+
+@custom-variant ripple (& > .ripple::after);
+@custom-variant ripple-wrapper (& > .ripple);
+
+@layer components {
+  .ripple {
+    z-index: 2;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      translate: -50% -50%;
+      width: var(--ripple-diameter);
+      height: var(--ripple-diameter);
+      top: var(--ripple-y);
+      left: var(--ripple-x);
+      scale: var(--ripple-scale, 0);
+      filter: blur(4px);
+      opacity: 0.1;
+      border-radius: 9999px;
+    }
+  }
+}

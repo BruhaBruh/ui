@@ -20,7 +20,7 @@ export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
           <Large className="!pb-0">{node.text}</Large>
           <IconChevronUp
             className={cn(
-              'easing-medium-1 ml-auto transition duration-short-2',
+              'easing-standard ml-auto transition duration-short-2',
               isOpen && '-rotate-180',
             )}
           />

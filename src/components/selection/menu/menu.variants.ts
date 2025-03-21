@@ -41,20 +41,16 @@ const itemVariants = cva(
     borders: 'outline-none border-transparent',
     overflow: 'overflow-hidden',
     flex: 'inline-flex items-center',
-    typography: [
-      'typography-label-large',
-      'is-disabled:text-on-surface',
-      'is-disabled:text-opacity-38',
-    ],
+    typography: ['typography-label-large', 'is-disabled:text-on-surface/38'],
     box: 'h-12',
     spacing: 'px-sm',
     transitions: 'transition easing-standard duration-medium-1',
     states: [
       'is-disabled:state-transparent',
       'is-disabled:pointer-events-none',
-      'is-hovered:hover-state',
-      'in-focus-visible:focus-state',
-      'is-pressed:press-state',
+      'is-hovered:state-hover',
+      'in-focus-visible:state-focus',
+      'is-pressed:state-press',
     ],
     ripple: 'ripple-wrapper:inset-0',
     other: 'cursor-pointer',
@@ -63,11 +59,7 @@ const itemVariants = cva(
     variants: {
       isSelected: {
         true: {
-          background: [
-            'bg-primary-container',
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-8',
-          ],
+          background: ['bg-primary-container', 'is-disabled:bg-on-surface/8'],
           typography: 'text-on-primary-container',
           states: 'state-on-primary-container',
           ripple: 'ripple:bg-on-primary-container',
@@ -98,8 +90,7 @@ const iconVariants = cva(
     typography: [
       'text-on-surface-variant',
       'group-data-[is-selected=true]/menu--item:text-on-primary-container',
-      'group-is-disabled/menu--item:text-on-surface',
-      'group-is-disabled/menu--item:text-opacity-38',
+      'group-is-disabled/menu--item:text-on-surface/38',
     ],
     layout: 'relative inline-block',
     box: 'size-6',

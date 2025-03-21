@@ -12,7 +12,7 @@ const inputVariants = cva({
   background: 'bg-transparent',
   typography: [
     'text-on-surface placeholder:text-on-surface-variant',
-    'group-is-disabled/field:text-opacity-38',
+    'group-is-disabled/field:text-on-surface/38',
   ],
 });
 

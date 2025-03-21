@@ -63,8 +63,8 @@ export const SegmentedButton = React.forwardRef<
               aria-hidden={true}
               initial={{ width: 0, height: 0, opacity: 0 }}
               animate={{
-                width: 'var(--spacing-2-5)',
-                height: 'var(--spacing-4-5)',
+                width: 'var(--spacing-2h)',
+                height: 'var(--spacing-4h)',
                 opacity: 1,
               }}
               exit={{ width: 0, height: 0, opacity: 0 }}
@@ -80,8 +80,8 @@ export const SegmentedButton = React.forwardRef<
             <motion.span
               initial={{ width: 0, height: 0, opacity: 0 }}
               animate={{
-                width: 'var(--spacing-4-5)',
-                height: 'var(--spacing-4-5)',
+                width: 'var(--spacing-4h)',
+                height: 'var(--spacing-4h)',
                 opacity: 1,
               }}
               exit={{ width: 0, height: 0, opacity: 0 }}
@@ -102,8 +102,8 @@ export const SegmentedButton = React.forwardRef<
               aria-hidden={true}
               initial={{ width: 0, height: 0, opacity: 0 }}
               animate={{
-                width: 'var(--spacing-2-5)',
-                height: 'var(--spacing-4-5)',
+                width: 'var(--spacing-2h)',
+                height: 'var(--spacing-4h)',
                 opacity: 1,
               }}
               exit={{ width: 0, height: 0, opacity: 0 }}

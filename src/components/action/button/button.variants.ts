@@ -11,11 +11,12 @@ const variants = cva(
     overflow: 'overflow-hidden',
     typography: 'whitespace-nowrap',
     states: [
+      'cursor-pointer',
       'is-disabled:state-transparent',
       'is-disabled:pointer-events-none',
-      'is-hovered:hover-state',
-      'in-focus-visible:focus-state',
-      'is-pressed:press-state',
+      'is-hovered:state-hover',
+      'in-focus-visible:state-focus',
+      'is-pressed:state-press',
     ],
     ripple: ['ripple-wrapper:-inset-1', 'ripple-wrapper:rounded-md'],
   },
@@ -25,13 +26,9 @@ const variants = cva(
         elevated: {
           background: [
             'bg-surface-container-low',
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
+            'is-disabled:bg-on-surface/12',
           ],
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          typography: ['is-disabled:text-on-surface/38'],
           effects: [
             'elevation-1',
             'is-disabled:elevation-0',
@@ -41,14 +38,8 @@ const variants = cva(
           ],
         },
         filled: {
-          background: [
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
-          ],
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          background: ['is-disabled:bg-on-surface/12'],
+          typography: ['is-disabled:text-on-surface/38'],
           effects: [
             'elevation-0',
             'is-hovered:elevation-1',
@@ -57,14 +48,8 @@ const variants = cva(
           ],
         },
         tonal: {
-          background: [
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
-          ],
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          background: ['is-disabled:bg-on-surface/12'],
+          typography: ['is-disabled:text-on-surface/38'],
           effects: [
             'elevation-0',
             'is-hovered:elevation-1',
@@ -74,23 +59,16 @@ const variants = cva(
         },
         outlined: {
           background: ['bg-transparent'],
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          typography: ['is-disabled:text-on-surface/38'],
           borders: [
             'border',
             'border-outline',
-            'is-disabled:border-on-surface',
-            'is-disabled:border-opacity-38',
+            'is-disabled:border-on-surface/38',
           ],
         },
         text: {
           background: 'bg-transparent',
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          typography: ['is-disabled:text-on-surface/38'],
         },
       },
       color: {

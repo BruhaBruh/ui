@@ -36,9 +36,9 @@ const markWrapperVariants = cva(
     overflow: 'overflow-hidden',
     states: [
       'group-is-disabled/radio:state-transparent',
-      'group-is-hovered/radio:hover-state',
-      'group-in-focus-visible/radio:focus-state',
-      'group-is-pressed/radio:press-state',
+      'group-is-hovered/radio:state-hover',
+      'group-in-focus-visible/radio:state-focus',
+      'group-is-pressed/radio:state-press',
     ],
     ripple: ['ripple-wrapper:inset-0', 'ripple-wrapper:rounded-full'],
   },
@@ -85,11 +85,7 @@ const markVariants = cva(
     transitions: 'transition easing-standard duration-medium-1',
     box: 'size-5 rounded-full',
     overflow: 'overflow-hidden',
-    borders: [
-      'border-2',
-      'group-is-disabled/radio:border-on-surface',
-      'group-is-disabled/radio:border-opacity-38',
-    ],
+    borders: ['border-2', 'group-is-disabled/radio:border-on-surface/38'],
   },
   {
     variants: {
@@ -166,10 +162,7 @@ const iconVariants = cva(
     transitions: 'transition easing-standard duration-medium-1',
     box: 'size-2.5 rounded-full',
     overflow: 'overflow-hidden',
-    background: [
-      'group-is-disabled/radio:bg-on-surface',
-      'group-is-disabled/radio:bg-opacity-38',
-    ],
+    background: ['group-is-disabled/radio:bg-on-surface/38'],
   },
   {
     variants: {

@@ -76,8 +76,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                   initial={{ width: 0, height: 0 }}
                   animate={{
                     opacity: 1,
-                    width: 'var(--spacing-4-5)',
-                    height: 'var(--spacing-4-5)',
+                    width: 'var(--spacing-4h)',
+                    height: 'var(--spacing-4h)',
                   }}
                   exit={{ width: 0, height: 0 }}
                   transition={{
@@ -95,8 +95,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                   initial={{ width: 0, height: 0 }}
                   animate={{
                     opacity: 1,
-                    width: 'var(--spacing-4-5)',
-                    height: 'var(--spacing-4-5)',
+                    width: 'var(--spacing-4h)',
+                    height: 'var(--spacing-4h)',
                   }}
                   exit={{ width: 0, height: 0 }}
                   transition={{

@@ -77,6 +77,7 @@ const variants = cva(
         default: {},
         icon: {
           layout: 'absolute',
+          transforms: '-translate-y-full translate-x-full',
         },
       },
     },
@@ -89,16 +90,14 @@ const variants = cva(
         size: 'small',
         placement: 'icon',
         className: {
-          spacing:
-            'bottom-[calc(100%-var(--spacing-1-5))] left-[calc(100%-var(--spacing-1-5))]',
+          spacing: 'top-1.5 right-1.5',
         },
       },
       {
         size: 'large',
         placement: 'icon',
         className: {
-          spacing:
-            'bottom-[calc(100%-var(--spacing-3-5))] left-[calc(100%-var(--spacing-3))]',
+          spacing: 'top-3.5 right-3',
         },
       },
     ],

@@ -1,5 +1,19 @@
-import { Checkbox, Radio, RadioGroup, Switch } from '@/components';
+import {
+  Button,
+  Checkbox,
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuItemLeft,
+  MenuTrigger,
+  NumberField,
+  Radio,
+  RadioGroup,
+  Switch,
+  TextField,
+} from '@/components';
 import type React from 'react';
+import type { Key } from 'react-aria';
 import { Label, Text } from '../typography';
 import type { Argument } from './story-playground-context';
 import { useStoryPlayground } from './story-playground-context';
@@ -49,35 +63,35 @@ export const StoryPlaygroundControl: React.FC<{
     }));
   };
 
-  const onChangeText: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeText = (value: string) => {
     setState((p) => ({
       ...p,
       values: {
         ...p.values,
-        [name]: e.target.value,
+        [name]: value,
       },
     }));
   };
 
-  const onChangeNumber: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const value = e.target.value;
-    if (!/^\d+(.\d+)?$/.test(value)) return;
+  const onChangeNumber = (value: number) => {
+    // const value = e.target.value;
+    // if (!/^\d+(.\d+)?$/.test(value)) return;
 
     setState((p) => ({
       ...p,
       values: {
         ...p.values,
-        [name]: Number.parseFloat(value),
+        [name]: value,
       },
     }));
   };
 
-  const onChangeSelect: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const onChangeSelect = (v: Key) => {
     setState((p) => ({
       ...p,
       values: {
         ...p.values,
-        [name]: e.target.value,
+        [name]: v as string,
       },
     }));
   };
@@ -86,9 +100,11 @@ export const StoryPlaygroundControl: React.FC<{
 
   return (
     <section>
-      <Label className="block" asChild>
-        <label htmlFor={controlId}>{arg.label || name}</label>
-      </Label>
+      {arg.type !== 'text' && arg.type !== 'number' && (
+        <Label className="block" asChild>
+          <label htmlFor={controlId}>{arg.label || name}</label>
+        </Label>
+      )}
       {arg.type === 'switch' && (
         <Switch
           id={controlId}
@@ -119,37 +135,44 @@ export const StoryPlaygroundControl: React.FC<{
         </RadioGroup>
       )}
       {arg.type === 'text' && (
-        <input
+        <TextField
           id={controlId}
-          className="h-10 rounded-md px-md typography-label-large"
+          label={arg.label || name}
           type="text"
           value={currentValue as string}
           onChange={onChangeText}
         />
       )}
       {arg.type === 'number' && (
-        <input
+        <NumberField
           id={controlId}
-          className="h-10 rounded-md px-md typography-label-large"
-          type="text"
-          inputMode="numeric"
-          defaultValue={currentValue as string}
+          label={arg.label || name}
+          defaultValue={currentValue as number}
           onChange={onChangeNumber}
         />
       )}
       {arg.type === 'select' && (
-        <select
-          id={controlId}
-          className="h-10 appearance-none rounded-md px-md text-center typography-label-large"
-          onChange={onChangeSelect}
-          value={currentValue as string}
-        >
-          {Array.from(new Set(arg.options)).map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+        <Menu>
+          <MenuTrigger>
+            <Button variant="outlined" color="secondary" id={controlId}>
+              {currentValue as string}
+            </Button>
+          </MenuTrigger>
+          <MenuContent
+            selectedKeys={[currentValue as string]}
+            selectionMode="single"
+            onAction={onChangeSelect}
+          >
+            {Array.from(new Set(arg.options)).map((option) => (
+              <MenuItem key={option}>
+                <MenuItemLeft>
+                  <span />
+                </MenuItemLeft>
+                {option}
+              </MenuItem>
+            ))}
+          </MenuContent>
+        </Menu>
       )}
       {arg.description && <Text>{arg.description}</Text>}
     </section>

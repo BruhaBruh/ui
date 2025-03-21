@@ -11,11 +11,12 @@ const variants = cva(
     overflow: 'overflow-hidden',
     typography: 'whitespace-nowrap',
     states: [
+      'cursor-pointer',
       'is-disabled:state-transparent',
       'is-disabled:pointer-events-none',
-      'is-hovered:hover-state',
-      'in-focus-visible:focus-state',
-      'is-pressed:press-state',
+      'is-hovered:state-hover',
+      'in-focus-visible:state-focus',
+      'is-pressed:state-press',
     ],
     ripple: 'ripple-wrapper:-inset-1',
   },
@@ -24,37 +25,19 @@ const variants = cva(
       variant: {
         standard: {
           background: 'bg-transparent',
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          typography: ['is-disabled:text-on-surface/38'],
         },
         filled: {
-          background: [
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
-          ],
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          background: ['is-disabled:bg-on-surface/12'],
+          typography: ['is-disabled:text-on-surface/38'],
         },
         tonal: {
-          background: [
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
-          ],
-          typograhpy: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          background: ['is-disabled:bg-on-surface/12'],
+          typograhpy: ['is-disabled:text-on-surface/38'],
         },
         outlined: {
           borders: 'border',
-          typography: [
-            'is-disabled:text-on-surface',
-            'is-disabled:text-opacity-38',
-          ],
+          typography: ['is-disabled:text-on-surface/38'],
         },
       },
       color: {
@@ -592,11 +575,7 @@ const variants = cva(
         className: {
           background: 'bg-transparent',
           typography: 'text-on-surface-variant',
-          borders: [
-            'border-outline',
-            'is-disabled:border-on-surface',
-            'is-disabled:border-opacity-12',
-          ],
+          borders: ['border-outline', 'is-disabled:border-on-surface/12'],
           ripple: 'ripple:bg-on-surface-variant',
           states: 'state-on-surface-variant',
         },
@@ -608,11 +587,7 @@ const variants = cva(
         className: {
           background: 'bg-transparent',
           typography: 'text-on-surface-variant',
-          borders: [
-            'border-outline',
-            'is-disabled:border-on-surface',
-            'is-disabled:border-opacity-12',
-          ],
+          borders: ['border-outline', 'is-disabled:border-on-surface/12'],
           ripple: 'ripple:bg-on-surface-variant',
           states: 'state-on-surface-variant',
         },
@@ -622,11 +597,7 @@ const variants = cva(
         isToggleable: true,
         isSelected: true,
         className: {
-          background: [
-            'bg-inverse-surface',
-            'is-disabled:bg-on-surface',
-            'is-disabled:bg-opacity-12',
-          ],
+          background: ['bg-inverse-surface', 'is-disabled:bg-on-surface/12'],
           typography: 'text-inverse-on-surface',
           ripple: 'ripple:bg-inverse-on-surface',
           states: 'state-inverse-on-surface',
