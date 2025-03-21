@@ -20,11 +20,7 @@ const CONFIG = {
     'embla-carousel',
     'embla-carousel-react',
   ],
-  devDependencies: [
-    '@bruhabruh/type-safe',
-    '@bruhabruh/theme',
-    'tailwindcss@^3',
-  ],
+  devDependencies: ['@bruhabruh/type-safe', 'tailwindcss'],
   files: [
     {
       type: 'index',
