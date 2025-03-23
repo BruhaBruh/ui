@@ -1,6 +1,6 @@
 {
   "name": "@bruhabruh/ui",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "type": "module",
   "description": "BruhaBruh UI Library",
   "author": "BruhaBruh",
@@ -16,6 +16,7 @@
     "generate": "pnpm dlx @bruhabruh/theme@latest generate",
     "generate:registry": "tsx ./src/cli/generate-registry.ts",
     "build": "vite build",
+    "build:cli": "tsup",
     "preview": "vite preview",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "test": "vitest",
@@ -65,6 +66,7 @@
     "prettier": "^3.5.3",
     "react-router": "^7.4.0",
     "tailwindcss": "^4.0.15",
+    "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vite": "^6.2.2",
