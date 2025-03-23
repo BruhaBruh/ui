@@ -20,6 +20,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
       renderNextButton = DefaultNextButton,
       children = DefaultButton,
       onChangePage,
+      className,
       ...props
     },
     forwardedRef,
@@ -29,7 +30,11 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
     const pages = calculatePages({ page, pageAmount, maxPagesToView });
 
     return (
-      <section {...props} ref={ref} className={cn(paginationVariants())}>
+      <section
+        {...props}
+        ref={ref}
+        className={cn(paginationVariants(), className)}
+      >
         {renderPreviousButton({
           isDisabled: page === 1,
           onClick: () => onChangePage?.(page - 1),
@@ -39,7 +44,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
             {children({
               isActive: p === page,
               page: p,
-              onClick: () => onChangePage?.(page),
+              onClick: () => onChangePage?.(p),
             })}
           </React.Fragment>
         ))}
