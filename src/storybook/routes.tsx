@@ -16,6 +16,7 @@ import {
 import type { NavigationNode } from './components';
 import {
   BadgePage,
+  BreadcrumbsPage,
   ButtonPage,
   CarouselPage,
   CheckboxPage,
@@ -31,6 +32,7 @@ import {
   MenuPage,
   ModalPage,
   NumberFieldPage,
+  PaginationPage,
   PalettePage,
   PopoverPage,
   RadioPage,
@@ -207,7 +209,20 @@ export const routes: NavigationNode[] = [
         text: 'Navigations',
         href: '/navigations',
         icon: <IconNavigation />,
-        children: [],
+        children: [
+          {
+            type: 'page',
+            text: 'Breadcrumbs',
+            href: '/breadcrumbs',
+            page: <BreadcrumbsPage />,
+          },
+          {
+            type: 'page',
+            text: 'Pagination',
+            href: '/pagination',
+            page: <PaginationPage />,
+          },
+        ],
       },
       {
         type: 'folder',

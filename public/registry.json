@@ -621,7 +621,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export * from './action';\nexport * from './communication';\nexport * from './containment';\nexport * from './input';\nexport * from './selection';\nexport * from './utility';\n",
+      "content": "export * from './action';\nexport * from './communication';\nexport * from './containment';\nexport * from './input';\nexport * from './navigation';\nexport * from './selection';\nexport * from './utility';\n",
       "type": "components"
     },
     {
@@ -727,6 +727,96 @@
     {
       "name": "input/text-field/text-field.variants.ts",
       "content": "import { cva } from '@/utility';\n\nconst variants = cva({\n  name: 'text-field group/text-field',\n});\n\nconst inputVariants = cva({\n  name: 'text-field--input',\n  overflow: 'overflow-hidden',\n  transitions: 'transition easing-standard duration-medium-1',\n  borders: 'outline-none border-transparent',\n  background: 'bg-transparent',\n  typography: [\n    'text-on-surface placeholder:text-on-surface-variant',\n    'group-is-disabled/field:text-on-surface/38',\n  ],\n});\n\nexport const textFieldVariants = Object.assign(variants, {\n  input: inputVariants,\n});\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/breadcrumbs.tsx",
+      "content": "import { useMergedRefs } from '@/hooks';\nimport { cn } from '@/utility';\nimport React from 'react';\nimport type { BreadcrumbsProps } from './breadcrumbs.types';\nimport { breadcrumbsVariants } from './breadcrumbs.variants';\nimport { BreadcrumbsArrow } from './internal/breadcrumbs-arrow';\n\nexport const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(\n  ({ children, ...props }, forwardedRef) => {\n    const ref = useMergedRefs(forwardedRef);\n\n    return (\n      <section {...props} ref={ref} className={cn(breadcrumbsVariants())}>\n        {React.Children.map(children, (child, index) => (\n          <React.Fragment\n            key={React.isValidElement(child) ? child.key || index : index}\n          >\n            {child}\n            {index < React.Children.count(children) - 1 && <BreadcrumbsArrow />}\n          </React.Fragment>\n        ))}\n      </section>\n    );\n  },\n);\nBreadcrumbs.displayName = 'Breadcrumbs';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/breadcrumbs.types.ts",
+      "content": "import type { Props } from '@/types';\nimport type { VariantProps } from 'class-variance-authority';\nimport type { breadcrumbsVariants } from './breadcrumbs.variants';\n\nexport type BreadcrumbsProps = Props<'section'> &\n  VariantProps<typeof breadcrumbsVariants>;\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/breadcrumbs.variants.ts",
+      "content": "import { cva } from '@/utility';\n\nconst variants = cva({\n  name: 'breadcrumbs group/breadcrumbs',\n  flex: 'flex items-baseline',\n  spacing: 'gap-2xs',\n});\n\nconst itemVariants = cva(\n  {\n    name: 'breadcrumbs--item',\n    typography: 'text-on-surface typography-label-large',\n    transitions: 'transition easing-standard duration-medium-1',\n    other: 'select-none',\n  },\n  {\n    variants: {\n      isActive: {\n        true: {\n          typography: 'text-on-surface',\n        },\n        false: {\n          typography:\n            'text-on-surface-variant hover:text-primary cursor-pointer',\n        },\n      },\n    },\n    defaultVariants: {\n      isActive: false,\n    },\n  },\n);\n\nconst arrowVariants = cva({\n  name: 'breadcrumbs--arrow',\n  box: 'size-4',\n  transforms: 'translate-y-0.75',\n  typography: 'text-on-surface-variant',\n});\n\nexport const breadcrumbsVariants = Object.assign(variants, {\n  item: itemVariants,\n  arrow: arrowVariants,\n});\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/compound/breadcrumbs-item.tsx",
+      "content": "import { useMergedRefs } from '@/hooks';\nimport type { PropsWithAsChild } from '@/types';\nimport { cn } from '@/utility';\nimport { Slot } from '@radix-ui/react-slot';\nimport type { VariantProps } from 'class-variance-authority';\nimport React from 'react';\nimport { breadcrumbsVariants } from '../breadcrumbs.variants';\n\nexport type BreadcrumbsItemProps = PropsWithAsChild<'section'> &\n  VariantProps<typeof breadcrumbsVariants.item>;\n\nexport const BreadcrumbsItem = React.forwardRef<\n  HTMLElement,\n  BreadcrumbsItemProps\n>(({ isActive, asChild, children, ...props }, forwardedRef) => {\n  const ref = useMergedRefs(forwardedRef);\n\n  const Comp = asChild ? Slot : 'section';\n\n  return (\n    <Comp\n      {...props}\n      ref={ref}\n      className={cn(breadcrumbsVariants.item({ isActive }))}\n    >\n      {children}\n    </Comp>\n  );\n});\nBreadcrumbsItem.displayName = 'BreadcrumbsItem';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/compound/index.ts",
+      "content": "export * from './breadcrumbs-item';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/index.ts",
+      "content": "export * from './breadcrumbs';\nexport * from './breadcrumbs.types';\nexport * from './breadcrumbs.variants';\nexport * from './compound';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/internal/breadcrumbs-arrow.tsx",
+      "content": "import { cn } from '@/utility';\nimport { IconChevronRight } from '@tabler/icons-react';\nimport { breadcrumbsVariants } from '../breadcrumbs.variants';\n\nexport type BreadcrumbsArrowProps = React.ComponentProps<\n  typeof IconChevronRight\n>;\n\nexport const BreadcrumbsArrow: React.FC<BreadcrumbsArrowProps> = ({\n  className,\n  ...props\n}) => {\n  return (\n    <IconChevronRight\n      {...props}\n      className={cn(breadcrumbsVariants.arrow(), className)}\n    />\n  );\n};\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/breadcrumbs/internal/index.ts",
+      "content": "",
+      "type": "components"
+    },
+    {
+      "name": "navigation/index.ts",
+      "content": "export * from './breadcrumbs';\nexport * from './pagination';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/index.ts",
+      "content": "export * from './pagination';\nexport * from './pagination.types';\nexport * from './pagination.variants';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/internal/calculate-pages.ts",
+      "content": "export const calculatePages = ({\n  page,\n  pageAmount,\n  maxPagesToView,\n}: {\n  page: number;\n  pageAmount: number;\n  maxPagesToView: number;\n}) => {\n  let leftCount: number, rightCount: number;\n\n  if (maxPagesToView % 2 === 0) {\n    leftCount = maxPagesToView / 2;\n    rightCount = maxPagesToView / 2 - 1;\n  } else {\n    leftCount = rightCount = Math.floor(maxPagesToView / 2);\n  }\n\n  let start = page - leftCount;\n  let end = page + rightCount;\n\n  if (start < 1) {\n    const diff = 1 - start;\n    end = Math.min(end + diff, pageAmount);\n    start = 1;\n  }\n\n  if (end > pageAmount) {\n    const diff = end - pageAmount;\n    start = Math.max(start - diff, 1);\n    end = pageAmount;\n  }\n\n  const pages: number[] = [];\n  for (let i = start; i <= end; i++) {\n    pages.push(i);\n  }\n\n  return pages;\n};\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/internal/default-button.tsx",
+      "content": "import { IconButton } from '@/components/action';\nimport type { PaginationProps } from '../pagination.types';\nimport { paginationVariants } from '../pagination.variants';\n\nexport const DefaultButton: NonNullable<PaginationProps['children']> = ({\n  isActive,\n  page,\n  onClick,\n}) => (\n  <IconButton\n    className={paginationVariants.button()}\n    variant=\"tonal\"\n    isToggleable\n    isSelected={isActive}\n    onPress={onClick}\n  >\n    <span className={paginationVariants.buttonText()}>{page}</span>\n  </IconButton>\n);\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/internal/default-next-button.tsx",
+      "content": "import { IconButton } from '@/components/action';\nimport { IconChevronRight } from '@tabler/icons-react';\nimport type { PaginationProps } from '../pagination.types';\n\nexport const DefaultNextButton: NonNullable<\n  PaginationProps['renderNextButton']\n> = ({ isDisabled, onClick }) => (\n  <IconButton variant=\"tonal\" isDisabled={isDisabled} onPress={onClick}>\n    <IconChevronRight />\n  </IconButton>\n);\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/internal/default-previous-button.tsx",
+      "content": "import { IconButton } from '@/components/action';\nimport { IconChevronLeft } from '@tabler/icons-react';\nimport type { PaginationProps } from '../pagination.types';\n\nexport const DefaultPreviousButton: NonNullable<\n  PaginationProps['renderPreviousButton']\n> = ({ isDisabled, onClick }) => (\n  <IconButton variant=\"tonal\" isDisabled={isDisabled} onPress={onClick}>\n    <IconChevronLeft />\n  </IconButton>\n);\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/internal/index.ts",
+      "content": "export * from './calculate-pages';\nexport * from './default-button';\nexport * from './default-next-button';\nexport * from './default-previous-button';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/pagination.tsx",
+      "content": "import { useMergedRefs } from '@/hooks';\nimport { cn } from '@/utility';\nimport React from 'react';\nimport {\n  DefaultButton,\n  DefaultNextButton,\n  DefaultPreviousButton,\n  calculatePages,\n} from './internal';\nimport type { PaginationProps } from './pagination.types';\nimport { paginationVariants } from './pagination.variants';\n\nexport const Pagination = React.forwardRef<HTMLElement, PaginationProps>(\n  (\n    {\n      page,\n      pageAmount,\n      maxPagesToView = 5,\n      renderPreviousButton = DefaultPreviousButton,\n      renderNextButton = DefaultNextButton,\n      children = DefaultButton,\n      onChangePage,\n      ...props\n    },\n    forwardedRef,\n  ) => {\n    const ref = useMergedRefs(forwardedRef);\n\n    const pages = calculatePages({ page, pageAmount, maxPagesToView });\n\n    return (\n      <section {...props} ref={ref} className={cn(paginationVariants())}>\n        {renderPreviousButton({\n          isDisabled: page === 1,\n          onClick: () => onChangePage?.(page - 1),\n        })}\n        {pages.map((p) => (\n          <React.Fragment key={'page-' + p}>\n            {children({\n              isActive: p === page,\n              page: p,\n              onClick: () => onChangePage?.(page),\n            })}\n          </React.Fragment>\n        ))}\n        {renderNextButton({\n          isDisabled: page === pageAmount,\n          onClick: () => onChangePage?.(page + 1),\n        })}\n      </section>\n    );\n  },\n);\nPagination.displayName = 'Pagination';\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/pagination.types.ts",
+      "content": "import type { Props } from '@/types';\nimport type { VariantProps } from 'class-variance-authority';\nimport type { paginationVariants } from './pagination.variants';\n\nexport type PaginationProps = Props<'section', 'children'> &\n  VariantProps<typeof paginationVariants> & {\n    page: number;\n    pageAmount: number;\n    maxPagesToView?: number;\n    renderPreviousButton?: (props: {\n      isDisabled: boolean;\n      onClick: () => void;\n    }) => React.ReactNode;\n    renderNextButton?: (props: {\n      isDisabled: boolean;\n      onClick: () => void;\n    }) => React.ReactNode;\n    children?: (props: {\n      isActive: boolean;\n      page: number;\n      onClick: () => void;\n    }) => React.ReactNode;\n    onChangePage?: (page: number) => void;\n  };\n",
+      "type": "components"
+    },
+    {
+      "name": "navigation/pagination/pagination.variants.ts",
+      "content": "import { cva } from '@/utility';\n\nconst variants = cva({\n  name: 'pagination group/pagination',\n  flex: 'inline-flex items-center justify-center',\n  spacing: 'gap-sm',\n});\n\nconst buttonVariants = cva({\n  name: 'pagination--button',\n  typography: 'typography-label-large',\n});\n\nconst buttonTextVariants = cva({\n  name: 'pagination--button',\n  flex: 'inline-flex items-center justify-center',\n});\n\nexport const paginationVariants = Object.assign(variants, {\n  button: buttonVariants,\n  buttonText: buttonTextVariants,\n});\n",
       "type": "components"
     },
     {
