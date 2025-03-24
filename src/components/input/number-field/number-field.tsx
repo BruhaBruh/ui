@@ -34,7 +34,7 @@ export const NumberField: React.FC<NumberFieldProps> = ({
   });
 
   const isExpanded = Boolean(
-    inFocus || props.placeholder || ref.current?.value || props.value,
+    inFocus || props.placeholder || inputProps.value || props.value,
   );
 
   return (

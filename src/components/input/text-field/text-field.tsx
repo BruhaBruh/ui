@@ -31,7 +31,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   });
 
   const isExpanded = Boolean(
-    inFocus || props.placeholder || ref.current?.value || props.value,
+    inFocus || props.placeholder || inputProps.value || props.value,
   );
 
   return (

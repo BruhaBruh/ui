@@ -1,1 +1,1 @@
-pnpm nano-staged
+pnpm generate:registry && git add public/registry.json && pnpm nano-staged

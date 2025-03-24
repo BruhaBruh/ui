@@ -51,7 +51,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
   });
 
   const isExpanded = Boolean(
-    inFocus || props.placeholder || ref.current?.value || props.value,
+    inFocus || props.placeholder || inputProps.value || props.value,
   );
 
   return (
