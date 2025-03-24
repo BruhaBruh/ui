@@ -9,6 +9,7 @@ const variants = cva(
   {
     variants: {
       color: {
+        standard: {},
         primary: {},
         secondary: {},
         info: {},
@@ -18,7 +19,7 @@ const variants = cva(
       },
     },
     defaultVariants: {
-      color: 'primary',
+      color: 'standard',
     },
   },
 );
@@ -51,6 +52,9 @@ const activeTrackVariants = cva(
   {
     variants: {
       color: {
+        standard: {
+          background: 'bg-primary',
+        },
         primary: {
           background: 'bg-primary',
         },
@@ -83,7 +87,7 @@ const activeTrackVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'primary',
+      color: 'standard',
       position: 'center',
     },
   },
@@ -105,6 +109,10 @@ const inactiveTrackVariants = cva(
   {
     variants: {
       color: {
+        standard: {
+          background: 'bg-secondary-container',
+          after: 'after:bg-primary',
+        },
         primary: {
           background: 'bg-primary-container',
           after: 'after:bg-primary',
@@ -155,7 +163,7 @@ const inactiveTrackVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'primary',
+      color: 'standard',
       position: 'center',
     },
   },
@@ -177,6 +185,9 @@ const thumbVariants = cva(
   {
     variants: {
       color: {
+        standard: {
+          background: 'bg-primary',
+        },
         primary: {
           background: 'bg-primary',
         },
@@ -202,7 +213,7 @@ const thumbVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'primary',
+      color: 'standard',
       isDragging: false,
     },
   },

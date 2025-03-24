@@ -26,8 +26,9 @@ export const SliderPage: React.FC = () => {
           color: {
             type: 'select',
             label: 'Color of Slider',
-            defaultValue: 'primary',
+            defaultValue: 'standard',
             options: [
+              'standard',
               'primary',
               'secondary',
               'info',
@@ -56,6 +57,7 @@ export const SliderPage: React.FC = () => {
       <Story className="mb-md">
         <Subtitle>Colors</Subtitle>
         <StoryFrame className="flex-col">
+          <Slider color="standard" defaultValue={50} className="w-64" />
           <Slider color="primary" defaultValue={50} className="w-64" />
           <Slider color="secondary" defaultValue={50} className="w-64" />
           <Slider color="info" defaultValue={50} className="w-64" />
