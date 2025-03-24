@@ -9,7 +9,7 @@ const variants = cva(
     transitions: 'transition easing-standard duration-medium-1',
     borders: 'border-2 outline-none',
     overflow: 'overflow-hidden',
-    background: ['bg-surface-container', 'is-disabled:bg-on-surface/8'],
+    background: ['bg-surface-container-highest', 'is-disabled:bg-on-surface/8'],
     typography: 'whitespace-nowrap text-on-surface',
     spacing: 'px-md',
     states: [
@@ -17,8 +17,7 @@ const variants = cva(
       'is-disabled:state-transparent',
       'is-disabled:pointer-events-none',
       'is-hovered:state-hover',
-      'in-focus-within:state-focus',
-      'is-pressed:state-press',
+      'in-focus-visible-within:state-focus',
     ],
   },
   {
