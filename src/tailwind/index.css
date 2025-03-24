@@ -40,10 +40,10 @@
     rgba(0, 0, 0, 0.2) 0px 7px 8px -4px, rgba(0, 0, 0, 0.14) 0px 12px 17px 2px,
     rgba(0, 0, 0, 0.12) 0px 5px 22px 4px;
 
-  --state-hover: 8%;
-  --state-focus: 10%;
-  --state-press: 10%;
-  --state-drag: 16%;
+  --state-hover: 8;
+  --state-focus: 10;
+  --state-press: 10;
+  --state-drag: 16;
 }
 
 @custom-variant in-focus (&[data-in-focus=true]);
@@ -66,55 +66,12 @@
   box-shadow: --value(--elevation- *);
 }
 
-@property --ui-background-color {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: transparent;
-}
-
-@property --ui-state-color {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: transparent;
-}
-
-@property --ui-background-opacity {
-  syntax: '<percent>';
-  inherits: false;
-  initial-value: 100%;
-}
-
-@utility bg-* {
-  --ui-background-color: --value(--color- *);
-  --ui-background-opacity: 100%;
-  background: color-mix(
-    in oklab,
-    var(--ui-background-color) var(--ui-background-opacity),
-    var(--ui-state-color)
-  );
-}
-
-@utility state-transparent {
-  --ui-state-color: transparent;
-  --ui-background-opacity: 100%;
-}
-
-@utility state-* {
-  --ui-state-color: --value(--color- *);
-  --ui-background-opacity: calc(100% - --value(--state- *));
-  background: color-mix(
-    in oklab,
-    var(--ui-background-color) var(--ui-background-opacity),
-    var(--ui-state-color)
-  );
-}
-
 @custom-variant ripple (& > .ripple::after);
 @custom-variant ripple-wrapper (& > .ripple);
 
 @layer components {
   .ripple {
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     inset: 0;
     overflow: hidden;
@@ -133,4 +90,62 @@
       border-radius: 9999px;
     }
   }
+}
+
+@property --ui-background-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --ui-state-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --ui-state-opacity {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
+@layer base {
+  *,
+  *::after,
+  *::before {
+    background-color: color-mix(
+      in oklab,
+      var(--ui-background-color) var(--ui-state-opacity),
+      var(--ui-state-color)
+    ) !important;
+  }
+}
+
+@utility bg-* {
+  --ui-background-color: --value(--color- *);
+  --ui-background-color: color-mix(
+    in oklab,
+    --value(--color- *) calc(--modifier(integer) * 1%),
+    transparent
+  );
+}
+
+@utility bg-transparent {
+  --ui-background-color: transparent;
+}
+
+@utility state-* {
+  --ui-state-opacity: calc(100% - calc(--value(--state- *, integer) * 1%));
+  --ui-state-color: --value(--color- *);
+  --ui-state-color: color-mix(
+    in oklab,
+    --value(--color- *) calc(--modifier(integer) * 1%),
+    transparent
+  );
+}
+
+@utility state-transparent {
+  --ui-state-opacity: 100%;
+  --ui-state-color: transparent;
 }

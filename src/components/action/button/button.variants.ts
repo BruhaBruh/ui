@@ -58,7 +58,6 @@ const variants = cva(
           ],
         },
         outlined: {
-          background: ['bg-transparent'],
           typography: ['is-disabled:text-on-surface/38'],
           borders: [
             'border',
@@ -67,7 +66,6 @@ const variants = cva(
           ],
         },
         text: {
-          background: 'bg-transparent',
           typography: ['is-disabled:text-on-surface/38'],
         },
       },

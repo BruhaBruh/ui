@@ -65,7 +65,6 @@ const itemVariants = cva(
           ripple: 'ripple:bg-on-primary-container',
         },
         false: {
-          background: 'bg-transparent',
           typography: 'text-on-surface',
           states: 'state-on-surface',
           ripple: 'ripple:bg-primary',

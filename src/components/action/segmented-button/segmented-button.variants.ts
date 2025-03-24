@@ -37,7 +37,6 @@ const variants = cva(
       isSelected: {
         true: {},
         false: {
-          background: 'bg-transparent',
           typography: 'text-on-surface',
           states: 'state-on-surface',
           ripple: 'ripple:bg-on-surface',

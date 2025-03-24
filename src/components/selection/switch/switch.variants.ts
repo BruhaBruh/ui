@@ -126,7 +126,6 @@ const thumbWrapperVariants = cva(
     flex: 'inline-flex items-center justify-center',
     transitions: 'transition easing-standard duration-medium-1',
     box: 'size-10 rounded-full',
-    background: 'bg-transparent',
     states: [
       'group-is-disabled/switch:state-transparent',
       'group-is-hovered/switch:state-hover',

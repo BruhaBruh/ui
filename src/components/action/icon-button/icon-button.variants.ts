@@ -24,7 +24,6 @@ const variants = cva(
     variants: {
       variant: {
         standard: {
-          background: 'bg-transparent',
           typography: ['is-disabled:text-on-surface/38'],
         },
         filled: {
@@ -573,7 +572,6 @@ const variants = cva(
         variant: 'outlined',
         isToggleable: false,
         className: {
-          background: 'bg-transparent',
           typography: 'text-on-surface-variant',
           borders: ['border-outline', 'is-disabled:border-on-surface/12'],
           ripple: 'ripple:bg-on-surface-variant',
@@ -585,7 +583,6 @@ const variants = cva(
         isToggleable: true,
         isSelected: false,
         className: {
-          background: 'bg-transparent',
           typography: 'text-on-surface-variant',
           borders: ['border-outline', 'is-disabled:border-on-surface/12'],
           ripple: 'ripple:bg-on-surface-variant',

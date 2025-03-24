@@ -31,7 +31,6 @@ const markWrapperVariants = cva(
     layout: 'relative',
     flex: 'inline-flex items-center justify-center',
     transitions: 'transition easing-standard duration-medium-1',
-    background: 'bg-transparent',
     box: 'size-10 rounded-full',
     overflow: 'overflow-hidden',
     states: [
