@@ -29,7 +29,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
 
     const pages = calculatePages({ page, pageAmount, maxPagesToView });
 
-    if (page === pageAmount) return null;
+    if (page === pageAmount || pageAmount < 1) return null;
 
     return (
       <section
