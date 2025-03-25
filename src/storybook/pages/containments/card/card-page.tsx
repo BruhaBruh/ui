@@ -91,7 +91,7 @@ export const CardPage: React.FC = () => {
             type: 'select',
             label: 'Variant of Card',
             defaultValue: 'elevated',
-            options: ['elevated', 'filld', 'outlined', 'none'],
+            options: ['elevated', 'filled', 'outlined', 'none'],
           },
           color: {
             type: 'select',
