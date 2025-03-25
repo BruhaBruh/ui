@@ -28,6 +28,7 @@ const variants = cva(
           borders:
             'border border-outline-variant is-disabled:border-outline/12',
         },
+        none: {},
       },
       isInteractable: {
         true: {
@@ -69,7 +70,7 @@ const variants = cva(
         },
       },
       {
-        variant: 'filled',
+        variant: ['filled', 'none'],
         isInteractable: true,
         className: {
           effects: [

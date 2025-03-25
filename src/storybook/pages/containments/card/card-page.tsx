@@ -87,6 +87,12 @@ export const CardPage: React.FC = () => {
       <StoryPlayground
         className="mb-md"
         arguments={{
+          variant: {
+            type: 'select',
+            label: 'Variant of Card',
+            defaultValue: 'elevated',
+            options: ['elevated', 'filld', 'outlined', 'none'],
+          },
           color: {
             type: 'select',
             label: 'Color of Card',
@@ -146,10 +152,18 @@ export const CardPage: React.FC = () => {
           </Card>
         </StoryFrame>
       </Story>
-      <Story>
+      <Story className="mb-md">
         <Subtitle>Outlined</Subtitle>
         <StoryFrame>
           <Card variant="outlined" className="w-96">
+            <HorizontalContent />
+          </Card>
+        </StoryFrame>
+      </Story>
+      <Story>
+        <Subtitle>None</Subtitle>
+        <StoryFrame>
+          <Card variant="none" className="w-96">
             <HorizontalContent />
           </Card>
         </StoryFrame>
