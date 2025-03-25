@@ -1,6 +1,6 @@
+import { Breadcrumbs, BreadcrumbsItem } from '@/components';
 import { cn } from '@/utility';
-import { IconChevronRight } from '@tabler/icons-react';
-import React from 'react';
+import type React from 'react';
 import { Link, useLocation } from 'react-router';
 import { useNavigationNodesByHref } from '../navigation.context';
 
@@ -32,15 +32,19 @@ export const NavigationBreadcrumbs: React.FC = () => {
   const nodes = useNavigationNodesByHref(location.pathname);
 
   return (
-    <section className="mx-auto mb-sm flex w-full max-w-screen-lg items-center gap-2xs">
-      <Breadcrumb href="/">Home</Breadcrumb>
-      {nodes.length > 0 && <IconChevronRight className="size-4" />}
-      {nodes.map((node, index, arr) => (
-        <React.Fragment key={node.href}>
-          <Breadcrumb href={node.href}>{node.text}</Breadcrumb>
-          {index + 1 < arr.length && <IconChevronRight className="size-4" />}
-        </React.Fragment>
+    <Breadcrumbs className="mx-auto mb-sm w-full max-w-screen-lg">
+      <BreadcrumbsItem asChild isActive={location.pathname === '/'}>
+        <Link to={'/'}>Home</Link>
+      </BreadcrumbsItem>
+      {nodes.map((node) => (
+        <BreadcrumbsItem
+          key={node.href}
+          asChild
+          isActive={location.pathname === node.href}
+        >
+          <Link to={node.href}>{node.text}</Link>
+        </BreadcrumbsItem>
       ))}
-    </section>
+    </Breadcrumbs>
   );
 };

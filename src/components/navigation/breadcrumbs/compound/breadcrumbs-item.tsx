@@ -12,7 +12,7 @@ export type BreadcrumbsItemProps = PropsWithAsChild<'section'> &
 export const BreadcrumbsItem = React.forwardRef<
   HTMLElement,
   BreadcrumbsItemProps
->(({ isActive, asChild, children, ...props }, forwardedRef) => {
+>(({ className, isActive, asChild, children, ...props }, forwardedRef) => {
   const ref = useMergedRefs(forwardedRef);
 
   const Comp = asChild ? Slot : 'section';
@@ -21,7 +21,7 @@ export const BreadcrumbsItem = React.forwardRef<
     <Comp
       {...props}
       ref={ref}
-      className={cn(breadcrumbsVariants.item({ isActive }))}
+      className={cn(breadcrumbsVariants.item({ isActive }), className)}
     >
       {children}
     </Comp>

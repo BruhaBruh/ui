@@ -13,7 +13,7 @@ export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
       <section className="flex flex-col">
         <button
           onClick={() => setIsOpen((p) => !p)}
-          className="flex items-center gap-2xs rounded-3xs border-none p-2xs outline-none hover:bg-surface-container-high [&>svg]:size-4"
+          className="flex items-center gap-2xs cursor-pointer rounded-3xs border-none p-2xs outline-none hover:bg-surface-container-high [&>svg]:size-4"
         >
           {node.icon ?? <IconFolder />}
           <span className="typography-label-large">{node.text}</span>
@@ -59,7 +59,7 @@ export const NavigationTreeNode: React.FC<NavigationNode> = (node) => {
       <NavLink
         to={node.href}
         onClick={() => setIsOpen((p) => !p)}
-        className="flex items-center gap-2xs rounded-3xs border-none p-2xs outline-none hover:bg-surface-container-high [&>svg]:size-4"
+        className="flex items-center gap-2xs rounded-3xs cursor-pointer border-none p-2xs outline-none hover:bg-surface-container-high [&>svg]:size-4"
       >
         {node.icon ?? <IconFile />}
         <span className="typography-label-large">{node.text}</span>

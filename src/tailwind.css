@@ -9,3 +9,13 @@
 
 @import './theme.generated.css';
 @import './tailwind/index.css';
+
+body {
+  @apply bg-surface text-on-surface overflow-x-hidden;
+}
+
+/* *,
+*::after,
+*::before {
+  @apply scrollbar-w-xl scrollbar-on-surface/12 scrollbar-track-transparent;
+} */

@@ -14,7 +14,7 @@ export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
       <section className="flex flex-col">
         <button
           onClick={() => setIsOpen((p) => !p)}
-          className="flex items-center gap-xs rounded-md border-none p-sm outline-none hover:bg-surface-container-high [&>svg]:size-6"
+          className="flex items-center gap-xs rounded-md border-none cursor-pointer p-sm outline-none hover:bg-surface-container-high [&>svg]:size-6"
         >
           {node.icon ?? <IconFolder />}
           <Large className="!pb-0">{node.text}</Large>
@@ -60,7 +60,7 @@ export const NavigatioPageTreeNode: React.FC<NavigationNode> = (node) => {
       <NavLink
         to={node.href}
         onClick={() => setIsOpen((p) => !p)}
-        className="flex items-center gap-xs rounded-md border-none p-sm outline-none hover:bg-surface-container-high [&>svg]:size-6"
+        className="flex items-center gap-xs rounded-md border-none cursor-pointer p-sm outline-none hover:bg-surface-container-high [&>svg]:size-6"
       >
         {node.icon ?? <IconFile />}
         <Large className="!pb-0">{node.text}</Large>
