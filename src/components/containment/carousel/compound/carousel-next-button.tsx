@@ -4,7 +4,7 @@ import { cn } from '@/utility';
 import { IconChevronRight } from '@tabler/icons-react';
 import { carouselVariants } from '../carousel.variants';
 import { useCarouselContext } from '../context';
-import { useNextButton } from '../internal';
+import { useNextButton } from './use-next-button';
 
 export const CarouselNextButton: React.FC<IconButtonProps> = ({
   className,

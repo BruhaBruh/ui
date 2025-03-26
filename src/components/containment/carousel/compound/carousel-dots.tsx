@@ -2,7 +2,7 @@ import { cn } from '@/utility';
 import { IconCircleFilled } from '@tabler/icons-react';
 import { carouselVariants } from '../carousel.variants';
 import { useCarouselContext } from '../context';
-import { useDotButton } from '../internal';
+import { useDotButton } from './use-dot-button';
 
 export const CarouselDots: React.FC<React.PropsWithChildren> = ({
   children,

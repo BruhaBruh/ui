@@ -36,20 +36,20 @@
 }
 
 @utility bg-* {
-  --ui-background-color: --value(--color- *);
+  --ui-background-color: --value(--color- *, [color]);
   --ui-background-color: color-mix(
     in oklab,
-    --value(--color- *) calc(--modifier(integer) * 1%),
+    --value(--color- *, [color]) calc(--modifier(integer) * 1%),
     transparent
   );
 }
 
 @utility state-* {
   --ui-state-opacity: calc(--value(--state- *, integer) * 1%);
-  --ui-state-color: --value(--color- *);
+  --ui-state-color: --value(--color- *, [color]);
   --ui-state-color: color-mix(
     in oklab,
-    --value(--color- *) calc(--modifier(integer) * 1%),
+    --value(--color- *, [color]) calc(--modifier(integer) * 1%),
     transparent
   );
 }

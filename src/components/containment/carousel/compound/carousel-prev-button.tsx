@@ -4,7 +4,7 @@ import { cn } from '@/utility';
 import { IconChevronLeft } from '@tabler/icons-react';
 import { carouselVariants } from '../carousel.variants';
 import { useCarouselContext } from '../context';
-import { usePrevButton } from '../internal';
+import { usePrevButton } from './use-prev-button';
 
 export const CarouselPrevButton: React.FC<IconButtonProps> = ({
   className,
