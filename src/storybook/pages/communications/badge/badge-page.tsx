@@ -1,4 +1,4 @@
-import { Badge } from '@/components';
+import { Badge, IconButton } from '@/components';
 import {
   Story,
   StoryFrame,
@@ -92,6 +92,35 @@ export const BadgePage: React.FC = () => {
           <Badge size="large" value={1} />
           <Badge size="large" value={500} />
           <Badge size="large" value={1000} />
+        </StoryFrame>
+      </Story>
+      <Story className="mb-md">
+        <Subtitle>On IconButton</Subtitle>
+        <StoryFrame className="gap-2xl">
+          <IconButton>
+            <span className="relative">
+              <IconMail />
+              <Badge size="large" value={1000} placement="icon" />
+            </span>
+          </IconButton>
+          <IconButton>
+            <span className="relative">
+              <IconMessage />
+              <Badge size="large" value={10} placement="icon" />
+            </span>
+          </IconButton>
+          <IconButton>
+            <span className="relative">
+              <IconUsers />
+              <Badge size="small" placement="icon" />
+            </span>
+          </IconButton>
+          <IconButton>
+            <span className="relative">
+              <IconVideo />
+              <Badge size="large" value={3} placement="icon" />
+            </span>
+          </IconButton>
         </StoryFrame>
       </Story>
       <Story>

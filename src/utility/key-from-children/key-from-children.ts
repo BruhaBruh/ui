@@ -6,7 +6,7 @@ export const keyFromChildren = (children: React.ReactNode): string => {
       if (React.isValidElement<React.PropsWithChildren>(child)) {
         return JSON.stringify({
           type: child.type,
-          props: child.props,
+          // props: child.props,
           key: child.key,
         });
       }

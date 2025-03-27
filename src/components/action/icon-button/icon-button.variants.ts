@@ -8,7 +8,6 @@ const variants = cva(
     flex: 'inline-flex items-center justify-center',
     transitions: 'transition easing-standard duration-medium-1',
     borders: 'outline-none border-transparent',
-    overflow: 'overflow-hidden',
     typography: 'whitespace-nowrap',
     states: [
       'cursor-pointer',
@@ -18,7 +17,7 @@ const variants = cva(
       'in-focus-visible:state-focus',
       'is-pressed:state-press',
     ],
-    ripple: 'ripple-wrapper:-inset-1',
+    ripple: 'ripple-wrapper:inset-0 ripple-wrapper:rounded-md',
   },
   {
     variants: {
@@ -610,7 +609,7 @@ const iconVariants = cva({
   layout: 'relative',
   box: 'size-6',
   flex: 'inline-flex',
-  overflow: 'overflow-hidden empty:hidden',
+  overflow: 'empty:hidden',
   other: '[&>*]:absolute [&>*]:inset-0 [&>*]:size-full',
 });
 
