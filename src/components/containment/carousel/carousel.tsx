@@ -7,16 +7,17 @@ import { carouselVariants } from './carousel.variants';
 import { CarouselContextProvider, useCarouselContext } from './context';
 
 const CarouselImpl = React.forwardRef<HTMLElement, CarouselProps>(
-  ({ after, apiRef, options, className, children, ...props }, forwardedRef) => {
+  (
+    { after, onApiInit, options, className, children, ...props },
+    forwardedRef,
+  ) => {
     const ref = useMergedRefs(forwardedRef);
     const [emblaRef, emblaApi] = useEmblaCarousel(options, []);
     const [, setState] = useCarouselContext();
 
     React.useEffect(() => {
-      if (!apiRef || typeof apiRef !== 'function') return () => {};
-      apiRef(emblaApi ?? null);
-      return () => apiRef(null);
-    }, [apiRef, emblaApi]);
+      onApiInit?.(emblaApi);
+    }, [onApiInit, emblaApi]);
 
     React.useEffect(() => {
       setState((prev) => ({
